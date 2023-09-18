@@ -1,0 +1,19 @@
+import MenuSection from "@/public/components/MenuSection/page";
+import NavBar from "@/public/components/NavBar/page";
+import SearchContainer from "@/public/components/SearchContainer/page";
+
+const HomePage = () => {
+    return ( 
+        <>
+        <NavBar btnText={"Login"} />
+        <div className="overflow-y-scroll h-[90vh]">
+        <SearchContainer />
+        <div className="pt-12 px-24">
+            <MenuSection/>
+        </div>
+        </div>
+        </>
+     );
+}
+ 
+export default HomePage;
