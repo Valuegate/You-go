@@ -28,12 +28,11 @@ const BuyerDashBoardLayout: FC<iBuyerDashBoardLayout> = ({ children }) => {
     { name: "Settings", link: "./settings", icon: MdSettings },
   ];
 
-  //   const [open, setOpen] = useState(true);
 
   return (
     <>
       <NavBar btnText={"Logout"} />
-      <div className="overflow-y-scroll h-[90vh]">
+      <div className="overflow-y-scroll h-[88vh]">
         <div className="flex gap-4 bg-white px-24 pb-40">
           <div className="w-72 h-[748px] bg-light-black-5 rounded-lg ">
             <div className="mt-20 round">
