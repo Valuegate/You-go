@@ -94,7 +94,8 @@ const SellerDashBoardLayout: FC<iSellerDashBoardLayout> = ({}) => {
           </div>
           <div className="w-full bg-white">
             <nav className="flex justify-between items-center py-6">
-              <div className="flex gap-4 items-center">
+              
+              <div className="flex justify-center items-center w-4/5">
                 <div className="relative flex items-center">
                   <span className="absolute left-4">
                     <SearchIcon />
@@ -107,7 +108,7 @@ const SellerDashBoardLayout: FC<iSellerDashBoardLayout> = ({}) => {
                 </div>
               </div>
 
-              <div className="">
+              <div className="w-1/5">
                 <div className="flex gap-1 items-center">
                   <div>
                     <Image src={Avatar} alt={""} />
@@ -122,6 +123,8 @@ const SellerDashBoardLayout: FC<iSellerDashBoardLayout> = ({}) => {
                   </div>
                 </div>
               </div>
+
+
             </nav>
 
             <div className="bg-white" key={active}>{children}</div>

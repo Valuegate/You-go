@@ -37,7 +37,7 @@ const NavBar: FC<iNavBar> = ({ btnText }) => {
           <span className="bg-primary w-[28px] h-[28px] round flex justify-center items-center">
             <HiShoppingCart className="text-white w-[19px] h-[19px]" />
           </span>
-          <button className="bg-gradient-to-r from-primary-1 to-primary round w-[147px] h-[39px] typo flex items-center justify-center shadow-xl text-white ">
+          <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 typo flex items-center justify-center shadow-xl text-white ">
             {btnText}
           </button>
         </div>
