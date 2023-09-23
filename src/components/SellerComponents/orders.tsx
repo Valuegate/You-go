@@ -1,4 +1,7 @@
-import OrderDetails from "@/public/components/OrderDetails/page";
+import React from "react";
+import OrderDetails from "../OrderDetails/page";
+import AddItem from "../AddItem/page";
+import { FaCaretDown } from "react-icons/fa";
 
 const Orders = () => {
   const orders = [
@@ -110,7 +113,8 @@ const Orders = () => {
 
   return (
     <>
-      <div className="pt-4">
+      <AddItem addText="Add Order" />
+      <div className="pt-10">
         <div className="bg-primary-1 rounded-lg px-4 py-4 w-full">
           <p className="text-light-black-5 text-base font-bold mb-3">
             All Orders
@@ -139,6 +143,15 @@ const Orders = () => {
                 />
               );
             })}
+          </div>
+
+          <div className="flex justify-between items-center mt-5 relative">
+            <div className="border-2 border-black rounded-md py-2 px-3 flex items-center gap-2 cursor-pointer">
+              Show: 10
+              <FaCaretDown />
+            </div>
+
+            <div>There</div>
           </div>
         </div>
       </div>

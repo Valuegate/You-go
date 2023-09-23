@@ -1,26 +1,33 @@
 import MoreIconComponent from "../MoreIconComponent/page";
 
-const OrderDetails = () => {
+const OrderDetails = ({
+  orderNo = "#12345",
+  date = "12/01/2023",
+  name = "Achan Benjamin",
+  email = "me@email.com",
+  price = "$128",
+  status = "Delivered",
+}) => {
   return (
-    <>
-      <div className="flex pl-2 pr-8 items-center w-full h-[50px] rounded-2xl text-light-black-5 bg-white justify-between">
-          <p className="text-sm font-normal">#12345</p>
-        <div className="flex gap-20">
-          <p className="text-sm font-normal ml-16">12.01.23</p>
-          <p className="text-sm font-normal">Achan Benjamin</p>
-        </div>
-        <div className="flex gap-12">
-          <p className="text-sm font-normal">me@email.com</p>
-          <p className="text-sm font-normal">$128</p>
-        </div>
-        <div className="flex items-center gap-12">
-          <button className="p-1 round flex items-center border text-sm font-normal">
-            Delivered
-          </button>
-          <MoreIconComponent />
-        </div>
+    <div className="flex px-5 items-center w-full py-3 rounded-2xl text-light-black-5 bg-white justify-between">
+      <p className="text-sm font-normal w-[10%]">{orderNo}</p>
+
+      <div className="flex w-[25%] items-center justify-between">
+        <p className="text-sm font-normal">{date}</p>
+        <p className="text-sm font-normal">{name}</p>
       </div>
-    </>
+
+      <div className="flex items-center justify-between w-[20%]">
+        <p className="text-sm font-normal">{email}</p>
+        <p className="text-sm font-normal">{price}</p>
+      </div>
+      <div className="flex items-center justify-between w-[18%]">
+        <button className="p-1 round flex items-center border text-sm font-normal">
+          {status}
+        </button>
+        <MoreIconComponent />
+      </div>
+    </div>
   );
 };
 
