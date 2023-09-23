@@ -49,7 +49,7 @@ const BuyerDashBoardLayout: FC<iBuyerDashBoardLayout> = ({ children }) => {
                 ))}
               </div>
               <div className="mx-4">
-              <Link href="/logout" className="">
+              <Link href="/login" className="">
               <button className="mr-4 mt-48 bg-gradient-to-r from-primary-1 to-primary round w-full h-[40px] typo flex gap-3 items-center justify-center text-white">
                 <span><BiDownload/></span>
                 Logout
