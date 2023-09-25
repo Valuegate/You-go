@@ -9,6 +9,7 @@ import { GrNext } from "react-icons/gr";
 import img2 from "@/public/assets/arrow-left.png";
 import img3 from "@/public/assets/carrow-left.png";
 import Image from "next/image";
+import Link from "next/link";
 
 
 const MenuSection = () => {
@@ -122,6 +123,7 @@ const MenuSection = () => {
               </p>
             </div>
             <div className="w-full flex justify-between gap-6">
+              <Link href={"../shop/details"}>
               <ItemsCard
                 src="/assets/shoe3.png"
                 product={"Human Bag"}
@@ -130,6 +132,7 @@ const MenuSection = () => {
                 width={300}
                 height={300}
               />
+              </Link>
               <ItemsCard
                 src="/assets/watch2.png"
                 product={"Human Bag"}

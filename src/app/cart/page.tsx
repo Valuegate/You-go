@@ -14,7 +14,7 @@ const Cart = () => {
             <Link href="#" className="text-white bg-primary round p-2 font-medium text-[15px] leading-[15px]">Home &gt;</Link>
             <Link href="#" className="text-white bg-primary round p-2 font-medium text-[15px] leading-[15px]"> Store&nbsp;&gt;</Link>
             <Link href="#" className="text-white bg-primary round p-2 font-medium text-[15px] leading-[15px]"> Human Bag&nbsp;&gt;</Link>
-            <Link href="#" className="text-white bg-primary round p-2 font-medium text-[15px] leading-[15px]"> Cart&nbsp;&gt;</Link>
+            <Link href="#" className="text-black bg-primary round p-2 font-medium text-[15px] leading-[15px]"> Cart&nbsp;&gt;</Link>
           </div>
           <div className="px-32">
           <div className="pt-16 pb-2">
