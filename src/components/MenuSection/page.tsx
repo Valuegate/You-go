@@ -1,43 +1,29 @@
-import Image from "next/image";
+"use client";
 import Sidebar from "../SideBar/page";
-import img1 from "@/public/assets/glasses.png";
+import ItemsCard from "../ItemsCard/page";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { MdGridView } from "react-icons/md";
+import { ArrowLeftIcon } from "@/public/icons/arrow-left-icon";
+import { useState } from "react";
+import { GrNext } from "react-icons/gr";
 import img2 from "@/public/assets/arrow-left.png";
 import img3 from "@/public/assets/carrow-left.png";
-import shoe1 from "@/public/assets/shoe1.png";
-import shoe2 from "@/public/assets/shoe2.png";
-import lip from "@/public/assets/lipstick.png";
-import headset from "@/public/assets/earphones.png";
-import car from "@/public/assets/car.png";
-import watch from "@/public/assets/watch.png";
-import shaving from "@/public/assets/shaving.png";
-import larrow from "@/public/assets/larrow-right.png";
-import ItemsCard from "../ItemsCard/page";
+import Image from "next/image";
 
-// const recommendation = [
-//     {
-//       id: 1,
-//       src: '/assets/shoe3.png',
-//       product: 'Product 1',
-//       rating: 4.5,
-//       amount: 29.99,
-//     },
-//     {
-//       id: 2,
-//       src: '/assets/watch2.png',
-//       product: 'Product 2',
-//       rating: 4.0,
-//       amount: 19.99,
-//     },
-//     {
-//         id: 3,
-//         src: '/assets/cup.png',
-//         product: 'Product 2',
-//         rating: 4.0,
-//         amount: 19.99,
-//       },
-//   ];
 
 const MenuSection = () => {
+  const [clickedNumber, setClickedNumber] = useState<number | null>(null);
+
+  const handleCardClick = (number: number) => {
+    setClickedNumber(number);
+  };
+
+  const getCardClass = (number: number) => {
+    return clickedNumber === number
+      ? "text-white bg-light-black-5"
+      : "bg-white";
+  };
+
   return (
     <>
       <div className="flex gap-6">
@@ -46,12 +32,233 @@ const MenuSection = () => {
         </div>
 
         <div>
-          <div className="hidden md:block w-full">
-            <Image src={img1} alt="Image 1" className="h-[222px]" />
+          <div className="mt-8">
+            <div className="flex items-center gap-4 mb-3">
+              <div>
+                <h2 className="font-bold text-sm text-light-black-5">Price</h2>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-[100px] h-[40px] flex justify-center items-center bg-white-3">
+                  $5
+                </span>
+                <span>-</span>
+                <span className="w-[100px] h-[40px] flex justify-center items-center bg-white-3">
+                  $15
+                </span>
+              </div>
+            </div>
+
+            <div className="flex gap-8 mb-3">
+              <label
+                className="flex items-center justify-center text-[16px] leading-[32px] font-bold text-light-black-5"
+                htmlFor="remember"
+              >
+                <input
+                  type="checkbox"
+                  id="remember"
+                  className="custom mr-2 text-black w-4 h-4"
+                />
+                Summer Sale
+              </label>
+              <label
+                className="flex items-center justify-center text-[16px] leading-[32px] font-bold text-light-black-5"
+                htmlFor="sale"
+              >
+                <input
+                  type="checkbox"
+                  id="sale"
+                  className="custom mr-2 text-black w-4 h-4"
+                />
+                Spend & Sale
+              </label>
+              <label
+                className="flex items-center justify-center text-[16px] leading-[32px] font-bold text-light-black-5"
+                htmlFor="shipping"
+              >
+                <input
+                  type="checkbox"
+                  id="shipping"
+                  className="custom mr-2 text-black w-4 h-4"
+                />
+                Free Shipping
+              </label>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4 mb-3">
+                <div>
+                  <h2 className="font-bold text-sm text-light-black-5">
+                    Sort By
+                  </h2>
+                </div>
+                <div className="flex items-center gap-[1px]">
+                  <span className="w-[100px] h-[40px] text-xs font-bold flex justify-center items-center bg-primary text-white">
+                    Best Match
+                  </span>
+                  <span className="w-[80px] h-[40px] text-xs font-bold flex justify-center items-center bg-primary-1 text-black">
+                    Orders
+                  </span>
+                  <span className="w-[80px] h-[40px] text-xs font-bold flex justify-center items-center bg-primary-1 text-black">
+                    Price
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex gap-2">
+                <p className="font-normal text-base pt-[12px]">View</p>
+                <span>
+                  <MdGridView className="w-[35px] h-[35px]" />
+                </span>
+                <span>
+                  <RxHamburgerMenu className="w-[35px] h-[35px]" />
+                </span>
+              </div>
+            </div>
           </div>
-          <div className="">
-            <div className="w-full flex justify-between items-center">
-              <p className="font-bold text-lg text-gray-600">Categories</p>
+          <div className="mt-10 w-full">
+            <div className="">
+              <p className="font-bold text-base text-light-black-5 mb-2">
+                Find something that catches your eyes!
+              </p>
+            </div>
+            <div className="w-full flex justify-between gap-6">
+              <ItemsCard
+                src="/assets/shoe3.png"
+                product={"Human Bag"}
+                rating={"(2630)"}
+                amount={5000}
+                width={300}
+                height={300}
+              />
+              <ItemsCard
+                src="/assets/watch2.png"
+                product={"Human Bag"}
+                rating={"(2630)"}
+                amount={5000}
+                width={300}
+                height={300}
+              />
+              <ItemsCard
+                src="/assets/cup.png"
+                product={"Human Bag"}
+                rating={"(2630)"}
+                amount={5000}
+                width={300}
+                height={300}
+              />
+            </div>
+
+            <div className="w-full flex justify-between gap-6 mt-8">
+              <ItemsCard
+                src="/assets/watch2.png"
+                product={"Human Bag"}
+                rating={"(2630)"}
+                amount={5000}
+                width={300}
+                height={300}
+              />
+              <ItemsCard
+                src="/assets/cup.png"
+                product={"Human Bag"}
+                rating={"(2630)"}
+                amount={5000}
+                width={300}
+                height={300}
+              />
+              <ItemsCard
+                src="/assets/shoe3.png"
+                product={"Human Bag"}
+                rating={"(2630)"}
+                amount={5000}
+                width={300}
+                height={300}
+              />
+            </div>
+
+            <div className="w-full flex justify-between gap-6 mt-8">
+              <ItemsCard
+                src="/assets/watch2.png"
+                product={"Human Bag"}
+                rating={"(2630)"}
+                amount={5000}
+                width={300}
+                height={300}
+              />
+              <ItemsCard
+                src="/assets/cup.png"
+                product={"Human Bag"}
+                rating={"(2630)"}
+                amount={5000}
+                width={300}
+                height={300}
+              />
+              <ItemsCard
+                src="/assets/shoe3.png"
+                product={"Human Bag"}
+                rating={"(2630)"}
+                amount={5000}
+                width={300}
+                height={300}
+              />
+            </div>
+
+            <div className="w-full flex justify-between gap-6 mt-8">
+              <ItemsCard
+                src="/assets/shoe3.png"
+                product={"Human Bag"}
+                rating={"(2630)"}
+                amount={5000}
+                width={300}
+                height={300}
+              />
+              <ItemsCard
+                src="/assets/watch2.png"
+                product={"Human Bag"}
+                rating={"(2630)"}
+                amount={5000}
+                width={300}
+                height={300}
+              />
+              <ItemsCard
+                src="/assets/cup.png"
+                product={"Human Bag"}
+                rating={"(2630)"}
+                amount={5000}
+                width={300}
+                height={300}
+              />
+            </div>
+
+            <div className="flex justify-between mt-8">
+              <div className="font-bold text-sm text-light-black-5">
+                Find something that catches your eyes!
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="flex gap-1 cursor-pointer">
+                  <ArrowLeftIcon />
+                  Prev
+                </div>
+                {Array.from({ length: 3 }).map((_, index) => (
+                  <span
+                    key={index}
+                    className={`w-[30px] h-[30px] flex justify-center items-center rounded-lg cursor-pointer ${getCardClass(
+                      index
+                    )}`}
+                    onClick={() => handleCardClick(index)}
+                  >
+                    {index + 1}
+                  </span>
+                ))}
+                <div className="flex gap-1 items-center cursor-pointer">
+                  Next
+                  <GrNext />
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12">
+            <div className="flex justify-between items-center">
+              <p className="font-bold text-lg text-light-black-5">Recently Viewed</p>
               <div className="flex">
                 <Image
                   src={img2}
@@ -67,36 +274,32 @@ const MenuSection = () => {
                 />
               </div>
             </div>
-
-            <div className="flex gap-4 pt-4">
-              <Image src={shoe1} alt={""} />
-              <Image src={shoe2} alt={""} />
-              <Image src={lip} alt={""} />
-              <Image src={headset} alt={""} />
-              <Image src={car} alt={""} />
-              <Image src={watch} alt={""} />
-              <Image src={shaving} alt={""} />
+            <div className="w-full flex justify-between gap-6 mt-4">
+              <ItemsCard
+                src="/assets/shoe3.png"
+                product={"Human Bag"}
+                rating={"(2630)"}
+                amount={5000}
+                width={300}
+                height={300}
+              />
+              <ItemsCard
+                src="/assets/watch2.png"
+                product={"Human Bag"}
+                rating={"(2630)"}
+                amount={5000}
+                width={300}
+                height={300}
+              />
+              <ItemsCard
+                src="/assets/cup.png"
+                product={"Human Bag"}
+                rating={"(2630)"}
+                amount={5000}
+                width={300}
+                height={300}
+              />
             </div>
-          </div>
-
-          <div className="mt-6 w-full">
-            <div className="w-full flex justify-between items-center">
-              <p className="font-bold text-lg text-gray-600">Recommendations</p>
-              <div className="flex">
-                <a href="/recomendations" className="flex items-center">
-                  <p className="whitespace-nowrap">View all</p>
-                  <Image
-                    className="mr-2 mt-1 w-4 h-4"
-                    src={larrow}
-                    alt="Left Arrow"
-                  />
-                </a>
-              </div>
-            </div>
-            <div className="w-full flex justify-between gap-4">
-              <ItemsCard src="/assets/shoe3.png" product={"Human Bag"} rating={"(2630)"} amount={5000} width={300} height={300} />
-              <ItemsCard src="/assets/watch2.png" product={"Human Bag"} rating={"(2630)"} amount={5000} width={300} height={300} />
-              <ItemsCard src="/assets/cup.png" product={"Human Bag"} rating={"(2630)"} amount={5000} width={300} height={300} />
             </div>
           </div>
         </div>

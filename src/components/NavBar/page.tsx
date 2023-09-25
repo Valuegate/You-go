@@ -22,7 +22,7 @@ const NavBar: FC<iNavBar> = ({ btnText }) => {
           <Link href={"/home"}>
             <h5 className="typo text-light-black-5">Home</h5>
           </Link>
-          <Link href={""}>
+          <Link href={"/shop"}>
             <h5 className="typo text-light-black-5">Shop</h5>
           </Link>
         </div>
