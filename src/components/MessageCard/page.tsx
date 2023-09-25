@@ -4,7 +4,12 @@ import Active from "@/public/assets/Ellipse 2370 (1).png";
 import Image from "next/image";
 import { useState } from "react";
 
-const MessageCard = () => {
+const MessageCard = ({
+  image = "",
+  name = "",
+  lastMessage = "",
+  time = "",
+}) => {
   const [clicked, setClicked] = useState(false);
 
   const handleCardClick = () => {
@@ -22,7 +27,7 @@ const MessageCard = () => {
         <div className="">
           <div className="flex gap-2 items-center">
             <div className="relative">
-              <Image src={Avatar} alt={""} />
+              <img src={image} alt={""} className="rounded-[25px] w-[50px] h-[50px] cursor-pointer"/>
               <Image
                 src={Active}
                 alt={""}
@@ -32,20 +37,20 @@ const MessageCard = () => {
             <div className="w-full">
               <div className="flex justify-between">
                 <p
-                  className={`text-sm font-bold ${
+                  className={`text-sm font-bold cursor-pointer ${
                     clicked ? "text-white" : "text-primary"
                   }`}
                 >
-                  Benjamin
+                  {name}
                 </p>
-                <span className="text-sm font-normal">9:37AM</span>
+                <span className="text-sm font-normal cursor-pointer">{time}</span>
               </div>
               <p
-                className={`text-md font-normal ${
+                className={`text-md font-normal cursor-pointer ${
                   clicked ? "text-white" : "text-light-black-5"
                 }`}
               >
-                I am yet to get my order delivered
+                {lastMessage}
               </p>
             </div>
           </div>
