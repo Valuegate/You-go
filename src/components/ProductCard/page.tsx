@@ -1,21 +1,21 @@
 import Image from "next/image";
 import Avatar from "@/public/assets/Ellipse 2378.png"
 
-const ProductCard = () => {
+const ProductCard = ({image = "", product = "", category = "", subCategory = "", price = ""}) => {
     return (
         <>
         <div className="px-2 w-full  rounded-2xl text-light-black-5 bg-white">
               <div className="flex h-[76px] justify-between items-center">
                 <div className="flex gap-2 items-center">
                     <div>
-                        <Image src={Avatar} alt={""} />
+                        <img src={image} alt={""} className="rounded-[25px] w-[50px] h-[50px]" />
                     </div>
-                    <div>
-                        <p className="text-sm font-bold">Product Name</p>
-                        <p className="text-xs font-normal">Category, subcategory</p>
+                    <div className="flex flex-col gap-2 ml-2">
+                        <p className="text-sm font-bold">{product}</p>
+                        <p className="text-xs font-normal">{category}, {subCategory}</p>
                     </div>
                 </div>
-                <span className="text-sm font-normal">$2,160</span>
+                <span className="text-sm font-normal pr-3">{price}</span>
               </div>
             </div>
         </>

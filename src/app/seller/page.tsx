@@ -4,11 +4,7 @@ import SellerDashBoardLayout from "../../components/SellerComponents/layout";
 
 const SellerDashboard = () => {
   return (
-    <>
-      <SellerDashBoardLayout>
-       
-    </SellerDashBoardLayout>
-    </>
+    <SellerDashBoardLayout />
   );
 };
 

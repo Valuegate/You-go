@@ -23,13 +23,10 @@ import Products from "./products";
 import Customers from "./customers";
 import Notifications from "./notifications";
 import Settings from "./settings";
-import Message from "./message";
+import Messages from "./message";
 
-interface iSellerDashBoardLayout {
-  children: ReactNode;
-}
 
-const SellerDashBoardLayout: FC<iSellerDashBoardLayout> = ({}) => {
+const SellerDashBoardLayout = () => {
   const [active, setActive] = useState(0);
 
   const menus = [
@@ -51,7 +48,7 @@ const SellerDashBoardLayout: FC<iSellerDashBoardLayout> = ({}) => {
       {active == 1 && <Orders />}
       {active == 2 && <Products />}
       {active == 3 && <Customers />}
-      {active == 4 && <Message />}
+      {active == 4 && <Messages />}
       {active == 5 && <Notifications />}
       {active == 6 && <Settings />}
     </>,

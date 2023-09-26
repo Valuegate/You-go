@@ -11,22 +11,86 @@ import { ImAttachment } from "react-icons/im"
 import { FiSend } from "react-icons/fi"
 
 const Messages = () => {
+  const allMessages = [
+    {
+      image: "/assets/shoe1.png",
+      name: "Benjamin",
+      time: "9:53 PM",
+      lastMessage: "I'm yet to get my order delivered",
+    },
+    {
+      image: "/assets/shoe1.png",
+      name: "Benjamin",
+      time: "9:53 PM",
+      lastMessage: "I'm yet to get my order delivered",
+    },
+    {
+      image: "/assets/shoe1.png",
+      name: "Benjamin",
+      time: "9:53 PM",
+      lastMessage: "I'm yet to get my order delivered",
+    },
+    {
+      image: "/assets/shoe1.png",
+      name: "Benjamin",
+      time: "9:53 PM",
+      lastMessage: "I'm yet to get my order delivered",
+    },
+    {
+      image: "/assets/shoe1.png",
+      name: "Benjamin",
+      time: "9:53 PM",
+      lastMessage: "I'm yet to get my order delivered",
+    },
+    {
+      image: "/assets/shoe1.png",
+      name: "Benjamin",
+      time: "9:53 PM",
+      lastMessage: "I'm yet to get my order delivered",
+    },
+    {
+      image: "/assets/shoe1.png",
+      name: "Benjamin",
+      time: "9:53 PM",
+      lastMessage: "I'm yet to get my order delivered",
+    },
+    {
+      image: "/assets/shoe1.png",
+      name: "Benjamin",
+      time: "9:53 PM",
+      lastMessage: "I'm yet to get my order delivered",
+    },
+    {
+      image: "/assets/shoe1.png",
+      name: "Benjamin",
+      time: "9:53 PM",
+      lastMessage: "I'm yet to get my order delivered",
+    },
+    {
+      image: "/assets/shoe1.png",
+      name: "Benjamin",
+      time: "9:53 PM",
+      lastMessage: "I'm yet to get my order delivered",
+    },
+  ];
+
   return (
     <>
       <div className="pt-4">
         <div className="flex gap-4">
           <div className="bg-primary-1 rounded-lg px-4 py-4 w-[50%] h-[625px] overflow-y-scroll">
             <div className="flex flex-col gap-4">
-              <MessageCard />
-              <MessageCard />
-              <MessageCard />
-              <MessageCard />
-              <MessageCard />
-              <MessageCard />
-              <MessageCard />
-              <MessageCard />
-              <MessageCard />
-              <MessageCard />
+             {allMessages.map((message, i) => {
+                return (
+                  <MessageCard
+                    key={i}
+                    image={message.image}
+                    lastMessage={message.lastMessage}
+                    name={message.name}
+                    time={message.time}
+                  />
+                );
+              })}
             </div>
           </div>
 

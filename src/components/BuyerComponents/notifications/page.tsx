@@ -89,6 +89,7 @@ const Notifications = () => {
   ];
 
   return (
+    
     <>
       <div className="pt-4">
         <div className="flex justify-between pb-2">
@@ -101,7 +102,7 @@ const Notifications = () => {
         </div>
         <div className="bg-primary-1 rounded-lg px-4 py-4">
           <div className="flex flex-col gap-3">
-            {notifications.map((notification, i) => {
+          {notifications.map((notification, i) => {
               return (
                 <NotificationCard
                   key={i}
