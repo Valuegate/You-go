@@ -92,7 +92,7 @@ const SellerDashBoardLayout = () => {
           <div className="w-full bg-white">
             <nav className="flex justify-between items-center py-6">
               
-              <div className="flex justify-center items-center w-4/5">
+              <div className="flex justify-center items-center">
                 <div className="relative flex items-center">
                   <span className="absolute left-4">
                     <SearchIcon />
@@ -105,7 +105,7 @@ const SellerDashBoardLayout = () => {
                 </div>
               </div>
 
-              <div className="w-1/5">
+              <div className="">
                 <div className="flex gap-1 items-center">
                   <div>
                     <Image src={Avatar} alt={""} />

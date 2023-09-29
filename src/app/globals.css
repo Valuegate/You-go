@@ -41,6 +41,11 @@ body {
   background-size: cover;
 }
 
+.bg-help-image {
+  background-image: url('../assets/Rectangle 92.png');
+  background-size: cover;
+}
+
 .placeholder-color::placeholder {
   color: #A8A8A8;
 }

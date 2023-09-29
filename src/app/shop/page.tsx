@@ -8,7 +8,7 @@ const Shop = () => {
     <>
       <NavBar btnText={"Login"} />
       <div className="">
-        {/* overflow-y-scroll h-[90vh] */}
+        
         <SearchContainer />
         <div className="pt-12 px-24">
           <MenuSection />
