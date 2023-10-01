@@ -172,6 +172,7 @@ const Dashboard = ({setActive = () => {}}) => {
       </div>
 
     </div>
+    </div>
   );
 };
 
