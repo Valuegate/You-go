@@ -3,6 +3,7 @@ import OrderCard from "../OrderCard/page";
 import Link from "next/link";
 import ProductCard from "../ProductCard/page";
 import products from "./products";
+import { Charts } from "../Charts/Charts";
 
 const Dashboard = ({setActive = () => {}}) => {
 
@@ -115,6 +116,7 @@ const Dashboard = ({setActive = () => {}}) => {
       
       <div className="mt-5 flex items-start justify-between">
       <div className="flex flex-col w-[58%] bg-primary-1 rounded-xl px-5 py-3">
+          <div className="flex justify-between pb-1 mb-2">
           <div className="flex justify-between pb-1 mb-2">
             <h5 className="text-base font-bold">Recent Orders</h5>
             <Link href={""}>
