@@ -34,6 +34,7 @@ const SellerDashBoardLayout = () => {
     { name: "Orders", icon: BiCart },
     { name: "Products", icon: FaProductHunt },
     { name: "Customers", icon: MdPeople },
+    { name: "Messages", icon: MdOutlineForwardToInbox },
     {
       name: "Notifications",
       icon: MdNotificationsActive,
@@ -47,8 +48,9 @@ const SellerDashBoardLayout = () => {
       {active == 1 && <Orders />}
       {active == 2 && <Products />}
       {active == 3 && <Customers />}
-      {active == 4 && <Notifications />}
-      {active == 5 && <Settings />}
+      {active == 4 && <Messages />}
+      {active == 5 && <Notifications />}
+      {active == 6 && <Settings />}
     </>,
   ];
 

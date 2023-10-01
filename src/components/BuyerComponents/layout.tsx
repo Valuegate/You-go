@@ -28,6 +28,7 @@ const BuyerDashBoardLayout = () => {
   const menus = [
     { name: "Dashboard", link: "./dashboard", icon: MdDashboard },
     { name: "Orders", link: "./orders", icon: BiCart },
+    { name: "Messages", link: "./messages", icon: MdOutlineForwardToInbox },
     {
       name: "Notifications",
       link: "./notifications",
@@ -40,8 +41,9 @@ const BuyerDashBoardLayout = () => {
     <>
       {active == 0 && <Dashboard />}
       {active == 1 && <Orders />}
-      {active == 2 && <Notifications />}
-      {active == 3 && <Settings />}
+      {active == 2 && <Messages />}
+      {active == 3 && <Notifications />}
+      {active == 4 && <Settings />}
     </>,
   ];
 
