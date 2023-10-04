@@ -1,9 +1,11 @@
+"use client"
 import React, { FC } from "react";
 import Logo from "../Logo/page";
 import Link from "next/link";
 import { QuestionmarkIcon } from "@/public/icons/questionmark-icon";
 import { LoveIcon } from "@/public/icons";
 import { HiShoppingCart } from "react-icons/hi";
+import Burger from "./Burger";
 
 interface iNavBar {
   btnText: string;
@@ -12,13 +14,13 @@ interface iNavBar {
 const NavBar: FC<iNavBar> = ({ btnText }) => {
   return (
     <>
-      <div className="flex items-center justify-between px-24 py-3 border-b border-b-white-5 ">
+      <div className="h-[80px] flex items-center justify-between px-4 lg:px-24 lg:py-3 border-b border-b-white-5 ">
         <div>
           <Link href={"/home"}>
             <Logo />
           </Link>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="hidden md:flex md:items-center lg:flex lg:items-center gap-4">
           <Link href={"/home"}>
             <h5 className="typo text-light-black-5">Home</h5>
           </Link>
@@ -27,7 +29,7 @@ const NavBar: FC<iNavBar> = ({ btnText }) => {
           </Link>
         </div>
 
-        <div className="flex items-center gap-6">
+        <div className="hidden md:flex md:items-center lg:flex lg:items-center gap-6">
           <span className="bg-primary w-[28px] h-[28px] round flex justify-center items-center">
             <QuestionmarkIcon />
           </span>
@@ -41,9 +43,10 @@ const NavBar: FC<iNavBar> = ({ btnText }) => {
             {btnText}
           </button>
         </div>
+        <Burger />
       </div>
     </>
   );
-};
+}
 
 export default NavBar;

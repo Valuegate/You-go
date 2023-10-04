@@ -3,9 +3,9 @@ import { FaCaretDown } from "react-icons/fa";
 
 const Settings = () => {
   return (
-    <div className="flex flex-col items-end">
-      <div className="flex justify-between w-full">
-        <div className="flex flex-col w-[48%]">
+    <div className="flex flex-col  items-end">
+      <div className="flex flex-col md:flex-row justify-between w-full">
+        <div className="flex flex-col w-full md:w-[48%]">
           <div className="font-[600]">Edit Profile</div>
 
           <div className="flex flex-col bg-primary-1 rounded-xl px-3 py-3">
@@ -56,7 +56,7 @@ const Settings = () => {
           </div>
         </div>
 
-        <div className="flex flex-col w-[48%] gap-5">
+        <div className="flex flex-col w-full md:w-[48%] gap-5">
           <div className="flex flex-col">
             <div className="font-[600]">Change Password</div>
             <div className="flex flex-col bg-primary-1 rounded-xl px-3 py-3">

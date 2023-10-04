@@ -15,9 +15,9 @@ interface ItemsCardProps {
   const ItemsCard: React.FC<ItemsCardProps> = ({ src, product, rating, amount, width, height }) => {
     return ( 
         <>
-        <div className="shadow-lg h-[286px] rounded-b-xl">
+        <div className="shadow-lg h-[330px] md:h-[286px] rounded-b-xl">
         <div className="relative">
-      <Image src={src} className="w-[258px] h-[170px] rounded-t-xl object-cover" alt="" width={100} height={100} />
+      <Image src={src} className="w-full lg:w-[258px] h-[190px] md:h-[170px] rounded-t-xl object-cover" alt="" width={100} height={100} />
       <div className="w-[18px] h-[18px] rounded-full bg-primary-1 flex justify-center items-center absolute right-4 top-3 cursor-pointer"><LoveIcon color="black" width="13px" height="13px" /></div>
       </div>
       <div className="flex flex-col justify-center items-start pl-4 pt-2">

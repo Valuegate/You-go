@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mantine/core": "^6.0.20",
+    "@ionic/react": "^7.4.2",
+    "@ionic/react-router": "^7.4.2",
+    "@mantine/core": "^6.0.21",
+    "@mantine/hooks": "^6.0.21",
     "@types/node": "20.6.0",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
@@ -19,6 +22,7 @@
     "eslint-config-next": "13.4.19",
     "faker": "^5.5.3",
     "formik": "^2.4.4",
+    "ionicons": "^7.1.2",
     "next": "13.4.19",
     "postcss": "8.4.29",
     "react": "18.2.0",

@@ -111,8 +111,8 @@ const Dashboard = () => {
   return (
     <>
       <div className="pt-4">
-        <div className="flex gap-4">
-          <div className="bg-primary-1 rounded-lg px-4 py-4 w-[60%]">
+        <div className="flex flex-col md:flex-row gap-4">
+          <div className="bg-primary-1 rounded-lg px-4 py-4 w-full md:w-[60%]">
             <div className="flex text-light-black-5 justify-between pb-1">
               <h5 className="text-base font-bold">Recent Orders</h5>
               <Link href={""}>
@@ -142,7 +142,7 @@ const Dashboard = () => {
               })}
             </div>
           </div>
-          <div className="bg-primary-1 rounded-lg w-[40%] px-4 py-4">
+          <div className="bg-primary-1 rounded-lg w-full md:w-[40%] px-4 py-4">
             <div className="flex justify-between pb-1 mb-2">
               <h5 className="text-base font-bold">Top Products</h5>
               <Link href={""}>

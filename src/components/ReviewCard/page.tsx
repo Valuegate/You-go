@@ -5,7 +5,7 @@ import Star from "@/public/assets/stars.png"
 const ReviewCard = () => {
     return (
         <>
-        <div className="bg-gradient-to-r from-primary-1 to-primary rounded-lg px-2 py-2 w-[370px]">
+        <div className="bg-gradient-to-r from-primary-1 to-primary rounded-lg px-2 py-2 w-full md:w-[370px]">
             <div className="flex justify-center">
                 <Image src={Avatar} alt={""} />
             </div>

@@ -36,7 +36,7 @@ const NotificationCard = ({
             <img
               src={image}
               alt={""}
-              className="rounded-[25px] w-[50px] h-[50px]"
+              className="rounded-[25px] w-[60px] h-[25px] md:w-[50px] md:h-[50px]"
             />
           </div>
           <div className="flex gap-8">
@@ -53,7 +53,7 @@ const NotificationCard = ({
         </div>
       </div>
       {expanded && (
-        <div className="my-2 pl-[5rem] pr-[3rem]">
+        <div className="my-2 pl-[2rem] pr-[1rem] md:pl-[5rem] md:pr-[3rem]">
           <p>{content}</p>
         </div>
       )}

@@ -13,16 +13,17 @@ const CartCard: FC<iCartCard> = ({ product }) => {
 
   return (
     <div className="mb-8">
-      <div className="w-full bg-white p-5 flex justify-between items-center rounded-2xl border-none box-shadow">
+      <div className="w-full bg-white p-2 md:p-5 flex justify-between items-center rounded-2xl border-none box-shadow">
         <div className="flex items-center justify-center">
-          <Image src={smallbag} alt="Product" className="w-16 h-16" />
-          <div className="flex flex-col ml-3">
-            <p className="font-bold text-[13px] leading-[15px] text-light-black-5">
+          <Image src={smallbag} alt="Product" className=" w-10 h-10 md:w-16 md:h-16" />
+          <div className="flex flex-col ml-1 md:ml-3">
+            <p className="font-normal text-xs md:font-bold md:text-[13px] md:leading-[15px] text-light-black-5">
               Seller name
             </p>
-            <p className="font-bold text-[18px] leading-[30px] text-primary">{product}</p>
+            <p className="font-medium text-sm md:font-bold md:text-[18px] md:leading-[30px] text-primary">{product}</p>
           </div>
         </div>
+        {/* <div className='block md:flex md:justify-between'> */}
         <p className="font-bold text-[13px] leading-[15px] text-light-black-5">
           $450&nbsp;&nbsp;
         </p>
@@ -47,6 +48,7 @@ const CartCard: FC<iCartCard> = ({ product }) => {
           <p className="font-bold text-[13px] leading-[15px] text-primary">$450</p>
           <MdCancelPresentation className="w-[18px] h-[18px]" />
         </div>
+        {/* </div> */}
       </div>
     </div>
   );

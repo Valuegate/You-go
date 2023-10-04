@@ -7,15 +7,17 @@ const Shop = () => {
   return (
     <>
       <NavBar btnText={"Login"} />
+      <div className="overflow-y-scroll h-[88vh]">
       <div className="">
         
         <SearchContainer />
-        <div className="pt-12 px-24">
+        <div className="pt-1 lg:pt-12 px-4 lg:px-24">
           <MenuSection />
         </div>
       </div>
       <div className="mt-[10%]"/>
       <Footer />
+      </div>
     </>
   );
 };
