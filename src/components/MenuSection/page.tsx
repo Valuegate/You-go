@@ -130,8 +130,7 @@ const MenuSection = () => {
                 rating={"(2630)"}
                 amount={5000}
                 width={300}
-                height={300}
-              />
+                height={300} className={""}              />
             </Link>
             <Link href={"../shop/details"}>
               <ItemsCard
@@ -140,8 +139,7 @@ const MenuSection = () => {
                 rating={"(2630)"}
                 amount={5000}
                 width={300}
-                height={300}
-              />
+                height={300} className={""}              />
             </Link>
             <Link href={"../shop/details"}>
               <ItemsCard
@@ -150,8 +148,7 @@ const MenuSection = () => {
                 rating={"(2630)"}
                 amount={5000}
                 width={300}
-                height={300}
-              />
+                height={300} className={""}              />
             </Link>
           </div>
 
@@ -163,8 +160,7 @@ const MenuSection = () => {
                 rating={"(2630)"}
                 amount={5000}
                 width={300}
-                height={300}
-              />
+                height={300} className={""}              />
             </Link>
             <Link href={"../shop/details"}>
               <ItemsCard
@@ -173,8 +169,7 @@ const MenuSection = () => {
                 rating={"(2630)"}
                 amount={5000}
                 width={300}
-                height={300}
-              />
+                height={300} className={""}              />
             </Link>
             <Link href={"../shop/details"}>
               <ItemsCard
@@ -183,8 +178,7 @@ const MenuSection = () => {
                 rating={"(2630)"}
                 amount={5000}
                 width={300}
-                height={300}
-              />
+                height={300} className={""}              />
             </Link>
           </div>
 
@@ -196,8 +190,7 @@ const MenuSection = () => {
                 rating={"(2630)"}
                 amount={5000}
                 width={300}
-                height={300}
-              />
+                height={300} className={""}              />
             </Link>
             <Link href={"../shop/details"}>
               <ItemsCard
@@ -206,8 +199,7 @@ const MenuSection = () => {
                 rating={"(2630)"}
                 amount={5000}
                 width={300}
-                height={300}
-              />
+                height={300} className={""}              />
             </Link>
             <Link href={"../shop/details"}>
               <ItemsCard
@@ -216,8 +208,7 @@ const MenuSection = () => {
                 rating={"(2630)"}
                 amount={5000}
                 width={300}
-                height={300}
-              />
+                height={300} className={""}              />
             </Link>
           </div>
 
@@ -274,8 +265,7 @@ const MenuSection = () => {
                   rating={"(2630)"}
                   amount={5000}
                   width={300}
-                  height={300}
-                />
+                  height={300} className={""}                />
               </Link>
               <Link href={"../shop/details"}>
                 <ItemsCard
@@ -284,8 +274,7 @@ const MenuSection = () => {
                   rating={"(2630)"}
                   amount={5000}
                   width={300}
-                  height={300}
-                />
+                  height={300} className={""}                />
               </Link>
               <Link href={"../shop/details"}>
                 <ItemsCard
@@ -294,8 +283,7 @@ const MenuSection = () => {
                   rating={"(2630)"}
                   amount={5000}
                   width={300}
-                  height={300}
-                />
+                  height={300} className={""}                />
               </Link>
             </div>
           </div>

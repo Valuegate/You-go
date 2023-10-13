@@ -10,9 +10,10 @@ interface ItemsCardProps {
     amount: string | number;
     width: number | string;
     height: number | string;
+    className: string;
   }
   
-  const ItemsCard: React.FC<ItemsCardProps> = ({ src, product, rating, amount, width, height }) => {
+  const ItemsCard: React.FC<ItemsCardProps> = ({ src, product, rating, amount, width, height, className }) => {
     return ( 
         <>
         <div className="shadow-lg h-[330px] md:h-[286px] rounded-b-xl">
