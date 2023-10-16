@@ -14,7 +14,7 @@ const ProductDetails = ({
   return (
     <div className="flex px-5 items-center w-full py-2 rounded-2xl text-light-black-5 bg-white">
       <p className="text-sm font-normal flex items-center gap-3 w-[15%]">
-        <img
+        <Image
           src={image}
           alt="product image"
           className="rounded-[25px] w-[50px] h-[50px]"

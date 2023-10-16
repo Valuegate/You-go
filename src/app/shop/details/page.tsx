@@ -187,32 +187,28 @@ const ShopDetails = () => {
               rating={"(2630)"}
               amount={5000}
               width={300}
-              height={300}
-            />
+              height={300} className={""}            />
             <ItemsCard
               src="/assets/watch2.png"
               product={"Human Bag"}
               rating={"(2630)"}
               amount={5000}
               width={300}
-              height={300}
-            />
+              height={300} className={""}            />
             <ItemsCard
               src="/assets/shoe3.png"
               product={"Human Bag"}
               rating={"(2630)"}
               amount={5000}
               width={300}
-              height={300}
-            />
+              height={300} className={""}            />
             <ItemsCard
               src="/assets/shoe3.png"
               product={"Human Bag"}
               rating={"(2630)"}
               amount={5000}
               width={300}
-              height={300}
-            />
+              height={300} className={""}            />
           </div>
         </div>
         <Footer />

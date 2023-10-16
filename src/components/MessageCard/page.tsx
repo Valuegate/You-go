@@ -27,7 +27,7 @@ const MessageCard = ({
         <div className="">
           <div className="flex gap-2 items-center">
             <div className="relative">
-              <img src={image} alt={""} className="rounded-[25px] w-[50px] h-[50px] cursor-pointer"/>
+              <Image src={image} alt={""} className="rounded-[25px] w-[50px] h-[50px] cursor-pointer"/>
               <Image
                 src={Active}
                 alt={""}

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 import { useState } from "react";
 import { FaCaretDown } from "react-icons/fa";
@@ -57,7 +58,7 @@ const AddItem = ({ addText = "Add Order" }) => {
       {current == 3 && <DateDropdown />}
 
       <button className="bg-gradient-to-r from-primary-1 to-primary round px-5 py-2 typo flex gap-3 items-center justify-center shadow-xl text-white ">
-        <img src="./assets/Plus Outlined.svg" alt="plus" />
+        <Image src="./assets/Plus Outlined.svg" alt="plus" />
         {addText}
       </button>
     </div>

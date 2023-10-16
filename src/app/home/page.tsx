@@ -11,16 +11,15 @@ import User from "@/public/assets/Frame 36172 (2).png";
 import img2 from "@/public/assets/arrow-left.png";
 import img3 from "@/public/assets/carrow-left.png";
 import ItemsCard from "@/public/components/ItemsCard/page";
-import Lady2 from "@/public/assets/Rectangle 1266.png"
-import Lady3 from "@/public/assets/Rectangle 126.png"
+import Lady2 from "@/public/assets/Rectangle 1266.png";
+import Lady3 from "@/public/assets/Rectangle 126.png";
 import Link from "next/link";
-
 
 const HomePage = () => {
   return (
     <>
-    <Link href={"/signupselect"}>
-      <NavBar btnText={"Login"} />
+      <Link href={"/signupselect"}>
+        <NavBar btnText={"Login"} />
       </Link>
       <div className="overflow-y-scroll h-screen md:h-[88vh]">
         <div className="px-6 md:px-24">
@@ -58,7 +57,7 @@ const HomePage = () => {
             </h2>
             <p className="text-base text-light-black-3 font-normal mt-2 w-[49%] text-center">
               At YouGo, we believe that fashion should never compromise on
-              quality. That's why our products are built to last
+              quality. That&apos;s why our products are built to last
             </p>
           </div>
 
@@ -76,7 +75,7 @@ const HomePage = () => {
                     </h2>
                     <p className="text-sm text-light-black-4 font-normal mt-4 w-[90%]">
                       Shop smart at YouGo and discover our budget-friendly
-                      collection that doesn't compromise on quality.
+                      collection that doesn&apos;t compromise on quality.
                     </p>
                   </div>
                 </div>
@@ -204,14 +203,15 @@ const HomePage = () => {
                 <Image src={Lady2} alt={""} />
               </div>
               <div className="mt-28">
-              <p className="text-sm text-primary font-normal mb-2">
-              WELCOME TO SHOPPING MODE!
+                <p className="text-sm text-primary font-normal mb-2">
+                  WELCOME TO SHOPPING MODE!
                 </p>
                 <h1 className="text-[25px] leading-[42px] text-black font-bold">
-                Ready to Shop?
+                  Ready to Shop?
                 </h1>
                 <p className="text-sm text-light-black-4 font-normal mt-3">
-                Explore an array of styles that cater to diverse tastes, so you can express your unique fashion sense.
+                  Explore an array of styles that cater to diverse tastes, so
+                  you can express your unique fashion sense.
                 </p>
                 <div className="mt-6">
                   <button className="bg-gradient-to-r flex justify-center items-center gap-2 font-bold from-primary-1 to-primary round w-[160px] h-10 text-white">
@@ -224,14 +224,22 @@ const HomePage = () => {
 
             <div className="flex gap-12 mb-24">
               <div className="flex-1 mt-24">
-              <p className="text-sm text-primary font-normal mb-2">
-              TESTIMONIAL
+                <p className="text-sm text-primary font-normal mb-2">
+                  TESTIMONIAL
                 </p>
                 <h1 className="text-[25px] leading-[42px] text-black font-bold">
-                Hear What our Customers say Yes
+                  Hear What our Customers say Yes
                 </h1>
                 <p className="text-sm text-light-black-4 font-normal mt-3">
-                “I've been shopping with YouGo for over a year now, and I must say it's been a fantastic experience. The quality of the products is top-notch, and they offer a wide range of styles that cater to my diverse fashion preferences. What truly sets YouGo apart is their commitment to customer satisfaction. Quick delivery, a secure shopping environment, and an easy-to-use website make my shopping experience a delight. YouGo has become my go-to online store for style, savings, and reliability. Highly recommended!"
+                &quot;I&apos;ve been shopping with YouGo for over a year now, and I
+                  must say it&apos;s been a fantastic experience. The quality of the
+                  products is top-notch, and they offer a wide range of styles
+                  that cater to my diverse fashion preferences. What truly sets
+                  YouGo apart is their commitment to customer satisfaction.
+                  Quick delivery, a secure shopping environment, and an
+                  easy-to-use website make my shopping experience a delight.
+                  YouGo has become my go-to online store for style, savings, and
+                  reliability. Highly recommended!&quot;
                 </p>
               </div>
               <div className="flex-1">
@@ -241,14 +249,19 @@ const HomePage = () => {
 
             <div className="bg-primary rounded-xl">
               <div className="py-20 pl-16">
-                <h2 className="text-[25px] leading-[40px] text-white font-semibold">Patronise Our Products</h2>
-                <p className="text-sm text-white-1 font-normal mt-3 w-[50%]">From classic elegance to bold and trendy, YouGo has a style for every fashion-forward individual.</p>
+                <h2 className="text-[25px] leading-[40px] text-white font-semibold">
+                  Patronise Our Products
+                </h2>
+                <p className="text-sm text-white-1 font-normal mt-3 w-[50%]">
+                  From classic elegance to bold and trendy, YouGo has a style
+                  for every fashion-forward individual.
+                </p>
                 <Link href={""}>
-                <div className="mt-6">
-                  <button className="shadow-2xl bg-gradient-to-r flex justify-center items-center gap-2 font-bold from-primary-1 to-primary round w-[160px] h-10 text-white">
-                  Get Started Now
-                  </button>
-                </div>
+                  <div className="mt-6">
+                    <button className="shadow-2xl bg-gradient-to-r flex justify-center items-center gap-2 font-bold from-primary-1 to-primary round w-[160px] h-10 text-white">
+                      Get Started Now
+                    </button>
+                  </div>
                 </Link>
               </div>
             </div>

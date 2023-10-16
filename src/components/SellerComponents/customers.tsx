@@ -131,6 +131,7 @@ const Customers = () => {
             {customers.map((customer, i) => {
               return (
                 <CustomerDetails
+                key={i}
                   name={customer.name}
                   id={customer.id}
                   spent={customer.spent}

@@ -1,5 +1,6 @@
 import React from "react";
 import MoreIconComponent from "../MoreIconComponent/page";
+import Image from "next/image";
 
 const CustomerDetails = ({
   name = "",
@@ -14,7 +15,7 @@ const CustomerDetails = ({
   return (
     <div className="flex px-3 items-center w-full py-2 rounded-2xl text-light-black-5 bg-white">
       <p className="text-sm font-normal flex items-center gap-3 w-[18%]">
-        <img
+        <Image
           src={image}
           alt="product image"
           className="rounded-[25px] w-[50px] h-[50px]"

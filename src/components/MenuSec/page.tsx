@@ -142,8 +142,7 @@ const MenuSec = () => {
                 rating={"(2630)"}
                 amount={5000}
                 width={300}
-                height={300}
-              />
+                height={300} className={""}              />
             </Link>
             <Link href={"../shop/details"}>
               <ItemsCard
@@ -152,8 +151,7 @@ const MenuSec = () => {
                 rating={"(2630)"}
                 amount={5000}
                 width={300}
-                height={300}
-              />
+                height={300} className={""}              />
             </Link>
             <Link href={"../shop/details"}>
               <ItemsCard
@@ -162,8 +160,7 @@ const MenuSec = () => {
                 rating={"(2630)"}
                 amount={5000}
                 width={300}
-                height={300}
-              />
+                height={300} className={""}              />
             </Link>
           </div>
 
@@ -175,8 +172,7 @@ const MenuSec = () => {
                 rating={"(2630)"}
                 amount={5000}
                 width={300}
-                height={300}
-              />
+                height={300} className={""}              />
             </Link>
             <Link href={"../shop/details"}>
               <ItemsCard
@@ -185,8 +181,7 @@ const MenuSec = () => {
                 rating={"(2630)"}
                 amount={5000}
                 width={300}
-                height={300}
-              />
+                height={300} className={""}              />
             </Link>
             <Link href={"../shop/details"}>
               <ItemsCard
@@ -195,8 +190,7 @@ const MenuSec = () => {
                 rating={"(2630)"}
                 amount={5000}
                 width={300}
-                height={300}
-              />
+                height={300} className={""}              />
             </Link>
           </div>
 
@@ -208,8 +202,7 @@ const MenuSec = () => {
                 rating={"(2630)"}
                 amount={5000}
                 width={300}
-                height={300}
-              />
+                height={300} className={""}              />
             </Link>
             <Link href={"../shop/details"}>
               <ItemsCard
@@ -218,8 +211,7 @@ const MenuSec = () => {
                 rating={"(2630)"}
                 amount={5000}
                 width={300}
-                height={300}
-              />
+                height={300} className={""}              />
             </Link>
             <Link href={"../shop/details"}>
               <ItemsCard
@@ -228,8 +220,7 @@ const MenuSec = () => {
                 rating={"(2630)"}
                 amount={5000}
                 width={300}
-                height={300}
-              />
+                height={300} className={""}              />
             </Link>
           </div>
         </div>
