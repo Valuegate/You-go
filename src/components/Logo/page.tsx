@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import logo from "@/public/assets/YOU GO (3) 1.png"
+import logo from "@/public/assets/yougo_logo.png"
 
 const Logo = () => {
     return ( 
