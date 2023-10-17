@@ -55,7 +55,6 @@ const BuyerSignUp = () => {
         </div>
       </div>
 
-      {/* <div className="w-full absolute bottom-0 right-0 left-0 h-[40px] bg-black px-4 lg:px-24 lg:fixed"> */}
       <div className="w-full absolute bottom-0 right-0 lg:left-0 h-[80px] lg:h-[40px] bg-black px-4 lg:px-24">
           <div className="block text-center lg:flex lg:justify-between items-center pt-3">
             <p className="paragraph text-[10px] lg:text-[12px] text-primary-1">
