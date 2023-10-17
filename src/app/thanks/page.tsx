@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Cloud from "@/public/assets/Group 3992.png";
-import Thank from "@/public/assets/Group 3991.png";
+import Cloud from "@/public/assets/Group3992.png";
+import Thank from "@/public/assets/Group3991.png";
 import Link from "next/link";
 
 const Thanks = () => {

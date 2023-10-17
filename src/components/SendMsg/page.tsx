@@ -1,4 +1,4 @@
-import Avatar from "@/public/assets/Ellipse 2367.png";
+import Avatar from "@/public/assets/Ellipse2367.png";
 import Image from "next/image";
 
 const SendMsg = () => {

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import card from "@/public/assets/_235782456.png";
-import Paypal from "@/public/assets/Group (2).png"
+import Paypal from "@/public/assets/Group(2).png"
 
 const PaymentCard = () => {
   return (

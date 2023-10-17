@@ -1,8 +1,8 @@
 import Logo from "@/public/components/Logo/page";
 import Image from "next/image";
 import Link from "next/link";
-import BgImg from "@/public/assets/Rectangle 23.png"
-import Group from "@/public/assets/Group 3993.png"
+import BgImg from "@/public/assets/Rectangle23.png"
+import Group from "@/public/assets/Group3993.png"
 
 const SignupSelect = () => {
     return (

@@ -2,8 +2,8 @@
 import NavBar from "@/public/components/NavBar/page";
 import Image from "next/image";
 import Link from "next/link";
-import FlexImg from "@/public/assets/Rectangle 22.png";
-import Google from "@/public/assets/Group 7.png";
+import FlexImg from "@/public/assets/Rectangle22.png";
+import Google from "@/public/assets/Group7.png";
 import PasswordInput from "@/public/components/PasswordInput/PasswordInput";
 import { Form, Formik } from "formik";
 

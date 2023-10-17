@@ -2,18 +2,18 @@ import Footer from "@/public/components/Footer/page";
 import NavBar from "@/public/components/NavBar/page";
 import Image from "next/image";
 // import FlexImg from "@/public/assets/Frame 36180.png";
-import FlexImg from "../../assets/Frame 36180.png"
+import FlexImg from "../../assets/Frame36180.png"
 import { HiShoppingCart } from "react-icons/hi";
-import Lady from "@/public/assets/Rectangle 125.png";
-import Saving from "@/public/assets/Frame 36172.png";
-import Cart from "@/public/assets/Frame 36172 (1).png";
-import Car from "@/public/assets/Frame 36173.png";
-import User from "@/public/assets/Frame 36172 (2).png";
+import Lady from "@/public/assets/Rectangle125.png";
+import Saving from "@/public/assets/Frame36172.png";
+import Cart from "@/public/assets/Frame36172(1).png";
+import Car from "@/public/assets/Frame36173.png";
+import User from "@/public/assets/Frame36172(2).png";
 import img2 from "@/public/assets/arrow-left.png";
 import img3 from "@/public/assets/carrow-left.png";
 import ItemsCard from "@/public/components/ItemsCard/page";
-import Lady2 from "@/public/assets/Rectangle 1266.png";
-import Lady3 from "@/public/assets/Rectangle 126.png";
+import Lady2 from "@/public/assets/Rectangle1266.png";
+import Lady3 from "@/public/assets/Rectangle126.png";
 import Link from "next/link";
 
 const HomePage = () => {

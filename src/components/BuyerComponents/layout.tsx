@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import NavBar from "@/public/components/NavBar/page";
 import Image from "next/image";
-import Avatar from "@/public/assets/Ellipse 2367.png";
+import Avatar from "@/public/assets/Ellipse2367.png";
 import Footer from "@/public/components/Footer/page";
 import {
   MdDashboard,

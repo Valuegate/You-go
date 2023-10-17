@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import star from "@/public/assets/stars.png"
 import { LoveIcon } from "@/public/icons";
 

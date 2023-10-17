@@ -2,10 +2,10 @@
 import NavBar from "@/public/components/NavBar/page";
 import Image from "next/image";
 import Link from "next/link";
-import Bag from "@/public/assets/Rectangle 10.png";
+import Bag from "@/public/assets/Rectangle10.png";
 import star from "@/public/assets/stars.png";
 import { useState } from "react";
-import Bags from "@/public/assets/Rectangle 11.png";
+import Bags from "@/public/assets/Rectangle11.png";
 import ItemsCard from "@/public/components/ItemsCard/page";
 import img2 from "@/public/assets/arrow-left.png";
 import img3 from "@/public/assets/carrow-left.png";

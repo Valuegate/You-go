@@ -37,7 +37,7 @@ const NotificationCard = ({
             <Image
               src={image}
               alt={""}
-              className="rounded-[25px] w-[60px] h-[25px] md:w-[50px] md:h-[50px]"
+              className="rounded-[25px] w-[60px] h-[25px] md:w-[50px] md:h-[50px]" width={50} height={50}
             />
           </div>
           <div className="flex gap-8">

@@ -1,6 +1,5 @@
 "use client";
-import Avatar from "@/public/assets/Ellipse 2367.png";
-import Active from "@/public/assets/Ellipse 2370 (1).png";
+import Active from "@/public/assets/Ellipse2370(1).png";
 import Image from "next/image";
 import { useState } from "react";
 

@@ -18,6 +18,8 @@ const ProductDetails = ({
           src={image}
           alt="product image"
           className="rounded-[25px] w-[50px] h-[50px]"
+          width={50}
+          height={50}
         />
         {name}
       </p>

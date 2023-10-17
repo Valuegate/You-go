@@ -1,7 +1,6 @@
 "use client"
 import React, { FC, useState } from 'react';
 import smallbag from "@/public/assets/bigbag.png";
-import { MdCancelPresentation } from "react-icons/md"
 import Image from 'next/image';
 
 interface iCartsCard {

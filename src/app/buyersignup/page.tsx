@@ -2,8 +2,8 @@ import InputField from "@/public/components/InputField/InputField";
 import NavBar from "@/public/components/NavBar/page";
 import Image from "next/image";
 import Link from "next/link";
-import FlexImg from "@/public/assets/Rectangle 21.png";
-import Google from "@/public/assets/Group 7.png";
+import FlexImg from "@/public/assets/Rectangle21.png";
+import Google from "@/public/assets/Group7.png";
 
 const BuyerSignUp = () => {
   return (

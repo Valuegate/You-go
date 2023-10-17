@@ -7,7 +7,7 @@ import { MdGridView } from "react-icons/md";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Avatar from "@/public/assets/Ellipse 2367.png";
+import Avatar from "@/public/assets/Ellipse2367.png";
 
 const MenuSec = () => {
   const [clickedNumber, setClickedNumber] = useState<number | null>(null);

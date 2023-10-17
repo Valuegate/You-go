@@ -37,22 +37,22 @@ body {
 }
 
 .bg-custom-image {
-  background-image: url('../assets/Rectangle\ 17.png');
+  background-image: url('../assets/Rectangle17.png');
   background-size: cover;
 }
 
 .bg-tracking-image {
-  background-image: url('../assets/Rectangle 96.png');
+  background-image: url('../assets/Rectangle96.png');
   background-size: cover;
 }
 
 .bg-help-image {
-  background-image: url('../assets/Rectangle 92.png');
+  background-image: url('../assets/Rectangle92.png');
   background-size: cover;
 }
 
 .bg-profile-image {
-  background-image: url('../assets/Rectangle 96 (1).png');
+  background-image: url('../assets/Rectangle96(1).png');
   background-size: cover;
 }
 

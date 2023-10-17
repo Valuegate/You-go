@@ -1,6 +1,6 @@
 import MessageCard from "@/public/components/MessageCard/page";
-import Avatar from "@/public/assets/Ellipse 2367.png";
-import Active from "@/public/assets/Ellipse 2370 (1).png";
+import Avatar from "@/public/assets/Ellipse2367.png";
+import Active from "@/public/assets/Ellipse2370(1).png";
 import Image from "next/image";
 import { MdCall, MdVideocam } from "react-icons/md";
 import { MoreIcon } from "@/public/icons";

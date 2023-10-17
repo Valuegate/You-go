@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Avatar from "@/public/assets/Ellipse 2388.png"
+import Avatar from "@/public/assets/Ellipse2388.png"
 import Star from "@/public/assets/stars.png"
 
 const ReviewCard = () => {
