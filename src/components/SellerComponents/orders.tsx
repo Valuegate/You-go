@@ -10,7 +10,7 @@ const Orders = () => {
       date: "12/01/2023",
       customerName: "Achan Benjamin",
       email: "me@email.com",
-      price: "$128",
+      price: "€128",
       status: "Delivered",
     },
     {
@@ -18,7 +18,7 @@ const Orders = () => {
       date: "12/01/2023",
       customerName: "Achan Benjamin",
       email: "me@email.com",
-      price: "$128",
+      price: "€128",
       status: "Delivered",
     },
     {
@@ -26,7 +26,7 @@ const Orders = () => {
       date: "12/01/2023",
       customerName: "Achan Benjamin",
       email: "me@email.com",
-      price: "$128",
+      price: "€128",
       status: "Delivered",
     },
     {
@@ -34,7 +34,7 @@ const Orders = () => {
       date: "12/01/2023",
       customerName: "Achan Benjamin",
       email: "me@email.com",
-      price: "$128",
+      price: "€128",
       status: "Delivered",
     },
     {
@@ -42,7 +42,7 @@ const Orders = () => {
       date: "12/01/2023",
       customerName: "Achan Benjamin",
       email: "me@email.com",
-      price: "$128",
+      price: "€128",
       status: "Delivered",
     },
     {
@@ -50,7 +50,7 @@ const Orders = () => {
       date: "12/01/2023",
       customerName: "Achan Benjamin",
       email: "me@email.com",
-      price: "$128",
+      price: "€128",
       status: "Delivered",
     },
     {
@@ -58,7 +58,7 @@ const Orders = () => {
       date: "12/01/2023",
       customerName: "Achan Benjamin",
       email: "me@email.com",
-      price: "$128",
+      price: "€128",
       status: "Delivered",
     },
     {
@@ -66,7 +66,7 @@ const Orders = () => {
       date: "12/01/2023",
       customerName: "Achan Benjamin",
       email: "me@email.com",
-      price: "$128",
+      price: "€128",
       status: "Delivered",
     },
     {
@@ -74,7 +74,7 @@ const Orders = () => {
       date: "12/01/2023",
       customerName: "Achan Benjamin",
       email: "me@email.com",
-      price: "$128",
+      price: "€128",
       status: "Delivered",
     },
     {
@@ -82,7 +82,7 @@ const Orders = () => {
       date: "12/01/2023",
       customerName: "Achan Benjamin",
       email: "me@email.com",
-      price: "$128",
+      price: "€128",
       status: "Delivered",
     },
     {
@@ -90,7 +90,7 @@ const Orders = () => {
       date: "12/01/2023",
       customerName: "Achan Benjamin",
       email: "me@email.com",
-      price: "$128",
+      price: "€128",
       status: "Delivered",
     },
     {
@@ -98,7 +98,7 @@ const Orders = () => {
       date: "12/01/2023",
       customerName: "Achan Benjamin",
       email: "me@email.com",
-      price: "$128",
+      price: "€128",
       status: "Delivered",
     },
     {
@@ -106,7 +106,7 @@ const Orders = () => {
       date: "12/01/2023",
       customerName: "Achan Benjamin",
       email: "me@email.com",
-      price: "$128",
+      price: "€128",
       status: "Delivered",
     },
   ];

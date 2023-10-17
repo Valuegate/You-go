@@ -39,11 +39,11 @@ const MenuSection = () => {
             </div>
             <div className="flex items-center gap-2">
               <span className="w-[100px] h-[40px] flex justify-center items-center bg-white-3">
-                $5
+              €5
               </span>
               <span>-</span>
               <span className="w-[100px] h-[40px] flex justify-center items-center bg-white-3">
-                $15
+              €15
               </span>
             </div>
           </div>

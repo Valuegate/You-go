@@ -27,7 +27,7 @@ interface ItemsCardProps {
           <p className="mr-1">{rating}</p>
         </div>
         <div className="flex gap-1 items-center justify-start">
-          <p className="text-primary text-[10px] font-medium ">NGN</p>
+          <p className="text-primary text-[15px] font-medium ">€</p>
           <p className="font-bold text-primary">{amount}</p>
         </div>
         <p className="text-xs text-light-black-4 font-medium">By <span className="text-light-black-5 text-sm">Cresent Multipurpose Store</span></p>

@@ -35,14 +35,14 @@ const Cart = () => {
               <div className="mt-8 w-full md:w-[40%] mb-32">
                 <div className="w-full flex flex-row justify-between">
                   <p className="text-[18px] font-bold text-light-black-4">Subtotal:</p>
-                  <p className="text-[1.1rem] font-normal text-primary">$450</p>
+                  <p className="text-[1.1rem] font-normal text-primary">€450</p>
                 </div>
                 <div className="mt-2 mb-3">
                   <hr className="border-none bg-light-black-1 h-[1px] w-full"/>
                 </div>
                 <div className="w-full flex flex-row justify-between">
                   <p className="text-[18px] font-bold text-light-black-4">Sales taxes:</p>
-                  <p className="text-[1.1rem] font-normal text-primary">$5</p>
+                  <p className="text-[1.1rem] font-normal text-primary">€5</p>
                 </div>
                 <div className="mt-2 mb-3">
                   <hr className="border-none bg-light-black-1 h-[1px] w-full"/>
@@ -56,7 +56,7 @@ const Cart = () => {
                 </div>
                 <div className="w-full flex flex-row justify-between">
                   <p className="text-[18px] font-bold text-light-black-4">Subtotal:</p>
-                  <p className="text-[1.1rem] font-bold text-primary">$455</p>
+                  <p className="text-[1.1rem] font-bold text-primary">€455</p>
                 </div>
                 <div className="mt-2 mb-10">
                   <hr className="border-none bg-light-black-1 h-[1px] w-full"/>

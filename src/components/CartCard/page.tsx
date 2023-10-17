@@ -25,7 +25,7 @@ const CartCard: FC<iCartCard> = ({ product }) => {
         </div>
         {/* <div className='block md:flex md:justify-between'> */}
         <p className="font-bold text-[13px] leading-[15px] text-light-black-5">
-          $450&nbsp;&nbsp;
+        €450&nbsp;&nbsp;
         </p>
         <div className="flex border-light-black-6 items-center">
           <button
@@ -45,7 +45,7 @@ const CartCard: FC<iCartCard> = ({ product }) => {
           </button>
         </div>
         <div className="flex gap-2 items-center">
-          <p className="font-bold text-[13px] leading-[15px] text-primary">$450</p>
+          <p className="font-bold text-[13px] leading-[15px] text-primary">€450</p>
           <MdCancelPresentation className="w-[18px] h-[18px]" />
         </div>
         {/* </div> */}

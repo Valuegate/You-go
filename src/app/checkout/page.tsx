@@ -269,7 +269,7 @@ const Checkout = () => {
                           Subtotal:
                         </p>
                         <p className="text-[1.1rem] font-bold text-light-black-9">
-                          $450
+                        €450
                         </p>
                       </div>
                       <p className="mt-4 px-12 text-[18px] font-bold text-light-black-4">
@@ -281,7 +281,7 @@ const Checkout = () => {
                           Total:
                         </p>
                         <p className="text-[1.1rem] font-bold text-light-black-9">
-                          $455
+                        €455
                         </p>
                       </div>
                       <Link href={"/orderconfirm"}>

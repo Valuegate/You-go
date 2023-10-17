@@ -31,7 +31,7 @@ const Profile = () => {
                 </div>
                 <div>
                   <h2 className="text-primary text-xl font-semibold">
-                    $5,678
+                  €5,678
                   </h2>
                   <p className="text-light-black-3 font-medium text-base">
                     Spent

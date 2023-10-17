@@ -25,7 +25,7 @@ const OrderConfirm = () => {
                     <p className="text-xl font-normal text-light-black-4">
                       Subtotal:
                     </p>
-                    <p className="text-xl font-normal text-primary">$455</p>
+                    <p className="text-xl font-normal text-primary">€455</p>
                   </div>
                   <div className="w-full flex justify-between">
                     <p className="text-xl font-normal text-light-black-4">
@@ -37,7 +37,7 @@ const OrderConfirm = () => {
                     <p className="text-2xl font-medium text-primary">
                       Grand Total:
                     </p>
-                    <p className="text-2xl font-medium text-primary">$455</p>
+                    <p className="text-2xl font-medium text-primary">€455</p>
                   </div>
                 </div>
               </div>
