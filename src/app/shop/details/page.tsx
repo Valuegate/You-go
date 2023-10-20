@@ -28,7 +28,7 @@ const ShopDetails = () => {
     <>
       <NavBar btnText={"Logout"} />
 
-      <div className="overflow-y-scroll h-screen md:h-[88vh]">
+      <div className="overflow-y-scroll h-screen md:h-[87vh]">
         <div className="px-6 md:px-24">
           <div className="flex flex-col md:flex-row items-center md:gap-3 mt-8">
             <Link href="#" className="text-white bg-primary round p-2 font-medium text-[15px] leading-[15px]">

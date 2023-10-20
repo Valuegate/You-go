@@ -9,7 +9,7 @@ const Profile = () => {
   return (
     <>
       <NavBar btnText={"logout"} />
-      <div className="overflow-y-scroll h-[88vh]">
+      <div className="overflow-y-scroll h-[87vh]">
         <div className="h-[100px] md:h-[260px] bg-profile-image"></div>
         <div className="px-4 md:px-48">
           <div className="flex flex-col md:flex-row justify-between">

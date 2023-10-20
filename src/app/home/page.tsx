@@ -1,3 +1,4 @@
+"use client"
 import Footer from "@/public/components/Footer/page";
 import NavBar from "@/public/components/NavBar/page";
 import Image from "next/image";
@@ -15,14 +16,18 @@ import ItemsCard from "@/public/components/ItemsCard/page";
 import Lady2 from "@/public/assets/Rectangle1266.png";
 import Lady3 from "@/public/assets/Rectangle126.png";
 import Link from "next/link";
+import Ladies from "@/public/assets/Frame36189.png";
+
+
 
 const HomePage = () => {
+
   return (
     <>
       <Link href={"/signupselect"}>
         <NavBar btnText={"Login"} />
       </Link>
-      <div className="overflow-y-scroll h-screen md:h-[88vh]">
+      <div className="overflow-y-scroll h-screen md:h-[87vh]">
         <div className="px-6 md:px-24">
           <div className="flex flex-col-reverse md:flex-row mt-16">
             <div className="flex-1">
@@ -144,6 +149,8 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
+
+
             <div className="w-full flex flex-col lg:flex-row justify-between gap-6 mt-6">
               <ItemsCard
                 src="/assets/shoe3.png"
@@ -239,7 +246,8 @@ const HomePage = () => {
             </div>
 
             <div className="bg-primary rounded-xl">
-              <div className="py-20 md:pl-16 px-6 md:px-0">
+              <div className="md:flex">
+              <div className="py-20 md:pl-16 px-6 md:px-0 flex-1">
                 <h2 className="text-[30px] md:text-[25px] leading-[40px] md:leading-[40px] text-white font-semibold">
                   Patronise Our Products
                 </h2>
@@ -254,6 +262,10 @@ const HomePage = () => {
                     </button>
                   </div>
                 </Link>
+              </div>
+              <div className="flex-1">
+                <Image src={Ladies} alt={""} className="h-full w-full" />
+              </div>
               </div>
             </div>
 

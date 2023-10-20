@@ -1,6 +1,8 @@
 import Image from "next/image";
 import star from "@/public/assets/stars.png"
 import { LoveIcon } from "@/public/icons";
+// import { Carousel } from 'react-responsive-carousel';
+// import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 interface ItemsCardProps {
     src: string;
@@ -15,6 +17,8 @@ interface ItemsCardProps {
   const ItemsCard: React.FC<ItemsCardProps> = ({ src, product, rating, amount, width, height, className }) => {
     return ( 
         <>
+        {/* <Carousel showArrows={true} infiniteLoop={true} autoPlay={true}>
+      {[ */}
         <div className="shadow-lg h-[330px] md:h-[286px] rounded-b-xl">
         <div className="relative">
       <Image src={src} className="w-full lg:w-[258px] h-[190px] md:h-[170px] rounded-t-xl object-cover" alt="" width={100} height={100} />
@@ -33,6 +37,8 @@ interface ItemsCardProps {
         <p className="text-xs text-light-black-4 font-medium">By <span className="text-light-black-5 text-sm">Cresent Multipurpose Store</span></p>
       </div>
     </div>
+  {/* ]}
+    </Carousel> */}
         </>
      );
 }

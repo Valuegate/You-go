@@ -7,7 +7,7 @@ const Shop = () => {
   return (
     <>
       <NavBar btnText={"Login"} />
-      <div className="overflow-y-scroll h-[88vh]">
+      <div className="overflow-y-scroll h-[87vh]">
       <div className="">
         
         <SearchContainer />

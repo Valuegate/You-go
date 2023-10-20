@@ -8,7 +8,7 @@ const SearchResult = () => {
   return (
     <>
       <NavBar btnText={"Logout"} />
-      <div className="overflow-y-scroll h-[88vh]">
+      <div className="overflow-y-scroll h-[87vh]">
         <div className="h-[400px] bg-custom-image">
         <div className=" pt-4 ml-3 lg:pt-20 lg:ml-16">
             <div className="w-20 h-10 flex justify-center items-center bg-primary text-white">Search</div>

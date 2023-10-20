@@ -1,8 +1,9 @@
 "use client"
-import React, { FC, useState } from 'react';
+import React, { FC,useEffect, useState } from 'react';
 import smallbag from "@/public/assets/bigbag.png";
 import { MdCancelPresentation } from "react-icons/md"
 import Image from 'next/image';
+// import { fetchProducts } from "@/public/app/api/index"
 
 interface iCartCard {
   product: string;
@@ -10,6 +11,19 @@ interface iCartCard {
 
 const CartCard: FC<iCartCard> = ({ product }) => {
   const [num, setNum] = useState(1);
+
+  const [products, setProducts] = useState([]);
+
+  // useEffect(() => {
+  //   // Fetch products when the component mounts
+  //   fetchProducts()
+  //     .then((response: { data: React.SetStateAction<never[]>; }) => {
+  //       setProducts(response.data);
+  //     })
+  //     .catch((error: any) => {
+  //       console.error('Error fetching products:', error);
+  //     });
+  // }, []);
 
   return (
     <div className="mb-8">

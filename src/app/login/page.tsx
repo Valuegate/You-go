@@ -13,7 +13,7 @@ const Login = () => {
       <NavBar btnText={"Signup"} />
       <div className="relative">
         <div className="flex flex-col lg:flex-row">
-          <div className="lg:w-[50%] px-4 pt-4 pb-8 lg:pr-24 lg:pl-48 lg:pt-12 lg:overflow-y-scroll lg:h-[88vh]">
+          <div className="lg:w-[50%] px-4 pt-4 pb-8 lg:pr-24 lg:pl-48 lg:pt-12 lg:overflow-y-scroll lg:h-[87vh]">
             <h3 className="font-bold text-[24px] lg:text-[31px] leading-[28px] lg:leading-[36px] pb-4 text-primary text-center lg:text-left">
               Welcome Back
             </h3>

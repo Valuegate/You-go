@@ -43,7 +43,7 @@ const BuyerDashBoardLayout = () => {
   return (
     <>
       <NavBar btnText={"Logout"} />
-      <div className="overflow-y-scroll h-[88vh]">
+      <div className="overflow-y-scroll h-[87vh]">
         <div className="flex flex-col md:flex-row bg-white px-4 md:px-24 pb-40">
           <div className="w-full md:w-72 h-auto md:h-[748px] bg-light-black-5 rounded-lg">
             <div className="mt-8 mb-8 md:mb-0 md:mt-20 round">
