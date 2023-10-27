@@ -3,7 +3,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 export const useRequestProcessor = () => {
   const queryClient = useQueryClient();
 
-  const query = (key, queryFunction, options = {}) => {
+  const useCustomQuery = (key, queryFunction, options = {}) => {
     return useQuery({
       queryKey: key,
       queryFn: queryFunction,
@@ -11,7 +11,7 @@ export const useRequestProcessor = () => {
     });
   };
 
-  const mutate = (key, mutationFunction, options = {}) => {
+  const useCustomMutate = (key, mutationFunction, options = {}) => {
     return useMutation({
       mutationKey: key,
       mutationFn: mutationFunction,
@@ -20,5 +20,5 @@ export const useRequestProcessor = () => {
     });
   };
 
-  return { query, mutate };
+  return { useCustomQuery, useCustomMutate };
 };

@@ -11,7 +11,7 @@ import { signIn } from "next-auth/react";
 import axios from "axios";
 // import { useRouter } from "next/router";
 // import { useRouter, useSearchParams } from "next/navigation";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
   // const { login } = useLogin();
@@ -37,8 +37,6 @@ const Login = () => {
       console.log("ERROR", res.error);
     }
   };
-
-  const searchParams = useSearchParams();
   return (
     <>
       <NavBar btnText={"Signup"} />
@@ -110,18 +108,9 @@ const Login = () => {
                       Agree to our terms and conditions
                     </label>
                     <div className="mt-4">
-                      {/* <button
-                        type="submit"
-                        onClick={handleSubmit}
-                        className="bg-gradient-to-r from-primary-1 to-primary round w-full h-10 text-white"
-                      >
-                        Register
-                      </button> */}
                       <button
                         type="submit"
-                        onClick={() => {
-                          signIn('google', { callbackUrl: searchParams.get('callbackUrl') || undefined });
-                        }}
+                        onClick={handleSubmit}
                         className="bg-gradient-to-r from-primary-1 to-primary round w-full h-10 text-white"
                       >
                         Register

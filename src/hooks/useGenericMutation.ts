@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from 'react-query';
 import { AxiosError, AxiosResponse } from 'axios';
 
 const useGenericMutation = <T, S>(
