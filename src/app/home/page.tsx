@@ -1,11 +1,11 @@
-"use client"
+"use client";
 import Footer from "@/public/components/Footer/page";
 import NavBar from "@/public/components/NavBar/page";
 import Image from "next/image";
 // import FlexImg from "@/public/assets/Frame 36180.png";
-import FlexImg from "../../assets/Frame36180.png"
+import FlexImg from "../../assets/Frame36180.png";
 import { HiShoppingCart } from "react-icons/hi";
-import Lady from "@/public/assets/Rectangle125.png";
+import Lady from "@/public/assets/image3.png";
 import Saving from "@/public/assets/Frame36172.png";
 import Cart from "@/public/assets/Frame36172(1).png";
 import Car from "@/public/assets/Frame36173.png";
@@ -13,14 +13,34 @@ import User from "@/public/assets/Frame36172(2).png";
 import img2 from "@/public/assets/arrow-left.png";
 import img3 from "@/public/assets/carrow-left.png";
 import ItemsCard from "@/public/components/ItemsCard/page";
-import Lady2 from "@/public/assets/Rectangle1266.png";
-import Lady3 from "@/public/assets/Rectangle126.png";
+import Lady2 from "@/public/assets/image2.png";
+import Lady3 from "@/public/assets/image1.png";
 import Link from "next/link";
 import Ladies from "@/public/assets/Frame36189.png";
-
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Product } from "@/public/types/product";
 
 const HomePage = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      try {
+        const response = await fetch(
+          "https://web-production-b1c8.up.railway.app/api/products"
+        );
+        if (response.ok) {
+          const data = await response.json();
+          setProducts(data);
+        }
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    }
+
+    fetchProducts();
+  }, []);
 
   return (
     <>
@@ -73,8 +93,8 @@ const HomePage = () => {
             </div>
             <div className="w-full md:w-[70%]">
               <div className="flex flex-col md:flex-row justify-between">
-                <div className="shadow-2xl h-[230px] md:h-[230px] w-full md:w-[360px] rounded-xl">
-                  <div className="mt-6 md:mt-0 ml-8">
+                <div className="shadow-2xl h-[230px] md:h-[240px] w-full md:w-[360px] rounded-xl">
+                  <div className="mt-6 md:mt-6 ml-8">
                     <Image src={Saving} alt={""} />
                     <h2 className="text-xl mt-2 font-semibold text-light-black-7">
                       Money Saving
@@ -85,8 +105,8 @@ const HomePage = () => {
                     </p>
                   </div>
                 </div>
-                <div className="shadow-2xl h-[230px] md:h-[230px] w-full md:w-[360px] rounded-xl">
-                  <div className="mt-6 md:mt-0 ml-8">
+                <div className="shadow-2xl h-[230px] md:h-[240px] w-full md:w-[360px] rounded-xl">
+                  <div className="mt-6 md:mt-6 ml-8">
                     <Image src={Cart} alt={""} />
                     <h2 className="text-xl mt-2 font-semibold text-light-black-7">
                       Secure Shopping
@@ -98,9 +118,9 @@ const HomePage = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col md:flex-row justify-between mt-8">
-                <div className="shadow-2xl h-[230px] md:h-[230px] w-full md:w-[360px] rounded-xl">
-                  <div className="mt-6 md:mt-0 ml-8">
+              <div className="flex flex-col md:flex-row justify-between mt-10">
+                <div className="shadow-2xl h-[230px] md:h-[240px] w-full md:w-[360px] rounded-xl">
+                  <div className="mt-6 md:mt-6 ml-8">
                     <Image src={Car} alt={""} />
                     <h2 className="text-xl mt-2 font-semibold text-light-black-7">
                       Fast Delivery
@@ -111,8 +131,8 @@ const HomePage = () => {
                     </p>
                   </div>
                 </div>
-                <div className="shadow-2xl h-[230px] md:h-[230px] w-full md:w-[360px] rounded-xl">
-                  <div className="mt-6 md:mt-0 ml-8">
+                <div className="shadow-2xl h-[230px] md:h-[240px] w-full md:w-[360px] rounded-xl">
+                  <div className="mt-6 md:mt-6 ml-8">
                     <Image src={User} alt={""} />
                     <h2 className="text-xl mt-2 font-semibold text-light-black-7">
                       User Friendly
@@ -144,48 +164,71 @@ const HomePage = () => {
 
               <div className="w-full md:w-[50%]">
                 <div className="flex justify-end gap-3">
-                  <Image src={img2} alt="Previous Slide" className="cursor-pointer" />
-                  <Image src={img3} alt="Next Slide" className="cursor-pointer" />
+                  <Image
+                    src={img2}
+                    alt="Previous Slide"
+                    className="cursor-pointer"
+                  />
+                  <Image
+                    src={img3}
+                    alt="Next Slide"
+                    className="cursor-pointer"
+                  />
                 </div>
               </div>
             </div>
 
+            <div className="w-full overflow-y-hidden flex flex-col lg:flex-row justify-between gap-6 mt-6">
+              {/* {products.map((product) => (
+                <ItemsCard
+                  key={product._id}
+                  product={product}
+                  src={""}
+                  rating={""}
+                  amount={""}
+                  width={"300"}
+                  height={"300"}
+                  className={"shadow-2xl"}
+                />
+              ))} */}
 
-            <div className="w-full flex flex-col lg:flex-row justify-between gap-6 mt-6">
               <ItemsCard
-                src="/assets/shoe3.png"
                 product={"Human Bag"}
-                rating={"(2630)"}
-                amount={5000}
-                width={300}
-                height={300}
+                src={"/assets/shoe3.png"}
+                rating={"(2,630)"}
+                amount={"5,000"}
+                width={"300"}
+                height={"300"}
                 className={"shadow-2xl"}
               />
+
               <ItemsCard
-                src="/assets/watch2.png"
                 product={"Human Bag"}
-                rating={"(2630)"}
-                amount={5000}
-                width={300}
-                height={300}
+                src={"/assets/watch2.png"}
+                rating={"(2,630)"}
+                amount={"5,000"}
+                width={"300"}
+                height={"300"}
                 className={"shadow-2xl"}
               />
+
               <ItemsCard
-                src="/assets/cup.png"
                 product={"Human Bag"}
-                rating={"(2630)"}
-                amount={5000}
-                width={300}
-                height={300}
+                src={"/assets/cup.png"}
+                rating={"(2,630)"}
+                amount={"5,000"}
+                width={"300"}
+                height={"300"}
                 className={"shadow-2xl"}
               />
+
               <ItemsCard
-                src="/assets/shoe3.png"
                 product={"Human Bag"}
-                rating={"(2630)"}
-                amount={5000}
-                width={300}
-                height={300}
+                src={"/assets/shoe3.png"}
+                rating={"(2,630)"}
+                amount={"5,000"}
+                width={"300"}
+                height={"300"}
                 className={"shadow-2xl"}
               />
             </div>
@@ -197,10 +240,10 @@ const HomePage = () => {
             </div>
 
             <div className="flex flex-col md:flex-row gap-12 mt-32 mb-24">
-              <div className="w-full md:w-[50%]">
+              <div className=" flex-1">
                 <Image src={Lady2} alt={""} />
               </div>
-              <div className="w-full md:w-[50%] mt-10 md:mt-28">
+              <div className=" flex-1 mt-10 md:mt-28">
                 <p className="text-base md:text-sm text-primary font-normal mb-2">
                   WELCOME TO SHOPPING MODE!
                 </p>
@@ -221,7 +264,7 @@ const HomePage = () => {
             </div>
 
             <div className="flex flex-col md:flex-row gap-12 mb-24">
-              <div className="w-full md:w-[50%]">
+              <div className="md:mt-28 flex-1">
                 <p className="text-base md:text-sm text-primary font-normal mb-2">
                   TESTIMONIAL
                 </p>
@@ -229,43 +272,43 @@ const HomePage = () => {
                   Hear What our Customers say
                 </h1>
                 <p className="text-base md:text-sm text-light-black-4 font-normal mt-3">
-                  &quot;I&apos;ve been shopping with YouGo for over a year now, and I
-                  must say it&apos;s been a fantastic experience. The quality of the
-                  products is top-notch, and they offer a wide range of styles
-                  that cater to my diverse fashion preferences. What truly sets
-                  YouGo apart is their commitment to customer satisfaction.
-                  Quick delivery, a secure shopping environment, and an
-                  easy-to-use website make my shopping experience a delight.
-                  YouGo has become my go-to online store for style, savings, and
-                  reliability. Highly recommended!&quot;
+                  &quot;I&apos;ve been shopping with YouGo for over a year now,
+                  and I must say it&apos;s been a fantastic experience. The
+                  quality of the products is top-notch, and they offer a wide
+                  range of styles that cater to my diverse fashion preferences.
+                  What truly sets YouGo apart is their commitment to customer
+                  satisfaction. Quick delivery, a secure shopping environment,
+                  and an easy-to-use website make my shopping experience a
+                  delight. YouGo has become my go-to online store for style,
+                  savings, and reliability. Highly recommended!&quot;
                 </p>
               </div>
-              <div className="w-full md:w-[50%]">
+              <div className="flex-1">
                 <Image src={Lady3} alt={""} />
               </div>
             </div>
 
             <div className="bg-primary rounded-xl">
               <div className="md:flex">
-              <div className="py-20 md:pl-16 px-6 md:px-0 flex-1">
-                <h2 className="text-[30px] md:text-[25px] leading-[40px] md:leading-[40px] text-white font-semibold">
-                  Patronise Our Products
-                </h2>
-                <p className="text-base md:text-sm text-white-1 font-normal mt-3 w-full md:w-[50%]">
-                  From classic elegance to bold and trendy, YouGo has a style
-                  for every fashion-forward individual.
-                </p>
-                <Link href={""}>
-                  <div className="mt-6">
-                    <button className="shadow-2xl bg-gradient-to-r flex justify-center items-center gap-2 font-bold from-primary-1 to-primary round w-full md:w-[160px] h-10 text-white">
-                      Get Started Now
-                    </button>
-                  </div>
-                </Link>
-              </div>
-              <div className="flex-1">
-                <Image src={Ladies} alt={""} className="h-full w-full" />
-              </div>
+                <div className="py-20 md:pl-16 px-6 md:px-0 flex-1">
+                  <h2 className="text-[30px] md:text-[25px] leading-[40px] md:leading-[40px] text-white font-semibold">
+                    Patronise Our Products
+                  </h2>
+                  <p className="text-base md:text-sm text-white-1 font-normal mt-3 w-full md:w-[50%]">
+                    From classic elegance to bold and trendy, YouGo has a style
+                    for every fashion-forward individual.
+                  </p>
+                  <Link href={""}>
+                    <div className="mt-6">
+                      <button className="shadow-2xl bg-gradient-to-r flex justify-center items-center gap-2 font-bold from-primary-1 to-primary round w-full md:w-[160px] h-10 text-white">
+                        Get Started Now
+                      </button>
+                    </div>
+                  </Link>
+                </div>
+                <div className="flex-1">
+                  <Image src={Ladies} alt={""} className="h-full w-full" />
+                </div>
               </div>
             </div>
 

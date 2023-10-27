@@ -1,9 +1,8 @@
 "use client"
-import React, { FC,useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import smallbag from "@/public/assets/bigbag.png";
 import { MdCancelPresentation } from "react-icons/md"
 import Image from 'next/image';
-// import { fetchProducts } from "@/public/app/api/index"
 
 interface iCartCard {
   product: string;

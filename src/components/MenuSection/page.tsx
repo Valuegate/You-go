@@ -26,12 +26,15 @@ const MenuSection = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row gap-12">
-      <div className="lg:w-1/4">
+    // <div className="flex flex-col lg:flex-row gap-12">
+    <div className="flex flex-row flex-wrap justify-between">
+      {/* <div className="lg:w-1/4"> */}
+      <div className="">
         <Sidebar />
       </div>
 
-      <div className="lg:w-3/4">
+      {/* <div className="lg:w-3/4"> */}
+      <div className="">
         <div className="mt-8">
           <div className="flex flex-col lg:flex-row items-center gap-4 mb-3">
             <div>
@@ -122,7 +125,7 @@ const MenuSection = () => {
               Find something that catches your eyes!
             </p>
           </div>
-          <div className="w-full flex flex-col lg:flex-row justify-between gap-6">
+          <div className="w-full flex flex-row flex-wrap lg:flex-row justify-evenly md:justify-between md:gap-0 gap-6">
             <Link href={"../shop/details"}>
               <ItemsCard
                 src="/assets/shoe3.png"
@@ -152,7 +155,7 @@ const MenuSection = () => {
             </Link>
           </div>
 
-          <div className="w-full flex flex-col lg:flex-row justify-between gap-6 mt-8">
+          <div className="w-full flex flex-row flex-wrap lg:flex-row justify-evenly md:justify-between md:gap-0 gap-6 mt-8">
             <Link href={"../shop/details"}>
               <ItemsCard
                 src="/assets/watch2.png"
@@ -177,12 +180,12 @@ const MenuSection = () => {
                 product={"Human Bag"}
                 rating={"(2630)"}
                 amount={5000}
-                width={300}
-                height={300} className={""}              />
+                width={500}
+                height={500} className={""}              />
             </Link>
           </div>
 
-          <div className="w-full flex flex-col lg:flex-row justify-between gap-6 mt-8">
+          <div className="w-full flex flex-row flex-wrap lg:flex-row justify-evenly md:justify-between md:gap-0 gap-6 mt-8">
             <Link href={"../shop/details"}>
               <ItemsCard
                 src="/assets/watch2.png"
@@ -257,7 +260,7 @@ const MenuSection = () => {
                 />
               </div>
             </div>
-            <div className="w-full flex flex-col lg:flex-row justify-between gap-6 mt-4">
+            <div className="w-full flex flex-row flex-wrap justify-evenly md:justify-between md:gap-0 gap-6 mt-4">
               <Link href={"../shop/details"}>
                 <ItemsCard
                   src="/assets/shoe3.png"

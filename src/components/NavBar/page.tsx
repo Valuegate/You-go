@@ -31,14 +31,20 @@ const NavBar: FC<iNavBar> = ({ btnText }) => {
 
         <div className="hidden md:flex md:items-center lg:flex lg:items-center gap-6">
           <span className="bg-primary w-[28px] h-[28px] round flex justify-center items-center">
+            <Link href={"#"}>
             <QuestionmarkIcon />
+          </Link>
           </span>
+          <Link href={"#"}>
           <span className="bg-primary w-[28px] h-[28px] round flex justify-center items-center">
             <LoveIcon color="white" />
           </span>
+          </Link>
+          <Link href={"#"}>
           <span className="bg-primary w-[28px] h-[28px] round flex justify-center items-center">
             <HiShoppingCart className="text-white w-[19px] h-[19px]" />
           </span>
+          </Link>
           <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 typo flex items-center justify-center shadow-xl text-white ">
             {btnText}
           </button>

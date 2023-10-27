@@ -1,13 +1,44 @@
-"use client"
+"use client";
 import NavBar from "@/public/components/NavBar/page";
 import Image from "next/image";
 import Link from "next/link";
 import FlexImg from "@/public/assets/Rectangle22.png";
 import Google from "@/public/assets/Group7.png";
 import PasswordInput from "@/public/components/PasswordInput/PasswordInput";
-import { Form, Formik } from "formik";
+import { Field, Form, Formik } from "formik";
+import useLogin from "@/public/hooks/mutations/useLogin";
+import { signIn } from "next-auth/react";
+import axios from "axios";
+// import { useRouter } from "next/router";
+// import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const Login = () => {
+  // const { login } = useLogin();
+  const router = useRouter();
+  // const searchParams = useSearchParams();
+  // const callbackUrl = searchParams?.get("callbackUrl");
+
+  const handleSubmit = async () => {
+    const values = { email: "ten@mailinator.com", password: "JavaScript2023!" };
+    // console.log("LOGIN RES", values);
+    // return;
+    const res = await signIn("credentials", { ...values, redirect: false });
+    // const res = await axios.post('https://web-production-b1c8.up.railway.app/api/users/login/', {
+    //   ...values
+    // });
+
+    console.log("LOGIN RES", res);
+    if (res?.ok) {
+      // route.push(callbackUrl || "/buyer");
+      router.push("/buyer");
+    }
+    if (res?.error) {
+      console.log("ERROR", res.error);
+    }
+  };
+
+  const searchParams = useSearchParams();
   return (
     <>
       <NavBar btnText={"Signup"} />
@@ -25,18 +56,19 @@ const Login = () => {
               <Formik
                 initialValues={{
                   email: "",
-                  firstName: "",
-                  lastName: "",
                   password: "",
                 }}
                 onSubmit={(values, actions) => {
-                  setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
-                    actions.setSubmitting(false);
-                  }, 1000);
+                  // setTimeout(() => {
+                  //   alert(JSON.stringify(values, null, 2));
+                  //   actions.setSubmitting(false);
+                  // }, 1000);
+                  // console.log("VALUES", values);
+                  // const res =  signIn('credentials', { ...values })
+                  // console.log("LOGIN RES", res);
                 }}
               >
-                {() => (
+                {({ handleChange }) => (
                   <Form>
                     <div className="mb-4">
                       <label htmlFor="email" className="block">
@@ -46,11 +78,26 @@ const Login = () => {
                         type="email"
                         id="email"
                         name="email"
+                        onChange={handleChange}
                         placeholder="mail@email.com"
                         className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full"
                       />
                     </div>
-                    <PasswordInput label={"Password"} />
+
+                    <div className="mb-4">
+                      <label htmlFor="email" className="block">
+                        Password
+                      </label>
+                      <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        onChange={handleChange}
+                        className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full"
+                      />
+                    </div>
+                    {/* <PasswordInput label={"Password"} /> */}
+                    {/* <Field component={PasswordInput} name="password" onChange={handleChange}/> */}
                     <label
                       className="flex items-center justify-center text-[16px] leading-[32px] font-normal text-light-black-5 mb-4 mt-4"
                       htmlFor="remember"
@@ -63,8 +110,18 @@ const Login = () => {
                       Agree to our terms and conditions
                     </label>
                     <div className="mt-4">
+                      {/* <button
+                        type="submit"
+                        onClick={handleSubmit}
+                        className="bg-gradient-to-r from-primary-1 to-primary round w-full h-10 text-white"
+                      >
+                        Register
+                      </button> */}
                       <button
                         type="submit"
+                        onClick={() => {
+                          signIn('google', { callbackUrl: searchParams.get('callbackUrl') || undefined });
+                        }}
                         className="bg-gradient-to-r from-primary-1 to-primary round w-full h-10 text-white"
                       >
                         Register
@@ -115,10 +172,16 @@ const Login = () => {
               Copyright 2023. All right reserved
             </p>
             <div className="flex items-center justify-center mt-3 lg:mt-0 gap-4">
-              <Link href={""} className="paragraph text-[10px] lg:text-[12px] text-primary-1">
+              <Link
+                href={""}
+                className="paragraph text-[10px] lg:text-[12px] text-primary-1"
+              >
                 Terms & Conditions
               </Link>
-              <Link href={""} className="paragraph text-[10px] lg:text-[12px] text-primary-1">
+              <Link
+                href={""}
+                className="paragraph text-[10px] lg:text-[12px] text-primary-1"
+              >
                 Privacy Policy
               </Link>
             </div>
