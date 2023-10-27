@@ -12,10 +12,10 @@ const BuyerSignUp = () => {
       <div className="relative">
       <div className="flex flex-col lg:flex-row">
         <div className="lg:w-[50%] px-4 py-8 lg:pr-24 lg:pl-48 lg:pt-12 lg:overflow-y-scroll lg:h-[87vh]">
-          <h3 className="font-bold text-[24px] lg:text-[31px] leading-[28px] lg:leading-[36px] pb-4 text-primary text-center lg:text-left">
+          <h3 className="font-bold text-[24px] lg:text-[26px] leading-[28px] lg:leading-[36px] pb-4 text-primary text-center">
             Create a New Buyer Account
           </h3>
-          <p className="font-medium text-[14px] lg:text-[16px] leading-[24px] lg:leading-[32px] text-light-black-5 pb-4 text-center lg:text-left">
+          <p className="font-medium text-[14px] lg:text-[16px] leading-[24px] lg:leading-[32px] text-light-black-5 pb-4 text-center">
             Create a new account in seconds
           </p>
           <InputField />

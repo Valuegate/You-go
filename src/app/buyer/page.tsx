@@ -7,8 +7,8 @@ const BuyerDashboard = () => {
   // console.log("SESSION", session.data?.user.email);
   return (
     <>
-      {/* <BuyerDashBoardLayout /> */}
-      <h1>BUYER DASHBOARD</h1>
+      <BuyerDashBoardLayout />
+      {/* <h1>BUYER DASHBOARD</h1> */}
       {/* Current Session {session.data?.user.email} */}
     </>
   );

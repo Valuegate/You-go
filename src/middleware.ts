@@ -9,5 +9,5 @@ export default withAuth({
 });
 
 export const config = {
-  matcher: ['/seller/:path*', '/buyer/:path'],
+  matcher: ['/seller/:path*'],
 };

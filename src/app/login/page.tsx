@@ -82,7 +82,7 @@ const Login = () => {
                       />
                     </div>
 
-                    <div className="mb-4">
+                    {/* <div className="mb-4">
                       <label htmlFor="email" className="block">
                         Password
                       </label>
@@ -93,8 +93,8 @@ const Login = () => {
                         onChange={handleChange}
                         className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full"
                       />
-                    </div>
-                    {/* <PasswordInput label={"Password"} /> */}
+                    </div> */}
+                    <PasswordInput label={"Password"} />
                     {/* <Field component={PasswordInput} name="password" onChange={handleChange}/> */}
                     <label
                       className="flex items-center justify-center text-[16px] leading-[32px] font-normal text-light-black-5 mb-4 mt-4"
