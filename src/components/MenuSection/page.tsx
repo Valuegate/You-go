@@ -129,73 +129,37 @@ const MenuSection = () => {
           </div>
           <div className="w-full flex flex-row flex-wrap lg:flex-row justify-evenly md:justify-between md:gap-0 gap-6">
             <Link href={"../shop/details"}>
-              <ItemsCard
-                width={"300"}
-                height={"300"}
-                className={"shadow-2xl"}
-              />
+            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"€500"} />
             </Link>
             <Link href={"../shop/details"}>
-              <ItemsCard
-                width={"300"}
-                height={"300"}
-                className={"shadow-2xl"}
-              />
+            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"€500"} />
             </Link>
             <Link href={"../shop/details"}>
-              <ItemsCard
-                width={"300"}
-                height={"300"}
-                className={"shadow-2xl"}
-              />
+            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"€500"} />
             </Link>
           </div>
 
           <div className="w-full flex flex-row flex-wrap lg:flex-row justify-evenly md:justify-between md:gap-0 gap-6 mt-8">
             <Link href={"../shop/details"}>
-              <ItemsCard
-                width={"300"}
-                height={"300"}
-                className={"shadow-2xl"}
-              />
+            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"€500"} />
             </Link>
             <Link href={"../shop/details"}>
-              <ItemsCard
-                width={"300"}
-                height={"300"}
-                className={"shadow-2xl"}
-              />
+            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"€500"} />
             </Link>
             <Link href={"../shop/details"}>
-              <ItemsCard
-                width={"300"}
-                height={"300"}
-                className={"shadow-2xl"}
-              />
+            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"€500"} />
             </Link>
           </div>
 
           <div className="w-full flex flex-row flex-wrap lg:flex-row justify-evenly md:justify-between md:gap-0 gap-6 mt-8">
             <Link href={"../shop/details"}>
-              <ItemsCard
-                width={"300"}
-                height={"300"}
-                className={"shadow-2xl"}
-              />
+            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"€500"} />
             </Link>
             <Link href={"../shop/details"}>
-              <ItemsCard
-                width={"300"}
-                height={"300"}
-                className={"shadow-2xl"}
-              />
+            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"€500"} />
             </Link>
             <Link href={"../shop/details"}>
-              <ItemsCard
-                width={"300"}
-                height={"300"}
-                className={"shadow-2xl"}
-              />
+            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"€500"} />
             </Link>
           </div>
 
@@ -248,25 +212,13 @@ const MenuSection = () => {
             </div>
             <div className="w-full flex flex-row flex-wrap justify-evenly md:justify-between md:gap-0 gap-6 mt-4">
               <Link href={"../shop/details"}>
-                <ItemsCard
-                  width={"300"}
-                  height={"300"}
-                  className={"shadow-2xl"}
-                />
+              <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"€500"} />
               </Link>
               <Link href={"../shop/details"}>
-                <ItemsCard
-                  width={"300"}
-                  height={"300"}
-                  className={"shadow-2xl"}
-                />
+              <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"€500"} />
               </Link>
               <Link href={"../shop/details"}>
-                <ItemsCard
-                  width={"300"}
-                  height={"300"}
-                  className={"shadow-2xl"}
-                />
+              <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"€500"} />
               </Link>
             </div>
           </div>

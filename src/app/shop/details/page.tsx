@@ -235,13 +235,13 @@ const ShopDetails = () => {
             </div>
           </div>
           <div className="w-full flex flex-wrap gap-6 pl-6 md:pl-0 mt-4">
-            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} />
+            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/cup.png"} name={"Human Bag"} rating={""} price={"€500"} />
 
-            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} />
+            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/watch.png"} name={"Human Bag"} rating={""} price={"€500"} />
 
-            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} />
+            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"€500"} />
 
-            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} />
+            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"€500"} />
           </div>
         </div>
         <Footer />

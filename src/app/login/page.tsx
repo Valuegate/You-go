@@ -67,11 +67,11 @@ const Login = () => {
             <p className="font-medium text-[14px] lg:text-[16px] leading-[24px] lg:leading-[32px] text-light-black-5 pb-4 text-center lg:text-left">
               Login to your account in seconds
             </p>
-            {isError && (
+            {/* {isError && (
               <p className="text-sm flex justify-center text-primary">
                 {error?.response?.data?.detail as string}
               </p>
-            )}
+            )} */}
 
             <div>
               <Formik
