@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "@/public/assets/yougo_logo.png";
+import logo from "@/public/assets/you_go_logo.png";
 import Image from "next/image";
 import { FaLinkedinIn, FaTwitter, FaFacebookF } from "react-icons/fa";
 import { BiLogoInstagramAlt } from "react-icons/bi";

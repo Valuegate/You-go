@@ -1,3 +1,4 @@
+"use client"
 import Footer from "@/public/components/Footer/page";
 import NavBar from "@/public/components/NavBar/page";
 import Image from "next/image";
@@ -8,7 +9,11 @@ import { MdOutlineLocalPostOffice } from "react-icons/md";
 const Profile = () => {
   return (
     <>
-      <NavBar btnText={"logout"} />
+      <NavBar>
+        <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 typo flex items-center justify-center shadow-xl text-white ">
+          Logout
+        </button>
+      </NavBar>
       <div className="overflow-y-scroll h-[87vh]">
         <div className="h-[100px] md:h-[260px] bg-profile-image"></div>
         <div className="px-4 md:px-48">
@@ -30,9 +35,7 @@ const Profile = () => {
                   </p>
                 </div>
                 <div>
-                  <h2 className="text-primary text-xl font-semibold">
-                  €5,678
-                  </h2>
+                  <h2 className="text-primary text-xl font-semibold">€5,678</h2>
                   <p className="text-light-black-3 font-medium text-base">
                     Spent
                   </p>
@@ -40,7 +43,7 @@ const Profile = () => {
               </div>
 
               <div>
-                <h2 className="text-primary text-2xl font-bold">Benjamin</h2>
+                <h2 className="text-primary text-2xl font-bold">Welcome, Benjamin</h2>
                 <p className="text-light-black-5 font-semibold text-base mb-4">
                   Abuja, Nigeria
                 </p>

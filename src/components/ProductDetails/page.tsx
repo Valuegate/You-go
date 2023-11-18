@@ -42,7 +42,7 @@ const ProductDetails = ({
 
       <div className="flex items-center w-[20%] justify-between">
         <p className="text-sm font-normal">{revenue}</p>
-        <MoreIconComponent />
+        <MoreIconComponent/>
       </div>
     </div>
   );

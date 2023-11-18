@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { SearchIcon } from "@/public/icons";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -6,19 +6,18 @@ import NavBar from "@/public/components/NavBar/page";
 import Image from "next/image";
 import Avatar from "@/public/assets/Ellipse2367.png";
 import Footer from "@/public/components/Footer/page";
-import {
-  MdDashboard,
-  MdNotificationsActive,
-  MdSettings,
-} from "react-icons/md";
+import { MdDashboard, MdNotificationsActive, MdSettings } from "react-icons/md";
 import { BiCart, BiDownload } from "react-icons/bi";
 import Dashboard from "./dashboard/page";
 import Notifications from "./notifications/page";
 import Orders from "./orders/page";
 import Settings from "./settings/page";
+import useFetchUsersProfile from "@/public/hooks/queries/useFetchUsersProfile";
 
 const BuyerDashBoardLayout = () => {
   const [active, setActive] = useState(0);
+
+  const { data: user, isLoading } = useFetchUsersProfile();
 
   const menus = [
     { name: "Dashboard", link: "./dashboard", icon: MdDashboard },
@@ -42,7 +41,11 @@ const BuyerDashBoardLayout = () => {
 
   return (
     <>
-      <NavBar btnText={"Logout"} />
+      <NavBar>
+        <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 typo flex items-center justify-center shadow-xl text-white ">
+          Logout
+        </button>
+      </NavBar>
       <div className="overflow-y-scroll h-[87vh]">
         <div className="flex flex-col md:flex-row bg-white px-4 md:px-24 pb-40">
           <div className="w-full md:w-72 h-auto md:h-[748px] bg-light-black-5 rounded-lg">
@@ -89,25 +92,28 @@ const BuyerDashBoardLayout = () => {
                   />
                 </div>
               </div>
-
-              <div className="">
-                <div className="flex gap-1 items-center">
-                  <div>
-                    <Image src={Avatar} alt={""} />
-                  </div>
-                  <div>
-                    <h5 className="text-primary text-base font-medium">
-                      Benjamin Achan
-                    </h5>
-                    <p className="text-light-black-4 text-sm font-medium">
-                      Seller account
-                    </p>
+              {user && (
+                <div className="">
+                  <div className="flex gap-1 items-center">
+                    <div>
+                      <Image src={Avatar} alt={""} />
+                    </div>
+                    <div>
+                      <h5 className="text-primary text-base font-bold">
+                        Welcome, {user.full_name}
+                      </h5>
+                      <p className="text-light-black-4 text-sm font-medium">
+                        Buyer account
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </nav>
 
-            <div key={active} className="bg-white">{children}</div>
+            <div key={active} className="bg-white">
+              {children}
+            </div>
           </div>
         </div>
         <Footer />

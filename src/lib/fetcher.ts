@@ -6,7 +6,7 @@ export const fetcher = async <T>(
   method: "GET" | "POST" | "PUT" | "PATCH" = "GET",
   data?: any
 ): Promise<AxiosResponse<T>> => {
-  const instance = axiosInstance();
+  const instance = axiosInstance;
   try {
     const response = await instance.request<T>({
       url,

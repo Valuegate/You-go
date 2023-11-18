@@ -4,42 +4,60 @@ import Image from "next/image";
 import Link from "next/link";
 import FlexImg from "@/public/assets/Rectangle22.png";
 import Google from "@/public/assets/Group7.png";
-import PasswordInput from "@/public/components/PasswordInput/PasswordInput";
 import { Field, Form, Formik } from "formik";
-import useLogin from "@/public/hooks/mutations/useLogin";
-import { signIn } from "next-auth/react";
-import axios from "axios";
-// import { useRouter } from "next/router";
-// import { useRouter, useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useMutation } from "react-query";
+import { EyeSlashIcon } from "@/public/icons";
+import useLogin, { TLoginPayload } from "@/public/hooks/mutations/useLogin";
+import { Loader } from "@mantine/core";
 
 const Login = () => {
-  // const { login } = useLogin();
   const router = useRouter();
-  // const searchParams = useSearchParams();
-  // const callbackUrl = searchParams?.get("callbackUrl");
+  // const is_staff: boolean = false;
+  const [credentials, setCredentials] = useState<TLoginPayload>({
+    email: "",
+    password: "",
+    is_staff: false,
+  });
+  const [errorMsg, setErrorMsg] = useState<string>("");
 
-  const handleSubmit = async () => {
-    const values = { email: "ten@mailinator.com", password: "JavaScript2023!" };
-    // console.log("LOGIN RES", values);
-    // return;
-    const res = await signIn("credentials", { ...values, redirect: false });
-    // const res = await axios.post('https://web-production-b1c8.up.railway.app/api/users/login/', {
-    //   ...values
-    // });
+  const { isError, isLoading, isSuccess, login, error, data } = useLogin();
 
-    console.log("LOGIN RES", res);
-    if (res?.ok) {
-      // route.push(callbackUrl || "/buyer");
+  useEffect(() => {
+  if (isSuccess) {
+    // Set token to local storage
+    localStorage.setItem("userToken", data?.access);
+
+    if (data.is_staff) {
+      router.push("/seller");
+    } else {
       router.push("/buyer");
     }
-    if (res?.error) {
-      console.log("ERROR", res.error);
-    }
+  }
+}, [isSuccess, data, router]);
+
+  const handleLogin = () => {
+    login(credentials);
   };
+
+
+  //   router.push("/buyer");
+  // }
+
+  // const handleLogin = () => {
+  //   login(credentials);
+  // };
+
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
     <>
-      <NavBar btnText={"Signup"} />
+      <NavBar>
+        <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 typo flex items-center justify-center shadow-xl text-white ">
+          SignUp
+        </button>
+      </NavBar>
       <div className="relative">
         <div className="flex flex-col lg:flex-row">
           <div className="lg:w-[50%] px-4 pt-4 pb-8 lg:pr-24 lg:pl-48 lg:pt-12 lg:overflow-y-scroll lg:h-[87vh]">
@@ -49,6 +67,11 @@ const Login = () => {
             <p className="font-medium text-[14px] lg:text-[16px] leading-[24px] lg:leading-[32px] text-light-black-5 pb-4 text-center lg:text-left">
               Login to your account in seconds
             </p>
+            {isError && (
+              <p className="text-sm flex justify-center text-primary">
+                {error?.response?.data?.detail as string}
+              </p>
+            )}
 
             <div>
               <Formik
@@ -76,26 +99,51 @@ const Login = () => {
                         type="email"
                         id="email"
                         name="email"
-                        onChange={handleChange}
+                        // onChange={handleChange}
+                        onChange={(e) =>
+                          setCredentials({
+                            ...credentials,
+                            email: e.target.value,
+                          })
+                        }
                         placeholder="mail@email.com"
                         className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full"
                       />
                     </div>
 
-                    {/* <div className="mb-4">
+                    <div className="mb-4">
                       <label htmlFor="email" className="block">
                         Password
                       </label>
-                      <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        onChange={handleChange}
-                        className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full"
-                      />
-                    </div> */}
-                    <PasswordInput label={"Password"} />
-                    {/* <Field component={PasswordInput} name="password" onChange={handleChange}/> */}
+
+                      <div className="relative">
+                        <input
+                          type={showPassword ? "text" : "password"}
+                          id="password"
+                          name="password"
+                          placeholder="Enter password"
+                          onChange={(e) =>
+                            setCredentials({
+                              ...credentials,
+                              password: e.target.value,
+                            })
+                          }
+                          className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full"
+                        />
+                        <button
+                          className="absolute inset-y-0 right-2 flex items-center px-2 cursor-pointer"
+                          onClick={() => setShowPassword(!showPassword)}
+                        >
+                          {showPassword ? (
+                            <span className="w-6 h-6">&#128065;</span> // Unicode for open eye
+                          ) : (
+                            <span>
+                              <EyeSlashIcon />
+                            </span> // Unicode for closed eye
+                          )}
+                        </button>
+                      </div>
+                    </div>
                     <label
                       className="flex items-center justify-center text-[16px] leading-[32px] font-normal text-light-black-5 mb-4 mt-4"
                       htmlFor="remember"
@@ -110,12 +158,19 @@ const Login = () => {
                     <div className="mt-4">
                       <button
                         type="submit"
-                        onClick={handleSubmit}
-                        className="bg-gradient-to-r from-primary-1 to-primary round w-full h-10 text-white"
+                        // onClick={handleSubmit}
+                        onClick={handleLogin}
+                        className="bg-gradient-to-r from-primary-1 to-primary round w-full h-10 text-white flex justify-center items-center"
                       >
-                        Register
+                        {isLoading ? <Loader color="#D4145A" className="flex items-center justify-center" /> : "Login"}
                       </button>
                     </div>
+
+                    {/* {loginMutation.isError && (
+                      <p className="text-red-500 mt-2">
+                        {loginMutation.error.message}
+                      </p>
+                    )} */}
                   </Form>
                 )}
               </Formik>

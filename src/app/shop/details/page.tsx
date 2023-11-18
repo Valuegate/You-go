@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import NavBar from "@/public/components/NavBar/page";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,25 +19,40 @@ const ShopDetails = () => {
   };
 
   const getSizeClass = (size: number) => {
-    return clickedSize === size ? "text-black bg-primary-1" : "text-white bg-primary";
+    return clickedSize === size
+      ? "text-black bg-primary-1"
+      : "text-white bg-primary";
   };
 
   const [num, setNum] = useState(1);
 
   return (
     <>
-      <NavBar btnText={"Logout"} />
+      <NavBar>
+        <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 typo flex items-center justify-center shadow-xl text-white ">
+          Logout
+        </button>
+      </NavBar>
 
       <div className="overflow-y-scroll h-screen md:h-[87vh]">
         <div className="px-6 md:px-24">
           <div className="flex flex-col md:flex-row items-center md:gap-3 mt-8">
-            <Link href="#" className="text-white bg-primary round p-2 font-medium text-[15px] leading-[15px]">
+            <Link
+              href="#"
+              className="text-white bg-primary round p-2 font-medium text-[15px] leading-[15px]"
+            >
               Home &gt;
             </Link>
-            <Link href="#" className="text-white bg-primary round p-2 font-medium text-[15px] leading-[15px]">
+            <Link
+              href="#"
+              className="text-white bg-primary round p-2 font-medium text-[15px] leading-[15px]"
+            >
               Store &gt;
             </Link>
-            <Link href="#" className="text-black bg-primary round p-2 font-medium text-[15px] leading-[15px]">
+            <Link
+              href="#"
+              className="text-black bg-primary round p-2 font-medium text-[15px] leading-[15px]"
+            >
               Human Bag &gt;
             </Link>
           </div>
@@ -56,7 +71,9 @@ const ShopDetails = () => {
             </div>
 
             <div className="w-full md:w-1/2">
-              <h2 className="text-xl text-light-black-4 font-bold">Human Bag</h2>
+              <h2 className="text-xl text-light-black-4 font-bold">
+                Human Bag
+              </h2>
               <div className="flex gap-8 mt-4">
                 <h3 className="text-primary font-bold text-base">
                   Category: <span className="text-light-black-5"> Bags</span>
@@ -65,41 +82,57 @@ const ShopDetails = () => {
                   <div>
                     <Image src={star} alt="Star" />
                   </div>
-                  <span className="text-sm font-bold text-light-black-4">5.0 (213 reviews)</span>
+                  <span className="text-sm font-bold text-light-black-4">
+                    5.0 (213 reviews)
+                  </span>
                 </div>
               </div>
-              <h2 className="text-xl text-light-black-4 font-bold mt-6">Description</h2>
+              <h2 className="text-xl text-light-black-4 font-bold mt-6">
+                Description
+              </h2>
               <p className="text-md text-light-black-4 font-normal mt-4">
-                Product description Product description Product description Product description Product description Product
-                description Product description Product description Product description Product description
+                Product description Product description Product description
+                Product description Product description Product description
+                Product description Product description Product description
+                Product description
               </p>
               <p className="text-md text-light-black-4 font-normal mt-4">
-                Product description Product description Product description Product description Product description Product
-                description Product description Product description Product description Product description
+                Product description Product description Product description
+                Product description Product description Product description
+                Product description Product description Product description
+                Product description
               </p>
 
               <div className="flex flex-col md:flex-row items-center gap-4 mt-4">
                 <div>
-                  <h2 className="font-bold text-sm text-light-black-5">Size:</h2>
+                  <h2 className="font-bold text-sm text-light-black-5">
+                    Size:
+                  </h2>
                 </div>
                 <div className="flex gap-[3px]">
-                  {["small", "Medium", "Large", "Extra Large"].map((size, index) => (
-                    <span
-                      key={index}
-                      className={`w-[${index === 3 ? "100px" : "80px"}] h-[40px] text-base font-medium flex justify-center items-center cursor-pointer ${getSizeClass(
-                        index
-                      )}`}
-                      onClick={() => handleSizeClick(index)}
-                    >
-                      {size}
-                    </span>
-                  ))}
+                  {["small", "Medium", "Large", "Extra Large"].map(
+                    (size, index) => (
+                      <span
+                        key={index}
+                        className={`w-[${
+                          index === 3 ? "100px" : "80px"
+                        }] h-[40px] text-base font-medium flex justify-center items-center cursor-pointer ${getSizeClass(
+                          index
+                        )}`}
+                        onClick={() => handleSizeClick(index)}
+                      >
+                        {size}
+                      </span>
+                    )
+                  )}
                 </div>
               </div>
 
               <div className="flex items-center gap-4 mt-4">
                 <div>
-                  <h2 className="font-bold text-sm text-light-black-5">Color:</h2>
+                  <h2 className="font-bold text-sm text-light-black-5">
+                    Color:
+                  </h2>
                 </div>
                 <div className="flex gap-[5px]">
                   <span className="w-8 h-8 bg-[#2acb74] rounded-full cursor-pointer"></span>
@@ -149,22 +182,43 @@ const ShopDetails = () => {
         </div>
         <div className="mt-24 px-4 md:px-24">
           <div className="flex">
-            <button className="w-1/2 md:w-48 h-12 flex justify-center items-center text-sm text-white font-bold bg-primary">Production Description</button>
-            <button className="w-1/2 md:w-48 h-12 flex justify-center items-center text-sm text-black font-bold bg-white-3">Reviews</button>
+            <button className="w-1/2 md:w-48 h-12 flex justify-center items-center text-sm text-white font-bold bg-primary">
+              Production Description
+            </button>
+            <button className="w-1/2 md:w-48 h-12 flex justify-center items-center text-sm text-black font-bold bg-white-3">
+              Reviews
+            </button>
           </div>
         </div>
         <hr className="border-white-3 h-1" />
         <div className="mt-8 md:w-1/2  px-4 md:pl-24">
-          <p className="font-medium text-base text-light-black-5">Product description Product description Product description Product description Product description Product description Product description Product description Product description Product description Product description.</p>
-          <p className="font-medium text-base text-light-black-5 mt-6">Product description Product description Product description Product description Product description Product description Product description Product description Product description Product description Product description.</p>
-          <p className="font-medium text-base text-light-black-5 mt-6">Product description Product description Product description Product description Product description Product description Product description Product description Product description Product description Product description.</p>
+          <p className="font-medium text-base text-light-black-5">
+            Product description Product description Product description Product
+            description Product description Product description Product
+            description Product description Product description Product
+            description Product description.
+          </p>
+          <p className="font-medium text-base text-light-black-5 mt-6">
+            Product description Product description Product description Product
+            description Product description Product description Product
+            description Product description Product description Product
+            description Product description.
+          </p>
+          <p className="font-medium text-base text-light-black-5 mt-6">
+            Product description Product description Product description Product
+            description Product description Product description Product
+            description Product description Product description Product
+            description Product description.
+          </p>
         </div>
         <div className="mt-16">
           <hr className="border-white-3 h-1" />
         </div>
         <div className="mt-8 mb-32 px-4 md:px-24">
           <div className="flex justify-between items-center">
-            <p className="font-bold text-lg text-light-black-5">Recently Viewed</p>
+            <p className="font-bold text-lg text-light-black-5">
+              Recently Viewed
+            </p>
             <div className="flex">
               <Image
                 src={img2}
@@ -181,34 +235,13 @@ const ShopDetails = () => {
             </div>
           </div>
           <div className="w-full flex flex-wrap gap-6 pl-6 md:pl-0 mt-4">
-            <ItemsCard
-              src="/assets/cup.png"
-              product={"Human Bag"}
-              rating={"(2630)"}
-              amount={5000}
-              width={300}
-              height={300} className={""}            />
-            <ItemsCard
-              src="/assets/watch2.png"
-              product={"Human Bag"}
-              rating={"(2630)"}
-              amount={5000}
-              width={300}
-              height={300} className={""}            />
-            <ItemsCard
-              src="/assets/shoe3.png"
-              product={"Human Bag"}
-              rating={"(2630)"}
-              amount={5000}
-              width={300}
-              height={300} className={""}            />
-            <ItemsCard
-              src="/assets/shoe3.png"
-              product={"Human Bag"}
-              rating={"(2630)"}
-              amount={5000}
-              width={300}
-              height={300} className={""}            />
+            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} />
+
+            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} />
+
+            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} />
+
+            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} />
           </div>
         </div>
         <Footer />

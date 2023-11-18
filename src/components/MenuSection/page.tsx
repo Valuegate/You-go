@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import Sidebar from "../SideBar/page";
 import ItemsCard from "../ItemsCard/page";
@@ -38,15 +38,17 @@ const MenuSection = () => {
         <div className="mt-8">
           <div className="flex flex-col lg:flex-row items-center gap-4 mb-3">
             <div>
-              <h2 className="font-bold text-sm lg:text-base text-light-black-5">Price</h2>
+              <h2 className="font-bold text-sm lg:text-base text-light-black-5">
+                Price
+              </h2>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-[100px] h-[40px] flex justify-center items-center bg-white-3">
-              €5
+                €5
               </span>
               <span>-</span>
               <span className="w-[100px] h-[40px] flex justify-center items-center bg-white-3">
-              €15
+                €15
               </span>
             </div>
           </div>
@@ -128,90 +130,72 @@ const MenuSection = () => {
           <div className="w-full flex flex-row flex-wrap lg:flex-row justify-evenly md:justify-between md:gap-0 gap-6">
             <Link href={"../shop/details"}>
               <ItemsCard
-                src="/assets/shoe3.png"
-                product={"Human Bag"}
-                rating={"(2630)"}
-                amount={5000}
-                width={300}
-                height={300} className={""}              />
+                width={"300"}
+                height={"300"}
+                className={"shadow-2xl"}
+              />
             </Link>
             <Link href={"../shop/details"}>
               <ItemsCard
-                src="/assets/watch2.png"
-                product={"Human Bag"}
-                rating={"(2630)"}
-                amount={5000}
-                width={300}
-                height={300} className={""}              />
+                width={"300"}
+                height={"300"}
+                className={"shadow-2xl"}
+              />
             </Link>
             <Link href={"../shop/details"}>
               <ItemsCard
-                src="/assets/cup.png"
-                product={"Human Bag"}
-                rating={"(2630)"}
-                amount={5000}
-                width={300}
-                height={300} className={""}              />
+                width={"300"}
+                height={"300"}
+                className={"shadow-2xl"}
+              />
             </Link>
           </div>
 
           <div className="w-full flex flex-row flex-wrap lg:flex-row justify-evenly md:justify-between md:gap-0 gap-6 mt-8">
             <Link href={"../shop/details"}>
               <ItemsCard
-                src="/assets/watch2.png"
-                product={"Human Bag"}
-                rating={"(2630)"}
-                amount={5000}
-                width={300}
-                height={300} className={""}              />
+                width={"300"}
+                height={"300"}
+                className={"shadow-2xl"}
+              />
             </Link>
             <Link href={"../shop/details"}>
               <ItemsCard
-                src="/assets/cup.png"
-                product={"Human Bag"}
-                rating={"(2630)"}
-                amount={5000}
-                width={300}
-                height={300} className={""}              />
+                width={"300"}
+                height={"300"}
+                className={"shadow-2xl"}
+              />
             </Link>
             <Link href={"../shop/details"}>
               <ItemsCard
-                src="/assets/shoe3.png"
-                product={"Human Bag"}
-                rating={"(2630)"}
-                amount={5000}
-                width={500}
-                height={500} className={""}              />
+                width={"300"}
+                height={"300"}
+                className={"shadow-2xl"}
+              />
             </Link>
           </div>
 
           <div className="w-full flex flex-row flex-wrap lg:flex-row justify-evenly md:justify-between md:gap-0 gap-6 mt-8">
             <Link href={"../shop/details"}>
               <ItemsCard
-                src="/assets/watch2.png"
-                product={"Human Bag"}
-                rating={"(2630)"}
-                amount={5000}
-                width={300}
-                height={300} className={""}              />
+                width={"300"}
+                height={"300"}
+                className={"shadow-2xl"}
+              />
             </Link>
             <Link href={"../shop/details"}>
               <ItemsCard
-                src="/assets/cup.png"
-                product={"Human Bag"}
-                rating={"(2630)"}
-                amount={5000}
-                width={300}
-                height={300} className={""}              />
+                width={"300"}
+                height={"300"}
+                className={"shadow-2xl"}
+              />
             </Link>
             <Link href={"../shop/details"}>
               <ItemsCard
-                src="/assets/shoe3.png"
-                product={"Human Bag"}
-                rating={"(2630)"}
-                amount={5000}
-                width={300}
-                height={300} className={""}              />
+                width={"300"}
+                height={"300"}
+                className={"shadow-2xl"}
+              />
             </Link>
           </div>
 
@@ -244,7 +228,9 @@ const MenuSection = () => {
 
           <div className="mt-12">
             <div className="flex justify-between items-center">
-              <p className="font-bold text-lg lg:text-xl text-light-black-5">Recently Viewed</p>
+              <p className="font-bold text-lg lg:text-xl text-light-black-5">
+                Recently Viewed
+              </p>
               <div className="flex">
                 <Image
                   src={img2}
@@ -263,30 +249,24 @@ const MenuSection = () => {
             <div className="w-full flex flex-row flex-wrap justify-evenly md:justify-between md:gap-0 gap-6 mt-4">
               <Link href={"../shop/details"}>
                 <ItemsCard
-                  src="/assets/shoe3.png"
-                  product={"Human Bag"}
-                  rating={"(2630)"}
-                  amount={5000}
-                  width={300}
-                  height={300} className={""}                />
+                  width={"300"}
+                  height={"300"}
+                  className={"shadow-2xl"}
+                />
               </Link>
               <Link href={"../shop/details"}>
                 <ItemsCard
-                  src="/assets/watch2.png"
-                  product={"Human Bag"}
-                  rating={"(2630)"}
-                  amount={5000}
-                  width={300}
-                  height={300} className={""}                />
+                  width={"300"}
+                  height={"300"}
+                  className={"shadow-2xl"}
+                />
               </Link>
               <Link href={"../shop/details"}>
                 <ItemsCard
-                  src="/assets/cup.png"
-                  product={"Human Bag"}
-                  rating={"(2630)"}
-                  amount={5000}
-                  width={300}
-                  height={300} className={""}                />
+                  width={"300"}
+                  height={"300"}
+                  className={"shadow-2xl"}
+                />
               </Link>
             </div>
           </div>

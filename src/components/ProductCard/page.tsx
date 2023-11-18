@@ -3,7 +3,7 @@ import Image from "next/image";
 const ProductCard = ({image = "", product = "", category = "", subCategory = "", price = ""}) => {
     return (
         <>
-        <div className="px-2 w-full  rounded-2xl text-light-black-5 bg-white">
+        <div className="px-2 w-full rounded-2xl text-light-black-5 bg-white">
               <div className="flex h-[76px] justify-between items-center">
                 <div className="flex gap-2 items-center">
                     <div>

@@ -47,13 +47,12 @@ const MoreIconComponent = () => {
             aria-orientation="vertical"
             aria-labelledby="options-menu"
           >
-            <Link
-              href="#"
+            <button
               className="block px-4 py-1 text-base leading-8 text-light-black-5 hover:bg-primary hover:text-white hover:rounded"
               role="menuitem"
             >
               Terminate Proposal
-            </Link>
+            </button>
           </div>
         </div>
       )}

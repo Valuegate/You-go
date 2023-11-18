@@ -1,5 +1,5 @@
 "use client"
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import Logo from "../Logo/page";
 import Link from "next/link";
 import { QuestionmarkIcon } from "@/public/icons/questionmark-icon";
@@ -8,10 +8,10 @@ import { HiShoppingCart } from "react-icons/hi";
 import Burger from "./Burger";
 
 interface iNavBar {
-  btnText: string;
+  children: ReactNode;
 }
 
-const NavBar: FC<iNavBar> = ({ btnText }) => {
+const NavBar: FC<iNavBar> = ({ children }) => {
   return (
     <>
       <div className="h-[80px] flex items-center justify-between px-4 lg:px-24 lg:py-3 border-b border-b-white-5 ">
@@ -31,23 +31,18 @@ const NavBar: FC<iNavBar> = ({ btnText }) => {
 
         <div className="hidden md:flex md:items-center lg:flex lg:items-center gap-6">
           <span className="bg-primary w-[28px] h-[28px] round flex justify-center items-center">
-            <Link href={"#"}>
             <QuestionmarkIcon />
-          </Link>
           </span>
-          <Link href={"#"}>
           <span className="bg-primary w-[28px] h-[28px] round flex justify-center items-center">
             <LoveIcon color="white" />
           </span>
-          </Link>
-          <Link href={"#"}>
           <span className="bg-primary w-[28px] h-[28px] round flex justify-center items-center">
             <HiShoppingCart className="text-white w-[19px] h-[19px]" />
           </span>
-          </Link>
-          <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 typo flex items-center justify-center shadow-xl text-white ">
+          <div>{children}</div>
+          {/* <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 typo flex items-center justify-center shadow-xl text-white ">
             {btnText}
-          </button>
+          </button> */}
         </div>
         <Burger />
       </div>

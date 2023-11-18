@@ -1,44 +1,64 @@
-import { AxiosInstance, AxiosResponse } from 'axios';
-import { AUTH_ROUTES } from './routes';
+import { AxiosInstance, AxiosResponse } from "axios";
+import { AUTH_ROUTES, PRODUCT_ROUTES, USERUPDATE_ROUTES, USERREGISTER_ROUTES, USERSPROFILE_ROUTES, USER_ROUTES, USERSELLERREGISTER_ROUTES, USERORDERADD_ROUTES, ORDERCART_ROUTES, USERCREATEPRODUCT_ROUTES, USERSELLERPROFILE_ROUTES } from "./routes";
 
 const createAuth = (client: AxiosInstance) => {
   const login = (body: any) => {
     return client.post(AUTH_ROUTES.LOGIN, body);
   };
 
-  // const getCurrentUser = () => {
-  //   return client.get(AUTH_ROUTES.CURRENT_USER);
-  // };
+  const getCurrentUser = () => {
+    return client.get(USER_ROUTES.USER);
+  };
 
-  // const confirmEmailOtp = (body) => {
-  //   return client.post(AUTH_ROUTES.CONFIRM_EMAIL_OTP, body);
-  // };
+  const getProduct = () => {
+    return client.get(PRODUCT_ROUTES.PRODUCT);
+  };
 
-  // const resetPassword = (body) => {
-  //   return client.post(AUTH_ROUTES.FORGOT_PASSWORD, body);
-  // };
+  const getUsersProfile = () => {
+    return client.get(USERSPROFILE_ROUTES.USERS);
+  };
 
-  // const setNewPassword = (body, token) => {
-  //   return client.put(`${AUTH_ROUTES.RESET_PASSWORD}/${token}`, body);
-  // };
+  const getUserSellerProfile = () => {
+    return client.get(USERSELLERPROFILE_ROUTES.USERSELLER);
+  };
 
-  // const confirmResetPassword = (body) => {
-  //   return client.post(AUTH_ROUTES.CONFIRM_PASSWORD_RESET_OTP, body);
-  // };
+  const userRegister = (body: any) => {
+    return client.post(USERREGISTER_ROUTES.SIGNUP, body);
+  };
 
-  // const resendOtp = (email) => {
-  //   return client.put(AUTH_ROUTES.RESEND_OTP, email);
-  // };
+  const userUserUpdate = (body: any) => {
+    return client.post(USERUPDATE_ROUTES.UPDATE, body);
+  };
+
+  const userSellerRegister = (body: any) => {
+    return client.post(USERSELLERREGISTER_ROUTES.SIGNUP, body);
+  };
+
+  const userOrderAdd = (body: any) => {
+    return client.post(USERORDERADD_ROUTES.ADD, body);
+  };
+
+  const getOrderCart = () => {
+    return client.post(ORDERCART_ROUTES.CART);
+  };
+
+  const userCreateProduct = (body: any) => {
+    return client.post(USERCREATEPRODUCT_ROUTES.CREATE, body);
+  };
 
   return {
     login,
-    // getCurrentUser,
-    // confirmEmailOtp,
-    // resetPassword,
-    // setNewPassword,
-    // confirmResetPassword,
-    // resendOtp,
+    getCurrentUser,
+    getProduct,
+    getUsersProfile,
+    getUserSellerProfile,
+    userRegister,
+    userUserUpdate,
+    userSellerRegister,
+    userOrderAdd,
+    getOrderCart,
+    userCreateProduct,
   };
 };
 
-export default createAuth;
+export default createAuth;

@@ -1,11 +1,46 @@
 /* eslint-disable no-unused-vars */
 //Authentication
 export enum AUTH_ROUTES {
-  LOGIN = '/users/login',
-  // CURRENT_USER = '/auth/me',
-  // CONFIRM_EMAIL_OTP = '/auth/confirm-email',
-  // FORGOT_PASSWORD = '/auth/forgot-password',
-  // CONFIRM_PASSWORD_RESET_OTP = '/auth/confirm-reset-password-otp',
-  // RESET_PASSWORD = '/auth/reset-password',
-  // RESEND_OTP = '/auth/send-email-otp',
+  LOGIN = '/users/login/',
+}
+
+export enum USER_ROUTES {
+  USER = '/users/'
+}
+
+export enum PRODUCT_ROUTES {
+  PRODUCT = '/products/'
+}
+
+export enum USERSPROFILE_ROUTES {
+    USERS = '/users/profile'
+}
+
+export enum USERSELLERPROFILE_ROUTES {
+  USERSELLER = '/users/sprofile'
+}
+
+
+export enum USERREGISTER_ROUTES {
+  SIGNUP = '/users/register/',
+}
+
+export enum USERUPDATE_ROUTES {
+  UPDATE = '/user/update/',
+}
+
+export enum USERSELLERREGISTER_ROUTES {
+  SIGNUP = '/users/sellerregister/',
+}
+
+export enum USERORDERADD_ROUTES {
+  ADD = '/orders/add/',
+}
+
+export enum ORDERCART_ROUTES {
+  CART = '/orders/myorders',
+}
+
+export enum USERCREATEPRODUCT_ROUTES {
+  CREATE = '/products/create/',
 }

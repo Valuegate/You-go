@@ -3,7 +3,7 @@ import Footer from "@/public/components/Footer/page";
 import NavBar from "@/public/components/NavBar/page";
 import Image from "next/image";
 // import FlexImg from "@/public/assets/Frame 36180.png";
-import FlexImg from "../../assets/Frame36180.png";
+import FlexImg from "@/public/assets/fleximg.png";
 import { HiShoppingCart } from "react-icons/hi";
 import Lady from "@/public/assets/image3.png";
 import Saving from "@/public/assets/Frame36172.png";
@@ -17,36 +17,18 @@ import Lady2 from "@/public/assets/image2.png";
 import Lady3 from "@/public/assets/image1.png";
 import Link from "next/link";
 import Ladies from "@/public/assets/Frame36189.png";
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Product } from "@/public/types/product";
+import React from "react";
 
 const HomePage = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const response = await fetch(
-          "https://web-production-b1c8.up.railway.app/api/products"
-        );
-        if (response.ok) {
-          const data = await response.json();
-          setProducts(data);
-        }
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    }
-
-    fetchProducts();
-  }, []);
-
   return (
     <>
-      <Link href={"/signupselect"}>
-        <NavBar btnText={"Login"} />
-      </Link>
+      <NavBar>
+        <Link href={"/signupselect"}>
+          <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 typo flex items-center justify-center shadow-xl text-white ">
+            Login
+          </button>
+        </Link>
+      </NavBar>
       <div className="overflow-y-scroll h-screen md:h-[87vh]">
         <div className="px-6 md:px-24">
           <div className="flex flex-col-reverse md:flex-row mt-16">
@@ -55,7 +37,7 @@ const HomePage = () => {
                 <p className="text-base text-primary font-normal mb-2">
                   WELCOME TO SHOPPING MODE!
                 </p>
-                <h1 className="text-[40px] md:text-[50px] leading-[48px] md:leading-[62px] text-black font-extrabold w-full">
+                <h1 className="text-[40px] md:text-[55px] leading-[48px] md:leading-[62px] text-black font-extrabold w-full">
                   Join the Shopping{" "}
                   <span className="text-primary">Revolution</span> with YouGo
                 </h1>
@@ -179,58 +161,66 @@ const HomePage = () => {
             </div>
 
             <div className="w-full overflow-y-hidden flex flex-col lg:flex-row justify-between gap-6 mt-6">
-              {/* {products.map((product) => (
+            <ItemsCard
+                name={"Human Watch"}
+                image={"/assets/watch2.png"}
+                rating={"(2,630)"}
+                price={"5,000"}
+                width={"300"}
+                height={"300"}
+                className={"shadow-2xl"} 
+              />
+
+              <ItemsCard
+                name={"Cup"}
+                image={"/assets/cup.png"}
+                rating={"(2,630)"}
+                price={"5,000"}
+                width={"300"}
+                height={"300"}
+                className={"shadow-2xl"}
+              />
                 <ItemsCard
-                  key={product._id}
-                  product={product}
-                  src={""}
-                  rating={""}
-                  amount={""}
-                  width={"300"}
-                  height={"300"}
-                  className={"shadow-2xl"}
-                />
-              ))} */}
-
-              <ItemsCard
-                product={"Human Bag"}
-                src={"/assets/shoe3.png"}
+                name={"Human Bag"}
+                image={"/assets/bigbag.png"}
                 rating={"(2,630)"}
-                amount={"5,000"}
+                price={"5,000"}
                 width={"300"}
                 height={"300"}
                 className={"shadow-2xl"}
               />
 
               <ItemsCard
-                product={"Human Bag"}
-                src={"/assets/watch2.png"}
+                name={"Human Shoe"}
+                image={"/assets/shoe1.png"}
                 rating={"(2,630)"}
-                amount={"5,000"}
+                price={"5,000"}
                 width={"300"}
                 height={"300"}
                 className={"shadow-2xl"}
               />
 
               <ItemsCard
-                product={"Human Bag"}
-                src={"/assets/cup.png"}
+                name={"Human Watch"}
+                image={"/assets/watch2.png"}
                 rating={"(2,630)"}
-                amount={"5,000"}
+                price={"5,000"}
+                width={"300"}
+                height={"300"}
+                className={"shadow-2xl"}
+              />
+
+              {/* <ItemsCard
                 width={"300"}
                 height={"300"}
                 className={"shadow-2xl"}
               />
 
               <ItemsCard
-                product={"Human Bag"}
-                src={"/assets/shoe3.png"}
-                rating={"(2,630)"}
-                amount={"5,000"}
                 width={"300"}
                 height={"300"}
                 className={"shadow-2xl"}
-              />
+              /> */}
             </div>
 
             <div className="mt-10 flex justify-center">

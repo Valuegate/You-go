@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import RightNav from './RightNav';
+import Link from 'next/link';
 
 const Burger = () => {
   const [open, setOpen] = useState(false);
@@ -28,7 +29,13 @@ const Burger = () => {
           } transition-transform duration-300`}
         ></div>
       </div>
-      <RightNav open={open} btnText={'Logout'} />
+      <RightNav open={open} btnText={'Logout'}>
+      <Link href={"/signupselect"}>
+      <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 typo flex items-center justify-center shadow-xl text-white">
+          Login
+        </button>
+        </Link>
+      </RightNav>
     </>
   );
 };

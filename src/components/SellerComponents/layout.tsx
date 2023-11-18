@@ -24,10 +24,14 @@ import Customers from "./customers";
 import Notifications from "./notifications";
 import Settings from "./settings";
 import Messages from "./message";
+import useFetchUsersSProfile from "@/public/hooks/queries/useFetchUserSellerProfile";
+import useFetchUserSellerProfile from "@/public/hooks/queries/useFetchUserSellerProfile";
 
 
 const SellerDashBoardLayout = () => {
   const [active, setActive] = useState(0);
+
+  const { data: user, isLoading } = useFetchUserSellerProfile();
 
   const menus = [
     { name: "Dashboard", icon: MdDashboard },
@@ -54,11 +58,15 @@ const SellerDashBoardLayout = () => {
 
   return (
     <>
-      <NavBar btnText={"Logout"} />
+      <NavBar>
+        <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 typo flex items-center justify-center shadow-xl text-white ">
+          Logout
+        </button>
+      </NavBar>
       <div className="overflow-y-scroll h-[90vh]">
-        <div className="flex gap-4 bg-white px-24 pb-40">
-          <div className="w-72 h-[748px] bg-light-black-5 rounded-lg ">
-            <div className="mt-20 round">
+        <div className="flex gap-4 flex-col md:flex-row bg-white px-4 md:px-24 pb-40">
+          <div className="w-full md:w-72 h-auto md:h-[748px] bg-light-black-5 rounded-lg ">
+            <div className="mt-8 mb-8 md:mb-0 md:mt-20 round">
               <div className="px-4 flex flex-col gap-1 bg-white py-4 mx-4 round">
                 {menus?.map((menu, i) => (
                   <div
@@ -87,8 +95,8 @@ const SellerDashBoardLayout = () => {
               </div>
             </div>
           </div>
-          <div className="w-full bg-white">
-            <nav className="flex justify-between items-center py-6">
+          <div className="md:pl-4 w-full bg-white">
+            <nav className="flex flex-col md:flex-row gap-3 md:gap-0 justify-between items-center py-4 md:py-6">
               
               <div className="flex justify-center items-center">
                 <div className="relative flex items-center">
@@ -98,19 +106,19 @@ const SellerDashBoardLayout = () => {
                   <input
                     type="text"
                     placeholder="Search"
-                    className="search w-[500px] py-2 pl-10 pr-4 border-none bg-white-1 rounded focus:ring-none focus:border-none"
+                    className="search w-full md:w-[500px] py-2 pl-10 pr-4 border-none bg-white-1 rounded focus:ring-none focus:border-none"
                   />
                 </div>
               </div>
-
+              {user && (
               <div className="">
                 <div className="flex gap-1 items-center">
                   <div>
                     <Image src={Avatar} alt={""} />
                   </div>
                   <div>
-                    <h5 className="text-primary text-base font-medium">
-                      Benjamin Achan
+                    <h5 className="text-primary text-base font-bold">
+                    Welcome, {user.full_name}
                     </h5>
                     <p className="text-light-black-4 text-sm font-medium">
                       Seller account
@@ -118,6 +126,7 @@ const SellerDashBoardLayout = () => {
                   </div>
                 </div>
               </div>
+              )}
 
 
             </nav>

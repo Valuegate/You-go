@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaCaretDown } from 'react-icons/fa';
-import AddItem from '../AddItem/page';
+import AddItem from '../AddItem';
 import ProductDetails from '../ProductDetails/page';
 
 const Products = () => {
@@ -25,24 +25,6 @@ const Products = () => {
       revenue: "€2,160",
     },
 
-    {
-      image: "/assets/bigbag.png",
-      name: "Product",
-      category: "Category",
-      price: "€24",
-      stock: 220,
-      sold: 90,
-      revenue: "€2,160",
-    },
-    {
-      image: "/assets/bigbag.png",
-      name: "Product",
-      category: "Category",
-      price: "€24",
-      stock: 220,
-      sold: 90,
-      revenue: "€2,160",
-    },
     {
       image: "/assets/bigbag.png",
       name: "Product",
@@ -122,28 +104,25 @@ const Products = () => {
           <div className="flex flex-col gap-4">
             {products.map((product, i) => {
               return (
-                <ProductDetails key={i} 
+                <ProductDetails key={i}
                 name={product.name}
                 category={product.category}
                 image={product.image}
                 price={product.price}
                 revenue={product.revenue}
                 sold={product.sold}
-                stock={product.stock}
-                
+                stock={product.stock}              
                 />
               );
             })}
           </div>
 
-          <div className="flex justify-between items-center mt-5 relative">
+          {/* <div className="flex justify-between items-center mt-5 relative">
             <div className="border-2 border-black rounded-md py-2 px-3 flex items-center gap-2 cursor-pointer">
               Show: 10
               <FaCaretDown />
             </div>
-
-            <div>There</div>
-          </div>
+          </div> */}
         </div>
       </div>
     
