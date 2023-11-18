@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Formik } from "formik";
 import PasswordInput from "@/public/components/PasswordInput/PasswordInput";
 import NavBar from "@/public/components/NavBar/page";
@@ -24,20 +24,28 @@ const SellerSignUp = () => {
     social_business_bio: "",
     website: "",
     short_business_bio: "",
+    is_staff: true,
   });
   const [errorMsg, setErrorMsg] = useState<string>("");
 
   const { isError, isLoading, isSuccess, Signup, error, data } =
     useUserSellerRegister();
 
-  if (isSuccess) {
-    router.push("/seller");
+  
+useEffect(() => {
+  if (isError) {
+    setErrorMsg("An error occurred during signup. Please try again.");
   }
+}, [isError]);
 
-  const handleSignup = () => {
-    // console.log("Credentials", credentials);
-    Signup(credentials);
-  };
+if (isSuccess) {
+  router.push("/seller");
+}
+
+const handleSignup = () => {
+  setErrorMsg(""); // Clear previous error message
+  Signup(credentials);
+};
 
   const [showPassword, setShowPassword] = useState(false);
   return (

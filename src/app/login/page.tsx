@@ -78,6 +78,7 @@ const Login = () => {
                 initialValues={{
                   email: "",
                   password: "",
+                  is_staff: Boolean,
                 }}
                 onSubmit={(values, actions) => {
                   // setTimeout(() => {
@@ -179,7 +180,7 @@ const Login = () => {
               <h1 className="text-center lg:text-left font-medium text-[12px] lg:text-lg">
                 You do not have an account?
               </h1>
-              <Link href="../signup">
+              <Link href="#">
                 <h1 className="text-center lg:text-left font-semibold text-[12px] lg:text-lg text-primary">
                   Signup
                 </h1>

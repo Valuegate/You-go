@@ -3,13 +3,14 @@ import { USERREGISTER_ROUTES } from "@/public/services/routes";
 import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 
-export type TSignupPayload = { email: string; password: string; phone_number: string; full_name: string;  };
+export type TSignupPayload = { email: string; password: string; phone_number: string; full_name: string; is_staff: false;  };
 
 interface iDataResponse {
     email : string;
     phone_number : number | string;
     full_name: string;
     password: string;
+    is_staff: false;
 }
 
 const useUserRegister = () => {

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { Form, Formik } from "formik";
 import PasswordInput from "../PasswordInput/PasswordInput";
 // import useUserRegister, {
@@ -17,21 +17,27 @@ const InputField = () => {
     email: "",
     password: "",
     phone_number: "",
+    is_staff: false,
   });
   const [errorMsg, setErrorMsg] = useState<string>("");
 
   const { isError, isLoading, isSuccess, Signup, error, data } =
     useUserRegister();
 
-  if (isSuccess) {
-
-    router.push("/buyer");
-  }
-
-  const handleSignup = () => {
-    // console.log("Credentials", credentials);
-    Signup(credentials);
-  };
+    useEffect(() => {
+      if (isError) {
+        setErrorMsg("An error occurred during signup. Please try again.");
+      }
+    }, [isError]);
+    
+    if (isSuccess) {
+      router.push("/buyer");
+    }
+    
+    const handleSignup = () => {
+      setErrorMsg(""); // Clear previous error message
+      Signup(credentials);
+    };
 
   const [showPassword, setShowPassword] = useState(false);
 
