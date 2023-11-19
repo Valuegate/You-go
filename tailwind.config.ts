@@ -7,7 +7,9 @@ module.exports = {
   ],
   theme: {
     screens: {
-      sm: "640px",
+      sm: {
+        max: "640px",
+      },
       // => @media (min-width: 640px) { ... }
 
       md: "768px",
@@ -66,6 +68,11 @@ module.exports = {
       "light-yellow-2": "#DE7C32",
       "light-yellow-3": "#FFE9E9",
       danger: "#FF0000",
+      weirdBrown: "#A90041",
+      darkBrownGradient: "#F8B99F",
+      lightBrownGradient: "#FDD5D8",
+      deepBrownGradient: "#D28E8D",
+      purpleBrown: "#DD7385"
     },
     fontFamily: {
       sans: ["Graphik", "sans-serif"],

@@ -26,6 +26,7 @@
     "eslint-config-next": "13.4.19",
     "faker": "^5.5.3",
     "formik": "^2.4.4",
+    "framer-motion": "^10.16.5",
     "ionicons": "^7.1.2",
     "next": "13.4.19",
     "next-auth": "^4.24.3",
