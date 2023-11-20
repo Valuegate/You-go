@@ -125,14 +125,14 @@ const HomePage = () => {
                 </div>
                 <p className="text-base sm:text-center text-light-black-3 font-normal mt-4">
                   We believe that every woman deserves to feel confident,
-                  stylish and empowered. That&apos;s why we offer a wide range of
-                  products that cater to different tastes, preferences and
+                  stylish and empowered. That&apos;s why we offer a wide range
+                  of products that cater to different tastes, preferences and
                   budgets.
                 </p>
                 <p className="text-base sm:text-center text-light-black-3 font-normal mt-4">
-                  Whether you&apos;re looking for trendy clothing, comfortable shoes,
-                  stylish accessories, or beauty products that will help you
-                  look and feel your best, we&apos;ve got your covered.
+                  Whether you&apos;re looking for trendy clothing, comfortable
+                  shoes, stylish accessories, or beauty products that will help
+                  you look and feel your best, we&apos;ve got your covered.
                 </p>
                 <div className="mt-6 sm:mt-10">
                   <motion.button
@@ -154,14 +154,31 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-            <div className="flex-1 sm:mt-12">
+            <motion.div
+              className="flex-1 sm:mt-12"
+              animate={{
+                x: ["0%", "10%", "0%"],
+                transition: {
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                },
+              }}
+              whileHover={{
+                scale: 1.05,
+              }}
+            >
               <a
                 href="https://pngtree.com/freepng/pregnant-woman-shopping-clipart_5817262.html"
                 target="__blank"
               >
-                <Image src={FlexImg} alt={""} className="w-[60vw] h-auto sm:w-full"/>
+                <Image
+                  src={FlexImg}
+                  alt={""}
+                  className="w-[50vw] h-auto sm:w-full"
+                />
               </a>
-            </div>
+            </motion.div>
           </div>
 
           <div className="flex justify-center items-center flex-col mt-32 sm:mt-24">
