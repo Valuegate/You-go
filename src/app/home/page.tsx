@@ -134,14 +134,14 @@ const HomePage = () => {
                 </div>
                 <p className="text-base sm:text-center text-light-black-3 font-normal mt-4">
                   We believe that every woman deserves to feel confident,
-                  stylish and empowered. That's why we offer a wide range of
+                  stylish and empowered. That&apos;s why we offer a wide range of
                   products that cater to different tastes, preferences and
                   budgets.
                 </p>
                 <p className="text-base sm:text-center text-light-black-3 font-normal mt-4">
-                  Whether you're looking for trendy clothing, comfortable shoes,
+                  Whether you&apos;re looking for trendy clothing, comfortable shoes,
                   stylish accessories, or beauty products that will help you
-                  look and feel your best, we've got your covered.
+                  look and feel your best, we&apos;ve got your covered.
                 </p>
                 <div className="mt-6 sm:mt-10">
                   <motion.button

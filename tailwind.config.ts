@@ -75,8 +75,7 @@ module.exports = {
       purpleBrown: "#DD7385"
     },
     fontFamily: {
-      sans: ["Graphik", "sans-serif"],
-      serif: ["Merriweather", "serif"],
+      body: ["Roboto"]
     },
     // extend: {
     //   spacing: {
