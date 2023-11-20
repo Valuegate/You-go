@@ -1,11 +1,16 @@
 "use client";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 import Providers from "./providers";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Roboto({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-poppins",
+  weight: ["100", "300", "400", "500", "700", "900"],
+});
 
 const queryClient = new QueryClient();
 

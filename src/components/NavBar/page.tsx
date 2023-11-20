@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { FC, ReactNode } from "react";
 import Logo from "../Logo/page";
 import Link from "next/link";
@@ -7,6 +7,8 @@ import { LoveIcon } from "@/public/icons";
 import { HiShoppingCart } from "react-icons/hi";
 import Burger from "./Burger";
 
+import { motion } from "framer-motion";
+
 interface iNavBar {
   children: ReactNode;
 }
@@ -14,40 +16,86 @@ interface iNavBar {
 const NavBar: FC<iNavBar> = ({ children }) => {
   return (
     <>
-      <div className="h-[80px] flex items-center justify-between px-4 lg:px-24 lg:py-3 border-b border-b-white-5 ">
-        <div>
+      <div className="h-[80px] sm:h-[50px] flex items-center justify-between px-4 lg:px-[5%] lg:py-3 shadow-sm">
+        <div className="flex items-center justify-between w-1/3">
           <Link href={"/home"}>
             <Logo />
           </Link>
+
+          <input
+            type="text"
+            placeholder="Search"
+            className="border-weirdBrown border-2 px-3 h-[45px] w-[300px] sm:w-[200px] focus:outline-none rounded-[22.5px] focus:border-weirdBrown"
+          />
         </div>
-        <div className="hidden md:flex md:items-center lg:flex lg:items-center gap-4">
+        <div className="hidden md:flex md:items-center lg:flex lg:items-center justify-between w-1/2">
           <Link href={"/home"}>
-            <h5 className="typo text-light-black-5">Home</h5>
+            <motion.h5
+              whileHover={{
+                scale: 1.1,
+              }}
+              className="text-weirdBrown text-[20px] font-medium"
+            >
+              Home
+            </motion.h5>
+          </Link>
+          <Link href={"/"}>
+            <motion.h5
+              whileHover={{
+                scale: 1.1,
+              }}
+              className="text-weirdBrown text-[20px] font-medium"
+            >
+              About Us
+            </motion.h5>
+          </Link>
+          <Link href={"/"}>
+            <motion.h5
+              whileHover={{
+                scale: 1.1,
+              }}
+              className="text-weirdBrown text-[20px] font-medium"
+            >
+              Products
+            </motion.h5>
           </Link>
           <Link href={"/shop"}>
-            <h5 className="typo text-light-black-5">Shop</h5>
+            <motion.h5
+              whileHover={{
+                scale: 1.1,
+              }}
+              className="text-weirdBrown text-[20px] font-medium"
+            >
+              Shop
+            </motion.h5>
+          </Link>
+          <Link href={"/"}>
+            <motion.h5
+              whileHover={{
+                scale: 1.1,
+              }}
+              className="text-weirdBrown text-[20px] font-medium"
+            >
+              Cart
+            </motion.h5>
+          </Link>
+          <Link href={"/shop"}>
+            <motion.h5
+              whileHover={{
+                scale: 1.1,
+              }}
+              className="text-weirdBrown text-[20px] font-medium"
+            >
+              Contact Us
+            </motion.h5>
           </Link>
         </div>
-
-        <div className="hidden md:flex md:items-center lg:flex lg:items-center gap-6">
-          <span className="bg-primary w-[28px] h-[28px] round flex justify-center items-center">
-            <QuestionmarkIcon />
-          </span>
-          <span className="bg-primary w-[28px] h-[28px] round flex justify-center items-center">
-            <LoveIcon color="white" />
-          </span>
-          <span className="bg-primary w-[28px] h-[28px] round flex justify-center items-center">
-            <HiShoppingCart className="text-white w-[19px] h-[19px]" />
-          </span>
-          <div>{children}</div>
-          {/* <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 typo flex items-center justify-center shadow-xl text-white ">
-            {btnText}
-          </button> */}
+        <div className="hidden sm:block md:block">
+          <Burger />
         </div>
-        <Burger />
       </div>
     </>
   );
-}
+};
 
 export default NavBar;
