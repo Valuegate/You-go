@@ -1,45 +1,59 @@
 import Logo from "@/public/components/Logo/page";
 import Image from "next/image";
 import Link from "next/link";
-import BgImg from "@/public/assets/Rectangle23.png"
-import Group from "@/public/assets/Group3993.png"
+import BgImg from "@/public/assets/Rectangle23.png";
+import Group from "@/public/assets/Group3993.png";
 
 const SignupSelect = () => {
-    return (
-        <>
-        <div className="px-4 md:px-24 py-2 bg-light-black-4">
-            <div className="flex justify-between items-center">
-                <div>
-                    <Logo />
-                </div>
-                <Link href={"./login"}>
-                <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 typo flex items-center justify-center shadow-xl text-white ">Login
-          </button>
-                </Link>
-            </div>
+  return (
+    <>
+      <div className="flex">
+        <div className="sm:hidden md:hidden lg:block w-[50%] h-[100vh]">
+          <Image
+            src={BgImg}
+            alt={"woman"}
+            className="h-[100vh] w-full object-cover"
+          />
         </div>
-        <div className="bg-cover bg-center h-screen relative">
-      <Image src={BgImg} alt={""} className="absolute inset-0 w-full h-full object-cover opacity-50"/>
-      <div className="flex relative top-32 flex-col gap-4 items-center justify-center">
-        <Image src={Group} alt={""} />
-        <h2 className="text-white text-3xl font-bold w-full md:w-[30%] text-center">Welcome to YouGo Ecommerce</h2>
-        <p className="text-white text-xl font-medium">Sign-up as;</p>
-        <div className="flex items-center gap-4">
-        <Link href={"./buyersignup"}>
-                <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 typo flex items-center justify-center shadow-xl text-white ">A Buyer
-          </button>
-                </Link>
-                <div className="text-white text-base font-semibold">OR</div>
-                <Link href={"./sellersignup"}>
-                <button className="border-white border-[3px] round px-6 py-2 typo flex items-center justify-center text-white ">A Seller
-          </button>
-                </Link> 
-
+        <div className="w-[50%] px-[5%] flex flex-col justify-center sm:w-full sm:mt-32">
+          <h3 className="font-bold text-[32px] sm:text-[36px] sm:leading-[28px] leading-[36px] text-weirdBrown sm:text-center">
+            Welcome Back
+          </h3>
+          <p className="font-medium text-[14px] lg:text-[16px] leading-[24px] lg:leading-[32px] text-light-black-5 pb-4 text-center lg:text-left">
+            How will you be signing up to YouGo?
+          </p>
+          <div className="flex justify-around items-center gap-10 mt-32">
+            <Link href={"./buyersignup"}>
+            <div className="w-[250px] bg-white-1 hover:bg-gradient-to-r hover:from-darkBrownGradient hover:to-lightBrownGradient hpver:border-2 hover:border-primary-1 text-center shadow-2xl rounded-2xl h-[300px] flex flex-col ">
+                <p className="mt-5 text-[26px] font-bold text-weirdBrown px-5 text-center">
+                  Buyer
+                </p>
+                <p className="px-[5%] mt-8 font-normal text-[16px]">
+                  YouGo provides a seamless shopping experience, allowing you to
+                  effortlessly browse a vast array of products, easily locate
+                  what you desire, and enjoy a streamlined checkout process.
+                </p>
+              </div>
+            </Link>
+            <p className="text-weirdBrown text-4xl font-semibold">OR</p>
+            <Link href={"./sellersignup"}>
+              <div className="w-[250px] bg-white-1 hover:bg-gradient-to-r hover:from-darkBrownGradient hover:to-lightBrownGradient hpver:border-2 hover:border-primary-1 text-center shadow-2xl rounded-2xl h-[300px] flex flex-col ">
+                <p className="mt-5 text-[26px] font-bold text-weirdBrown px-5 text-center">
+                  Seller
+                </p>
+                <p className="px-[5%] mt-8 font-normal text-[16px]">
+                  YouGo empowers you with intuitive tools to showcase your
+                  products, manage inventory efficiently, and connect with a
+                  broad audience, ensurring a user-friendly experience for both
+                  buyers and sellers alike.
+                </p>
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
-        </>
-    );
+    </>
+  );
 };
 
 export default SignupSelect;

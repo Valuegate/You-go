@@ -22,9 +22,6 @@ const Footer = () => {
             <Link className="text-purpleBrown text-[18px] sm:text-[16px]" href={"/"}>
               Cart
             </Link>
-            <Link className="text-purpleBrown text-[18px] sm:text-[16px]" href={"/"}>
-              About Us
-            </Link>
           </div>
         </div>
         <Image src={logo} alt="logo" className="w-[20vw] h-auto object-cover sm:hidden" />
