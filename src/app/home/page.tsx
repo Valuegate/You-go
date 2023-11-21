@@ -2,13 +2,20 @@
 import Footer from "@/public/components/Footer/page";
 import NavBar from "@/public/components/NavBar/page";
 import Image from "next/image";
-import FlexImg from "@/public/assets/Pregnant_Woman.png";
+import FlexImg from "@/public/assets/Fashion_Women.png";
 import { HiShoppingCart } from "react-icons/hi";
 import Lady from "@/public/assets/image3.png";
 import Cart from "@/public/assets/Frame36172(1).png";
 import Lady3 from "@/public/assets/image1.png";
 import Link from "next/link";
 import React from "react";
+
+import Money from "@/public/assets/Vector.svg";
+import Security from "@/public/assets/Group 4011.svg";
+import Car from "@/public/assets/Group 4013.svg";
+import User from "@/public/assets/Group 4012.svg";
+import Fancy from "@/public/assets/Rectangle 138.svg";
+import Arrow from "@/public/assets/Arrow.svg";
 
 import { motion } from "framer-motion";
 
@@ -18,25 +25,25 @@ const HomePage = () => {
       title: "Money Saving",
       content:
         "We offer great deals and discounts on a regular basis, so you can save your money while still looking and feeling great.",
-      image: Cart,
+      image: Money,
     },
     {
       title: "Secure Shopping",
       content:
         "We take extra measures to ensure that your shopping experience with us is secure and worry-free.",
-      image: Cart,
+      image: Security,
     },
     {
       title: "Fast Delivery",
       content:
         "We provide fast and reliable delivery options to get your products to you in no time.",
-      image: Cart,
+      image: Car,
     },
     {
       title: "User friendly",
       content:
         "Our easy-to-navigate interface makes finding your favorite products or making pruchases a breeze.",
-      image: Cart,
+      image: User,
     },
   ];
 
@@ -157,7 +164,7 @@ const HomePage = () => {
             <motion.div
               className="flex-1 sm:mt-12"
               animate={{
-                x: ["0%", "10%", "0%"],
+                x: ["0%", "-10%", "0%"],
                 transition: {
                   duration: 3,
                   repeat: Infinity,
@@ -168,20 +175,17 @@ const HomePage = () => {
                 scale: 1.05,
               }}
             >
-              <a
-                href="https://pngtree.com/freepng/pregnant-woman-shopping-clipart_5817262.html"
-                target="__blank"
-              >
-                <Image
+              <Image
                   src={FlexImg}
                   alt={""}
                   className="w-[50vw] h-auto sm:w-full"
                 />
-              </a>
             </motion.div>
           </div>
 
-          <div className="flex justify-center items-center flex-col mt-32 sm:mt-24">
+          <div className="flex justify-center items-center flex-col mt-32 sm:mt-24 relative">
+          <Image src={Fancy} alt="" className="absolute -left-[12%] sm:-left-[50%] sm:-top-10 -z-10 top-0 w-[300px] h-[300px]"/>
+
             <p className="text-lg text-light-black-4 font-semibold mb-2">
               WHY US?
             </p>
@@ -216,7 +220,7 @@ const HomePage = () => {
                   <Image
                     src={reason.image}
                     alt="reason image"
-                    className="w-[50px] h-[50px]"
+                    className="w-[75px] h-[75px]"
                   />
                   <p className="text-weirdBrown font-[600] text-xl mt-2">
                     {reason.title}
@@ -229,7 +233,7 @@ const HomePage = () => {
             })}
           </div>
 
-          <div className="w-full flex-col items-center flex mt-24">
+          <div className="w-full flex-col items-center flex mt-24 relative">
             <p className="text-lg text-light-black-4 font-semibold mb-2">
               INTERESTED IN MORE?
             </p>
@@ -237,6 +241,8 @@ const HomePage = () => {
             <h2 className="text-[30px] md:text-[40px] leading-[40px] md:leading-[60px] mt-2 text-weirdBrown font-bold text-center">
               Our Products
             </h2>
+            <Image src={Arrow} alt="" className="absolute top-[10vh] sm:top-[12%] sm:w-[200px] left-[22vw] sm:-left-[5%] w-[250px] h-[80px]"/>
+
 
             <div className="flex gap-12 w-full overflow-x-auto scrollbar-custom mt-32 sm:mt-24 sm:w-full">
               {products.map((product, i) => {
