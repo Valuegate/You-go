@@ -11,6 +11,8 @@ import useUserSellerRegister, {
 } from "@/public/hooks/mutations/useUserSellerRegister";
 import { useRouter } from "next/navigation";
 import { EyeSlashIcon } from "@/public/icons";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 
 const SellerSignUp = () => {
   const router = useRouter();
@@ -31,21 +33,27 @@ const SellerSignUp = () => {
   const { isError, isLoading, isSuccess, Signup, error, data } =
     useUserSellerRegister();
 
-  
-useEffect(() => {
-  if (isError) {
-    setErrorMsg("An error occurred during signup. Please try again.");
+  useEffect(() => {
+    if (isError) {
+      setErrorMsg("An error occurred during signup. Please try again.");
+    }
+  }, [isError]);
+
+  if (isSuccess) {
+    router.push("/seller");
   }
-}, [isError]);
 
-if (isSuccess) {
-  router.push("/seller");
-}
+  const handleSignup = () => {
+    setErrorMsg(""); // Clear previous error message
+    Signup(credentials);
+  };
 
-const handleSignup = () => {
-  setErrorMsg(""); // Clear previous error message
-  Signup(credentials);
-};
+  const handlePhoneNumberChange = (value) => {
+    setCredentials({
+      ...credentials,
+      phone_number: value || "", // handle null value
+    });
+  };
 
   const [showPassword, setShowPassword] = useState(false);
   return (
@@ -128,17 +136,13 @@ const handleSignup = () => {
                       <label htmlFor="phone" className="block">
                         Phone Number
                       </label>
-                      <input
+                      <PhoneInput
                         type="tel"
                         id="phone"
                         name="phone"
-                        onChange={(e) =>
-                          setCredentials({
-                            ...credentials,
-                            phone_number: e.target.value,
-                          })
-                        }
-                        placeholder="+123"
+                        value={credentials.phone_number}
+                        onChange={handlePhoneNumberChange}
+                        placeholder="Enter phone number"
                         className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full"
                       />
                     </div>
@@ -235,39 +239,39 @@ const handleSignup = () => {
                     {/* <PasswordInput label={"Password"} /> */}
 
                     <div className="mb-4">
-              <label htmlFor="email" className="block">
-                Password
-              </label>
+                      <label htmlFor="email" className="block">
+                        Password
+                      </label>
 
-              <div className="relative">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  id="password"
-                  name="password"
-                  placeholder="Enter password"
-                  onChange={(e) =>
-                    setCredentials({
-                      ...credentials,
-                      password: e.target.value,
-                    })
-                  }
-                  className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full"
-                />
-                <button
-                  className="absolute inset-y-0 right-2 flex items-center px-2 cursor-pointer"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? (
-                    <span className="w-6 h-6">&#128065;</span> // Unicode for open eye
-                  ) : (
-                    <span>
-                      <EyeSlashIcon />
-                    </span> // Unicode for closed eye
-                  )}
-                </button>
-              </div>
-            </div>
-            
+                      <div className="relative">
+                        <input
+                          type={showPassword ? "text" : "password"}
+                          id="password"
+                          name="password"
+                          placeholder="Enter password"
+                          onChange={(e) =>
+                            setCredentials({
+                              ...credentials,
+                              password: e.target.value,
+                            })
+                          }
+                          className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full"
+                        />
+                        <button
+                          className="absolute inset-y-0 right-2 flex items-center px-2 cursor-pointer"
+                          onClick={() => setShowPassword(!showPassword)}
+                        >
+                          {showPassword ? (
+                            <span className="w-6 h-6">&#128065;</span> // Unicode for open eye
+                          ) : (
+                            <span>
+                              <EyeSlashIcon />
+                            </span> // Unicode for closed eye
+                          )}
+                        </button>
+                      </div>
+                    </div>
+
                     <label
                       className="flex items-center justify-center text-[16px] leading-[32px] font-normal text-light-black-5 mb-4 mt-4"
                       htmlFor="remember"
