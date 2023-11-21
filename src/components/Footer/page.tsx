@@ -5,26 +5,73 @@ import { FaLinkedinIn, FaTwitter, FaFacebookF } from "react-icons/fa";
 import { BiLogoInstagramAlt } from "react-icons/bi";
 import Link from "next/link";
 
+
+import Insta from "@/public/assets/Vector-2.svg";
+import FB from "@/public/assets/Vector-3.svg";
+import Twitter from "@/public/assets/Group_1.svg";
+import YT from "@/public/assets/Group.svg";
+
 const Footer = () => {
+
+  const instaUrl = "";
+  const fbUrl = "";
+  const twUrl = "";
+  const ytUrl = "";
+
   return (
     <>
       <div className="bg-white w-full px-6 md:px-24 flex justify-between items-center">
         <div className="flex flex-col">
-          <p className="text-4xl sm:text-2xl text-weirdBrown font-medium">Quick links</p>
+          <p className="text-4xl sm:text-2xl text-weirdBrown font-medium">
+            Quick links
+          </p>
 
           <div className="mt-5 flex flex-col gap-3">
-            <Link className="text-purpleBrown text-[18px] sm:text-[16px]" href={"/home"}>
+            <Link
+              className="text-purpleBrown text-[18px] sm:text-[16px]"
+              href={"/home"}
+            >
               Home
             </Link>
-            <Link className="text-purpleBrown text-[18px] sm:text-[16px]" href={"/shop"}>
+            <Link
+              className="text-purpleBrown text-[18px] sm:text-[16px]"
+              href={"/shop"}
+            >
               Shop
             </Link>
-            <Link className="text-purpleBrown text-[18px] sm:text-[16px]" href={"/"}>
+            <Link
+              className="text-purpleBrown text-[18px] sm:text-[16px]"
+              href={"/"}
+            >
               Cart
             </Link>
+            <Link
+              className="text-purpleBrown text-[18px] sm:text-[16px]"
+              href={"/"}
+            >
+              About Us
+            </Link>
+            <div className="mt-5 flex items-center gap-5">
+              <Link href={instaUrl} target="_blank">
+                <Image src={Insta} alt="" className="w-[30px] h-[30px]"/>
+              </Link>
+              <Link href={fbUrl} target="_blank">
+                <Image src={FB} alt="" className="w-[30px] h-[30px]"/>
+              </Link>
+              <Link href={twUrl} target="_blank">
+                <Image src={Twitter} alt="" className="w-[30px] h-[30px]"/>
+              </Link>
+              <Link href={ytUrl} target="_blank">
+                <Image src={YT} alt="" className="w-[30px] h-[30px]"/>
+              </Link>
+            </div>
           </div>
         </div>
-        <Image src={logo} alt="logo" className="w-[20vw] h-auto object-cover sm:hidden" />
+        <Image
+          src={logo}
+          alt="logo"
+          className="w-[20vw] h-auto object-cover sm:hidden"
+        />
       </div>
 
       <div className="w-full px-6 md:px-24">
