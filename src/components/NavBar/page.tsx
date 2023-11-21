@@ -38,25 +38,30 @@ const NavBar: FC<iNavBar> = ({ children }) => {
             />
           </form>
         </div>
-        <div className="hidden md:flex md:items-center lg:flex lg:items-center justify-between w-1/4">
+        <div className="hidden md:flex md:items-center lg:flex lg:items-center justify-between w-2/5">
           <Link href={"/home"}>
-            <h5 className="text-weirdBrown text-[20px] hover:text-white hover:bg-weirdBrown hover:px-3 hover:py-2 hover:rounded-lg font-normal">
+            <h5 className="text-weirdBrown text-[20px] font-normal">
               Home
             </h5>
           </Link>
           <Link href={"/shop"}>
-            <h5 className="text-weirdBrown text-[20px] hover:text-white hover:bg-weirdBrown hover:px-3 hover:py-2 hover:rounded-lg font-normal">
+          <h5 className="text-weirdBrown text-[20px] font-normal">
               Shop
             </h5>
           </Link>
           <Link href={"/"}>
-            <h5 className="text-weirdBrown text-[20px] hover:text-white hover:bg-weirdBrown hover:px-3 hover:py-2 hover:rounded-lg font-normal">
+          <h5 className="text-weirdBrown text-[20px] font-normal">
               Cart
             </h5>
           </Link>
           <Link href={"/"}>
-            <h5 className="text-weirdBrown hover:text-white hover:bg-weirdBrown hover:px-3 hover:py-2 hover:rounded-lg text-[20px] font-normal">
+          <h5 className="text-weirdBrown text-[20px] font-normal">
               About Us
+            </h5>
+          </Link>
+          <Link href={"/login"}>
+            <h5 className=" text-white hover:text-weirdBrown hover:bg-darkBrownGradient bg-weirdBrown px-4 py-2 rounded-lg text-[20px] font-normal">
+              Login
             </h5>
           </Link>
         </div>
@@ -105,6 +110,11 @@ const NavBar: FC<iNavBar> = ({ children }) => {
           >
             About Us
             <FaChevronRight size={"16px"} fill={"#000000"} />
+          </Link>
+          <Link href={"/login"}>
+            <h5 className=" text-white hover:text-weirdBrown mt-24 hover:bg-darkBrownGradient bg-weirdBrown px-10 py-2 rounded-lg text-[20px] font-normal">
+              Login
+            </h5>
           </Link>
           
         </div>
