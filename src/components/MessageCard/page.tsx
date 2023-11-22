@@ -20,13 +20,13 @@ const MessageCard = ({
   return (
     <>
       <div
-        className={`pl-3 py-2 pr-5 w-full rounded-2xl text-light-black-4 transition-all duration-300 ${cardClass}`}
+        className={`pl-3 py-2 pr-5 w-full rounded-2xl ${!clicked && "hover:bg-lightBrownGradient"} shadow-sm text-light-black-4 transition-all duration-300 ${cardClass}`}
         onClick={handleCardClick}
       >
-        <div className="">
+        <div className="cursor-pointer">
           <div className="flex gap-2 items-center">
             <div className="relative">
-              <Image src={image} alt={""} className="rounded-[25px] w-[50px] h-[50px] cursor-pointer"/>
+              <img src={image} alt={""} className="rounded-full w-[50px] object-cover h-[50px]"/>
               <Image
                 src={Active}
                 alt={""}
@@ -36,16 +36,16 @@ const MessageCard = ({
             <div className="w-full">
               <div className="flex justify-between">
                 <p
-                  className={`text-sm font-bold cursor-pointer ${
+                  className={`text-[16px] font-bold ${
                     clicked ? "text-white" : "text-primary"
                   }`}
                 >
                   {name}
                 </p>
-                <span className="text-sm font-normal cursor-pointer">{time}</span>
+                <span className="text-[14px] font-normal">{time}</span>
               </div>
               <p
-                className={`text-md font-normal cursor-pointer ${
+                className={`text-md font-normal ${
                   clicked ? "text-white" : "text-light-black-5"
                 }`}
               >

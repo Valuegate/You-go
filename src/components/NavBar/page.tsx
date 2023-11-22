@@ -1,5 +1,5 @@
 "use client";
-import React, { FC, ReactNode, useState } from "react";
+import React, { FC, ReactNode, useEffect, useState } from "react";
 import Logo from "../Logo/page";
 import Link from "next/link";
 import { QuestionmarkIcon } from "@/public/icons/questionmark-icon";
@@ -12,58 +12,59 @@ import { FaBarsStaggered, FaChevronRight } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { BiX } from "react-icons/bi";
 
-interface iNavBar {
-  children: ReactNode;
-}
-
-const NavBar: FC<iNavBar> = ({ children }) => {
+const NavBar = ({ showSearch = true, transparent = false }) => {
   const [open, setOpen] = useState<boolean>(false);
+  const [loggedIn, setLoggedIn] = useState<boolean>(false);
   const toggle = () => {
     setOpen(!open);
   };
 
+  useEffect(() => {
+    setLoggedIn(false);
+  }, []);
+
   return (
     <>
-      <div className="h-[80px] sm:h-[50px] flex items-center justify-between px-4 lg:px-[5%] lg:py-3 shadow-sm">
+      <div className={`h-[10vh] sm:h-[8vh] flex items-center ${transparent ? "bg-[#FFFFFFFF00]" : "bg-white"} justify-between px-4 lg:px-[5%] lg:py-3 shadow-sm`}>
         <div className="flex items-center justify-between w-1/3">
           <Link href={"/home"}>
             <Logo />
           </Link>
 
-          <form action="nosubmit">
-            <input
-              type="search"
-              placeholder="Search"
-              className="border-weirdBrown sm:hidden border-2 px-3 h-[45px] w-[300px] sm:w-[200px] focus:outline-none rounded-[22.5px] focus:border-weirdBrown"
-            />
-          </form>
+          {showSearch && (
+            <form action="nosubmit">
+              <input
+                type="search"
+                placeholder="Search"
+                className="border-weirdBrown sm:hidden border-2 px-3 h-[45px] w-[300px] sm:w-[200px] focus:outline-none rounded-[22.5px] focus:border-weirdBrown"
+              />
+            </form>
+          )}
         </div>
         <div className="hidden md:flex md:items-center lg:flex lg:items-center justify-between w-2/5">
           <Link href={"/home"}>
-            <h5 className="text-weirdBrown text-[20px] font-normal">
-              Home
-            </h5>
+            <h5 className="text-weirdBrown text-[20px] font-normal">Home</h5>
           </Link>
           <Link href={"/shop"}>
-          <h5 className="text-weirdBrown text-[20px] font-normal">
-              Shop
-            </h5>
+            <h5 className="text-weirdBrown text-[20px] font-normal">Shop</h5>
           </Link>
           <Link href={"/"}>
-          <h5 className="text-weirdBrown text-[20px] font-normal">
-              Cart
-            </h5>
+            <h5 className="text-weirdBrown text-[20px] font-normal">Cart</h5>
           </Link>
           <Link href={"/"}>
-          <h5 className="text-weirdBrown text-[20px] font-normal">
+            <h5 className="text-weirdBrown text-[20px] font-normal">
               About Us
             </h5>
           </Link>
-          <Link href={"/login"}>
-            <h5 className=" text-white hover:text-weirdBrown hover:bg-darkBrownGradient bg-weirdBrown px-4 py-2 rounded-lg text-[20px] font-normal">
-              Login
-            </h5>
-          </Link>
+          {loggedIn ? (
+            <></>
+          ) : (
+            <Link href={"/login"}>
+              <h5 className=" text-white hover:text-weirdBrown hover:bg-darkBrownGradient bg-weirdBrown px-4 py-2 rounded-lg text-[20px] font-normal">
+                Login
+              </h5>
+            </Link>
+          )}
         </div>
         <div className="hidden sm:block md:hidden" onClick={toggle}>
           <FaBarsStaggered size={"26px"} fill={"#A90041"} />
@@ -116,7 +117,6 @@ const NavBar: FC<iNavBar> = ({ children }) => {
               Login
             </h5>
           </Link>
-          
         </div>
         <div>
           <p className=" mt-24 text-slate-950 text-base text-center font-normal leading-loose">
