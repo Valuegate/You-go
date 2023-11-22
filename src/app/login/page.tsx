@@ -7,13 +7,14 @@ import Google from "@/public/assets/Group7.png";
 import { Field, Form, Formik } from "formik";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useMutation } from "react-query";
+// import { useMutation } from "react-query";
 import { EyeSlashIcon } from "@/public/icons";
 import useLogin, { TLoginPayload } from "@/public/hooks/mutations/useLogin";
 import { Loader } from "@mantine/core";
 
 import { motion } from "framer-motion";
 import { HiShoppingCart } from "react-icons/hi";
+import BackButton from "@/public/components/BackButton/BackButton";
 
 const Login = () => {
   const router = useRouter();
@@ -56,6 +57,9 @@ const Login = () => {
   return (
     <div className="flex flex-col lg:flex-row h-[100vh]">
       <div className="w-[50%] px-[5%] flex flex-col justify-center sm:w-full sm:mt-32">
+      <div className="mb-5">
+        <BackButton to={"/home"} />
+        </div>
         <h3 className="font-bold text-[32px] sm:text-[36px] sm:leading-[28px] leading-[36px] text-weirdBrown sm:text-center">
           Welcome Back
         </h3>

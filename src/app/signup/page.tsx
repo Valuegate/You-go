@@ -11,8 +11,11 @@ import useUserSellerRegister, {
 } from "@/public/hooks/mutations/useUserSellerRegister";
 import { useRouter } from "next/navigation";
 import { EyeSlashIcon } from "@/public/icons";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
+import BackButton from "@/public/components/BackButton/BackButton";
 
-const SellerSignUp = () => {
+const SignUp = () => {
   const router = useRouter();
   const [credentials, setCredentials] = useState<TSignupPayload>({
     email: "",
@@ -31,42 +34,44 @@ const SellerSignUp = () => {
   const { isError, isLoading, isSuccess, Signup, error, data } =
     useUserSellerRegister();
 
-  
-useEffect(() => {
-  if (isError) {
-    setErrorMsg("An error occurred during signup. Please try again.");
+  useEffect(() => {
+    if (isError) {
+      setErrorMsg("An error occurred during signup. Please try again.");
+    }
+  }, [isError]);
+
+  if (isSuccess) {
+    router.push("/seller");
   }
-}, [isError]);
 
-if (isSuccess) {
-  router.push("/seller");
-}
+  const handleSignup = () => {
+    setErrorMsg(""); // Clear previous error message
+    Signup(credentials);
+  };
 
-const handleSignup = () => {
-  setErrorMsg(""); // Clear previous error message
-  Signup(credentials);
-};
+  const handlePhoneNumberChange = (value) => {
+    setCredentials({
+      ...credentials,
+      phone_number: value || "", // handle null value
+    });
+  };
 
   const [showPassword, setShowPassword] = useState(false);
   return (
     <>
-      <NavBar>
-        <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 typo flex items-center justify-center shadow-xl text-white ">
-          Login
-        </button>
-      </NavBar>
-      <div className="relative">
-        <div className="flex flex-col lg:flex-row">
-          <div className="lg:w-[50%] px-4 py-8 lg:pr-24 lg:pl-48 lg:pt-12 lg:overflow-y-scroll lg:h-[87vh]">
-            <h3 className="font-bold text-[24px] lg:text-[31px] leading-[28px] lg:leading-[36px] pb-4 text-primary text-center">
+          <div className="flex flex-col lg:flex-row">
+      <div className="w-[50%] px-[5%] flex flex-col justify-center sm:w-full sm:mt-32 pt-[40%] overflow-y-scroll h-[100vh]">
+        <div className="mb-5">
+        <BackButton to={"/login"} />
+        </div>
+        <h3 className="font-bold text-[32px] sm:text-[36px] sm:leading-[28px] leading-[36px] text-weirdBrown sm:text-center">
               Create a Seller Account
             </h3>
-            <p className="font-medium text-[14px] lg:text-[16px] leading-[24px] lg:leading-[32px] text-light-black-5 pb-4 text-center">
+        <p className="font-medium text-[14px] lg:text-[16px] leading-[24px] lg:leading-[32px] text-light-black-5 pb-4 text-center lg:text-left">
               Create a new account in seconds
             </p>
-            {/* <InputField /> */}
 
-            <div>
+            <div className="mt-10">
               <Formik
                 initialValues={{
                   email: "",
@@ -103,7 +108,7 @@ const handleSignup = () => {
                           })
                         }
                         placeholder="Name"
-                        className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full"
+                        className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-[70%] sm:w-full"
                       />
                     </div>
                     <div className="mb-4">
@@ -121,25 +126,21 @@ const handleSignup = () => {
                           })
                         }
                         placeholder="mail@email.com"
-                        className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full"
+                        className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-[70%] sm:w-full"
                       />
                     </div>
                     <div className="mb-4">
                       <label htmlFor="phone" className="block">
                         Phone Number
                       </label>
-                      <input
+                      <PhoneInput
                         type="tel"
                         id="phone"
                         name="phone"
-                        onChange={(e) =>
-                          setCredentials({
-                            ...credentials,
-                            phone_number: e.target.value,
-                          })
-                        }
-                        placeholder="+123"
-                        className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full"
+                        value={credentials.phone_number}
+                        onChange={handlePhoneNumberChange}
+                        placeholder="Enter phone number"
+                        className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-[70%] sm:w-full"
                       />
                     </div>
                     <div className="mb-4">
@@ -157,7 +158,7 @@ const handleSignup = () => {
                           })
                         }
                         placeholder="Put address here"
-                        className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full"
+                        className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-[70%] sm:w-full"
                       />
                     </div>
                     <div className="mb-4">
@@ -175,7 +176,7 @@ const handleSignup = () => {
                           })
                         }
                         placeholder="Put brand name here"
-                        className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full"
+                        className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-[70%] sm:w-full"
                       />
                     </div>
                     <div className="mb-4">
@@ -193,7 +194,7 @@ const handleSignup = () => {
                           })
                         }
                         placeholder="Put your social media here"
-                        className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full"
+                        className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-[70%] sm:w-full"
                       />
                     </div>
                     <div className="mb-4">
@@ -211,7 +212,7 @@ const handleSignup = () => {
                           })
                         }
                         placeholder="Put your business bio here"
-                        className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full"
+                        className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-[70%] sm:w-full"
                       />
                     </div>
                     <div className="mb-4">
@@ -229,47 +230,47 @@ const handleSignup = () => {
                           })
                         }
                         placeholder="Put your website here"
-                        className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full"
+                        className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-[70%] sm:w-full"
                       />
                     </div>
                     {/* <PasswordInput label={"Password"} /> */}
 
                     <div className="mb-4">
-              <label htmlFor="email" className="block">
-                Password
-              </label>
+                      <label htmlFor="email" className="block">
+                        Password
+                      </label>
 
-              <div className="relative">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  id="password"
-                  name="password"
-                  placeholder="Enter password"
-                  onChange={(e) =>
-                    setCredentials({
-                      ...credentials,
-                      password: e.target.value,
-                    })
-                  }
-                  className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full"
-                />
-                <button
-                  className="absolute inset-y-0 right-2 flex items-center px-2 cursor-pointer"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? (
-                    <span className="w-6 h-6">&#128065;</span> // Unicode for open eye
-                  ) : (
-                    <span>
-                      <EyeSlashIcon />
-                    </span> // Unicode for closed eye
-                  )}
-                </button>
-              </div>
-            </div>
-            
+                      <div className="relative w-[70%] sm:w-full">
+                        <input
+                          type={showPassword ? "text" : "password"}
+                          id="password"
+                          name="password"
+                          placeholder="Enter password"
+                          onChange={(e) =>
+                            setCredentials({
+                              ...credentials,
+                              password: e.target.value,
+                            })
+                          }
+                          className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-full"
+                        />
+                        <button
+                          className="absolute inset-y-0 right-2 flex items-center px-2 cursor-pointer"
+                          onClick={() => setShowPassword(!showPassword)}
+                        >
+                          {showPassword ? (
+                            <span className="w-6 h-6">&#128065;</span> // Unicode for open eye
+                          ) : (
+                            <span>
+                              <EyeSlashIcon />
+                            </span> // Unicode for closed eye
+                          )}
+                        </button>
+                      </div>
+                    </div>
+
                     <label
-                      className="flex items-center justify-center text-[16px] leading-[32px] font-normal text-light-black-5 mb-4 mt-4"
+                      className="flex items-center text-[16px] leading-[32px] font-normal text-light-black-5 mb-4 mt-4"
                       htmlFor="remember"
                     >
                       <input
@@ -283,7 +284,7 @@ const handleSignup = () => {
                       <button
                         type="submit"
                         onClick={handleSignup}
-                        className="bg-gradient-to-r from-primary-1 to-primary round w-full h-10 text-white"
+                        className="flex sm:w-full justify-center items-center hover:bg-darkBrownGradient hover:text-weirdBrown gap-2 shadow-2xl sm:shadow-xl bg-weirdBrown font-medium rounded-[25px] h-[50px] w-[70%] text-white"
                       >
                         {isLoading ? "Wait a minute....." : "Register"}
                       </button>
@@ -293,26 +294,25 @@ const handleSignup = () => {
               </Formik>
             </div>
 
-            <div className="flex justify-center gap-1 pt-4 lg:pt-8">
-              <h1 className="text-center lg:text-left font-medium text-[12px] lg:text-lg">
+            <div className="flex justify-start mb-20 gap-1 pt-4 lg:pt-8 sm:justify-center">
+              <h1 className="text-center lg:text-left font-normal text-[14px] sm:text-[18px] lg:text-lg">
                 Do you have an account?
               </h1>
               <Link href="../login">
-                <h1 className="text-center lg:text-left font-semibold text-[12px] lg:text-lg text-primary">
+                <h1 className="text-center lg:text-left font-medium text-[14px] sm:text-[18px] lg:text-lg text-weirdBrown">
                   Login
                 </h1>
               </Link>
             </div>
-            <div className="h-40"></div>
           </div>
 
-          <div className="hidden lg:block lg:w-[50%]">
-            <Image src={FlexImg} alt={""} className="h-[89vh]" />
+          <div className="sm:hidden md:hidden lg:block w-[50%] h-[100vh]">
+            <Image src={FlexImg} alt={"woman"} className="h-[100vh] w-full object-cover" />
           </div>
         </div>
 
         {/* <div className="w-full absolute bottom-0 right-0 left-0 h-[40px] bg-black px-4 lg:px-24 lg:fixed"> */}
-        <div className="w-full absolute bottom-0 right-0 lg:left-0 h-[80px] lg:h-[40px] bg-black px-4 lg:px-24">
+        {/* <div className="w-full absolute bottom-0 right-0 lg:left-0 h-[80px] lg:h-[40px] bg-black px-4 lg:px-24">
           <div className="block text-center lg:flex lg:justify-between items-center pt-3">
             <p className="paragraph text-[10px] lg:text-[12px] text-primary-1">
               Copyright 2023. All right reserved
@@ -332,10 +332,10 @@ const handleSignup = () => {
               </Link>
             </div>
           </div>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
     </>
   );
 };
 
-export default SellerSignUp;
+export default SignUp;

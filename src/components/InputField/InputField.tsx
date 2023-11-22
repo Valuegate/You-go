@@ -8,7 +8,11 @@ import PasswordInput from "../PasswordInput/PasswordInput";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { EyeSlashIcon } from "@/public/icons";
-import useUserRegister, { TSignupPayload } from "@/public/hooks/mutations/useUserRegister";
+import useUserRegister, {
+  TSignupPayload,
+} from "@/public/hooks/mutations/useUserRegister";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 
 const InputField = () => {
   const router = useRouter();
@@ -24,20 +28,27 @@ const InputField = () => {
   const { isError, isLoading, isSuccess, Signup, error, data } =
     useUserRegister();
 
-    useEffect(() => {
-      if (isError) {
-        setErrorMsg("An error occurred during signup. Please try again.");
-      }
-    }, [isError]);
-    
-    if (isSuccess) {
-      router.push("/buyer");
+  useEffect(() => {
+    if (isError) {
+      setErrorMsg("An error occurred during signup. Please try again.");
     }
-    
-    const handleSignup = () => {
-      setErrorMsg(""); // Clear previous error message
-      Signup(credentials);
-    };
+  }, [isError]);
+
+  if (isSuccess) {
+    router.push("/buyer");
+  }
+
+  const handleSignup = () => {
+    setErrorMsg(""); // Clear previous error message
+    Signup(credentials);
+  };
+
+  const handlePhoneNumberChange = (value) => {
+    setCredentials({
+      ...credentials,
+      phone_number: value || "", // handle null value
+    });
+  };
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -104,17 +115,13 @@ const InputField = () => {
               <label htmlFor="phone" className="block">
                 Phone Number
               </label>
-              <input
+              <PhoneInput
                 type="tel"
                 id="phone"
                 name="phone"
-                onChange={(e) =>
-                  setCredentials({
-                    ...credentials,
-                    phone_number: e.target.value,
-                  })
-                }
-                placeholder="+234"
+                value={credentials.phone_number}
+                onChange={handlePhoneNumberChange}
+                placeholder="Enter phone number"
                 className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full"
               />
             </div>
