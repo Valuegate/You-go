@@ -171,7 +171,7 @@ const Login = () => {
           <h1 className="text-center lg:text-left font-normal text-[14px] sm:text-[18px] lg:text-lg">
             You do not have an account?
           </h1>
-          <Link href="/signupselect">
+          <Link href="/sellersignup">
             <h1 className="text-center lg:text-left font-medium text-[14px] sm:text-[18px] lg:text-lg text-weirdBrown">
               Signup
             </h1>
