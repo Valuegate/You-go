@@ -15,7 +15,7 @@ const MessageCard = ({
     setClicked(!clicked);
   };
 
-  const cardClass = clicked ? "text-white bg-primary" : "bg-white";
+  const cardClass = clicked ? "text-white bg-weirdBrown" : "bg-[#FFFFFF99]";
 
   return (
     <>

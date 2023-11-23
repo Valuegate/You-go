@@ -12,6 +12,7 @@ import ReplyMsg from "@/public/components/ReplyMsg/page";
 import { BsEmojiSmile } from "react-icons/bs";
 import { ImAttachment } from "react-icons/im";
 import { FiSend } from "react-icons/fi";
+import BackButton from "../BackButton/BackButton";
 
 const Messages = () => {
   const allMessages = [
@@ -79,7 +80,17 @@ const Messages = () => {
 
   return (
     <div className="h-[100vh] bg-white-1">
-      <NavBar showSearch={false} transparent={true} />
+      <div className="h-[10vh] flex justify-between items-center px-5 ">
+        <BackButton to={"/profile"} />
+        <div className="flex flex-col ">
+          <h1 className="text-[20px] sm:text-[24px] text-end md:text-[32px] leading-[26px] md:leading-[62px] text-weirdBrown font-medium w-full">
+            YouGo
+          </h1>
+          <p className="text-base sm:text-center text-light-black-3 font-normal">
+            The home of style and fashion
+          </p>
+        </div>
+      </div>
       <div className="flex w-[100vw] h-[90vh]">
         <div className="w-[30%] flex flex-col px-[2%]">
           <div className="mt-5">
@@ -99,7 +110,7 @@ const Messages = () => {
             </div>
           </div>
 
-          <div className="rounded-3xl mt-10 bg-white w-full h-[70vh] shadow-xl flex flex-col px-5">
+          <div className="rounded-3xl mt-10 bg-[#FFFFFF99] w-full h-[70vh] shadow-xl flex flex-col px-5">
             <input
               type="text"
               placeholder="Search"
@@ -123,7 +134,7 @@ const Messages = () => {
         </div>
 
         <div className="w-[70%] flex flex-col px-[2%] scrollbar-custom">
-          <div className="pl-5 h-[10vh] py-2  pr-3 w-full rounded-2xl text-light-black-4 bg-white mt-5">
+          <div className="pl-5 h-[10vh] py-2  pr-3 w-full rounded-2xl text-light-black-4 bg-[#FFFFFF99] mt-5">
             <div className="flex items-center justify-between">
               <div className="flex gap-3 items-center ">
                 <div className="relative">
@@ -174,20 +185,16 @@ const Messages = () => {
 
           <div className="h-[10vh]">
             <form className="border-none h-[50px] flex gap-10 items-center overflow-hidden mt-3 w-full">
-              <input
-                type="text"
-                id=""
-                name=""
-                placeholder="Type here"
-                className="flex-grow px-3 py-4 basis-[60%] h-[50px] bg-white focus:outline-none rounded-[25px]"
-              />
-              <div className="flex items-center gap-4 basis-[40%]">
-                <span>
-                  <BsEmojiSmile />
-                </span>
-                <span>
-                  <ImAttachment />
-                </span>
+              <div className="relative basis-[90%]">
+                <input
+                  type="text"
+                  id=""
+                  name=""
+                  placeholder="Type here"
+                  className="flex-grow px-3 shadow-md py-4 w-full h-[50px] bg-[#FFFFFF99] focus:outline-none rounded-[25px]"
+                />
+              </div>
+              <div className="flex items-center gap-4 basis-[10%]">
                 <button className="flex-shrink-0 flex items-center justify-center rounded-2xl gap-2 text-white bg-light-black-5 border-0 font-normal w-[80px] h-[30px] text-sm">
                   Send
                   <FiSend />
