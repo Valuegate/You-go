@@ -29,7 +29,7 @@ interface ItemsCardProps {
         {user && (
         <div className={`shadow-lg h-[330px] md:h-[286px] rounded-b-xl ${className}`}>
         <div className="relative">
-      <Image src={image} className="w-full lg:w-[258px] h-[190px] md:h-[170px] rounded-t-xl object-cover" alt={"product image"} width={100} height={100} />
+      <Image src={image} className="w-full h-[190px] md:h-[170px] rounded-t-xl object-cover" alt={"product image"} width={100} height={100} />
       <div className="w-[18px] h-[18px] rounded-full bg-primary-1 flex justify-center items-center absolute right-4 top-3 cursor-pointer"><LoveIcon color="black" width="13px" height="13px" /></div>
       </div>
       <div className="flex flex-col justify-center items-start pl-4 pt-2">
