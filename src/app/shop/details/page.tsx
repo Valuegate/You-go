@@ -1,15 +1,23 @@
 "use client";
 import NavBar from "@/public/components/NavBar/page";
 import Image from "next/image";
-import Link from "next/link";
-import Bag from "@/public/assets/Rectangle10.png";
-import star from "@/public/assets/stars.png";
 import { useState } from "react";
-import Bags from "@/public/assets/Rectangle11.png";
-import ItemsCard from "@/public/components/ItemsCard/page";
-import img2 from "@/public/assets/arrow-left.png";
-import img3 from "@/public/assets/carrow-left.png";
+import Perfume from "@/public/assets/perfume.png";
 import Footer from "@/public/components/Footer/page";
+import Lady from "@/public/assets/lady5.png";
+import {
+  BrandIcon,
+  CalendarIcon,
+  FacebokIcon,
+  InstagramIcon,
+  SocialIcon,
+  XIcon,
+} from "@/public/icons";
+import { BsLinkedin, BsWhatsapp } from "react-icons/bs";
+import { StockIcon } from "@/public/icons/stock-icon";
+import { ArrowRightIcon } from "@/public/icons/arrowright-icon";
+import Link from "next/link";
+import ItemsCard from "@/public/components/ItemsCard/page";
 
 const ShopDetails = () => {
   const [clickedSize, setClickedSize] = useState<number | null>(null);
@@ -30,214 +38,218 @@ const ShopDetails = () => {
     <>
       <NavBar />
 
-      <div className="overflow-y-scroll h-screen md:h-[87vh]">
-        <div className="px-6 md:px-24">
-          <div className="flex flex-col md:flex-row items-center md:gap-3 mt-8">
-            <Link
-              href="#"
-              className="text-white bg-primary round p-2 font-medium text-[15px] leading-[15px]"
-            >
-              Home &gt;
-            </Link>
-            <Link
-              href="#"
-              className="text-white bg-primary round p-2 font-medium text-[15px] leading-[15px]"
-            >
-              Store &gt;
-            </Link>
-            <Link
-              href="#"
-              className="text-black bg-primary round p-2 font-medium text-[15px] leading-[15px]"
-            >
-              Human Bag &gt;
-            </Link>
-          </div>
-          <div className="mt-8 flex flex-col md:flex-row md:gap-10">
-            <div className="w-full md:w-1/2">
+      <div className="overflow-y-scroll sm:h-screen h-[87vh]">
+        <div className="sm:px-6 px-24">
+          <div className="mt-8 flex sm:flex-col flex-row gap-10">
+            <div className="sm:w-full w-[70%]">
               <div>
-                <Image src={Bag} alt={""} />
+                <Image src={Perfume} alt={""} className="w-full" />
               </div>
-              <div className="flex justify-between mt-8">
-                <Image src={Bags} alt={""} />
-                <Image src={Bags} alt={""} />
-                <Image src={Bags} alt={""} />
-                <Image src={Bags} alt={""} className="hidden md:block" />
-                <Image src={Bags} alt={""} className="hidden md:block" />
+              <div className="flex justify-between gap-4 mt-8 sm:overflow-x-scroll">
+                <Image
+                  src={Perfume}
+                  alt={""}
+                  className="w-[8rem] h-[9rem] object-cover rounded-lg"
+                />
+                <Image
+                  src={Perfume}
+                  alt={""}
+                  className="w-[8rem] h-[9rem] object-cover rounded-lg"
+                />
+                <Image
+                  src={Perfume}
+                  alt={""}
+                  className="w-[8rem] h-[9rem] object-cover rounded-lg"
+                />
+                <Image
+                  src={Perfume}
+                  alt={""}
+                  className="w-[8rem] h-[9rem] object-cover rounded-lg"
+                />
+                <Image
+                  src={Perfume}
+                  alt={""}
+                  className="w-[8rem] h-[9rem] object-cover rounded-lg"
+                />
               </div>
             </div>
 
-            <div className="w-full md:w-1/2">
-              <h2 className="text-xl text-light-black-4 font-bold">
-                Human Bag
-              </h2>
-              <div className="flex gap-8 mt-4">
-                <h3 className="text-primary font-bold text-base">
-                  Category: <span className="text-light-black-5"> Bags</span>
-                </h3>
-                <div className="flex gap-2 items-center">
-                  <div>
-                    <Image src={star} alt="Star" />
+            <div className="sm:w-full w-[30%]">
+              <div className="flex flex-col gap-2">
+                <div className="border-primary-1 border-8 rounded-lg py-3 pl-3">
+                  <div className="text-primary text-lg font-bold mb-3">
+                    $28.00
                   </div>
-                  <span className="text-sm font-bold text-light-black-4">
-                    5.0 (213 reviews)
-                  </span>
-                </div>
-              </div>
-              <h2 className="text-xl text-light-black-4 font-bold mt-6">
-                Description
-              </h2>
-              <p className="text-md text-light-black-4 font-normal mt-4">
-                Product description Product description Product description
-                Product description Product description Product description
-                Product description Product description Product description
-                Product description
-              </p>
-              <p className="text-md text-light-black-4 font-normal mt-4">
-                Product description Product description Product description
-                Product description Product description Product description
-                Product description Product description Product description
-                Product description
-              </p>
-
-              <div className="flex flex-col md:flex-row items-center gap-4 mt-4">
-                <div>
-                  <h2 className="font-bold text-sm text-light-black-5">
-                    Size:
-                  </h2>
-                </div>
-                <div className="flex gap-[3px]">
-                  {["small", "Medium", "Large", "Extra Large"].map(
-                    (size, index) => (
-                      <span
-                        key={index}
-                        className={`w-[${
-                          index === 3 ? "100px" : "80px"
-                        }] h-[40px] text-base font-medium flex justify-center items-center cursor-pointer ${getSizeClass(
-                          index
-                        )}`}
-                        onClick={() => handleSizeClick(index)}
-                      >
-                        {size}
-                      </span>
-                    )
-                  )}
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 mt-4">
-                <div>
-                  <h2 className="font-bold text-sm text-light-black-5">
-                    Color:
-                  </h2>
-                </div>
-                <div className="flex gap-[5px]">
-                  <span className="w-8 h-8 bg-[#2acb74] rounded-full cursor-pointer"></span>
-                  <span className="w-8 h-8 bg-[#aee832] rounded-full cursor-pointer"></span>
-                  <span className="w-8 h-8 bg-[#f37705] rounded-full cursor-pointer"></span>
-                  <span className="w-8 h-8 bg-[#1abadd] rounded-full cursor-pointer"></span>
-                  <span className="w-8 h-8 bg-[#9c3efa] rounded-full cursor-pointer"></span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 md:gap-6 mt-8">
-                <div>
-                  <h2 className="font-bold text-sm text-light-black-5">Qty:</h2>
-                </div>
-                <div className="flex gap-6 md:gap-20">
-                  <div className="flex items-center gap-4">
-                    <button
-                      className="flex items-center justify-center w-5 h-5 rounded border border-black text-black font-bold cursor-pointer"
-                      onClick={() => setNum(num - 1)}
-                    >
-                      -
+                  <div>
+                    <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-1 flex items-center justify-center shadow-xl text-white ">
+                      Start a chat
                     </button>
-                    <p className="w-8 h-8 rounded border-[2px] border-[#e7e7e7] font-bold justify-center flex items-center">
-                      {num}
+                  </div>
+                </div>
+
+                <div className="border-primary-1 border-8 rounded-lg py-3 pl-3">
+                  <div className="flex gap-2">
+                    <div>
+                      <Image
+                        src={Lady}
+                        alt={""}
+                        className="w-[5rem] h-[5rem]"
+                      />
+                    </div>
+                    <div>
+                      <h2 className="font-medium text-base text-light-black-6">
+                        Vanila Castro
+                      </h2>
+                      <p className="font-normal text-sm text-light-black-5">
+                        +123 456 789 10
+                      </p>
+                      <p className="font-normal text-sm text-light-black-5">
+                        mybusinessmail@email.com
+                      </p>
+
+                      <div className="flex items-center gap-3 mt-8">
+                        <FacebokIcon width="16" height="16" />
+                        <XIcon width="16" height="16"/>
+                        <InstagramIcon color="#d4145a" width="20" height="20" />
+                        <BsLinkedin color="#d4145a" width="16" height="16" />
+                        <BsWhatsapp color="#d4145a" width="16" height="16" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="border-primary-1 border-8 rounded-lg py-3 pl-3">
+                  <h2 className="text-lg font-bold text-light-black-5">
+                    Safety Tips
+                  </h2>
+                  <div>
+                    <li className="font-normal text-sm text-light-black-5">
+                      Remember, don't send any pre-payments
+                    </li>
+                    <li className="font-normal text-sm text-light-black-5">
+                      Meet the seller at a safe public place
+                    </li>
+                    <li className="font-normal text-sm text-light-black-5">
+                      Inspect the goods to make sure they meet your needs
+                    </li>
+                    <li className="font-normal text-sm text-light-black-5">
+                      Check all documentation and only pay if you're satisfied
+                    </li>
+                  </div>
+                </div>
+                <div className="">
+                  <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 flex items-center justify-center shadow-xl text-white w-full">
+                    Become a seller
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 flex sm:flex-col flex-row gap-10">
+            <div className="sm:w-full w-[70%]">
+              <div className="border-primary-1 border-8 rounded-lg py-3 pl-3">
+                <h1 className="text-2xl font-bold text-light-black-5">
+                  Product Name Goes Here
+                </h1>
+                <div className="flex items-center sm:flex-col sm:gap-2 gap-8 mt-3">
+                  <div className="flex items-center gap-2">
+                    <StockIcon />
+                    <h2 className="text-xl font-bold text-light-black-8">
+                      Stock:
+                    </h2>
+                    <p className="text-base font-normal text-primary">23</p>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <BrandIcon />
+                    <h2 className="text-xl font-bold text-light-black-8">
+                      Brand:
+                    </h2>
+                    <p className="text-base font-normal text-primary">
+                      Our Brand
                     </p>
-                    <button
-                      className="flex items-center justify-center w-5 h-5 rounded border border-black text-black font-bold cursor-pointer"
-                      onClick={() => setNum(num + 1)}
-                    >
-                      +
-                    </button>
                   </div>
-                  <div>
-                    <Link href={"/cart"}>
-                      <button
-                        type="submit"
-                        className="bg-gradient-to-r from-primary-1 to-primary round w-[180px] h-12 text-white text-base font-bold"
-                      >
-                        Add to Cart
-                      </button>
-                    </Link>
+
+                  <div className="flex items-center gap-2">
+                    <CalendarIcon />
+                    <h2 className="text-xl font-bold text-light-black-8">
+                      Posted:
+                    </h2>
+                    <p className="text-base font-normal text-primary">
+                      11-11-2023
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center sm:flex-col sm:gap-2 gap-10 mt-4">
+                  <div className="flex items-center gap-4">
+                    <h2 className="text-light-black-4 font-normal text-sm">
+                      Product category:
+                    </h2>
+                    <p className="text-base font-normal text-primary">
+                      Apparel
+                    </p>
+                    <span>|</span>
+                    <p className="text-base font-normal text-primary">
+                      Clothing
+                    </p>
+                  </div>
+
+                  <div className="bg-primary-1 py-2 px-4 rounded-lg">
+                    <div className="flex items-center gap-6">
+                      <div className="flex items-center gap-2">
+                        <SocialIcon />
+                        <h2 className="text-white text-base font-semibold cursor-pointer">
+                          25 Feedback
+                        </h2>
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        <Link
+                          className="text-white text-base font-normal"
+                          href={""}
+                        >
+                          View All
+                        </Link>
+                        <ArrowRightIcon />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              <div className="border-primary-1 border-8 rounded-lg py-3 pl-3 mt-4">
+              <h2 className="text-lg font-bold text-light-black-5">
+                  Product description
+                </h2>
+                <div>
+                  <li className="font-normal text-sm text-light-black-5">
+                    Product description
+                  </li>
+                  <li className="font-normal text-sm text-light-black-5">
+                    Product description Product description
+                  </li>
+                  <li className="font-normal text-sm text-light-black-5">
+                    Product description your needs
+                  </li>
+                  <li className="font-normal text-sm text-light-black-5">
+                    Product description
+                  </li>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="mt-24 px-4 md:px-24">
-          <div className="flex">
-            <button className="w-1/2 md:w-48 h-12 flex justify-center items-center text-sm text-white font-bold bg-primary">
-              Production Description
-            </button>
-            <button className="w-1/2 md:w-48 h-12 flex justify-center items-center text-sm text-black font-bold bg-white-3">
-              Reviews
-            </button>
-          </div>
-        </div>
-        <hr className="border-white-3 h-1" />
-        <div className="mt-8 md:w-1/2  px-4 md:pl-24">
-          <p className="font-medium text-base text-light-black-5">
-            Product description Product description Product description Product
-            description Product description Product description Product
-            description Product description Product description Product
-            description Product description.
-          </p>
-          <p className="font-medium text-base text-light-black-5 mt-6">
-            Product description Product description Product description Product
-            description Product description Product description Product
-            description Product description Product description Product
-            description Product description.
-          </p>
-          <p className="font-medium text-base text-light-black-5 mt-6">
-            Product description Product description Product description Product
-            description Product description Product description Product
-            description Product description Product description Product
-            description Product description.
-          </p>
-        </div>
-        <div className="mt-16">
-          <hr className="border-white-3 h-1" />
-        </div>
-        <div className="mt-8 mb-32 px-4 md:px-24">
-          <div className="flex justify-between items-center">
-            <p className="font-bold text-lg text-light-black-5">
-              Recently Viewed
-            </p>
-            <div className="flex">
-              <Image
-                src={img2}
-                alt="Previous Slide"
-                className="cursor-pointer"
-                //   onClick={prevSlide}
-              />
-              <Image
-                src={img3}
-                alt="Next Slide"
-                className="cursor-pointer"
-                //   onClick={nextSlide}
-              />
+
+            <div className="sm:w-full w-[30%]">
+              <div className="border-primary-1 border-8 rounded-lg py-3 px-3">
+              <h2 className="text-lg font-bold text-light-black-5">
+              Similar Products
+                </h2>
+                <div className="flex flex-col gap-3">
+                <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/cup.png"} name={"Human Bag"} rating={""} price={"500"} />
+                <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"500"} />
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="w-full flex flex-wrap gap-6 pl-6 md:pl-0 mt-4">
-            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/cup.png"} name={"Human Bag"} rating={""} price={"€500"} />
-
-            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/watch.png"} name={"Human Bag"} rating={""} price={"€500"} />
-
-            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"€500"} />
-
-            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"€500"} />
           </div>
         </div>
         <Footer />
