@@ -39,7 +39,7 @@ const Feedback = () => {
             <BackButton to={""} />
           </div>
 
-          <div className="flex items-center gap-20 mt-6">
+          <div className="flex sm:flex-col items-center sm:gap-5 gap-20 mt-6">
             <div className="flex items-center gap-1">
               <h2 className="text-lg text-light-black-8 font-bold">
                 Feedback about
@@ -55,7 +55,7 @@ const Feedback = () => {
             </div>
           </div>
 
-          <div className="mt-4 flex gap-6">
+          <div className="mt-4 sm:flex-col flex gap-6">
             <div className="sm:w-full w-[70%]">
               <div className="border-primary-1 border-8 rounded-lg">
                 <div className="flex text-center flex-col mt-5">
@@ -63,13 +63,13 @@ const Feedback = () => {
                     How was your experience?
                   </p>
                   <hr />
-                  <div className="mt-5">
+                  <div className="mt-5 sm:mx-3">
                     <form onSubmit={handleSubmit}>
                       <textarea
                         value={textareaValue}
                         onChange={handleTextareaChange}
                         placeholder="Please write a detailed feedback"
-                        className="bg-white-3 w-[60%] h-[50%] rounded-lg pl-4 pt-4 outline-none"
+                        className="bg-white-3 w-[60%] sm:w-full h-[50%] rounded-lg pl-4 pt-4 outline-none"
                       />
 
                       <label htmlFor="upload" className="">
@@ -106,7 +106,7 @@ const Feedback = () => {
                         </div>
                       </label>
                       <div className="flex justify-center mt-4 mb-10">
-                        <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 text-lg font-semibold flex items-center justify-center shadow-xl text-white w-[50%]">
+                        <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 text-lg font-semibold flex items-center justify-center shadow-xl text-white w-[50%] sm:w-full">
                           Send feedback
                         </button>
                       </div>
