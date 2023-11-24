@@ -1,79 +1,40 @@
-"use client"
+"use client";
 import Footer from "@/public/components/Footer/page";
 import NavBar from "@/public/components/NavBar/page";
 import Image from "next/image";
-import Author from "@/public/assets/Ellipse2396.png";
+import Author from "@/public/assets/Ellipse-2402.svg";
 import Link from "next/link";
 import { MdOutlineLocalPostOffice } from "react-icons/md";
 
 const Profile = () => {
+  const user = {
+    name: "Benjamin Achan",
+    picture: Author,
+    contact: "+1 234 567 890",
+    email: "mybusiness@mail.com",
+    about:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque eget eros tempor consequat. Etiam non est dapibus, elementum est eu, pharetra nisi. Pellentesque eget volutpat leo, sed fringilla arcu. Etiam laoreet ipsum sit amet eros rutrum tincidunt. Mauris venenatis congue dignissim. Donec imperdiet quam in sem euismod accumsan. Aliquam consequat nunc venenatis quam rutrum semper. Donec condimentum, sem rhoncus consectetur hendrerit, sem tortor dignissim arcu, ut efficitur magna metus quis lacus. Proin dui sapien, varius at aliquet vitae, condimentum eget risus. Vivamus suscipit, purus volutpat lobortis dignissim, nisi felis faucibus eros, nec facilisis tortor massa at tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate justo eget felis tristique porta. Etiam convallis lorem vitae lorem tempus, in feugiat lectus congue. Nulla vitae turpis fermentum elit euismod mattis et a enim.",
+    
+  };
+
   return (
     <>
-      <NavBar>
-        <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 typo flex items-center justify-center shadow-xl text-white ">
-          Logout
-        </button>
-      </NavBar>
-      <div className="overflow-y-scroll h-[87vh]">
-        <div className="h-[100px] md:h-[260px] bg-profile-image"></div>
-        <div className="px-4 md:px-48">
-          <div className="flex flex-col md:flex-row justify-between">
-            <div className="w-full md:w-[50%] pt-10">
-              <div className="flex flex-col md:flex-row justify-between mb-8 md:mb-20">
-                <div className="mb-4 md:mb-0">
-                  <h2 className="text-primary text-xl font-semibold">
-                    3 years plus
-                  </h2>
-                  <p className="text-light-black-3 font-medium text-base">
-                    Registered
-                  </p>
-                </div>
-                <div className="mb-4 md:mb-0">
-                  <h2 className="text-primary text-xl font-semibold">38 +</h2>
-                  <p className="text-light-black-3 font-medium text-base">
-                    Purchases
-                  </p>
-                </div>
-                <div>
-                  <h2 className="text-primary text-xl font-semibold">€5,678</h2>
-                  <p className="text-light-black-3 font-medium text-base">
-                    Spent
-                  </p>
-                </div>
-              </div>
-
-              <div>
-                <h2 className="text-primary text-2xl font-bold">Welcome, Benjamin</h2>
-                <p className="text-light-black-5 font-semibold text-base mb-4">
-                  Abuja, Nigeria
-                </p>
-                <p className="text-light-black-5 font-normal text-sm">
-                  Brief profileBrief profileBrief profileBrief profile Brief
-                  profileBrief profile Brief profileBrief profile Brief
-                  profileBrief profile Brief profileBrief profile Brief
-                  profileBrief profileBrief profileBrief profile
-                </p>
-              </div>
-            </div>
-            <div className="w-full md:w-[40%]">
-              <div className="relative bottom-0 md:bottom-40">
-                <div>
-                  <Image src={Author} alt={""} />
-                </div>
-                <Link href="/login" className="flex justify-center">
-                  <button className="bg-gradient-to-r from-primary-1 to-primary round w-full md:w-[280px] h-[50px] typo flex gap-3 items-center justify-center text-white">
-                    <MdOutlineLocalPostOffice className="text-white w-[25px] h-[25px] cursor-pointer" />
-                    Send Message
-                  </button>
-                </Link>
-              </div>
-            </div>
+      <NavBar showSearch={false} />
+      <div className="overflow-y-scroll h-[90vh]">
+        <div className="sm:h-[100px] h-[150px] bg-lightBrownGradient relative">
+          <div className="absolute -bottom-[75px] left-32">
+            <Image
+              src={user.picture}
+              alt={""}
+              className="object-cover w-[150px] h-[150px]"
+            />
           </div>
         </div>
+        <div className="flex flex-col mt-28 mb-24 px-10">
+          <p className="font-bold text-2xl text-weirdBrown">{user.name}</p>
+        </div>
 
-        <div className="h-1/2"></div>
-
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </>
   );
