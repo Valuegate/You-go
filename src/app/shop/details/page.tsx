@@ -43,7 +43,7 @@ const ShopDetails = () => {
       </NavBar>
 
       <div className="overflow-y-scroll sm:h-screen h-[87vh]">
-        <div className="px-6 md:px-24">
+        <div className="sm:px-6 px-24">
           <div className="mt-8 flex sm:flex-col flex-row gap-10">
             <div className="sm:w-full w-[70%]">
               <div>
