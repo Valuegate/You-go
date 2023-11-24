@@ -178,7 +178,7 @@ const HomePage = () => {
           </div>
 
           <div className="flex justify-center items-center flex-col mt-32 sm:mt-24 relative">
-          <Image src={Fancy} alt="" className="absolute -left-[12%] sm:-left-[50%] sm:-top-10 -z-10 top-0 w-[300px] h-[300px]"/>
+          <Image src={Fancy} alt="" className="absolute -left-[150px] sm:-left-[200px] sm:-top-10 -z-10 top-0 w-[300px] h-[300px]"/>
 
             <p className="text-lg text-light-black-4 font-semibold mb-2">
               WHY US?

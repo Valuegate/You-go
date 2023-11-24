@@ -38,49 +38,49 @@ const Profile = () => {
     {
       image: Shoe,
       title: "Human Shoe",
-      reviews: 2630,
+      reviews: "2630",
       price: 5000,
       from: "Crescent Multipurpose Store",
     },
     {
       image: Shoe,
       title: "Human Shoe",
-      reviews: 2630,
+      reviews: "2630",
       price: 5000,
       from: "Crescent Multipurpose Store",
     },
     {
       image: Shoe,
       title: "Human Shoe",
-      reviews: 2630,
+      reviews: "2630",
       price: 5000,
       from: "Crescent Multipurpose Store",
     },
     {
       image: Shoe,
       title: "Human Shoe",
-      reviews: 2630,
+      reviews: "2630",
       price: 5000,
       from: "Crescent Multipurpose Store",
     },
     {
       image: Shoe,
       title: "Human Shoe",
-      reviews: 2630,
+      reviews: "2630",
       price: 5000,
       from: "Crescent Multipurpose Store",
     },
     {
       image: Shoe,
       title: "Human Shoe",
-      reviews: 2630,
+      reviews: "2630",
       price: 5000,
       from: "Crescent Multipurpose Store",
     },
     {
       image: Shoe,
       title: "Human Shoe",
-      reviews: 2630,
+      reviews: "2630",
       price: 5000,
       from: "Crescent Multipurpose Store",
     },
@@ -88,21 +88,21 @@ const Profile = () => {
     {
       image: Shoe,
       title: "Human Shoe",
-      reviews: 2630,
+      reviews: "2630",
       price: 5000,
       from: "Crescent Multipurpose Store",
     },
     {
       image: Shoe,
       title: "Human Shoe",
-      reviews: 2630,
+      reviews: "2630",
       price: 5000,
       from: "Crescent Multipurpose Store",
     },
     {
       image: Shoe,
       title: "Human Shoe",
-      reviews: 2630,
+      reviews: "2630",
       price: 5000,
       from: "Crescent Multipurpose Store",
     },
@@ -133,11 +133,11 @@ const Profile = () => {
                 </p>
 
                 <div className="flex gap-5 items-center justify-center mt-5 mb-5">
-                  <Image src={SC} alt=" " className="w-[25px] h-[25px]" />
-                  <Image src={SC1} alt=" " className="w-[25px] h-[25px]" />
-                  <Image src={SC2} alt=" " className="w-[25px] h-[25px]" />
-                  <Image src={SC3} alt=" " className="w-[25px] h-[25px]" />
-                  <Image src={SC4} alt=" " className="w-[25px] h-[25px]" />
+                  <Image src={SC} alt=" " className="w-[25px] h-[25px] cursor-pointer" />
+                  <Image src={SC1} alt=" " className="w-[25px] h-[25px] cursor-pointer" />
+                  <Image src={SC2} alt=" " className="w-[25px] h-[25px] cursor-pointer" />
+                  <Image src={SC3} alt=" " className="w-[25px] h-[25px] cursor-pointer" />
+                  <Image src={SC4} alt=" " className="w-[25px] h-[25px] cursor-pointer" />
                 </div>
               </div>
             </div>
@@ -198,11 +198,13 @@ const Profile = () => {
                 return (
                   <ItemsCard
                     key={i}
-                    title={product.title}
-                    from={product.from}
+                    name={product.title}
                     image={product.image}
                     price={product.price}
-                    reviews={product.reviews}
+                    rating={product.reviews}
+                    width={0}
+                    height={0}
+                    className={product.from}
                   />
                 );
               })}
@@ -210,6 +212,7 @@ const Profile = () => {
           </div>
         </div>
         <div className="h-32" />
+        <Footer />
       </div>
     </>
   );
