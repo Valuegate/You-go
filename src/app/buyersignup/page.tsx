@@ -9,11 +9,7 @@ const BuyerSignUp = () => {
   
   return (
     <>
-      <NavBar>
-        <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 typo flex items-center justify-center shadow-xl text-white ">
-          Login
-        </button>
-      </NavBar>
+      <NavBar />
       <div className="relative">
       <div className="flex flex-col lg:flex-row">
         <div className="lg:w-[50%] px-4 py-8 lg:pr-24 lg:pl-48 lg:pt-12 lg:overflow-y-scroll lg:h-[87vh]">

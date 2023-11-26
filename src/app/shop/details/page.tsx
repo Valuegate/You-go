@@ -37,11 +37,7 @@ const ShopDetails = () => {
 
   return (
     <>
-      <NavBar>
-        <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 typo flex items-center justify-center shadow-xl text-white ">
-          Logout
-        </button>
-      </NavBar>
+      <NavBar />
 
       <div className="overflow-y-scroll sm:h-screen h-[87vh]">
         <div className="sm:px-6 px-24">

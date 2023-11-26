@@ -97,13 +97,7 @@ const HomePage = () => {
 
   return (
     <>
-      <NavBar>
-        <Link href={"/signupselect"}>
-          <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 typo flex items-center justify-center shadow-xl text-white ">
-            Login
-          </button>
-        </Link>
-      </NavBar>
+      <NavBar/>   
       <div className="overflow-y-scroll h-screen md:h-[87vh]">
         <div className="px-6 md:px-24">
           <div className="flex flex-col-reverse sm:flex-col md:flex-row mt-16 sm:mt-8">
@@ -184,7 +178,7 @@ const HomePage = () => {
           </div>
 
           <div className="flex justify-center items-center flex-col mt-32 sm:mt-24 relative">
-          <Image src={Fancy} alt="" className="absolute -left-[12%] sm:-left-[50%] sm:-top-10 -z-10 top-0 w-[300px] h-[300px]"/>
+          <Image src={Fancy} alt="" className="absolute -left-[150px] sm:-left-[200px] sm:-top-10 -z-10 top-0 w-[300px] h-[300px]"/>
 
             <p className="text-lg text-light-black-4 font-semibold mb-2">
               WHY US?
