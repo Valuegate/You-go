@@ -6,11 +6,7 @@ import Link from "next/link";
 const Cart = () => {
   return (
     <>
-      <NavBar>
-        <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 typo flex items-center justify-center shadow-xl text-white ">
-          Logout
-        </button>
-      </NavBar>
+      <NavBar />
 
       <div className="overflow-y-scroll h-screen md:h-[90vh]">
         <div className="px-6 md:px-24">

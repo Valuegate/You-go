@@ -1,27 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import Image from "next/image";
-import star from "@/public/assets/stars.png"
+import React, { useEffect, useState } from "react";
+import Image, { StaticImageData } from "next/image";
+import star from "@/public/assets/stars.png";
 import { LoveIcon } from "@/public/icons";
-import useFetchProduct from '@/public/hooks/queries/useFetchProduct';
-import Img from "@/public/assets/watch.png"
+import useFetchProduct from "@/public/hooks/queries/useFetchProduct";
+import Img from "@/public/assets/watch.png";
 // import { Product } from "@/public/types/product"
 // import { Carousel } from 'react-responsive-carousel';
 // import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 interface ItemsCardProps {
-    // src: string;
-    image: string;
-    name: string;
-    rating: string;
-    price: string | number;
-    width: number | string;
-    height: number | string;
-    className: string;
-  }
+  image: string | StaticImageData;
+  name: string;
+  rating: string;
+  price: string | number;
+  width: string | number;
+  height: string | number;
+  className: string;
+}
 
-
-  const ItemsCard: React.FC<ItemsCardProps> = ({width, height, className, image, price, name , rating }) => {
-    const { data: user, isLoading } = useFetchProduct();
+const ItemsCard: React.FC<ItemsCardProps> = ({
+  image,
+  name,
+  price,
+  rating,
+  width,
+  height,
+  className,
+}) => {
+  // const { data: user, isLoading } = useFetchProduct();
+  const user = {};
 
   
     return ( 
@@ -42,12 +49,9 @@ interface ItemsCardProps {
           <p className="text-primary text-[15px] font-medium ">€</p>
           <p className="font-bold text-primary">{price}</p>
         </div>
-        <p className="text-xs text-light-black-4 font-medium">By <span className="text-light-black-5 text-sm">Cresent Multipurpose Store</span></p>
-      </div>
-    </div>
-    )}
-        </>
-     );
-}
- 
+      )}
+    </>
+  );
+};
+
 export default ItemsCard;
