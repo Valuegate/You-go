@@ -11,7 +11,7 @@ const Shop = () => {
       <div className="">
         
         <SearchContainer />
-        <div className="pt-1 lg:pt-12 px-4 lg:px-24">
+        <div className="sm:pt-1 pt-12 sm:px-4 px-24">
           <MenuSection />
         </div>
       </div>

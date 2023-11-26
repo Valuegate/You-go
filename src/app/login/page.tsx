@@ -28,29 +28,33 @@ const Login = () => {
 
   const { isError, isLoading, isSuccess, login, error, data } = useLogin();
 
-  useEffect(() => {
+  // useEffect(() => {
     if (isSuccess) {
       // Set token to local storage
-      localStorage.setItem("userToken", data?.access);
+       localStorage.setItem("userToken", data?.access);
 
-      if (data.is_staff) {
-        router.push("/seller");
-      } else {
-        router.push("/buyer");
-      }
-    }
-  }, [isSuccess, data, router]);
-
-  const handleLogin = () => {
-    login(credentials);
-  };
-
-  //   router.push("/buyer");
-  // }
+  //     if (data.is_staff) {
+  //       router.push("/seller");
+  //     } else {
+  //       router.push("/buyer");
+  //     }
+  //   }
+  // }, [isSuccess, data, router]);
 
   // const handleLogin = () => {
   //   login(credentials);
   // };
+
+    router.push("/shop");
+  }
+ 
+  if (isError) {
+
+  }
+
+  const handleLogin = () => {
+    login(credentials);
+  };
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -66,11 +70,11 @@ const Login = () => {
         <p className="font-medium text-[14px] lg:text-[16px] leading-[24px] lg:leading-[32px] text-light-black-5 pb-4 text-center lg:text-left">
           Login to your account in seconds
         </p>
-        {/* {isError && (
+        {isError && (
               <p className="text-sm flex justify-center text-primary">
                 {error?.response?.data?.detail as string}
               </p>
-            )} */}
+            )}
 
         <div className="mt-10">
           <Formik

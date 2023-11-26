@@ -27,7 +27,7 @@ const SignUp = () => {
     social_business_bio: "",
     website: "",
     short_business_bio: "",
-    is_staff: true,
+    // is_staff: true,
   });
   const [errorMsg, setErrorMsg] = useState<string>("");
 
@@ -60,12 +60,12 @@ const SignUp = () => {
   return (
     <>
           <div className="flex flex-col lg:flex-row">
-      <div className="w-[50%] px-[5%] flex flex-col justify-center sm:w-full sm:mt-32 pt-[40%] overflow-y-scroll h-[100vh]">
+      <div className="w-[50%] px-[5%] flex flex-col justify-center sm:w-full sm:mt-32 pt-[20%] overflow-y-scroll h-[100vh]">
         <div className="mb-5">
         <BackButton to={"/login"} />
         </div>
         <h3 className="font-bold text-[32px] sm:text-[36px] sm:leading-[28px] leading-[36px] text-weirdBrown sm:text-center">
-              Create a Seller Account
+              Create an Account
             </h3>
         <p className="font-medium text-[14px] lg:text-[16px] leading-[24px] lg:leading-[32px] text-light-black-5 pb-4 text-center lg:text-left">
               Create a new account in seconds
@@ -161,7 +161,7 @@ const SignUp = () => {
                         className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-[70%] sm:w-full"
                       />
                     </div>
-                    <div className="mb-4">
+                    {/* <div className="mb-4">
                       <label htmlFor="brand" className="block">
                         Brand Name:
                       </label>
@@ -232,11 +232,11 @@ const SignUp = () => {
                         placeholder="Put your website here"
                         className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-[70%] sm:w-full"
                       />
-                    </div>
+                    </div> */}
                     {/* <PasswordInput label={"Password"} /> */}
 
                     <div className="mb-4">
-                      <label htmlFor="email" className="block">
+                      <label htmlFor="password" className="block">
                         Password
                       </label>
 
@@ -246,6 +246,40 @@ const SignUp = () => {
                           id="password"
                           name="password"
                           placeholder="Enter password"
+                          onChange={(e) =>
+                            setCredentials({
+                              ...credentials,
+                              password: e.target.value,
+                            })
+                          }
+                          className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-full"
+                        />
+                        <button
+                          className="absolute inset-y-0 right-2 flex items-center px-2 cursor-pointer"
+                          onClick={() => setShowPassword(!showPassword)}
+                        >
+                          {showPassword ? (
+                            <span className="w-6 h-6">&#128065;</span> // Unicode for open eye
+                          ) : (
+                            <span>
+                              <EyeSlashIcon />
+                            </span> // Unicode for closed eye
+                          )}
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="mb-4">
+                      <label htmlFor="password" className="block">
+                        Confirm Password
+                      </label>
+
+                      <div className="relative w-[70%] sm:w-full">
+                        <input
+                          type={showPassword ? "text" : "password"}
+                          id="re-password"
+                          name="re-password"
+                          placeholder="Confirm your password"
                           onChange={(e) =>
                             setCredentials({
                               ...credentials,

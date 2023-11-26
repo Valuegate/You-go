@@ -23,8 +23,6 @@ const ItemsCard: React.FC<ItemsCardProps> = ({
   name,
   price,
   rating,
-  width,
-  height,
   className,
 }) => {
   // const { data: user, isLoading } = useFetchProduct();
@@ -41,6 +39,8 @@ const ItemsCard: React.FC<ItemsCardProps> = ({
             <Image
               src={image}
               className="w-full h-[170px] rounded-t-xl object-cover"
+              width={100}
+              height={100}
               alt={"product image"}
             />
             <div className="w-[30px] h-[30px] rounded-full bg-primary-1 flex justify-center items-center absolute right-4 top-4 cursor-pointer">

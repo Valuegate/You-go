@@ -36,9 +36,9 @@ const MenuSection = () => {
       {/* <div className="lg:w-3/4"> */}
       <div className="">
         <div className="mt-8">
-          <div className="flex flex-col lg:flex-row items-center gap-4 mb-3">
+          <div className="flex sm:flex-col flex-row items-center gap-4 mb-3">
             <div>
-              <h2 className="font-bold text-sm lg:text-base text-light-black-5">
+              <h2 className="font-bold sm:text-sm text-base text-light-black-5">
                 Price
               </h2>
             </div>
@@ -53,9 +53,9 @@ const MenuSection = () => {
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-8 mb-3">
+          <div className="flex sm:flex-col flex-row gap-8 mb-3">
             <label
-              className="flex items-center justify-center text-[16px] lg:text-base leading-[32px] font-bold text-light-black-5"
+              className="flex items-center justify-center sm:text-[16px] text-base leading-[32px] font-bold text-light-black-5"
               htmlFor="remember"
             >
               <input
@@ -66,7 +66,7 @@ const MenuSection = () => {
               Summer Sale
             </label>
             <label
-              className="flex items-center justify-center text-[16px] lg:text-base leading-[32px] font-bold text-light-black-5"
+              className="flex items-center justify-center sm:text-[16px] text-base leading-[32px] font-bold text-light-black-5"
               htmlFor="sale"
             >
               <input
@@ -77,7 +77,7 @@ const MenuSection = () => {
               Spend & Sale
             </label>
             <label
-              className="flex items-center justify-center text-[16px] lg:text-base leading-[32px] font-bold text-light-black-5"
+              className="flex items-center justify-center sm:text-[16px] text-base leading-[32px] font-bold text-light-black-5"
               htmlFor="shipping"
             >
               <input

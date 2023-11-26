@@ -3,7 +3,7 @@ import { USERSELLERREGISTER_ROUTES } from "@/public/services/routes";
 import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 
-export type TSignupPayload = { email: string; password: string; full_name: string; phone_number: string; address: string; brand_name: string; social_business_bio: string; website: string; short_business_bio: string; is_staff: true; };
+export type TSignupPayload = { email: string; password: string; full_name: string; phone_number: string; address: string; brand_name: string; social_business_bio: string; website: string; short_business_bio: string };
 
 interface iDataResponse {
     full_name: string;
@@ -15,7 +15,7 @@ interface iDataResponse {
     short_business_bio: string;
     website: string;
     password: string;
-    is_staff: true;
+    // is_staff: true;
 }
 
 const useUserSellerRegister = () => {
