@@ -128,7 +128,7 @@ const ShopDetails = () => {
                   </h2>
                   <div>
                     <li className="font-normal text-sm text-light-black-5">
-                      Remember, don't send any pre-payments
+                      Remember, don&apos;t send any pre-payments
                     </li>
                     <li className="font-normal text-sm text-light-black-5">
                       Meet the seller at a safe public place
@@ -137,7 +137,7 @@ const ShopDetails = () => {
                       Inspect the goods to make sure they meet your needs
                     </li>
                     <li className="font-normal text-sm text-light-black-5">
-                      Check all documentation and only pay if you're satisfied
+                      Check all documentation and only pay if you&apos;re satisfied
                     </li>
                   </div>
                 </div>

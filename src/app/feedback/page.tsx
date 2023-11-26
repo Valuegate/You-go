@@ -125,7 +125,7 @@ const Feedback = () => {
                   Your honest feedback is crucial for other buyers and the
                   seller to make informed decisions. Please share your genuine
                   thoughts and experiences with this product to help others and
-                  contribute to the seller's success.
+                  contribute to the seller&apos;s success.
                 </p>
               </div>
             </div>
