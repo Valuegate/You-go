@@ -65,7 +65,7 @@ const SignUp = () => {
         <BackButton to={"/login"} />
         </div>
         <h3 className="font-bold text-[32px] sm:text-[36px] sm:leading-[28px] leading-[36px] text-weirdBrown sm:text-center">
-              Create a Seller Account
+              Hi, nice to meet you!
             </h3>
         <p className="font-medium text-[14px] lg:text-[16px] leading-[24px] lg:leading-[32px] text-light-black-5 pb-4 text-center lg:text-left">
               Create a new account in seconds
@@ -296,7 +296,7 @@ const SignUp = () => {
 
             <div className="flex justify-start mb-20 gap-1 pt-4 lg:pt-8 sm:justify-center">
               <h1 className="text-center lg:text-left font-normal text-[14px] sm:text-[18px] lg:text-lg">
-                Do you have an account?
+                Already have an account?
               </h1>
               <Link href="../login">
                 <h1 className="text-center lg:text-left font-medium text-[14px] sm:text-[18px] lg:text-lg text-weirdBrown">

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { QuestionmarkIcon } from "@/public/icons/questionmark-icon";
 import { LoveIcon } from "@/public/icons";
 import { HiShoppingCart } from "react-icons/hi";
-import Burger from "./Burger";
+
 
 import { FaBarsStaggered, FaChevronRight } from "react-icons/fa6";
 
