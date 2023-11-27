@@ -1,10 +1,11 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import logo from "@/public/assets/you_go_logo.png";
 import Image from "next/image";
 import { FaLinkedinIn, FaTwitter, FaFacebookF } from "react-icons/fa";
 import { BiLogoInstagramAlt } from "react-icons/bi";
 import Link from "next/link";
-
 
 import Insta from "@/public/assets/Vector-2.svg";
 import FB from "@/public/assets/Vector-3.svg";
@@ -12,11 +13,18 @@ import Twitter from "@/public/assets/Group_1.svg";
 import YT from "@/public/assets/Group.svg";
 
 const Footer = () => {
-
   const instaUrl = "";
   const fbUrl = "";
   const twUrl = "";
   const ytUrl = "";
+
+  const [isSeller, setSeller] = useState<string>("");
+  useEffect(() => {
+    let status = window.localStorage.getItem("userStatus");
+    if (status !== undefined && status !== null) {
+      setSeller(status);
+    }
+  }, []);
 
   return (
     <>
@@ -33,6 +41,14 @@ const Footer = () => {
             >
               Home
             </Link>
+            {(isSeller === "buyer" || isSeller.length === 0) && (
+              <Link
+                className="text-purpleBrown text-[18px] sm:text-[16px]"
+                href={"/register-as-seller"}
+              >
+                Sell on YouGo
+              </Link>
+            )}
             <Link
               className="text-purpleBrown text-[18px] sm:text-[16px]"
               href={"/shop"}
@@ -53,16 +69,16 @@ const Footer = () => {
             </Link>
             <div className="mt-5 flex items-center gap-5">
               <Link href={instaUrl} target="_blank">
-                <Image src={Insta} alt="" className="w-[30px] h-[30px]"/>
+                <Image src={Insta} alt="" className="w-[30px] h-[30px]" />
               </Link>
               <Link href={fbUrl} target="_blank">
-                <Image src={FB} alt="" className="w-[30px] h-[30px]"/>
+                <Image src={FB} alt="" className="w-[30px] h-[30px]" />
               </Link>
               <Link href={twUrl} target="_blank">
-                <Image src={Twitter} alt="" className="w-[30px] h-[30px]"/>
+                <Image src={Twitter} alt="" className="w-[30px] h-[30px]" />
               </Link>
               <Link href={ytUrl} target="_blank">
-                <Image src={YT} alt="" className="w-[30px] h-[30px]"/>
+                <Image src={YT} alt="" className="w-[30px] h-[30px]" />
               </Link>
             </div>
           </div>

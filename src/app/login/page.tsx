@@ -29,26 +29,29 @@ const Login = () => {
   const { isError, isLoading, isSuccess, login, error, data } = useLogin();
 
   // useEffect(() => {
-    if (isSuccess) {
-      // Set token to local storage
-       localStorage.setItem("userToken", data?.access);
+  if (isSuccess) {
+    // Set token to local storage
+    localStorage.setItem("userToken", data?.access);
+    localStorage.setItem("userName", data?.full_name);
+    localStorage.setItem("userStatus", data?.is_staff ? "seller" : "buyer");
+    console.log(data);
+    //     if (data.is_staff) {
+    //       router.push("/seller");
+    //     } else {
+    //       router.push("/buyer");
+    //     }
+    //   }
+    // }, [isSuccess, data, router]);
 
-  //     if (data.is_staff) {
-  //       router.push("/seller");
-  //     } else {
-  //       router.push("/buyer");
-  //     }
-  //   }
-  // }, [isSuccess, data, router]);
-
-  // const handleLogin = () => {
-  //   login(credentials);
-  // };
+    // const handleLogin = () => {
+    //   login(credentials);
+    // };
 
     router.push("/shop");
   }
- 
-  if (isError) {}
+
+  if (isError) {
+  }
 
   const handleLogin = () => {
     login(credentials);
@@ -57,10 +60,10 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="flex flex-col lg:flex-row h-[100vh]">
-      <div className="w-[50%] px-[5%] flex flex-col justify-center sm:w-full sm:mt-32">
-      <div className="mb-5">
-        <BackButton to={"/home"} />
+    <div className="flex flex-col lg:flex-row h-[100vh] sm:h-auto">
+      <div className="w-[50%] px-[5%] flex flex-col justify-center sm:justify-start sm:w-full">
+        <div className="mb-5 sm:mb-24 sm:mt-10">
+          <BackButton to={"/home"} />
         </div>
         <h3 className="font-bold text-[32px] sm:text-[36px] sm:leading-[28px] leading-[36px] text-weirdBrown sm:text-center">
           Welcome Back
@@ -146,7 +149,7 @@ const Login = () => {
                     </button>
                   </div>
                 </div>
-                
+
                 <div className="mt-8">
                   <button
                     type="submit"
@@ -175,7 +178,7 @@ const Login = () => {
         </div>
         <div className="flex justify-start mt-10 gap-1 pt-4 lg:pt-8 sm:justify-center">
           <h1 className="text-center lg:text-left font-normal text-[14px] sm:text-[18px] lg:text-lg">
-            You do not have an account?
+            Don't have an account?
           </h1>
           <Link href="/signup">
             <h1 className="text-center lg:text-left font-medium text-[14px] sm:text-[18px] lg:text-lg text-weirdBrown">
@@ -183,7 +186,6 @@ const Login = () => {
             </h1>
           </Link>
         </div>
-        
 
         {/* <div className="flex justify-center items-center gap-4 pb-12 lg:pb-24">
           <Link href={"#"}>
