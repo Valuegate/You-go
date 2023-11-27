@@ -178,7 +178,7 @@ const Login = () => {
         </div>
         <div className="flex justify-start mt-10 gap-1 pt-4 lg:pt-8 sm:justify-center">
           <h1 className="text-center lg:text-left font-normal text-[14px] sm:text-[18px] lg:text-lg">
-            Don't have an account?
+            Don&apos;t have an account?
           </h1>
           <Link href="/signup">
             <h1 className="text-center lg:text-left font-medium text-[14px] sm:text-[18px] lg:text-lg text-weirdBrown">

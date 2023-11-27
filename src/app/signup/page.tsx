@@ -143,7 +143,7 @@ const SignUp = () => {
                       className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1  rounded w-[70%] sm:w-full"
                     />
                   </div>
-                  <div className="mb-4">
+                  {/* <div className="mb-4">
                     <label htmlFor="address" className="block">
                       Address:
                     </label>
@@ -160,7 +160,7 @@ const SignUp = () => {
                       placeholder="Put address here"
                       className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-[70%] sm:w-full"
                     />
-                  </div>
+                  </div> */}
                   {/* <div className="mb-4">
                       <label htmlFor="brand" className="block">
                         Brand Name:
