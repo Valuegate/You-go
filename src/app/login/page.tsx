@@ -33,6 +33,8 @@ const Login = () => {
       // Set token to local storage
       localStorage.setItem("userToken", data?.access);
 
+      console.log(data);
+
       if (data.is_staff) {
         router.push("/seller");
       } else {

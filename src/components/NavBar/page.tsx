@@ -6,7 +6,6 @@ import { QuestionmarkIcon } from "@/public/icons/questionmark-icon";
 import { LoveIcon } from "@/public/icons";
 import { HiShoppingCart } from "react-icons/hi";
 
-
 import { FaBarsStaggered, FaChevronRight } from "react-icons/fa6";
 
 import { motion } from "framer-motion";
@@ -25,7 +24,11 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
 
   return (
     <>
-      <div className={`h-[10vh] sm:h-[8vh] flex items-center ${transparent ? "bg-[#FFFFFFFF00]" : "bg-white"} justify-between px-4 lg:px-[5%] lg:py-3 shadow-sm`}>
+      <div
+        className={`h-[10vh] sm:h-[8vh] flex items-center ${
+          transparent ? "bg-[#FFFFFFFF00]" : "bg-white"
+        } justify-between px-4 lg:px-[5%] lg:py-3 shadow-sm`}
+      >
         <div className="flex items-center justify-between w-1/3">
           <Link href={"/home"}>
             <Logo />
@@ -45,6 +48,10 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
           <Link href={"/home"}>
             <h5 className="text-weirdBrown text-[20px] font-normal">Home</h5>
           </Link>
+          <Link href={"/"}>
+            <h5 className="text-weirdBrown text-[20px] font-normal">Sell</h5>
+          </Link>
+
           <Link href={"/shop"}>
             <h5 className="text-weirdBrown text-[20px] font-normal">Shop</h5>
           </Link>
@@ -56,6 +63,7 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
               About Us
             </h5>
           </Link>
+
           {loggedIn ? (
             <></>
           ) : (
@@ -95,6 +103,13 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
             href={"/"}
             className="text-weirdBrown w-full py-2 rounded-xl text-[20px] font-normal flex justify-between items-center"
           >
+            Sell On YouGo
+            <FaChevronRight size={"16px"} fill={"#000000"} />
+          </Link>
+          <Link
+            href={"/"}
+            className="text-weirdBrown w-full py-2 rounded-xl text-[20px] font-normal flex justify-between items-center"
+          >
             Shop
             <FaChevronRight size={"16px"} fill={"#000000"} />
           </Link>
@@ -112,6 +127,7 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
             About Us
             <FaChevronRight size={"16px"} fill={"#000000"} />
           </Link>
+
           <Link href={"/login"}>
             <h5 className=" text-white hover:text-weirdBrown mt-24 hover:bg-darkBrownGradient bg-weirdBrown px-10 py-2 rounded-lg text-[20px] font-normal">
               Login
