@@ -18,6 +18,7 @@ import { StockIcon } from "@/public/icons/stock-icon";
 import { ArrowRightIcon } from "@/public/icons/arrowright-icon";
 import Link from "next/link";
 import ItemsCard from "@/public/components/ItemsCard/page";
+import AddItem from "@/public/components/AddItem";
 
 const ShopDetails = () => {
   const [clickedSize, setClickedSize] = useState<number | null>(null);
@@ -75,7 +76,7 @@ const ShopDetails = () => {
             </div>
 
             <div className="sm:w-full w-[30%]">
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-4">
                 <div className="border-primary-1 border-8 rounded-lg py-3 pl-3">
                   <div className="text-primary text-lg font-bold mb-3">
                     $28.00
@@ -123,7 +124,7 @@ const ShopDetails = () => {
                   </h2>
                   <div>
                     <li className="font-normal text-sm text-light-black-5">
-                      Remember, don't send any pre-payments
+                      Remember, don&apos;t send any pre-payments
                     </li>
                     <li className="font-normal text-sm text-light-black-5">
                       Meet the seller at a safe public place
@@ -132,14 +133,15 @@ const ShopDetails = () => {
                       Inspect the goods to make sure they meet your needs
                     </li>
                     <li className="font-normal text-sm text-light-black-5">
-                      Check all documentation and only pay if you're satisfied
+                      Check all documentation and only pay if you&apos;re satisfied
                     </li>
                   </div>
                 </div>
                 <div className="">
-                  <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 flex items-center justify-center shadow-xl text-white w-full">
+                  {/* <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 flex items-center justify-center shadow-xl text-white w-full">
                     Become a seller
-                  </button>
+                  </button> */}
+                  <AddItem addText="Sell on YouGo"/>
                 </div>
               </div>
             </div>

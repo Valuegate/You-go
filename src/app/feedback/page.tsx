@@ -28,11 +28,7 @@ const Feedback = () => {
   };
   return (
     <>
-      <NavBar>
-        <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 typo flex items-center justify-center shadow-xl text-white ">
-          Logout
-        </button>
-      </NavBar>
+      <NavBar />
       <div className="overflow-y-scroll sm:h-screen h-[87vh]">
         <div className="sm:px-6 px-24">
           <div className="mt-10">
@@ -125,14 +121,14 @@ const Feedback = () => {
                   Your honest feedback is crucial for other buyers and the
                   seller to make informed decisions. Please share your genuine
                   thoughts and experiences with this product to help others and
-                  contribute to the seller's success.
+                  contribute to the seller&apos;s success.
                 </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </>
+      </>
   );
 };
 

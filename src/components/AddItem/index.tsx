@@ -126,9 +126,8 @@ const AddItem = ({ addText = "Add Order" }) => {
 
       <Button
         onClick={open}
-        className="bg-gradient-to-r from-primary-1 to-primary round h-12 typo flex gap-3 items-center justify-center shadow-xl text-white shake-on-hover"
+        className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 flex items-center justify-center shadow-xl text-white w-full shake-on-hover"
       >
-        <Image src={Outlined} alt="plus" />
         {addText}
       </Button>
     </>

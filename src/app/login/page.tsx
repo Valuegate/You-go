@@ -28,31 +28,31 @@ const Login = () => {
 
   const { isError, isLoading, isSuccess, login, error, data } = useLogin();
 
-  useEffect(() => {
+  // useEffect(() => {
     if (isSuccess) {
       // Set token to local storage
-      localStorage.setItem("userToken", data?.access);
+       localStorage.setItem("userToken", data?.access);
 
-      console.log(data);
-
-      if (data.is_staff) {
-        router.push("/seller");
-      } else {
-        router.push("/buyer");
-      }
-    }
-  }, [isSuccess, data, router]);
-
-  const handleLogin = () => {
-    login(credentials);
-  };
-
-  //   router.push("/buyer");
-  // }
+  //     if (data.is_staff) {
+  //       router.push("/seller");
+  //     } else {
+  //       router.push("/buyer");
+  //     }
+  //   }
+  // }, [isSuccess, data, router]);
 
   // const handleLogin = () => {
   //   login(credentials);
   // };
+
+    router.push("/shop");
+  }
+ 
+  if (isError) {}
+
+  const handleLogin = () => {
+    login(credentials);
+  };
 
   const [showPassword, setShowPassword] = useState(false);
 
