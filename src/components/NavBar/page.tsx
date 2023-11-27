@@ -14,12 +14,26 @@ import { BiX } from "react-icons/bi";
 const NavBar = ({ showSearch = true, transparent = false }) => {
   const [open, setOpen] = useState<boolean>(false);
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
+  const [isSeller, setSeller] = useState<string>("");
+  const [initials, setInitials] = useState<string>("");
   const toggle = () => {
     setOpen(!open);
   };
 
   useEffect(() => {
-    setLoggedIn(false);
+    let username = window.localStorage.getItem("userName");
+    let isSeller = window.localStorage.getItem("userStatus");
+    if (username !== undefined && username !== null) {
+      setInitials(username);
+    }
+
+    if (isSeller !== undefined && isSeller !== null) {
+      setSeller(isSeller);
+    }
+
+    setLoggedIn(
+      username !== undefined && username !== null && username!.length > 0
+    );
   }, []);
 
   return (
@@ -48,10 +62,11 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
           <Link href={"/home"}>
             <h5 className="text-weirdBrown text-[20px] font-normal">Home</h5>
           </Link>
-          <Link href={"/"}>
-            <h5 className="text-weirdBrown text-[20px] font-normal">Sell</h5>
-          </Link>
-
+          {(isSeller === "buyer" || isSeller.length === 0) && (
+            <Link href={"/register-as-seller"}>
+              <h5 className="text-weirdBrown text-[20px] font-normal">Sell</h5>
+            </Link>
+          )}
           <Link href={"/shop"}>
             <h5 className="text-weirdBrown text-[20px] font-normal">Shop</h5>
           </Link>
@@ -65,7 +80,12 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
           </Link>
 
           {loggedIn ? (
-            <></>
+            <Link
+              href={"/profile"}
+              className="rounded-full bg-weirdBrown h-[50px] w-[50px] text-center flex text-[24px] justify-center font-medium items-center text-white"
+            >
+              {initials.charAt(0).toUpperCase()}
+            </Link>
           ) : (
             <Link href={"/login"}>
               <h5 className=" text-white hover:text-weirdBrown hover:bg-darkBrownGradient bg-weirdBrown px-4 py-2 rounded-lg text-[20px] font-normal">
@@ -91,6 +111,16 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
           <BiX size={"32px"} className="text-weirdBrown" onClick={toggle} />
         </div>
 
+        <div className="mt-10 flex flex-col items-center">
+          <Link
+            href={"/profile"}
+            className="rounded-full bg-weirdBrown h-[75px] w-[75px] text-center flex text-[32px] justify-center font-medium items-center text-white"
+          >
+            {initials.charAt(0).toUpperCase()}
+          </Link>
+          <p className="text-[16px] mt-2 mb:5 font-bold">{initials}</p>
+        </div>
+
         <div className="flex flex-col items-center gap-5 mt-10">
           <Link
             href={"/"}
@@ -99,13 +129,15 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
             Home
             <FaChevronRight size={"16px"} fill={"#000000"} />
           </Link>
-          <Link
-            href={"/"}
-            className="text-weirdBrown w-full py-2 rounded-xl text-[20px] font-normal flex justify-between items-center"
-          >
-            Sell On YouGo
-            <FaChevronRight size={"16px"} fill={"#000000"} />
-          </Link>
+          {(isSeller === "buyer" || isSeller.length === 0) && (
+            <Link
+              href={"/register-as-seller"}
+              className="text-weirdBrown w-full py-2 rounded-xl text-[20px] font-normal flex justify-between items-center"
+            >
+              Sell On YouGo
+              <FaChevronRight size={"16px"} fill={"#000000"} />
+            </Link>
+          )}
           <Link
             href={"/"}
             className="text-weirdBrown w-full py-2 rounded-xl text-[20px] font-normal flex justify-between items-center"
@@ -129,8 +161,8 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
           </Link>
 
           <Link href={"/login"}>
-            <h5 className=" text-white hover:text-weirdBrown mt-24 hover:bg-darkBrownGradient bg-weirdBrown px-10 py-2 rounded-lg text-[20px] font-normal">
-              Login
+            <h5 className=" text-white hover:text-weirdBrown mt-10 hover:bg-darkBrownGradient bg-weirdBrown px-10 py-2 rounded-lg text-[20px] font-normal">
+              {loggedIn ? "Logout" : "Login"}
             </h5>
           </Link>
         </div>

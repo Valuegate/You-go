@@ -15,6 +15,7 @@ import SC4 from "@/public/assets/Social-Icons-4.svg";
 import FeedBack from "@/public/assets/Feedback-Icon.svg";
 import Recommend from "@/public/assets/Layer_1-2.svg";
 import Shoe from "@/public/assets/shoe1.png";
+import Link from "next/link";
 
 const Profile = () => {
   const user = {
@@ -114,9 +115,9 @@ const Profile = () => {
     <>
       <NavBar showSearch={false} />
 
-      <div className="mt-16 flex flex-col gap-8 w-full px-10 h-[90vh] overscroll-y-scroll">
-        <div className="flex gap-8">
-          <div className="flex flex-col w-[25%] mb-32">
+      <div className="mt-16 flex flex-col gap-8 w-full px-10 sm:px-5 h-[90vh] overscroll-y-scroll">
+        <div className="flex gap-8 sm:gap-0 sm:flex-col">
+          <div className="flex flex-col w-[25%] sm:w-full mb-32">
             <p className="text-[20px] font-bold">Profile</p>
             <div className="bg-primary-1 w-full rounded-xl py-4 px-4 mt-5">
               <div className="bg-white w-full rounded-lg py-3 flex flex-col items-center">
@@ -143,7 +144,7 @@ const Profile = () => {
             </div>
             <div className="bg-primary-1 w-full rounded-xl py-4 px-4 mt-5">
               <div className="bg-white w-full rounded-lg py-4 px-4 flex flex-col">
-                <div className="mb-5 flex justify-between items-center px-4 py-2 bg-primary-1 rounded-lg">
+                <Link href={'/feedback'} className="mb-5 flex justify-between items-center px-4 py-2 bg-primary-1 rounded-lg">
                   <div className="flex items-center gap-3">
                     <Image src={FeedBack} alt=" " />
                     <p className="text-[14px] font-normal text-white">
@@ -157,7 +158,7 @@ const Profile = () => {
 
                     <FaChevronRight fill={"#FFFFFF"} />
                   </div>
-                </div>
+                </Link>
 
                 <p className="text-[14px] font-normal text-light-black-4">
                   ❗️ Never pay in advance! Even for the delivery
@@ -181,10 +182,10 @@ const Profile = () => {
             </div>
           </div>
 
-          <div className="flex flex-col w-[75%]">
+          <div className="flex flex-col w-[75%] sm:w-full">
             <div className="flex justify-between items-center">
               <p className="text-[20px] font-bold">Products</p>
-              <div className="flex items-center gap-5">
+              <div className="flex items-center gap-5 sm:hidden">
                 <p>Sort by:</p>
                 <div className="flex items-center gap-2">
                   <Image src={Recommend} alt=" " className="cursor-pointer" />

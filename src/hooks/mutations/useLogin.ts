@@ -9,6 +9,7 @@ interface iDataResponse {
     access: string;
     email : string;
     first_name: string;
+    full_name: string;
     id: number;
     is_staff: boolean;
     refresh: string;

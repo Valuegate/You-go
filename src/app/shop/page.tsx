@@ -7,7 +7,7 @@ const Shop = () => {
   return (
     <>
       <NavBar />
-      <div className="overflow-y-scroll h-[87vh]">
+      <div className="overflow-y-scroll h-[90vh]">
       <div className="">
         
         <SearchContainer />
