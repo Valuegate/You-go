@@ -63,7 +63,7 @@ const RegisterAsSeller = () => {
     <div className="flex flex-col lg:flex-row">
         <div className="w-[50%] px-[5%] flex flex-col justify-center sm:justify-start sm:w-full">
           <div className="mb-5 sm:mb-24 sm:mt-10">
-            <BackButton to={"/login"} />
+            <BackButton to={"/home"} />
           </div>
           <h3 className="font-bold text-[32px] sm:text-[36px] sm:leading-[28px] leading-[36px] text-weirdBrown sm:text-center">
             Nice to see you
