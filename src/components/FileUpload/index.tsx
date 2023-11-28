@@ -1,40 +1,69 @@
-import Image from 'next/image';
-import React, { ChangeEvent, useState } from 'react';
-import Upload from "@/public/assets/upload.png"
+import Image from "next/image";
+import React, { ChangeEvent, useState } from "react";
+import Upload from "@/public/assets/upload.png";
+import { BsTrash } from "react-icons/bs";
 
 const FileUpload = () => {
-    const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
-    const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-      const file = event.target.files && event.target.files[0];
-      setSelectedFile(file || null);
-    };
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+
+    if (files && files.length > 0) {
+      const newFiles: File[] = Array.from(files);
+      setSelectedFiles((prevFiles) => [...prevFiles, ...newFiles]);
+    }
+  };
+
+  const handleDeleteFile = (index: number) => {
+    setSelectedFiles((prevFiles) => {
+      const updatedFiles = [...prevFiles];
+      updatedFiles.splice(index, 1);
+      return updatedFiles;
+    });
+  };
 
   return (
     <>
-    <label
-      htmlFor="upload"
-      className="text-left bg-white-2 text-md mb-2 font-medium transition-all duration-300 opacity-100 md:w-[600px] border-2 border-dashed border-primary bg-gray-300 rounded-md h-[300px] flex items-center flex-col justify-center"
-    >
+      <div>
+        <label
+          htmlFor="fileInput"
+          className="cursor-pointer text-left bg-white-2 text-md mb-2 font-medium transition-all duration-300 opacity-100 md:w-[600px] border-2 border-dashed border-primary bg-gray-300 rounded-md h-[300px] flex items-center flex-col justify-center"
+        >
+          <Image src={Upload} alt={""} className="mr-2" />
+          Click to Drop Files Here
+        </label>
         <input
           type="file"
-          id="upload"
-          name="upload"
+          id="fileInput"
           className="hidden"
           onChange={handleFileChange}
+          multiple
         />
-
-      {selectedFile && (
-        <p className="mb-6 text-light-black-6 flex items-center">
-           {selectedFile.name}
-        </p>
-      )}
-
-      <div className='flex flex-col gap-3 justify-center items-center'>
-        <Image src={Upload} alt={''} />
-        <p className='cursor-pointer text-base font-semibold'>Click to Drop Files Here</p>
+        {selectedFiles.length > 0 && (
+          <div className="mt-4">
+            <p className="font-bold mb-2">Selected Files:</p>
+            <ul>
+              {selectedFiles.map((file, index) => (
+                <li
+                  key={index}
+                  className="flex justify-between items-center bg-white py-2 px-4"
+                >
+                  <p className=" text-primary text base font-semibold">
+                    {file.name}
+                  </p>
+                  <button
+                    className="text-red-500"
+                    onClick={() => handleDeleteFile(index)}
+                  >
+                    <BsTrash />
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
-    </label>
     </>
   );
 };

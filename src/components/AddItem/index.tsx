@@ -39,7 +39,7 @@ const AddItem = ({ addText = "Add Order" }) => {
               />
             </div>
 
-            <div className="mb-4">
+            {/* <div className="mb-4">
               <label
                 htmlFor="category"
                 className="block text-sm font-medium text-light-black-8"
@@ -59,22 +59,22 @@ const AddItem = ({ addText = "Add Order" }) => {
                   <option value="woman">Woman</option>
                 </select>
               </div>
-            </div>
+            </div> */}
 
             <div className="mb-4">
               <label
                 htmlFor="subcategory"
                 className="block text-sm font-medium text-light-black-8"
               >
-                Sub Category:
+                Category:
               </label>
               <div className="w-full">
                 <select
-                  id="subcategory"
-                  name="subcategory"
+                  id="category"
+                  name="category"
                   className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full outline-none"
                 >
-                  <option>Select a sub category</option>
+                  <option>Select a category</option>
                   <option value="man">Shoes</option>
                   <option value="footwears">Footwears</option>
                   <option value="sneakers">Sneakers</option>
