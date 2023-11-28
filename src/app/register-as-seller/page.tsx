@@ -94,58 +94,6 @@ const RegisterAsSeller = () => {
             >
               {() => (
                 <Form>
-                  {/* <div className="mb-4">
-                    <label htmlFor="first-name" className="block">
-                      Full Name
-                    </label>
-                    <input
-                      type="text"
-                      id="full-name"
-                      name="full-name"
-                      onChange={(e) =>
-                        setCredentials({
-                          ...credentials,
-                          full_name: e.target.value,
-                        })
-                      }
-                      placeholder="Name"
-                      className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-[70%] sm:w-full"
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <label htmlFor="email" className="block">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      onChange={(e) =>
-                        setCredentials({
-                          ...credentials,
-                          email: e.target.value,
-                        })
-                      }
-                      placeholder="mail@email.com"
-                      className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-[70%] sm:w-full"
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <label htmlFor="phone" className="block">
-                      Phone Number
-                    </label>
-                    <PhoneInput
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={credentials.phone_number}
-                      onChange={handlePhoneNumberChange}
-                      placeholder="Enter phone number"
-                      className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1  rounded w-[70%] sm:w-full"
-                    />
-                  </div> */}
-
-
                   <div className="mb-4">
                     <label htmlFor="address" className="block">
                       Address:
@@ -236,87 +184,6 @@ const RegisterAsSeller = () => {
                         className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-[70%] sm:w-full"
                       />
                     </div>
-                  {/* <PasswordInput label={"Password"} /> */}
-
-                  {/* <div className="mb-4">
-                    <label htmlFor="password" className="block">
-                      Password
-                    </label>
-
-                    <div className="relative w-[70%] sm:w-full">
-                      <input
-                        type={showPassword ? "text" : "password"}
-                        id="password"
-                        name="password"
-                        placeholder="Enter password"
-                        onChange={(e) =>
-                          setCredentials({
-                            ...credentials,
-                            password: e.target.value,
-                          })
-                        }
-                        className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-full"
-                      />
-                      <button
-                        className="absolute inset-y-0 right-2 flex items-center px-2 cursor-pointer"
-                        onClick={() => setShowPassword(!showPassword)}
-                      >
-                        {showPassword ? (
-                          <span className="w-6 h-6">&#128065;</span> // Unicode for open eye
-                        ) : (
-                          <span>
-                            <EyeSlashIcon />
-                          </span> // Unicode for closed eye
-                        )}
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="mb-4">
-                    <label htmlFor="password" className="block">
-                      Confirm Password
-                    </label>
-
-                    <div className="relative w-[70%] sm:w-full">
-                      <input
-                        type={showPassword ? "text" : "password"}
-                        id="re-password"
-                        name="re-password"
-                        placeholder="Confirm your password"
-                        onChange={(e) =>
-                          setCredentials({
-                            ...credentials,
-                            password: e.target.value,
-                          })
-                        }
-                        className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-full"
-                      />
-                      <button
-                        className="absolute inset-y-0 right-2 flex items-center px-2 cursor-pointer"
-                        onClick={() => setShowPassword(!showPassword)}
-                      >
-                        {showPassword ? (
-                          <span className="w-6 h-6">&#128065;</span> // Unicode for open eye
-                        ) : (
-                          <span>
-                            <EyeSlashIcon />
-                          </span> // Unicode for closed eye
-                        )}
-                      </button>
-                    </div>
-                  </div>
-
-                  <label
-                    className="flex items-center text-[16px] leading-[32px] font-normal text-light-black-5 mb-4 mt-4"
-                    htmlFor="remember"
-                  >
-                    <input
-                      type="checkbox"
-                      id="remember"
-                      className="custom mr-2 text-green w-4 h-4"
-                    />
-                    Agree to our terms and conditions
-                  </label> */}
                   <div className="mt-4">
                     <button
                       type="submit"
@@ -330,17 +197,6 @@ const RegisterAsSeller = () => {
               )}
             </Formik>
           </div>
-
-          {/* <div className="flex justify-start mb-20 gap-1 pt-4 lg:pt-8 sm:justify-center">
-            <h1 className="text-center lg:text-left font-normal text-[14px] sm:text-[18px] lg:text-lg">
-              Already have an account?
-            </h1>
-            <Link href="../login">
-              <h1 className="text-center lg:text-left font-medium text-[14px] sm:text-[18px] lg:text-lg text-weirdBrown">
-                Login
-              </h1>
-            </Link>
-          </div> */}
         </div>
 
         <div className="sm:hidden md:hidden lg:block w-[50%] h-[100vh]">
