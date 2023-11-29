@@ -105,9 +105,19 @@ const Profile = () => {
         from: "Crescent Multipurpose Store",
       },
     ]);
+
+    let savedInitials = window.localStorage.getItem("userName");
+    if (
+      savedInitials !== undefined &&
+      savedInitials !== null &&
+      savedInitials.length > 0
+    ) {
+      setInitials(savedInitials);
+    }
   }, []);
 
   const [selectedFilter, setSelectedFilter] = useState<number>(0);
+  const [initials, setInitials] = useState<string>("");
 
   return (
     <>
@@ -121,7 +131,15 @@ const Profile = () => {
               <div className="bg-primary-1 w-full rounded-xl py-4 px-4 mt-5">
                 <div className="bg-white w-full rounded-lg py-3 flex flex-col items-center">
                   <div className="mt-5 mb-5">
-                    <Image src={Author} alt="" />
+                    <div className="mt-10 flex flex-col items-center">
+                      <Link
+                        href={"/profile"}
+                        className="rounded-full bg-weirdBrown h-[100px] w-[100px] text-center flex text-[32px] justify-center font-medium items-center text-white"
+                      >
+                        {initials.charAt(0).toUpperCase()}
+                      </Link>
+                    
+                    </div>
                   </div>
 
                   <p className="text-[16px] font-bold">{user.full_name}</p>
