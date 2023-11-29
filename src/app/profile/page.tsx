@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Footer from "@/public/components/Footer/page";
 import NavBar from "@/public/components/NavBar/page";
@@ -17,19 +17,12 @@ import Recommend from "@/public/assets/Layer_1-2.svg";
 import Shoe from "@/public/assets/shoe1.png";
 import Link from "next/link";
 import useFetchUsersProfile from "@/public/hooks/queries/useFetchUsersProfile";
+import { FaPowerOff } from "react-icons/fa6";
 
 const Profile = () => {
-
   const { data: user, isLoading } = useFetchUsersProfile();
-  // const user = {
-  //   name: "Benjamin Achan",
-  //   picture: Author,
-  //   contact: "+1 234 567 890",
-  //   email: "mybusiness@mail.com",
-  //   about:
-  //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque eget eros tempor consequat. Etiam non est dapibus, elementum est eu, pharetra nisi. Pellentesque eget volutpat leo, sed fringilla arcu. Etiam laoreet ipsum sit amet eros rutrum tincidunt. Mauris venenatis congue dignissim. Donec imperdiet quam in sem euismod accumsan. Aliquam consequat nunc venenatis quam rutrum semper. Donec condimentum, sem rhoncus consectetur hendrerit, sem tortor dignissim arcu, ut efficitur magna metus quis lacus. Proin dui sapien, varius at aliquet vitae, condimentum eget risus. Vivamus suscipit, purus volutpat lobortis dignissim, nisi felis faucibus eros, nec facilisis tortor massa at tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate justo eget felis tristique porta. Etiam convallis lorem vitae lorem tempus, in feugiat lectus congue. Nulla vitae turpis fermentum elit euismod mattis et a enim.",
-  //   feedbacks: 25,
-  // };
+
+  const [products, setProducts] = useState<any>([]);
 
   const filters = [
     "Recommended First",
@@ -38,81 +31,93 @@ const Profile = () => {
     "Highest Price First",
   ];
 
-  const products = [
-    {
-      image: Shoe,
-      title: "Human Shoe",
-      reviews: "2630",
-      price: 5000,
-      from: "Crescent Multipurpose Store",
-    },
-    {
-      image: Shoe,
-      title: "Human Shoe",
-      reviews: "2630",
-      price: 5000,
-      from: "Crescent Multipurpose Store",
-    },
-    {
-      image: Shoe,
-      title: "Human Shoe",
-      reviews: "2630",
-      price: 5000,
-      from: "Crescent Multipurpose Store",
-    },
-    {
-      image: Shoe,
-      title: "Human Shoe",
-      reviews: "2630",
-      price: 5000,
-      from: "Crescent Multipurpose Store",
-    },
-    {
-      image: Shoe,
-      title: "Human Shoe",
-      reviews: "2630",
-      price: 5000,
-      from: "Crescent Multipurpose Store",
-    },
-    {
-      image: Shoe,
-      title: "Human Shoe",
-      reviews: "2630",
-      price: 5000,
-      from: "Crescent Multipurpose Store",
-    },
-    {
-      image: Shoe,
-      title: "Human Shoe",
-      reviews: "2630",
-      price: 5000,
-      from: "Crescent Multipurpose Store",
-    },
+  useEffect(() => {
+    setProducts([
+      {
+        image: Shoe,
+        title: "Human Shoe",
+        reviews: "2630",
+        price: 5000,
+        from: "Crescent Multipurpose Store",
+      },
+      {
+        image: Shoe,
+        title: "Human Shoe",
+        reviews: "2630",
+        price: 5000,
+        from: "Crescent Multipurpose Store",
+      },
+      {
+        image: Shoe,
+        title: "Human Shoe",
+        reviews: "2630",
+        price: 5000,
+        from: "Crescent Multipurpose Store",
+      },
+      {
+        image: Shoe,
+        title: "Human Shoe",
+        reviews: "2630",
+        price: 5000,
+        from: "Crescent Multipurpose Store",
+      },
+      {
+        image: Shoe,
+        title: "Human Shoe",
+        reviews: "2630",
+        price: 5000,
+        from: "Crescent Multipurpose Store",
+      },
+      {
+        image: Shoe,
+        title: "Human Shoe",
+        reviews: "2630",
+        price: 5000,
+        from: "Crescent Multipurpose Store",
+      },
+      {
+        image: Shoe,
+        title: "Human Shoe",
+        reviews: "2630",
+        price: 5000,
+        from: "Crescent Multipurpose Store",
+      },
 
-    {
-      image: Shoe,
-      title: "Human Shoe",
-      reviews: "2630",
-      price: 5000,
-      from: "Crescent Multipurpose Store",
-    },
-    {
-      image: Shoe,
-      title: "Human Shoe",
-      reviews: "2630",
-      price: 5000,
-      from: "Crescent Multipurpose Store",
-    },
-    {
-      image: Shoe,
-      title: "Human Shoe",
-      reviews: "2630",
-      price: 5000,
-      from: "Crescent Multipurpose Store",
-    },
-  ];
+      {
+        image: Shoe,
+        title: "Human Shoe",
+        reviews: "2630",
+        price: 5000,
+        from: "Crescent Multipurpose Store",
+      },
+      {
+        image: Shoe,
+        title: "Human Shoe",
+        reviews: "2630",
+        price: 5000,
+        from: "Crescent Multipurpose Store",
+      },
+      {
+        image: Shoe,
+        title: "Human Shoe",
+        reviews: "2630",
+        price: 5000,
+        from: "Crescent Multipurpose Store",
+      },
+    ]);
+
+    let savedInitials = window.localStorage.getItem("userName");
+    if (
+      savedInitials !== undefined &&
+      savedInitials !== null &&
+      savedInitials.length > 0
+    ) {
+      setInitials(savedInitials);
+    }
+  }, []);
 
   const [selectedFilter, setSelectedFilter] = useState<number>(0);
+  const [initials, setInitials] = useState<string>("");
 
   return (
     <>
@@ -120,41 +125,85 @@ const Profile = () => {
 
       <div className="mt-16 flex flex-col gap-8 w-full px-10 sm:px-5 h-[90vh] overscroll-y-scroll">
         <div className="flex gap-8 sm:gap-0 sm:flex-col">
-          <div className="flex flex-col w-[25%] sm:w-full mb-32">
+          <div className={`flex flex-col w-[25%] sm:w-full mb-32`}>
             <p className="text-[20px] font-bold">Profile</p>
-              {user && (
-            <div className="bg-primary-1 w-full rounded-xl py-4 px-4 mt-5">
-              <div className="bg-white w-full rounded-lg py-3 flex flex-col items-center">
-                <div className="mt-5 mb-5">
-                  <Image src={Author} alt="" />
-                </div>
+            {user && (
+              <div className="bg-primary-1 w-full rounded-xl py-4 px-4 mt-5">
+                <div className="bg-white w-full rounded-lg py-3 flex flex-col items-center">
+                  <div className="mt-5 mb-5">
+                    <div className="mt-10 flex flex-col items-center">
+                      <Link
+                        href={"/profile"}
+                        className="rounded-full bg-weirdBrown h-[100px] w-[100px] text-center flex text-[32px] justify-center font-medium items-center text-white"
+                      >
+                        {initials.charAt(0).toUpperCase()}
+                      </Link>
+                    
+                    </div>
+                  </div>
 
-                <p className="text-[16px] font-bold">{user.full_name}</p>
-                <p className="text-[14px] font-normal text-light-black-4">
-                  {user.phone_number}
-                </p>
-                <p className="text-[14px] font-normal text-light-black-4">
-                  {user.email}
-                </p>
+                  <p className="text-[16px] font-bold">{user.full_name}</p>
+                  <p className="text-[14px] font-normal text-light-black-4">
+                    {user.phone_number}
+                  </p>
+                  <p className="text-[14px] font-normal text-light-black-4">
+                    {user.email}
+                  </p>
 
-                <div className="flex gap-5 items-center justify-center mt-5 mb-5">
-                  <Image src={SC} alt=" " className="w-[25px] h-[25px] cursor-pointer" />
-                  <Image src={SC1} alt=" " className="w-[25px] h-[25px] cursor-pointer" />
-                  <Image src={SC2} alt=" " className="w-[25px] h-[25px] cursor-pointer" />
-                  <Image src={SC3} alt=" " className="w-[25px] h-[25px] cursor-pointer" />
-                  <Image src={SC4} alt=" " className="w-[25px] h-[25px] cursor-pointer" />
+                  <div className="flex gap-5 items-center justify-center mt-5 mb-5">
+                    <Image
+                      src={SC}
+                      alt=" "
+                      className="w-[25px] h-[25px] cursor-pointer"
+                    />
+                    <Image
+                      src={SC1}
+                      alt=" "
+                      className="w-[25px] h-[25px] cursor-pointer"
+                    />
+                    <Image
+                      src={SC2}
+                      alt=" "
+                      className="w-[25px] h-[25px] cursor-pointer"
+                    />
+                    <Image
+                      src={SC3}
+                      alt=" "
+                      className="w-[25px] h-[25px] cursor-pointer"
+                    />
+                    <Image
+                      src={SC4}
+                      alt=" "
+                      className="w-[25px] h-[25px] cursor-pointer"
+                    />
+                  </div>
+
+                  <div
+                    className="flex justify-center items-center gap-3 mt-5 cursor-pointer"
+                    onClick={() => {
+                      window.localStorage.setItem("userToken", "");
+                      window.localStorage.setItem("userName", "");
+                      window.localStorage.setItem("userStatus", "");
+                      window.location.replace("/");
+                    }}
+                  >
+                    Logout
+                    <FaPowerOff fill={"#A90041"} size={"20px"} />
+                  </div>
                 </div>
               </div>
-            </div>
-                  )}
+            )}
             <div className="bg-primary-1 w-full rounded-xl py-4 px-4 mt-5">
               <div className="bg-white w-full rounded-lg py-4 px-4 flex flex-col">
-                <Link href={'/feedback'} className="mb-5 flex justify-between items-center px-4 py-2 bg-primary-1 rounded-lg">
+                <Link
+                  href={"/feedback"}
+                  className="mb-5 flex justify-between items-center px-4 py-2 bg-primary-1 rounded-lg"
+                >
                   <div className="flex items-center gap-3">
                     <Image src={FeedBack} alt=" " />
                     <p className="text-[14px] font-normal text-white">
                       {/* {user.feedbacks} */}
-                       Feedbacks
+                      Feedbacks
                     </p>
                   </div>
                   <div className="flex items-center gap-3">
@@ -183,7 +232,23 @@ const Profile = () => {
                 </p>
                 <p className="text-[14px] font-normal text-light-black-4">
                   {/* {user.about} */}
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque eget eros tempor consequat. Etiam non est dapibus, elementum est eu, pharetra nisi. Pellentesque eget volutpat leo, sed fringilla arcu. Etiam laoreet ipsum sit amet eros rutrum tincidunt. Mauris venenatis congue dignissim. Donec imperdiet quam in sem euismod accumsan. Aliquam consequat nunc venenatis quam rutrum semper. Donec condimentum, sem rhoncus consectetur hendrerit, sem tortor dignissim arcu, ut efficitur magna metus quis lacus. Proin dui sapien, varius at aliquet vitae, condimentum eget risus. Vivamus suscipit, purus volutpat lobortis dignissim, nisi felis faucibus eros, nec facilisis tortor massa at tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate justo eget felis tristique porta. Etiam convallis lorem vitae lorem tempus, in feugiat lectus congue. Nulla vitae turpis fermentum elit euismod mattis et a enim.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Aenean scelerisque eget eros tempor consequat. Etiam non est
+                  dapibus, elementum est eu, pharetra nisi. Pellentesque eget
+                  volutpat leo, sed fringilla arcu. Etiam laoreet ipsum sit amet
+                  eros rutrum tincidunt. Mauris venenatis congue dignissim.
+                  Donec imperdiet quam in sem euismod accumsan. Aliquam
+                  consequat nunc venenatis quam rutrum semper. Donec
+                  condimentum, sem rhoncus consectetur hendrerit, sem tortor
+                  dignissim arcu, ut efficitur magna metus quis lacus. Proin dui
+                  sapien, varius at aliquet vitae, condimentum eget risus.
+                  Vivamus suscipit, purus volutpat lobortis dignissim, nisi
+                  felis faucibus eros, nec facilisis tortor massa at tortor.
+                  Class aptent taciti sociosqu ad litora torquent per conubia
+                  nostra, per inceptos himenaeos. Suspendisse vulputate justo
+                  eget felis tristique porta. Etiam convallis lorem vitae lorem
+                  tempus, in feugiat lectus congue. Nulla vitae turpis fermentum
+                  elit euismod mattis et a enim.
                 </p>
               </div>
             </div>

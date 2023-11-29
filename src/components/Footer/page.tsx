@@ -19,11 +19,19 @@ const Footer = () => {
   const ytUrl = "";
 
   const [isSeller, setSeller] = useState<string>("");
+  const [loggedIn, setLoggedIn] = useState<boolean>(false);
+
   useEffect(() => {
     let status = window.localStorage.getItem("userStatus");
+    let username = window.localStorage.getItem("userName");
+
     if (status !== undefined && status !== null) {
       setSeller(status);
     }
+
+    setLoggedIn(
+      username !== undefined && username !== null && username!.length > 0
+    );
   }, []);
 
   return (
@@ -41,7 +49,7 @@ const Footer = () => {
             >
               Home
             </Link>
-            {(isSeller === "buyer" || isSeller.length === 0) && (
+            {loggedIn && (isSeller === "buyer" || isSeller.length === 0) && (
               <Link
                 className="text-purpleBrown text-[18px] sm:text-[16px]"
                 href={"/register-as-seller"}
@@ -54,12 +62,6 @@ const Footer = () => {
               href={"/shop"}
             >
               Shop
-            </Link>
-            <Link
-              className="text-purpleBrown text-[18px] sm:text-[16px]"
-              href={"/"}
-            >
-              Cart
             </Link>
             <Link
               className="text-purpleBrown text-[18px] sm:text-[16px]"

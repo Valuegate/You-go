@@ -62,7 +62,7 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
           <Link href={"/home"}>
             <h5 className="text-weirdBrown text-[20px] font-normal">Home</h5>
           </Link>
-          {(isSeller === "buyer" || isSeller.length === 0) && (
+          {loggedIn && (isSeller === "buyer" || isSeller.length === 0) && (
             <Link href={"/register-as-seller"}>
               <h5 className="text-weirdBrown text-[20px] font-normal">Sell</h5>
             </Link>
@@ -70,9 +70,13 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
           <Link href={"/shop"}>
             <h5 className="text-weirdBrown text-[20px] font-normal">Shop</h5>
           </Link>
-          <Link href={"/"}>
-            <h5 className="text-weirdBrown text-[20px] font-normal">Cart</h5>
-          </Link>
+          {loggedIn && isSeller === "seller" && (
+            <Link href={"/"}>
+              <h5 className="text-weirdBrown text-[20px] font-normal">
+                Add Product
+              </h5>
+            </Link>
+          )}
           <Link href={"/"}>
             <h5 className="text-weirdBrown text-[20px] font-normal">
               About Us
@@ -111,15 +115,17 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
           <BiX size={"32px"} className="text-weirdBrown" onClick={toggle} />
         </div>
 
-        <div className="mt-10 flex flex-col items-center">
-          <Link
-            href={"/profile"}
-            className="rounded-full bg-weirdBrown h-[75px] w-[75px] text-center flex text-[32px] justify-center font-medium items-center text-white"
-          >
-            {initials.charAt(0).toUpperCase()}
-          </Link>
-          <p className="text-[16px] mt-2 mb:5 font-bold">{initials}</p>
-        </div>
+        {loggedIn && (
+          <div className="mt-10 flex flex-col items-center">
+            <Link
+              href={"/profile"}
+              className="rounded-full bg-weirdBrown h-[75px] w-[75px] text-center flex text-[32px] justify-center font-medium items-center text-white"
+            >
+              {initials.charAt(0).toUpperCase()}
+            </Link>
+            <p className="text-[16px] mt-2 mb:5 font-bold">{initials}</p>
+          </div>
+        )}
 
         <div className="flex flex-col items-center gap-5 mt-10">
           <Link
@@ -129,7 +135,7 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
             Home
             <FaChevronRight size={"16px"} fill={"#000000"} />
           </Link>
-          {(isSeller === "buyer" || isSeller.length === 0) && (
+          {loggedIn && (isSeller === "buyer" || isSeller.length === 0) && (
             <Link
               href={"/register-as-seller"}
               className="text-weirdBrown w-full py-2 rounded-xl text-[20px] font-normal flex justify-between items-center"
@@ -145,13 +151,14 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
             Shop
             <FaChevronRight size={"16px"} fill={"#000000"} />
           </Link>
-          <Link
-            href={"/"}
-            className="text-weirdBrown w-full py-2 rounded-xl text-[20px] font-normal flex justify-between items-center"
-          >
-            Cart
-            <FaChevronRight size={"16px"} fill={"#000000"} />
-          </Link>
+          {loggedIn && isSeller === "seller" && (
+            <Link
+              href={"/"}
+              className="text-weirdBrown w-full py-2 rounded-xl text-[20px] font-normal flex justify-between items-center"
+            >
+              Add Product
+            </Link>
+          )}
           <Link
             href={"/"}
             className="text-weirdBrown w-full py-2 rounded-xl text-[20px] font-normal flex justify-between items-center"
@@ -160,11 +167,22 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
             <FaChevronRight size={"16px"} fill={"#000000"} />
           </Link>
 
-          <Link href={"/login"}>
+          <button
+            onClick={() => {
+              if (loggedIn) {
+                window.localStorage.setItem("userToken", "");
+                window.localStorage.setItem("userName", "");
+                window.localStorage.setItem("userStatus", "");
+                window.location.replace("/");
+              } else {
+                window.location.href = "/login";
+              }
+            }}
+          >
             <h5 className=" text-white hover:text-weirdBrown mt-10 hover:bg-darkBrownGradient bg-weirdBrown px-10 py-2 rounded-lg text-[20px] font-normal">
               {loggedIn ? "Logout" : "Login"}
             </h5>
-          </Link>
+          </button>
         </div>
         <div>
           <p className=" mt-24 text-slate-950 text-base text-center font-normal leading-loose">
