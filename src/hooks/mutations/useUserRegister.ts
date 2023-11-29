@@ -10,6 +10,7 @@ interface iDataResponse {
     phone_number : number | string;
     full_name: string;
     password: string;
+    // confirm_password: string;
     is_staff: false;
 }
 

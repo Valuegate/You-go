@@ -21,6 +21,7 @@ const InputField = () => {
     email: "",
     password: "",
     phone_number: "",
+    // confirm_password: "",
     is_staff: false,
   });
   const [errorMsg, setErrorMsg] = useState<string>("");

@@ -21,6 +21,7 @@ const SignUp = () => {
     full_name: "",
     email: "",
     password: "",
+    // confirm_password: "",
     phone_number: "",
     is_staff: false,
   });
@@ -36,7 +37,7 @@ const SignUp = () => {
   }, [isError]);
 
   if (isSuccess) {
-    router.push("/seller");
+    router.push("/login");
   }
 
   const handleSignup = () => {
@@ -52,11 +53,12 @@ const SignUp = () => {
   };
 
   const [showPassword, setShowPassword] = useState(false);
+  const [showPassword1, setShowPassword1] = useState(false);
   return (
     <>
       <div className="flex flex-col lg:flex-row">
-        <div className="w-[50%] px-[5%] flex flex-col justify-center sm:justify-start sm:w-full">
-          <div className="mb-5 sm:mb-24 sm:mt-10">
+        <div className="w-[50%] px-[5%] flex flex-col justify-center sm:justify-start sm:w-full overflow-y-scroll h-screen">
+          <div className="mt-40 sm:mb-24 sm:mt-10">
             <BackButton to={"/login"} />
           </div>
           <h3 className="font-bold text-[32px] sm:text-[36px] sm:leading-[28px] leading-[36px] text-weirdBrown sm:text-center">
@@ -72,12 +74,8 @@ const SignUp = () => {
                 email: "",
                 full_name: "",
                 password: "",
+                confirm_password: "",
                 phone_number: "",
-                address: "",
-                brand_name: "",
-                social_business_bio: "",
-                website: "",
-                short_business_bio: "",
               }}
               onSubmit={(values, actions) => {
                 // setTimeout(() => {
@@ -102,7 +100,7 @@ const SignUp = () => {
                           full_name: e.target.value,
                         })
                       }
-                      placeholder="Name"
+                      placeholder="Enter your full name"
                       className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-[70%] sm:w-full"
                     />
                   </div>
@@ -138,98 +136,6 @@ const SignUp = () => {
                       className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1  rounded w-[70%] sm:w-full"
                     />
                   </div>
-                  {/* <div className="mb-4">
-                    <label htmlFor="address" className="block">
-                      Address:
-                    </label>
-                    <input
-                      type="text"
-                      id="address"
-                      name="address"
-                      onChange={(e) =>
-                        setCredentials({
-                          ...credentials,
-                          address: e.target.value,
-                        })
-                      }
-                      placeholder="Put address here"
-                      className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-[70%] sm:w-full"
-                    />
-                  </div> */}
-                  {/* <div className="mb-4">
-                      <label htmlFor="brand" className="block">
-                        Brand Name:
-                      </label>
-                      <input
-                        type="text"
-                        id="brand"
-                        name="brand"
-                        onChange={(e) =>
-                          setCredentials({
-                            ...credentials,
-                            brand_name: e.target.value,
-                          })
-                        }
-                        placeholder="Put brand name here"
-                        className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-[70%] sm:w-full"
-                      />
-                    </div>
-                    <div className="mb-4">
-                      <label htmlFor="social" className="block">
-                        Social Media URL:
-                      </label>
-                      <input
-                        type="url"
-                        id="social"
-                        name="social"
-                        onChange={(e) =>
-                          setCredentials({
-                            ...credentials,
-                            social_business_bio: e.target.value,
-                          })
-                        }
-                        placeholder="Put your social media here"
-                        className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-[70%] sm:w-full"
-                      />
-                    </div>
-                    <div className="mb-4">
-                      <label htmlFor="business" className="block">
-                        Short Business Bio:
-                      </label>
-                      <input
-                        type="text"
-                        id="business"
-                        name="business"
-                        onChange={(e) =>
-                          setCredentials({
-                            ...credentials,
-                            short_business_bio: e.target.value,
-                          })
-                        }
-                        placeholder="Put your business bio here"
-                        className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-[70%] sm:w-full"
-                      />
-                    </div>
-                    <div className="mb-4">
-                      <label htmlFor="website" className="block">
-                        Website:
-                      </label>
-                      <input
-                        type="url"
-                        id="website"
-                        name="website"
-                        onChange={(e) =>
-                          setCredentials({
-                            ...credentials,
-                            website: e.target.value,
-                          })
-                        }
-                        placeholder="Put your website here"
-                        className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-[70%] sm:w-full"
-                      />
-                    </div> */}
-                  {/* <PasswordInput label={"Password"} /> */}
-
                   <div className="mb-4">
                     <label htmlFor="password" className="block">
                       Password
@@ -264,30 +170,30 @@ const SignUp = () => {
                     </div>
                   </div>
 
-                  <div className="mb-4">
-                    <label htmlFor="password" className="block">
+                  {/* <div className="mb-4">
+                    <label htmlFor="re-password" className="block">
                       Confirm Password
                     </label>
 
                     <div className="relative w-[70%] sm:w-full">
                       <input
-                        type={showPassword ? "text" : "password"}
+                        type={showPassword1 ? "text" : "password"}
                         id="re-password"
                         name="re-password"
                         placeholder="Confirm your password"
                         onChange={(e) =>
                           setCredentials({
                             ...credentials,
-                            password: e.target.value,
+                            confirm_password: e.target.value,
                           })
                         }
                         className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-full"
                       />
                       <button
                         className="absolute inset-y-0 right-2 flex items-center px-2 cursor-pointer"
-                        onClick={() => setShowPassword(!showPassword)}
+                        onClick={() => setShowPassword1(!showPassword1)}
                       >
-                        {showPassword ? (
+                        {showPassword1 ? (
                           <span className="w-6 h-6">&#128065;</span> // Unicode for open eye
                         ) : (
                           <span>
@@ -296,7 +202,7 @@ const SignUp = () => {
                         )}
                       </button>
                     </div>
-                  </div>
+                  </div> */}
 
                   <label
                     className="flex items-center text-[16px] leading-[32px] font-normal text-light-black-5 mb-4 mt-4"
