@@ -91,36 +91,41 @@ const ShopDetails = () => {
                 </div>
 
                 {user && (
-                <div className="border-primary-1 border-8 rounded-lg py-3 pl-3">
-                  <div className="flex gap-2">
-                    <div>
-                      <Image
-                        src={Lady}
-                        alt={""}
-                        className="w-[5rem] h-[5rem]"
-                      />
-                    </div>
-                    <div>
-                      <h2 className="text-[16px] font-bold">
-                      {user.full_name}
-                      </h2>
-                      <p className="text-[14px] font-normal text-light-black-4">
-                      {user.phone_number}
-                      </p>
-                      <p className="text-[14px] font-normal text-light-black-4">
-                      {user.email}
-                      </p>
+                  <div className="border-primary-1 border-8 rounded-lg py-3 pl-3 flex flex-col">
+                    <p className="text-[20px] font-bold text-slate-950">Contact Seller</p>
+                    <div className="flex gap-5 mt-3">
+                      <div>
+                        <Image
+                          src={Lady}
+                          alt={""}
+                          className="w-[5rem] h-[5rem]"
+                        />
+                      </div>
+                      <div>
+                        <h2 className="text-[16px] font-bold">
+                          {user.full_name}
+                        </h2>
+                        <p className="text-[14px] font-normal text-light-black-4">
+                          {user.phone_number}
+                        </p>
+                        <p className="text-[14px] font-normal text-light-black-4">
+                          {user.email}
+                        </p>
 
-                      <div className="flex items-center gap-3 mt-8">
-                        <FacebokIcon width="16" height="16" />
-                        <XIcon width="16" height="16"/>
-                        <InstagramIcon color="#d4145a" width="20" height="20" />
-                        <BsLinkedin color="#d4145a" width="16" height="16" />
-                        <BsWhatsapp color="#d4145a" width="16" height="16" />
+                        <div className="flex items-center gap-3 mt-8">
+                          <FacebokIcon width="16" height="16" />
+                          <XIcon width="16" height="16" />
+                          <InstagramIcon
+                            color="#d4145a"
+                            width="20"
+                            height="20"
+                          />
+                          <BsLinkedin color="#d4145a" width="16" height="16" />
+                          <BsWhatsapp color="#d4145a" width="16" height="16" />
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
                 )}
                 <div className="border-primary-1 border-8 rounded-lg py-3 pl-3">
                   <h2 className="text-lg font-bold text-light-black-5">
@@ -137,7 +142,8 @@ const ShopDetails = () => {
                       Inspect the goods to make sure they meet your needs
                     </li>
                     <li className="font-normal text-sm text-light-black-5">
-                      Check all documentation and only pay if you&apos;re satisfied
+                      Check all documentation and only pay if you&apos;re
+                      satisfied
                     </li>
                   </div>
                 </div>
@@ -201,7 +207,10 @@ const ShopDetails = () => {
                     </p>
                   </div>
 
-                  <div className="bg-primary-1 py-2 px-4 rounded-lg">
+                  <Link
+                    href={"/feedback"}
+                    className="bg-primary-1 py-2 px-4 rounded-lg"
+                  >
                     <div className="flex items-center gap-6">
                       <div className="flex items-center gap-2">
                         <SocialIcon />
@@ -211,21 +220,18 @@ const ShopDetails = () => {
                       </div>
 
                       <div className="flex items-center gap-2">
-                        <Link
-                          className="text-white text-base font-normal"
-                          href={""}
-                        >
+                        <p className="text-white text-base font-normal">
                           View All
-                        </Link>
+                        </p>
                         <ArrowRightIcon />
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               </div>
 
               <div className="border-primary-1 border-8 rounded-lg py-3 pl-3 mt-4">
-              <h2 className="text-lg font-bold text-light-black-5">
+                <h2 className="text-lg font-bold text-light-black-5">
                   Product description
                 </h2>
                 <div>
@@ -247,12 +253,28 @@ const ShopDetails = () => {
 
             <div className="sm:w-full w-[30%]">
               <div className="border-primary-1 border-8 rounded-lg py-3 px-3">
-              <h2 className="text-lg font-bold text-light-black-5">
-              Similar Products
+                <h2 className="text-lg font-bold text-light-black-5">
+                  Similar Products
                 </h2>
                 <div className="flex flex-col gap-3">
-                <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/cup.png"} name={"Human Bag"} rating={""} price={"500"} />
-                <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"500"} />
+                  <ItemsCard
+                    width={"300"}
+                    height={"300"}
+                    className={"shadow-2xl"}
+                    image={"/assets/cup.png"}
+                    name={"Human Bag"}
+                    rating={""}
+                    price={"500"}
+                  />
+                  <ItemsCard
+                    width={"300"}
+                    height={"300"}
+                    className={"shadow-2xl"}
+                    image={"/assets/shoe3.png"}
+                    name={"Human Bag"}
+                    rating={""}
+                    price={"500"}
+                  />
                 </div>
               </div>
             </div>

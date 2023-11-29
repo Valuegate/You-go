@@ -35,7 +35,7 @@ const MenuSection = () => {
 
       {/* <div className="lg:w-3/4"> */}
       <div className="">
-        <div className="mt-8">
+        {/* <div className="mt-8">
           <div className="flex sm:flex-col flex-row items-center gap-4 mb-3">
             <div>
               <h2 className="font-bold sm:text-sm text-base text-light-black-5">
@@ -119,9 +119,9 @@ const MenuSection = () => {
               </span>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        <div className="mt-10 w-full">
+        <div className="w-full">
           <div className="">
             <p className="font-bold text-base lg:text-lg text-light-black-5 mb-2">
               Find something that catches your eyes!
