@@ -6,9 +6,9 @@ import NavBar from "@/public/components/NavBar/page";
 import Image from "next/image";
 import Link from "next/link";
 import FlexImg from "@/public/assets/Rectangle22.png";
-import useUserSellerRegister, {
+import useUserRegister, {
   TSignupPayload,
-} from "@/public/hooks/mutations/useUserSellerRegister";
+} from "@/public/hooks/mutations/useUserRegister";
 import { useRouter } from "next/navigation";
 import { EyeSlashIcon } from "@/public/icons";
 import PhoneInput from "react-phone-number-input";
@@ -18,21 +18,16 @@ import BackButton from "@/public/components/BackButton/BackButton";
 const SignUp = () => {
   const router = useRouter();
   const [credentials, setCredentials] = useState<TSignupPayload>({
+    full_name: "",
     email: "",
     password: "",
-    full_name: "",
     phone_number: "",
-    address: "",
-    brand_name: "",
-    social_business_bio: "",
-    website: "",
-    short_business_bio: "",
-    // is_staff: true,
+    is_staff: false,
   });
   const [errorMsg, setErrorMsg] = useState<string>("");
 
   const { isError, isLoading, isSuccess, Signup, error, data } =
-    useUserSellerRegister();
+    useUserRegister();
 
   useEffect(() => {
     if (isError) {

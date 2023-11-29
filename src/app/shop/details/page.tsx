@@ -19,8 +19,10 @@ import { ArrowRightIcon } from "@/public/icons/arrowright-icon";
 import Link from "next/link";
 import ItemsCard from "@/public/components/ItemsCard/page";
 import AddItem from "@/public/components/AddItem";
+import useFetchUsersProfile from "@/public/hooks/queries/useFetchUsersProfile";
 
 const ShopDetails = () => {
+  const { data: user, isLoading } = useFetchUsersProfile();
   const [clickedSize, setClickedSize] = useState<number | null>(null);
 
   const handleSizeClick = (size: number) => {
@@ -88,6 +90,7 @@ const ShopDetails = () => {
                   </div>
                 </div>
 
+                {user && (
                 <div className="border-primary-1 border-8 rounded-lg py-3 pl-3">
                   <div className="flex gap-2">
                     <div>
@@ -98,14 +101,14 @@ const ShopDetails = () => {
                       />
                     </div>
                     <div>
-                      <h2 className="font-medium text-base text-light-black-6">
-                        Vanila Castro
+                      <h2 className="text-[16px] font-bold">
+                      {user.full_name}
                       </h2>
-                      <p className="font-normal text-sm text-light-black-5">
-                        +123 456 789 10
+                      <p className="text-[14px] font-normal text-light-black-4">
+                      {user.phone_number}
                       </p>
-                      <p className="font-normal text-sm text-light-black-5">
-                        mybusinessmail@email.com
+                      <p className="text-[14px] font-normal text-light-black-4">
+                      {user.email}
                       </p>
 
                       <div className="flex items-center gap-3 mt-8">
@@ -118,6 +121,7 @@ const ShopDetails = () => {
                     </div>
                   </div>
                 </div>
+                )}
                 <div className="border-primary-1 border-8 rounded-lg py-3 pl-3">
                   <h2 className="text-lg font-bold text-light-black-5">
                     Safety Tips
@@ -141,7 +145,7 @@ const ShopDetails = () => {
                   {/* <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 flex items-center justify-center shadow-xl text-white w-full">
                     Become a seller
                   </button> */}
-                  <AddItem addText="Sell on YouGo"/>
+                  {/* <AddItem addText="Sell on YouGo"/> */}
                 </div>
               </div>
             </div>

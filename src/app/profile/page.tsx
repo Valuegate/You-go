@@ -16,17 +16,20 @@ import FeedBack from "@/public/assets/Feedback-Icon.svg";
 import Recommend from "@/public/assets/Layer_1-2.svg";
 import Shoe from "@/public/assets/shoe1.png";
 import Link from "next/link";
+import useFetchUsersProfile from "@/public/hooks/queries/useFetchUsersProfile";
 
 const Profile = () => {
-  const user = {
-    name: "Benjamin Achan",
-    picture: Author,
-    contact: "+1 234 567 890",
-    email: "mybusiness@mail.com",
-    about:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque eget eros tempor consequat. Etiam non est dapibus, elementum est eu, pharetra nisi. Pellentesque eget volutpat leo, sed fringilla arcu. Etiam laoreet ipsum sit amet eros rutrum tincidunt. Mauris venenatis congue dignissim. Donec imperdiet quam in sem euismod accumsan. Aliquam consequat nunc venenatis quam rutrum semper. Donec condimentum, sem rhoncus consectetur hendrerit, sem tortor dignissim arcu, ut efficitur magna metus quis lacus. Proin dui sapien, varius at aliquet vitae, condimentum eget risus. Vivamus suscipit, purus volutpat lobortis dignissim, nisi felis faucibus eros, nec facilisis tortor massa at tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate justo eget felis tristique porta. Etiam convallis lorem vitae lorem tempus, in feugiat lectus congue. Nulla vitae turpis fermentum elit euismod mattis et a enim.",
-    feedbacks: 25,
-  };
+
+  const { data: user, isLoading } = useFetchUsersProfile();
+  // const user = {
+  //   name: "Benjamin Achan",
+  //   picture: Author,
+  //   contact: "+1 234 567 890",
+  //   email: "mybusiness@mail.com",
+  //   about:
+  //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque eget eros tempor consequat. Etiam non est dapibus, elementum est eu, pharetra nisi. Pellentesque eget volutpat leo, sed fringilla arcu. Etiam laoreet ipsum sit amet eros rutrum tincidunt. Mauris venenatis congue dignissim. Donec imperdiet quam in sem euismod accumsan. Aliquam consequat nunc venenatis quam rutrum semper. Donec condimentum, sem rhoncus consectetur hendrerit, sem tortor dignissim arcu, ut efficitur magna metus quis lacus. Proin dui sapien, varius at aliquet vitae, condimentum eget risus. Vivamus suscipit, purus volutpat lobortis dignissim, nisi felis faucibus eros, nec facilisis tortor massa at tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate justo eget felis tristique porta. Etiam convallis lorem vitae lorem tempus, in feugiat lectus congue. Nulla vitae turpis fermentum elit euismod mattis et a enim.",
+  //   feedbacks: 25,
+  // };
 
   const filters = [
     "Recommended First",
@@ -119,15 +122,16 @@ const Profile = () => {
         <div className="flex gap-8 sm:gap-0 sm:flex-col">
           <div className="flex flex-col w-[25%] sm:w-full mb-32">
             <p className="text-[20px] font-bold">Profile</p>
+              {user && (
             <div className="bg-primary-1 w-full rounded-xl py-4 px-4 mt-5">
               <div className="bg-white w-full rounded-lg py-3 flex flex-col items-center">
                 <div className="mt-5 mb-5">
                   <Image src={Author} alt="" />
                 </div>
 
-                <p className="text-[16px] font-bold">{user.name}</p>
+                <p className="text-[16px] font-bold">{user.full_name}</p>
                 <p className="text-[14px] font-normal text-light-black-4">
-                  {user.contact}
+                  {user.phone_number}
                 </p>
                 <p className="text-[14px] font-normal text-light-black-4">
                   {user.email}
@@ -142,13 +146,15 @@ const Profile = () => {
                 </div>
               </div>
             </div>
+                  )}
             <div className="bg-primary-1 w-full rounded-xl py-4 px-4 mt-5">
               <div className="bg-white w-full rounded-lg py-4 px-4 flex flex-col">
                 <Link href={'/feedback'} className="mb-5 flex justify-between items-center px-4 py-2 bg-primary-1 rounded-lg">
                   <div className="flex items-center gap-3">
                     <Image src={FeedBack} alt=" " />
                     <p className="text-[14px] font-normal text-white">
-                      {user.feedbacks} Feedbacks
+                      {/* {user.feedbacks} */}
+                       Feedbacks
                     </p>
                   </div>
                   <div className="flex items-center gap-3">
@@ -176,7 +182,8 @@ const Profile = () => {
                   About Seller
                 </p>
                 <p className="text-[14px] font-normal text-light-black-4">
-                  {user.about}
+                  {/* {user.about} */}
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque eget eros tempor consequat. Etiam non est dapibus, elementum est eu, pharetra nisi. Pellentesque eget volutpat leo, sed fringilla arcu. Etiam laoreet ipsum sit amet eros rutrum tincidunt. Mauris venenatis congue dignissim. Donec imperdiet quam in sem euismod accumsan. Aliquam consequat nunc venenatis quam rutrum semper. Donec condimentum, sem rhoncus consectetur hendrerit, sem tortor dignissim arcu, ut efficitur magna metus quis lacus. Proin dui sapien, varius at aliquet vitae, condimentum eget risus. Vivamus suscipit, purus volutpat lobortis dignissim, nisi felis faucibus eros, nec facilisis tortor massa at tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate justo eget felis tristique porta. Etiam convallis lorem vitae lorem tempus, in feugiat lectus congue. Nulla vitae turpis fermentum elit euismod mattis et a enim.
                 </p>
               </div>
             </div>
@@ -194,7 +201,7 @@ const Profile = () => {
               </div>
             </div>
 
-            <div className="sm:flex mt-5 sm:flex-col sm:gap-5 sm:w-full grid grid-cols-4 gap-5 w-full">
+            <div className="sm:flex mt-5 sm:flex-col justify-between sm:gap-5 sm:w-full grid md:grid-cols-2 2xl:grid-cols-4 lg:grid-cols-3 gap-5 w-full">
               {products.map((product, i) => {
                 return (
                   <ItemsCard
