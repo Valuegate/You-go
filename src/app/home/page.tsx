@@ -97,7 +97,7 @@ const HomePage = () => {
 
   return (
     <>
-      <NavBar/>   
+      <NavBar showSearch={false}/>   
       <div className="overflow-y-scroll h-screen md:h-[87vh]">
         <div className="px-6 md:px-24">
           <div className="flex flex-col-reverse sm:flex-col md:flex-row mt-16 sm:mt-8">

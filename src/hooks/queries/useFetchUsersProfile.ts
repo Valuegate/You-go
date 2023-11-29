@@ -8,6 +8,7 @@ interface iUsersProfileResponse {
   phone_number: null;
   profile_picture: null;
   password: string;
+  is_staff: boolean;
 }
 [];
 const useFetchUsersProfile = () => {
