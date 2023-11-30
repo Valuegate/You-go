@@ -14,7 +14,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="w-full md:w-1/3 lg:w-[317px] xl:w-[317px] bg-light-black-6 p-8 flex flex-col rounded-xl">
+    <div className="bg-light-black-6 p-8 flex flex-col rounded-xl">
       <h2 className="text-2xl font-bold text-white mb-4">Menu</h2>
       {options.map((option, i) => (
         <a

@@ -33,7 +33,7 @@ const ItemsCard: React.FC<ItemsCardProps> = ({
     <>
       {user && (
         <div
-          className={`shadow-lg h-[350px] md:h-[286px] rounded-b-xl w-[250px] sm:w-full`}
+          className={`shadow-lg sm:h-[18rem] h-[17.8rem] rounded-b-xl w-[15.6rem] sm:w-full`}
         >
           <div className="relative">
             <Image

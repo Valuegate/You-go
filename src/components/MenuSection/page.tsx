@@ -27,14 +27,14 @@ const MenuSection = () => {
 
   return (
     // <div className="flex flex-col lg:flex-row gap-12">
-    <div className="flex flex-row flex-wrap justify-between">
+    <div className="w-full flex flex-row sm:flex-col gap-10">
       {/* <div className="lg:w-1/4"> */}
-      <div className="">
+      <div className="sm:w-full w-[25%]">
         <Sidebar />
       </div>
 
       {/* <div className="lg:w-3/4"> */}
-      <div className="">
+      <div className="sm:w-full w-[75%]">
         {/* <div className="mt-8">
           <div className="flex sm:flex-col flex-row items-center gap-4 mb-3">
             <div>
@@ -121,13 +121,13 @@ const MenuSection = () => {
           </div>
         </div> */}
 
-        <div className="w-full">
+        <div className="">
           <div className="">
-            <p className="font-bold text-base lg:text-lg text-light-black-5 mb-2">
+            <p className="font-bold sm:text-base text-lg text-light-black-5 mb-2">
               Find something that catches your eyes!
             </p>
           </div>
-          <div className="w-full flex flex-row flex-wrap lg:flex-row justify-evenly md:justify-between md:gap-4 gap-6">
+          <div className="w-full flex flex-wrap flex-row sm:justify-evenly sm:gap-8 justify-between">
             <Link href={"../shop/details"}>
             <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"500"} />
             </Link>
@@ -139,7 +139,7 @@ const MenuSection = () => {
             </Link>
           </div>
 
-          <div className="w-full flex flex-row flex-wrap lg:flex-row justify-evenly md:justify-between md:gap-4 gap-6 mt-8">
+          <div className="w-full flex flex-wrap flex-row sm:justify-evenly justify-between sm:gap-8 mt-8">
             <Link href={"../shop/details"}>
             <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"500"} />
             </Link>
@@ -151,7 +151,7 @@ const MenuSection = () => {
             </Link>
           </div>
 
-          <div className="w-full flex flex-row flex-wrap lg:flex-row justify-evenly md:justify-between md:gap-4 gap-6 mt-8">
+          <div className="w-full flex flex-wrap flex-row sm:justify-evenly justify-between sm:gap-8 mt-8">
             <Link href={"../shop/details"}>
             <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"500"} />
             </Link>
@@ -210,7 +210,7 @@ const MenuSection = () => {
                 />
               </div>
             </div>
-            <div className="w-full flex flex-row flex-wrap justify-evenly md:justify-between md:gap-4 gap-6 mt-4">
+            <div className="w-full flex flex-wrap flex-row sm:justify-evenly justify-between sm:gap-8 mt-4">
               <Link href={"../shop/details"}>
               <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"500"} />
               </Link>
