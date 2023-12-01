@@ -254,7 +254,7 @@ const Profile = () => {
             </div>
           </div>
 
-          <div className="flex flex-col w-[75%] sm:w-full">
+          {/* <div className="flex flex-col w-[75%] sm:w-full">
             <div className="flex justify-between items-center">
               <p className="text-[20px] font-bold">Products</p>
               <div className="flex items-center gap-5 sm:hidden">
@@ -282,7 +282,7 @@ const Profile = () => {
                 );
               })}
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="h-32" />
         <Footer />
