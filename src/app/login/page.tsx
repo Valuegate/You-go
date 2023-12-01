@@ -8,7 +8,7 @@ import { Field, Form, Formik } from "formik";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 // import { useMutation } from "react-query";
-import { EyeSlashIcon } from "@/public/icons";
+import { IoMdEyeOff, IoMdEye } from "react-icons/io";
 import useLogin, { TLoginPayload } from "@/public/hooks/mutations/useLogin";
 import { Loader } from "@mantine/core";
 
@@ -140,11 +140,9 @@ const Login = () => {
                       onClick={() => setShowPassword(!showPassword)}
                     >
                       {showPassword ? (
-                        <span className="w-6 h-6">&#128065;</span> // Unicode for open eye
+                        <IoMdEyeOff fill="#470912" size={"20px"} />
                       ) : (
-                        <span>
-                          <EyeSlashIcon />
-                        </span> // Unicode for closed eye
+                        <IoMdEye fill="#470912" size={"20px"} />
                       )}
                     </button>
                   </div>
