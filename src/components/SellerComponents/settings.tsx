@@ -3,7 +3,7 @@ import { FaCaretDown } from "react-icons/fa";
 
 const Settings = () => {
   return (
-    <div className="flex flex-col  items-end">
+    <div className="flex flex-col items-end">
       <div className="flex flex-col md:flex-row justify-between w-full">
         <div className="flex flex-col w-full md:w-[48%]">
           <div className="font-[600]">Edit Profile</div>
