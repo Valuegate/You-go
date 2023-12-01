@@ -159,7 +159,7 @@ const AddItem = ({ addText = "Add Order" }) => {
                   <option>Select a brand</option>
                   <option value="man">Adidas</option>
                   <option value="footwears">Nike</option>
-                  <option value="sneakers">BiBi's Clothing</option>
+                  <option value="sneakers">BiBi&apos;s Clothing</option>
                 </select>
               </div>
             </div>
