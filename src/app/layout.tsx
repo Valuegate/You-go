@@ -8,7 +8,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const inter = Roboto({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-poppins",
+  variable: "--font-roboto",
   weight: ["100", "300", "400", "500", "700", "900"],
 });
 

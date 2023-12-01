@@ -149,7 +149,7 @@ const HomePage = () => {
                     }}
                     className="flex sm:w-full justify-center items-center hover:bg-darkBrownGradient hover:text-weirdBrown gap-2 shadow-2xl sm:shadow-xl bg-weirdBrown font-medium rounded-[25px] h-[50px] px-10 text-white"
                   >
-                    <HiShoppingCart className="text-white hover:text-black w-[20px] h-[20px]" />
+                    <HiShoppingCart className="w-[20px] h-[20px]" />
                     Shop Now!
                   </motion.button>
                 </div>
