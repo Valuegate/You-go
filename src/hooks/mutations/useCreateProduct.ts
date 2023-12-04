@@ -3,10 +3,16 @@ import { USERCREATEPRODUCT_ROUTES } from "@/public/services/routes";
 import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 
-export type TCreatePayload = { email: string; password: string };
+export type TCreatePayload = { name: string; image: string; brand: string; description: string; category: string; price: string; countinStock: string; };
 
 interface iDataResponse {
-    
+    name: string;
+    image: string;
+    brand: string;
+    description: string;
+    category: string;
+    price: string;
+    countinStock: string;
 }
 
 const useCreateProduct = () => {

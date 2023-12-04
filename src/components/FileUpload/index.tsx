@@ -3,7 +3,11 @@ import React, { ChangeEvent, useState } from "react";
 import Upload from "@/public/assets/upload.png";
 import { BsTrash } from "react-icons/bs";
 
-const FileUpload = () => {
+interface FileUploadProps {
+  onFileChange: (files: File[]) => void;
+}
+
+const FileUpload: React.FC<FileUploadProps> = ({ onFileChange }) => {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -11,7 +15,12 @@ const FileUpload = () => {
 
     if (files && files.length > 0) {
       const newFiles: File[] = Array.from(files);
-      setSelectedFiles((prevFiles) => [...prevFiles, ...newFiles]);
+    setSelectedFiles((prevFiles) => {
+      const updatedFiles = [...prevFiles, ...newFiles];
+      onFileChange(updatedFiles);
+      return updatedFiles;
+    });
+      // onFileChange([...BsTrash.prevFiles, ...newFiles]);
     }
   };
 
@@ -19,6 +28,7 @@ const FileUpload = () => {
     setSelectedFiles((prevFiles) => {
       const updatedFiles = [...prevFiles];
       updatedFiles.splice(index, 1);
+      onFileChange(updatedFiles);
       return updatedFiles;
     });
   };

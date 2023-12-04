@@ -63,7 +63,7 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
             <h5 className="text-weirdBrown text-[20px] font-normal">Home</h5>
           </Link>
           {loggedIn && (isSeller === "buyer" || isSeller.length === 0) && (
-            <Link href={"/register-as-seller"}>
+            <Link href={"whysell"}>
               <h5 className="text-weirdBrown text-[20px] font-normal">Sell</h5>
             </Link>
           )}
