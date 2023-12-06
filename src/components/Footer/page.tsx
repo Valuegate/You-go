@@ -65,7 +65,7 @@ const Footer = () => {
             </Link>
             <Link
               className="text-purpleBrown text-[18px] sm:text-[16px]"
-              href={"/"}
+              href={"/about-us"}
             >
               About Us
             </Link>
