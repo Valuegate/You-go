@@ -16,11 +16,21 @@ const EditProfile = () => {
   useEffect(() => {
     if (user && isSuccess) {
       setUsername(user.full_name!);
-      document.getElementById("fullNameField")!.value = user.full_name;
-      document.getElementById("numberField")!.value = user.phone_number;
-      document.getElementById("emailField")!.value = user.email;
-    }
-  }, [user, isSuccess]);
+  //     document.getElementById("fullNameField")!.value = user.full_name;
+  //     document.getElementById("numberField")!.value = user.phone_number;
+  //     document.getElementById("emailField")!.value = user.email;
+  //   }
+  // }, [user, isSuccess]);
+
+  const fullNameField = document.getElementById("fullNameField") as HTMLInputElement;
+    const numberField = document.getElementById("numberField") as HTMLInputElement;
+    const emailField = document.getElementById("emailField") as HTMLInputElement;
+
+    if (fullNameField) fullNameField.value = user.full_name || "";
+    if (numberField) numberField.value = user.phone_number || "";
+    if (emailField) emailField.value = user.email || "";
+  }
+}, [user, isSuccess]);
 
   return (
     <div className="h-[100vh] bg-white-1">

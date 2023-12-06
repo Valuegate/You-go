@@ -11,8 +11,11 @@ import img2 from "@/public/assets/arrow-left.png";
 import img3 from "@/public/assets/carrow-left.png";
 import Image from "next/image";
 import Link from "next/link";
+import useFetchProduct from "@/public/hooks/queries/useFetchProduct";
+import { Loader } from "@mantine/core";
 
 const MenuSection = () => {
+  const { data: products, isLoading } = useFetchProduct();
   const [clickedNumber, setClickedNumber] = useState<number | null>(null);
 
   const handleCardClick = (number: number) => {
@@ -127,40 +130,25 @@ const MenuSection = () => {
               Find something that catches your eyes!
             </p>
           </div>
+
           <div className="w-full flex flex-wrap flex-row sm:justify-evenly sm:gap-8 justify-between">
-            <Link href={"../shop/details"}>
-            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"500"} />
-            </Link>
-            <Link href={"../shop/details"}>
-            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"500"} />
-            </Link>
-            <Link href={"../shop/details"}>
-            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"500"} />
-            </Link>
-          </div>
-
-          <div className="w-full flex flex-wrap flex-row sm:justify-evenly justify-between sm:gap-8 mt-8">
-            <Link href={"../shop/details"}>
-            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"500"} />
-            </Link>
-            <Link href={"../shop/details"}>
-            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"500"} />
-            </Link>
-            <Link href={"../shop/details"}>
-            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"500"} />
-            </Link>
-          </div>
-
-          <div className="w-full flex flex-wrap flex-row sm:justify-evenly justify-between sm:gap-8 mt-8">
-            <Link href={"../shop/details"}>
-            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"500"} />
-            </Link>
-            <Link href={"../shop/details"}>
-            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"500"} />
-            </Link>
-            <Link href={"../shop/details"}>
-            <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"500"} />
-            </Link>
+            {isLoading ? (
+              <div className="flex text-primary justify-center items-center gap-2">
+              <p className="text-lg">Loading</p>
+              <Loader color="#d4145a" />
+              </div>
+            ) : (
+              // Array.isArray(products) &&
+              // products.length >= 0 &&
+              products &&
+              products.length >= 0 &&
+              products.map((product) => {
+                // console.log("THE PRODUCT", product);
+                // return;
+                return <ItemsCard key={product.id} product={product} />;
+              })
+              // JSON.stringify(products)
+            )}
           </div>
 
           <div className="w-full flex justify-between mt-8">
@@ -210,17 +198,41 @@ const MenuSection = () => {
                 />
               </div>
             </div>
-            <div className="w-full flex flex-wrap flex-row sm:justify-evenly justify-between sm:gap-8 mt-4">
+            {/* <div className="w-full flex flex-wrap flex-row sm:justify-evenly justify-between sm:gap-8 mt-4">
               <Link href={"../shop/details"}>
-              <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"500"} />
+                <ItemsCard
+                  width={"300"}
+                  height={"300"}
+                  className={"shadow-2xl"}
+                  image={"/assets/shoe3.png"}
+                  name={"Human Bag"}
+                  rating={""}
+                  price={"500"}
+                />
               </Link>
               <Link href={"../shop/details"}>
-              <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"500"} />
+                <ItemsCard
+                  width={"300"}
+                  height={"300"}
+                  className={"shadow-2xl"}
+                  image={"/assets/shoe3.png"}
+                  name={"Human Bag"}
+                  rating={""}
+                  price={"500"}
+                />
               </Link>
               <Link href={"../shop/details"}>
-              <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"500"} />
+                <ItemsCard
+                  width={"300"}
+                  height={"300"}
+                  className={"shadow-2xl"}
+                  image={"/assets/shoe3.png"}
+                  name={"Human Bag"}
+                  rating={""}
+                  price={"500"}
+                />
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

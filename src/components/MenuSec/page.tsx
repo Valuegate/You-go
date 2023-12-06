@@ -133,7 +133,7 @@ const MenuSec = () => {
               Find something that catches your eyes!
             </p>
           </div>
-          <div className="w-full flex flex-col lg:flex-row justify-between gap-6">
+          {/* <div className="w-full flex flex-col lg:flex-row justify-between gap-6">
             <Link href={"../shop/details"}>
             <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"€500"} />
             </Link>
@@ -167,7 +167,7 @@ const MenuSec = () => {
             <Link href={"../shop/details"}>
             <ItemsCard width={"300"} height={"300"} className={"shadow-2xl"} image={"/assets/shoe3.png"} name={"Human Bag"} rating={""} price={"€500"} />
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

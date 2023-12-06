@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import Outlined from "@/public/assets/Plus_Outlined.svg";
 import { Button, Modal } from "@mantine/core";
 import FileUpload from "../FileUpload";
@@ -8,6 +8,9 @@ import { useRouter } from "next/navigation";
 import useCreateProduct, {
   TCreatePayload,
 } from "@/public/hooks/mutations/useCreateProduct";
+import { BsTrash } from "react-icons/bs";
+import Upload from "@/public/assets/upload.png";
+
 
 const AddItem = ({ addText = "Add Order" }) => {
   const [opened, setOpened] = useState(false);
@@ -15,15 +18,15 @@ const AddItem = ({ addText = "Add Order" }) => {
   const open = () => setOpened(true);
   const close = () => setOpened(false);
 
-  const handleFileChange = (files: File[]) => {
-    // Assuming you want to store only the first selected file in the credentials
-    if (files.length > 0) {
-      setCredentials((prevCredentials) => ({
-        ...prevCredentials,
-        image: files[0].name, // Update with your desired logic for storing file data
-      }));
-    }
-  };
+  // const handleFileChange = (files: File[]) => {
+  //   // Assuming you want to store only the first selected file in the credentials
+  //   if (files.length > 0) {
+  //     setCredentials((prevCredentials) => ({
+  //       ...prevCredentials,
+  //       image: files[0].name, // Update with your desired logic for storing file data
+  //     }));
+  //   }
+  // };
 
   const router = useRouter();
   const [credentials, setCredentials] = useState<TCreatePayload>({
@@ -48,13 +51,69 @@ const AddItem = ({ addText = "Add Order" }) => {
     }
   }, [isError]);
 
-  if (isSuccess) {
-    router.push("/shop");
-  }
+  useEffect(() => {
+    if (isSuccess) {
+      router.push("/shop");
+    }
+  }, [isSuccess, router]);
 
   const handleAdd = () => {
     setErrorMsg(""); // Clear previous error message
-    Add(credentials);
+
+    if (selectedFiles.length > 0) {
+      const file = selectedFiles[0];
+  
+      const reader = new FileReader();
+      reader.onerror = (error) => {
+        console.error("File reading error:", error);
+        setErrorMsg("Error reading the file. Please try again.");
+      };
+  
+      reader.onload = (e) => {
+        if (e.target) {
+          const base64Image = e.target.result as string;
+          console.log("Base64 Data:", base64Image);
+  
+          const updatedCredentials = {
+            ...credentials,
+            image: base64Image,
+          };
+          
+          Add(updatedCredentials);
+        }
+      };
+  
+      reader.readAsDataURL(file);
+    } else {
+      Add(credentials);
+    }
+    
+  };
+
+
+  // const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+
+    if (files && files.length > 0) {
+      const newFiles: File[] = Array.from(files);
+    setSelectedFiles((prevFiles) => {
+      const updatedFiles = [...prevFiles, ...newFiles];
+      // onFileChange(updatedFiles);
+      return updatedFiles;
+    });
+      // onFileChange([...BsTrash.prevFiles, ...newFiles]);
+    }
+  };
+
+  const handleDeleteFile = (index: number) => {
+    setSelectedFiles((prevFiles) => {
+      const updatedFiles = [...prevFiles];
+      updatedFiles.splice(index, 1);
+      // onFileChange(updatedFiles);
+      return updatedFiles;
+    });
   };
 
   return (
@@ -67,7 +126,45 @@ const AddItem = ({ addText = "Add Order" }) => {
             </h2>
 
             <div className="mb-6">
-              <FileUpload onFileChange={handleFileChange} />
+              {/* <FileUpload onFileChange={handleFileChange} /> */}
+
+              <label
+          htmlFor="fileInput"
+          className="cursor-pointer text-left bg-white-2 text-md mb-2 font-medium transition-all duration-300 opacity-100 md:w-[600px] border-2 border-dashed border-primary bg-gray-300 rounded-md h-[300px] flex items-center flex-col justify-center"
+        >
+          <Image src={Upload} alt={""} className="mr-2" />
+          Click to Drop Files Here
+        </label>
+        <input
+          type="file"
+          id="fileInput"
+          className="hidden"
+          onChange={handleFileChange}
+          multiple
+        />
+        {selectedFiles.length > 0 && (
+          <div className="mt-4">
+            <p className="font-bold mb-2">Selected Files:</p>
+            <ul>
+              {selectedFiles.map((file, index) => (
+                <li
+                  key={index}
+                  className="flex justify-between items-center bg-white py-2 px-4"
+                >
+                  <p className=" text-primary text base font-semibold">
+                    {file.name}
+                  </p>
+                  <button
+                    className="text-red-500"
+                    onClick={() => handleDeleteFile(index)}
+                  >
+                    <BsTrash />
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
             </div>
 
             <div className="mb-4">
@@ -85,7 +182,7 @@ const AddItem = ({ addText = "Add Order" }) => {
                 onChange={(e) =>
                   setCredentials({ ...credentials, name: e.target.value })
                 }
-                className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full"
+                className="placeholder-italic mt-1 p-2 border-none bg-white-1 outline-none rounded w-full"
               />
             </div>
 
@@ -119,23 +216,16 @@ const AddItem = ({ addText = "Add Order" }) => {
                 Category:
               </label>
               <div className="w-full">
-                <select
-                  id="category"
-                  name="category"
-                  value={credentials.category}
-                  onChange={(e) =>
-                    setCredentials({ ...credentials, category: e.target.value })
-                  }
-                  className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full outline-none"
-                >
-                  <option>Select a category</option>
-                  <option value="man">Shoes</option>
-                  <option value="footwears">Footwears</option>
-                  <option value="sneakers">Sneakers</option>
-                  <option value="wristwatch">Wristwatch</option>
-                  <option value="footwear">Footwear</option>
-                  <option value="fashion">Fashion</option>
-                </select>
+                <input
+                type="text"
+                id="category"
+                placeholder="place your category here"
+                value={credentials.category}
+                onChange={(e) =>
+                  setCredentials({ ...credentials, category: e.target.value })
+                }
+                className="placeholder-italic mt-1 p-2 border-none bg-white-1 outline-none rounded w-full"
+              />
               </div>
             </div>
 
@@ -147,20 +237,16 @@ const AddItem = ({ addText = "Add Order" }) => {
                 Brand:
               </label>
               <div className="w-full">
-                <select
-                  id="brand"
-                  name="brand"
-                  value={credentials.brand}
-                  onChange={(e) =>
-                    setCredentials({ ...credentials, brand: e.target.value })
-                  }
-                  className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full outline-none"
-                >
-                  <option>Select a brand</option>
-                  <option value="man">Adidas</option>
-                  <option value="footwears">Nike</option>
-                  <option value="sneakers">BiBi&apos;s Clothing</option>
-                </select>
+                <input
+                type="text"
+                id="brand"
+                placeholder="Brand Name"
+                value={credentials.brand}
+                onChange={(e) =>
+                  setCredentials({ ...credentials, brand: e.target.value })
+                }
+                className="placeholder-italic mt-1 p-2 border-none bg-white-1 outline-none rounded w-full"
+              />
               </div>
             </div>
 
@@ -179,7 +265,7 @@ const AddItem = ({ addText = "Add Order" }) => {
                 onChange={(e) =>
                   setCredentials({ ...credentials, price: e.target.value })
                 }
-                className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full"
+                className="placeholder-italic mt-1 p-2 border-none bg-white-1 outline-none rounded w-full"
               />
             </div>
 
@@ -201,7 +287,7 @@ const AddItem = ({ addText = "Add Order" }) => {
                     countinStock: e.target.value,
                   })
                 }
-                className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full"
+                className="placeholder-italic mt-1 p-2 border-none bg-white-1 outline-none rounded w-full"
               />
             </div>
 

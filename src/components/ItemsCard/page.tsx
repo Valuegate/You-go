@@ -8,63 +8,97 @@ import Img from "@/public/assets/watch.png";
 // import { Carousel } from 'react-responsive-carousel';
 // import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-interface ItemsCardProps {
-  image: string | StaticImageData;
+interface Product {
+  id: number;
   name: string;
+  image: string;
   rating: string;
-  price: string | number;
-  width: string | number;
-  height: string | number;
-  className: string;
+  numReviews: number;
+  price: number;
+  brand: string;
 }
 
-const ItemsCard: React.FC<ItemsCardProps> = ({
-  image,
-  name,
-  price,
-  rating,
-  className,
-}) => {
-  // const { data: user, isLoading } = useFetchProduct();
-  const user = {};
+interface ItemsCardProps {
+  product: Product;
+}
 
-  
+const ItemsCard: React.FC<ItemsCardProps> = ({ product }) => {
+  // const { data: product, isLoading } = useFetchProduct();
+  // console.log(product)
+  // console.log("PRODUCT", product.image);
+
+  const stripImage = (product): string => {
+    return product?.image.replace("/images/", "");
+  };
+
+  function removeDataImagePrefix(data) {
+    // Check if data starts with "data:image"
+    if (!data.startsWith("data:image")) {
+      return data; // No need to modify
+    }
+
+    // Find the end of the data:image header
+    const headerEnd = data.indexOf(",");
+
+    // Check if header end was found
+    if (headerEnd === -1) {
+      return data; // Invalid format, cannot process
+    }
+
+    // Extract substring after the header
+    return data.substring(headerEnd + 1);
+  }
+
+  const originalData =
+    "data:image/png;base64,/images/data%3Aimage/jpeg%3Bbase64%2C/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRA";
+  const strippedData = removeDataImagePrefix(originalData);
+
+  console.log("Stripped data:", strippedData);
+
+  // console.log("STRIPE IMAGE", stripImage(product));
   return (
     <>
-      {user && (
-        <div
-          className={`shadow-lg sm:h-[18rem] h-[17.8rem] rounded-b-xl w-[15.6rem] sm:w-full`}
-        >
-          <div className="relative">
-            <Image
-              src={image}
-              className="w-full h-[170px] rounded-t-xl object-cover"
-              width={100}
-              height={100}
-              alt={"product image"}
-            />
-            <div className="w-[30px] h-[30px] rounded-full bg-primary-1 flex justify-center items-center absolute right-4 top-4 cursor-pointer">
-              <LoveIcon color="black" width="15px" height="15px" />
-            </div>
+      {/* {JSON.stringify(product)} */}
+
+      <div
+        className={`shadow-lg sm:h-[18rem] h-[17.8rem] rounded-b-xl w-[15.6rem] sm:w-full mb-8`}
+      >
+        <div className="relative">
+          <Image
+            src={product?.image || Img}
+            // src={`data:image/jpeg;base64,${product?.image}`}
+            // src={`${stripImage(product)}`}
+            className="w-full h-[170px] rounded-t-xl object-cover"
+            width={100}
+            height={100}
+            alt={"product image"}
+          />
+          <div className="w-[30px] h-[30px] rounded-full bg-primary-1 flex justify-center items-center absolute right-4 top-4 cursor-pointer">
+            <LoveIcon color="black" width="15px" height="15px" />
           </div>
-          <div className="flex flex-col justify-center items-start pl-4 pt-2">
-            <p className="text-lg font-bold">{name}</p>
-            <div className="flex gap-1 items-center">
-              <Image src={star} alt="rating icon" />
-              <p className="mr-1">{rating}</p>
-            </div>
-            <div className="flex gap-1 items-center justify-start">
-              <p className="text-primary text-[14px] font-medium ">€</p>
-              <p className="font-bold text-primary">{price}</p>
-            </div>
-            <p className="text-xs text-light-black-4 font-medium">
-              By <span className="text-light-black-5 text-sm">{className}</span>
-            </p>
+        </div>
+        <div className="flex flex-col justify-center items-start pl-4 pt-2">
+          <p className="text-lg font-bold">{product?.name ?? "N/A"}</p>
+          <div className="flex gap-1 items-center">
+            {/* <Image src={product?.rating ?? 'https://'} alt="rating icon" width={100} height={100}/> */}
+            <p className="mr-1">{product?.rating ?? "0"}</p>
+            <p className="mr-1">{product?.numReviews ?? "0"}</p>
           </div>
+          <div className="flex gap-1 items-center justify-start">
+            <p className="text-primary text-[14px] font-medium ">€</p>
+            <p className="font-bold text-primary">{product?.price ?? "0.0"}</p>
           </div>
-      )}
-          </>
+          <p className="text-xs text-light-black-4 font-medium">
+            By{" "}
+            <span className="text-light-black-5 text-sm">
+              {product?.brand ?? "N/A"}
+            </span>
+          </p>
+        </div>
+      </div>
+    </>
   );
 };
 
 export default ItemsCard;
+//

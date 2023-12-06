@@ -71,7 +71,7 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
             <h5 className="text-weirdBrown text-[20px] font-normal">Shop</h5>
           </Link>
           {loggedIn && isSeller === "seller" && (
-            <Link href={"/"}>
+            <Link href={"/whysell"}>
               <h5 className="text-weirdBrown text-[20px] font-normal">
                 Add Product
               </h5>

@@ -139,8 +139,7 @@ const Profile = () => {
                           href={"/profile"}
                           className="rounded-full bg-weirdBrown h-[100px] w-[100px] text-center flex text-[32px] justify-center font-medium items-center text-white"
                         >
-                          {/* {user.full_name!.charAt(0).toUpperCase()} */}
-                          T
+                          {user.full_name!.charAt(0).toUpperCase()}
                         </Link>
                       </div>
                     </div>
