@@ -77,7 +77,7 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
               </h5>
             </Link>
           )}
-          <Link href={"/"}>
+          <Link href={"/about-us"}>
             <h5 className="text-weirdBrown text-[20px] font-normal">
               About Us
             </h5>
@@ -160,7 +160,7 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
             </Link>
           )}
           <Link
-            href={"/"}
+            href={"/about-us"}
             className="text-weirdBrown w-full py-2 rounded-xl text-[20px] font-normal flex justify-between items-center"
           >
             About Us

@@ -14,6 +14,8 @@ import { IoMdEyeOff, IoMdEye } from "react-icons/io";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import BackButton from "@/public/components/BackButton/BackButton";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = () => {
   const router = useRouter();
@@ -21,11 +23,12 @@ const SignUp = () => {
     full_name: "",
     email: "",
     password: "",
-    // confirm_password: "",
     phone_number: "",
     is_staff: false,
   });
   const [errorMsg, setErrorMsg] = useState<string>("");
+
+  const [confirm, setConfirm] = useState<string>("");
 
   const { isError, isLoading, isSuccess, Signup, error, data } =
     useUserRegister();
@@ -41,6 +44,11 @@ const SignUp = () => {
   }
 
   const handleSignup = () => {
+    if (credentials.password !== confirm) {
+      toast.error("The passwords do not match");
+      return;
+    }
+    
     setErrorMsg(""); // Clear previous error message
     Signup(credentials);
   };
@@ -54,8 +62,11 @@ const SignUp = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const [showPassword1, setShowPassword1] = useState(false);
+
+
   return (
     <>
+      <ToastContainer />
       <div className="flex flex-col lg:flex-row">
         <div className="w-[50%] px-[5%] flex flex-col justify-center sm:justify-start sm:w-full overflow-y-scroll h-screen">
           <div className="mt-40 sm:mb-24 sm:mt-10">
@@ -160,15 +171,15 @@ const SignUp = () => {
                         onClick={() => setShowPassword(!showPassword)}
                       >
                         {showPassword ? (
-                        <IoMdEyeOff fill="#470912" size={"20px"} />
-                      ) : (
-                        <IoMdEye fill="#470912" size={"20px"} />
-                      )}
+                          <IoMdEyeOff fill="#470912" size={"20px"} />
+                        ) : (
+                          <IoMdEye fill="#470912" size={"20px"} />
+                        )}
                       </button>
                     </div>
                   </div>
 
-                  {/* <div className="mb-4">
+                  <div className="mb-4">
                     <label htmlFor="re-password" className="block">
                       Confirm Password
                     </label>
@@ -179,12 +190,7 @@ const SignUp = () => {
                         id="re-password"
                         name="re-password"
                         placeholder="Confirm your password"
-                        onChange={(e) =>
-                          setCredentials({
-                            ...credentials,
-                            confirm_password: e.target.value,
-                          })
-                        }
+                        onChange={(e) => setConfirm(e.target.value)}
                         className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-full"
                       />
                       <button
@@ -192,15 +198,13 @@ const SignUp = () => {
                         onClick={() => setShowPassword1(!showPassword1)}
                       >
                         {showPassword1 ? (
-                          <span className="w-6 h-6">&#128065;</span> // Unicode for open eye
+                          <IoMdEyeOff fill="#470912" size={"20px"} />
                         ) : (
-                          <span>
-                            <EyeSlashIcon />
-                          </span> // Unicode for closed eye
+                          <IoMdEye fill="#470912" size={"20px"} />
                         )}
                       </button>
                     </div>
-                  </div> */}
+                  </div>
 
                   <label
                     className="flex items-center text-[16px] leading-[32px] font-normal text-light-black-5 mb-4 mt-4"
