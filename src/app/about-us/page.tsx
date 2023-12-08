@@ -19,7 +19,7 @@ const AboutUsPage = () => {
       </p>
       <p className="mt-10 text-light-black-4 text-xl px-[10%]">
         At YouGo Crafts, we offer a wide range of crafts products, including
-        jewellery, clothing, accessories, home decor, and more. Whether you're
+        jewellery, clothing, accessories, home decor, and more. Whether you&apos;re
         an interior designer looking for one-of-a-kind pieces or a
         fashion-forward individual with an eye for style and craftsmanship, our
         website caters to your needs.
@@ -42,7 +42,7 @@ const AboutUsPage = () => {
 
       <p className="mt-10 text-light-black-4 text-xl px-[10%]">
         We are passionate about crafts and dedicated to providing a seamless
-        user experience. While we haven't received any specific awards or
+        user experience. While we haven&apos;t received any specific awards or
         achievements yet, our focus remains on delivering exceptional service
         and promoting the art of handmade crafts.
       </p>
