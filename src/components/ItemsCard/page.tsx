@@ -25,37 +25,7 @@ interface ItemsCardProps {
 const ItemsCard: React.FC<ItemsCardProps> = ({ product }) => {
   // const { data: product, isLoading } = useFetchProduct();
   // console.log(product)
-  // console.log("PRODUCT", product.image);
-
-  const stripImage = (product): string => {
-    return product?.image.replace("/images/", "");
-  };
-
-  function removeDataImagePrefix(data) {
-    // Check if data starts with "data:image"
-    if (!data.startsWith("data:image")) {
-      return data; // No need to modify
-    }
-
-    // Find the end of the data:image header
-    const headerEnd = data.indexOf(",");
-
-    // Check if header end was found
-    if (headerEnd === -1) {
-      return data; // Invalid format, cannot process
-    }
-
-    // Extract substring after the header
-    return data.substring(headerEnd + 1);
-  }
-
-  const originalData =
-    "data:image/png;base64,/images/data%3Aimage/jpeg%3Bbase64%2C/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRA";
-  const strippedData = removeDataImagePrefix(originalData);
-
-  console.log("Stripped data:", strippedData);
-
-  // console.log("STRIPE IMAGE", stripImage(product));
+  
   return (
     <>
       {/* {JSON.stringify(product)} */}
@@ -65,9 +35,8 @@ const ItemsCard: React.FC<ItemsCardProps> = ({ product }) => {
       >
         <div className="relative">
           <Image
-            src={product?.image || Img}
-            // src={`data:image/jpeg;base64,${product?.image}`}
-            // src={`${stripImage(product)}`}
+            // src={product?.image || Img}
+            src={`data:image/jpeg;base64,${product?.image}`}
             className="w-full h-[170px] rounded-t-xl object-cover"
             width={100}
             height={100}
@@ -101,4 +70,3 @@ const ItemsCard: React.FC<ItemsCardProps> = ({ product }) => {
 };
 
 export default ItemsCard;
-//

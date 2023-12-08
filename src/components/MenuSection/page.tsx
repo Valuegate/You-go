@@ -143,7 +143,7 @@ const MenuSection = () => {
               products &&
               products.length >= 0 &&
               products.map((product) => {
-                // console.log("THE PRODUCT", product);
+                console.log("THE PRODUCT", product);
                 // return;
                 return <ItemsCard key={product.id} product={product} />;
               })
