@@ -23,14 +23,14 @@ const EditProfile = () => {
   }, [user, isSuccess]);
 
   return (
-    <div className="h-[100vh] bg-white-1">
+    <div className="h-[100vh] sm:h-full bg-white-1">
       <NavBar showSearch={false} transparent={true} />
       <div
-        className={`h-[90vh] flex flex-col ${
+        className={`h-[90vh] sm:h-full flex flex-col ${
           isLoading ? "justify-start" : "justify-around"
         } px-[10%]`}
       >
-        <div className="flex items-center gap-10 text-4xl font-medium h-[10vh]">
+        <div className="flex items-center gap-10 text-4xl sm:text-2xl sm:gap-5 font-medium h-[10vh]">
           <p
             onClick={() => {
               window.location.href = "/profile";
@@ -54,14 +54,14 @@ const EditProfile = () => {
         )}
 
         {user && isSuccess && (
-          <div className="h-[70vh] bg-white w-full rounded-2xl shadow-xl flex justify-between px-10 py-5">
-            <div className="flex flex-col w-[20%] justify-center">
+          <div className="h-[70vh] sm:mt-10 sm:mb-20   sm:h-auto bg-white w-full rounded-2xl shadow-xl flex sm:flex-col justify-between px-10 py-5">
+            <div className="flex flex-col w-[20%] sm:w-full sm:items-center justify-center">
               <div className="mt-10 rounded-full bg-weirdBrown h-[150px] w-[150px] text-center flex text-[48px] justify-center font-medium items-center text-white">
                 {user.full_name?.charAt(0).toUpperCase()}
               </div>
             </div>
 
-            <div className="flex flex-col w-[40%] justify-center">
+            <div className="flex flex-col sm:w-full w-[40%] justify-center">
               <label className="block font-normal mt-10 text-light-black-4">
                 Full Name
               </label>
@@ -93,7 +93,7 @@ const EditProfile = () => {
               />
             </div>
 
-            <div className="flex w-[40%] flex-col justify-center">
+            <div className="flex w-[40%] sm:w-full flex-col justify-center">
               <label className="block font-normal mt-10 text-light-black-4">
                 About
               </label>
@@ -106,13 +106,6 @@ const EditProfile = () => {
               />
 
               <motion.button
-                animate={{
-                  y: ["0%", "10%", "0%"],
-                  transition: {
-                    duration: 1,
-                    repeat: Infinity,
-                  },
-                }}
                 onClick={() => {
                   window.location.replace("/profile");
                 }}

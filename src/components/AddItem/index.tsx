@@ -84,7 +84,8 @@ const AddItem = ({ addText = "Add Order" }) => {
       };
   
       reader.readAsDataURL(file);
-    } else {
+    } 
+    else {
       Add(credentials);
     }
     
