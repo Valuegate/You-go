@@ -16,9 +16,9 @@ const EditProfile = () => {
   useEffect(() => {
     if (user && isSuccess) {
       setUsername(user.full_name!);
-      document.getElementById("fullNameField")!.value = user.full_name;
-      document.getElementById("numberField")!.value = user.phone_number;
-      document.getElementById("emailField")!.value = user.email;
+      (document.getElementById("fullNameField") as HTMLInputElement).value = user.full_name!;
+      (document.getElementById("numberField") as HTMLInputElement).value = user.phone_number!;
+      (document.getElementById("emailField") as HTMLInputElement).value = user.email;
     }
   }, [user, isSuccess]);
 
@@ -57,7 +57,7 @@ const EditProfile = () => {
           <div className="h-[70vh] bg-white w-full rounded-2xl shadow-xl flex justify-between px-10 py-5">
             <div className="flex flex-col w-[20%] justify-center">
               <div className="mt-10 rounded-full bg-weirdBrown h-[150px] w-[150px] text-center flex text-[48px] justify-center font-medium items-center text-white">
-                {user.full_name!.charAt(0).toUpperCase()}
+                {user.full_name?.charAt(0).toUpperCase()}
               </div>
             </div>
 
