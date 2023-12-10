@@ -62,31 +62,38 @@ const AddItem = ({ addText = "Add Order" }) => {
 
     if (selectedFiles.length > 0) {
       const file = selectedFiles[0];
+    Add({ ...credentials, image: file });
+  } else {
+    Add(credentials);
+  }
+
+
+
+  // const reader = new FileReader();
+  //     const file = selectedFiles[0];
+    //   reader.onerror = (error) => {
+    //     console.error("File reading error:", error);
+    //     setErrorMsg("Error reading the file. Please try again.");
+    //   };
   
-      const reader = new FileReader();
-      reader.onerror = (error) => {
-        console.error("File reading error:", error);
-        setErrorMsg("Error reading the file. Please try again.");
-      };
+    //   reader.onload = (e) => {
+    //     if (e.target) {
+    //       const base64Image = e.target.result as string;
+    //       console.log("Base64 Data:", base64Image);
   
-      reader.onload = (e) => {
-        if (e.target) {
-          const base64Image = e.target.result as string;
-          console.log("Base64 Data:", base64Image);
-  
-          const updatedCredentials = {
-            ...credentials,
-            image: base64Image,
-          };
+    //       const updatedCredentials = {
+    //         ...credentials,
+    //         image: base64Image,
+    //       };
           
-          Add(updatedCredentials);
-        }
-      };
+    //       Add(updatedCredentials);
+    //     }
+    //   };
   
-      reader.readAsDataURL(file);
-    } else {
-      Add(credentials);
-    }
+    //   reader.readAsDataURL(file);
+    // } else {
+    //   Add(credentials);
+    // }
     
   };
 
@@ -98,11 +105,16 @@ const AddItem = ({ addText = "Add Order" }) => {
 
     if (files && files.length > 0) {
       const newFiles: File[] = Array.from(files);
-    setSelectedFiles((prevFiles) => {
-      const updatedFiles = [...prevFiles, ...newFiles];
-      // onFileChange(updatedFiles);
-      return updatedFiles;
-    });
+      setSelectedFiles(newFiles);
+
+
+
+    // setSelectedFiles((prevFiles) => {
+    //   const updatedFiles = [...prevFiles, ...newFiles];
+    //   // onFileChange(updatedFiles);
+    //   return updatedFiles;
+    // });
+
       // onFileChange([...BsTrash.prevFiles, ...newFiles]);
     }
   };

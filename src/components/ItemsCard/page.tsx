@@ -24,7 +24,7 @@ interface ItemsCardProps {
 
 const ItemsCard: React.FC<ItemsCardProps> = ({ product }) => {
   // const { data: product, isLoading } = useFetchProduct();
-  // console.log(product)
+  console.log(product)
   
   return (
     <>
@@ -35,12 +35,13 @@ const ItemsCard: React.FC<ItemsCardProps> = ({ product }) => {
       >
         <div className="relative">
           <Image
-            // src={product?.image || Img}
-            src={`data:image/jpeg;base64,${product?.image}`}
+            src={product?.image || Img}
+            // src={`file://${product?.image}`}
+            // src={`data:image/jpeg;base64,${product?.image}`}
             className="w-full h-[170px] rounded-t-xl object-cover"
             width={100}
             height={100}
-            alt={"product image"}
+            alt={product?.name ? `${product.name} image` : "Product image"}
           />
           <div className="w-[30px] h-[30px] rounded-full bg-primary-1 flex justify-center items-center absolute right-4 top-4 cursor-pointer">
             <LoveIcon color="black" width="15px" height="15px" />
