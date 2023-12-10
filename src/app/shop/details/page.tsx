@@ -257,7 +257,7 @@ const ShopDetails = () => {
                   Similar Products
                 </h2>
                 <div className="flex flex-col gap-3">
-                  <ItemsCard
+                  {/* <ItemsCard
                     width={"300"}
                     height={"300"}
                     className={"shadow-2xl"}
@@ -274,7 +274,7 @@ const ShopDetails = () => {
                     name={"Human Bag"}
                     rating={""}
                     price={"500"}
-                  />
+                  /> */}
                 </div>
               </div>
             </div>

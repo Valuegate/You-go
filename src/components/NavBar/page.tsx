@@ -129,7 +129,7 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
 
         <div className="flex flex-col items-center gap-5 mt-10">
           <Link
-            href={"/"}
+            href={"/home"}
             className="text-weirdBrown w-full py-2 rounded-xl text-[20px] font-normal flex justify-between items-center"
           >
             Home
@@ -137,7 +137,7 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
           </Link>
           {loggedIn && (isSeller === "buyer" || isSeller.length === 0) && (
             <Link
-              href={"/register-as-seller"}
+              href={"/whysell"}
               className="text-weirdBrown w-full py-2 rounded-xl text-[20px] font-normal flex justify-between items-center"
             >
               Sell On YouGo
@@ -145,7 +145,7 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
             </Link>
           )}
           <Link
-            href={"/"}
+            href={"/shop"}
             className="text-weirdBrown w-full py-2 rounded-xl text-[20px] font-normal flex justify-between items-center"
           >
             Shop
@@ -153,7 +153,7 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
           </Link>
           {loggedIn && isSeller === "seller" && (
             <Link
-              href={"/"}
+              href={"/whysell"}
               className="text-weirdBrown w-full py-2 rounded-xl text-[20px] font-normal flex justify-between items-center"
             >
               Add Product
@@ -173,7 +173,7 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
                 window.localStorage.setItem("userToken", "");
                 window.localStorage.setItem("userName", "");
                 window.localStorage.setItem("userStatus", "");
-                window.location.replace("/");
+                window.location.replace("/home");
               } else {
                 window.location.href = "/login";
               }

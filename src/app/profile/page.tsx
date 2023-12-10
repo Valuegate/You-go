@@ -276,16 +276,7 @@ const Profile = () => {
                 <div className="sm:flex mt-5 sm:flex-col justify-between sm:gap-5 sm:w-full grid md:grid-cols-2 2xl:grid-cols-4 lg:grid-cols-3 gap-5 w-full">
                   {products.map((product, i) => {
                     return (
-                      <ItemsCard
-                        key={i}
-                        name={product.title}
-                        image={product.image}
-                        price={product.price}
-                        rating={product.reviews}
-                        width={0}
-                        height={0}
-                        className={product.from}
-                      />
+                      <></>
                     );
                   })}
                 </div>
