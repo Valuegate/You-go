@@ -1,14 +1,34 @@
 import { AxiosResponse } from "axios";
-import axiosInstance from "../services";
+import instance from "../services";
+
+
 
 export const fetcher = async <T>(
   url: string,
   method: "GET" | "POST" | "PUT" | "PATCH" = "GET",
   data?: any
 ): Promise<AxiosResponse<T>> => {
-  const instance = axiosInstance;
+  const {axiosInstance} = instance;
   try {
-    const response = await instance.request<T>({
+    const response = await axiosInstance.request<T>({
+      url,
+      method,
+      data,
+    });
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const formFetcher = async <T>(
+  url: string,
+  method: "POST",
+  data?: any
+): Promise<AxiosResponse<T>> => {
+  const {formAxiosInstance} = instance;
+  try {
+    const response = await formAxiosInstance.request<T>({
       url,
       method,
       data,

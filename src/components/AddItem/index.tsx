@@ -11,7 +11,6 @@ import useCreateProduct, {
 import { BsTrash } from "react-icons/bs";
 import Upload from "@/public/assets/upload.png";
 
-
 const AddItem = ({ addText = "Add Order" }) => {
   const [opened, setOpened] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
@@ -62,42 +61,39 @@ const AddItem = ({ addText = "Add Order" }) => {
 
     if (selectedFiles.length > 0) {
       const file = selectedFiles[0];
-    Add({ ...credentials, image: file });
-  } else {
-    Add(credentials);
-  }
+      //  console.log(file);
+      Add({ ...credentials, image: file });
+    } else {
+      Add(credentials);
+    }
 
-
-
-  // const reader = new FileReader();
-  //     const file = selectedFiles[0];
+    // const reader = new FileReader();
+    //     const file = selectedFiles[0];
     //   reader.onerror = (error) => {
     //     console.error("File reading error:", error);
     //     setErrorMsg("Error reading the file. Please try again.");
     //   };
-  
+
     //   reader.onload = (e) => {
     //     if (e.target) {
     //       const base64Image = e.target.result as string;
     //       console.log("Base64 Data:", base64Image);
-  
+
     //       const updatedCredentials = {
     //         ...credentials,
     //         image: base64Image,
     //       };
-          
+
     //       Add(updatedCredentials);
     //     }
     //   };
-  
+
     //   reader.readAsDataURL(file);
-    // } 
+    // }
     // else {
     //   Add(credentials);
     // }
-    
   };
-
 
   // const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
@@ -108,13 +104,11 @@ const AddItem = ({ addText = "Add Order" }) => {
       const newFiles: File[] = Array.from(files);
       setSelectedFiles(newFiles);
 
-
-
-    // setSelectedFiles((prevFiles) => {
-    //   const updatedFiles = [...prevFiles, ...newFiles];
-    //   // onFileChange(updatedFiles);
-    //   return updatedFiles;
-    // });
+      // setSelectedFiles((prevFiles) => {
+      //   const updatedFiles = [...prevFiles, ...newFiles];
+      //   // onFileChange(updatedFiles);
+      //   return updatedFiles;
+      // });
 
       // onFileChange([...BsTrash.prevFiles, ...newFiles]);
     }
@@ -142,42 +136,42 @@ const AddItem = ({ addText = "Add Order" }) => {
               {/* <FileUpload onFileChange={handleFileChange} /> */}
 
               <label
-          htmlFor="fileInput"
-          className="cursor-pointer text-left bg-white-2 text-md mb-2 font-medium transition-all duration-300 opacity-100 md:w-[600px] border-2 border-dashed border-primary bg-gray-300 rounded-md h-[300px] flex items-center flex-col justify-center"
-        >
-          <Image src={Upload} alt={""} className="mr-2" />
-          Click to Drop Files Here
-        </label>
-        <input
-          type="file"
-          id="fileInput"
-          className="hidden"
-          onChange={handleFileChange}
-          multiple
-        />
-        {selectedFiles.length > 0 && (
-          <div className="mt-4">
-            <p className="font-bold mb-2">Selected Files:</p>
-            <ul>
-              {selectedFiles.map((file, index) => (
-                <li
-                  key={index}
-                  className="flex justify-between items-center bg-white py-2 px-4"
-                >
-                  <p className=" text-primary text base font-semibold">
-                    {file.name}
-                  </p>
-                  <button
-                    className="text-red-500"
-                    onClick={() => handleDeleteFile(index)}
-                  >
-                    <BsTrash />
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+                htmlFor="fileInput"
+                className="cursor-pointer text-left bg-white-2 text-md mb-2 font-medium transition-all duration-300 opacity-100 md:w-[600px] border-2 border-dashed border-primary bg-gray-300 rounded-md h-[300px] flex items-center flex-col justify-center"
+              >
+                <Image src={Upload} alt={""} className="mr-2" />
+                Click to Drop Files Here
+              </label>
+              <input
+                type="file"
+                id="fileInput"
+                className="hidden"
+                onChange={handleFileChange}
+                multiple
+              />
+              {selectedFiles.length > 0 && (
+                <div className="mt-4">
+                  <p className="font-bold mb-2">Selected Files:</p>
+                  <ul>
+                    {selectedFiles.map((file, index) => (
+                      <li
+                        key={index}
+                        className="flex justify-between items-center bg-white py-2 px-4"
+                      >
+                        <p className=" text-primary text base font-semibold">
+                          {file.name}
+                        </p>
+                        <button
+                          className="text-red-500"
+                          onClick={() => handleDeleteFile(index)}
+                        >
+                          <BsTrash />
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
 
             <div className="mb-4">
@@ -230,15 +224,15 @@ const AddItem = ({ addText = "Add Order" }) => {
               </label>
               <div className="w-full">
                 <input
-                type="text"
-                id="category"
-                placeholder="place your category here"
-                value={credentials.category}
-                onChange={(e) =>
-                  setCredentials({ ...credentials, category: e.target.value })
-                }
-                className="placeholder-italic mt-1 p-2 border-none bg-white-1 outline-none rounded w-full"
-              />
+                  type="text"
+                  id="category"
+                  placeholder="place your category here"
+                  value={credentials.category}
+                  onChange={(e) =>
+                    setCredentials({ ...credentials, category: e.target.value })
+                  }
+                  className="placeholder-italic mt-1 p-2 border-none bg-white-1 outline-none rounded w-full"
+                />
               </div>
             </div>
 
@@ -251,15 +245,15 @@ const AddItem = ({ addText = "Add Order" }) => {
               </label>
               <div className="w-full">
                 <input
-                type="text"
-                id="brand"
-                placeholder="Brand Name"
-                value={credentials.brand}
-                onChange={(e) =>
-                  setCredentials({ ...credentials, brand: e.target.value })
-                }
-                className="placeholder-italic mt-1 p-2 border-none bg-white-1 outline-none rounded w-full"
-              />
+                  type="text"
+                  id="brand"
+                  placeholder="Brand Name"
+                  value={credentials.brand}
+                  onChange={(e) =>
+                    setCredentials({ ...credentials, brand: e.target.value })
+                  }
+                  className="placeholder-italic mt-1 p-2 border-none bg-white-1 outline-none rounded w-full"
+                />
               </div>
             </div>
 
