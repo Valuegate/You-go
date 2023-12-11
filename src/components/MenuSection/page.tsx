@@ -151,7 +151,7 @@ const MenuSection = () => {
             )}
           </div>
 
-          <div className="w-full flex justify-between mt-8">
+          {/* <div className="w-full flex justify-between mt-8">
             <div className="font-bold text-sm lg:text-base text-light-black-5">
               Find something that catches your eyes!
             </div>
@@ -176,9 +176,9 @@ const MenuSection = () => {
                 <GrNext />
               </div>
             </div>
-          </div>
+          </div> */}
 
-          <div className="mt-12">
+          {/* <div className="mt-12">
             <div className="flex justify-between items-center">
               <p className="font-bold text-lg lg:text-xl text-light-black-5">
                 Recently Viewed
@@ -198,42 +198,7 @@ const MenuSection = () => {
                 />
               </div>
             </div>
-            {/* <div className="w-full flex flex-wrap flex-row sm:justify-evenly justify-between sm:gap-8 mt-4">
-              <Link href={"../shop/details"}>
-                <ItemsCard
-                  width={"300"}
-                  height={"300"}
-                  className={"shadow-2xl"}
-                  image={"/assets/shoe3.png"}
-                  name={"Human Bag"}
-                  rating={""}
-                  price={"500"}
-                />
-              </Link>
-              <Link href={"../shop/details"}>
-                <ItemsCard
-                  width={"300"}
-                  height={"300"}
-                  className={"shadow-2xl"}
-                  image={"/assets/shoe3.png"}
-                  name={"Human Bag"}
-                  rating={""}
-                  price={"500"}
-                />
-              </Link>
-              <Link href={"../shop/details"}>
-                <ItemsCard
-                  width={"300"}
-                  height={"300"}
-                  className={"shadow-2xl"}
-                  image={"/assets/shoe3.png"}
-                  name={"Human Bag"}
-                  rating={""}
-                  price={"500"}
-                />
-              </Link>
-            </div> */}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
