@@ -3,7 +3,7 @@ import Image, { StaticImageData } from "next/image";
 import star from "@/public/assets/stars.png";
 import { LoveIcon } from "@/public/icons";
 import useFetchProduct from "@/public/hooks/queries/useFetchProduct";
-import Img from "@/public/assets/watch.png";
+import Img from "@/public/assets/upload.png";
 // import { Product } from "@/public/types/product"
 // import { Carousel } from 'react-responsive-carousel';
 // import 'react-responsive-carousel/lib/styles/carousel.min.css';
