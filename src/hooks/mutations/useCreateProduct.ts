@@ -1,4 +1,4 @@
-import { fetcher } from "@/public/lib/fetcher";
+import { formFetcher } from "@/public/lib/fetcher";
 import { USERCREATEPRODUCT_ROUTES } from "@/public/services/routes";
 import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
@@ -19,7 +19,7 @@ const useCreateProduct = () => {
   const mutation = useMutation({
     mutationFn: async (payload: TCreatePayload) => {
       try {
-        const response = await fetcher(USERCREATEPRODUCT_ROUTES.CREATE, "POST", payload);
+        const response = await formFetcher(USERCREATEPRODUCT_ROUTES.CREATE, "POST", payload);
         return response.data;
       } catch (err) {
         throw err;
