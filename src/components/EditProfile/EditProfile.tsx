@@ -8,6 +8,8 @@ import useFetchUsersProfile from "@/public/hooks/queries/useFetchUsersProfile";
 import { Loader } from "@mantine/core";
 
 import { motion } from "framer-motion";
+import useUserUpdate, { TUpdatePayload } from "@/public/hooks/mutations/useUserUpdate";
+import { useRouter } from "next/navigation";
 
 const EditProfile = () => {
   const { data: user, isLoading, isSuccess } = useFetchUsersProfile();
@@ -21,6 +23,33 @@ const EditProfile = () => {
       (document.getElementById("emailField") as HTMLInputElement).value = user.email;
     }
   }, [user, isSuccess]);
+
+  const router = useRouter();
+  const [credentials, setCredentials] = useState<TUpdatePayload>({
+    full_name: "",
+    email: "",
+    phone_number: "",
+    about: "",
+  });
+  const [errorMsg, setErrorMsg] = useState<string>("");
+
+  const { isError, Update, error, data } =
+    useUserUpdate();
+
+  useEffect(() => {
+    if (isError) {
+      setErrorMsg("An error occurred during signup. Please try again.");
+    }
+  }, [isError]);
+
+  if (isSuccess) {
+    router.push("/profile");
+  }
+
+  const handleUpdate = () => {
+    setErrorMsg(""); // Clear previous error message
+    Update(credentials);
+  };
 
   return (
     <div className="h-[100vh] sm:h-full bg-white-1">
@@ -69,6 +98,12 @@ const EditProfile = () => {
                 id="fullNameField"
                 type="text"
                 placeholder="Your Full name"
+                onChange={(e) =>
+                  setCredentials({
+                    ...credentials,
+                    full_name: e.target.value,
+                  })
+                }
                 className="placeholder-italic mt-2 p-2 border-none bg-white-1 focus:outline-none rounded w-[70%] sm:w-full"
               />
 
@@ -79,6 +114,12 @@ const EditProfile = () => {
                 id="numberField"
                 type="text"
                 placeholder="Your Phone Number"
+                onChange={(e) =>
+                  setCredentials({
+                    ...credentials,
+                    phone_number: e.target.value,
+                  })
+                }
                 className="placeholder-italic mt-2 p-2 border-none bg-white-1 focus:outline-none rounded w-[70%] sm:w-full"
               />
 
@@ -89,6 +130,12 @@ const EditProfile = () => {
                 id="emailField"
                 type="email"
                 placeholder="Your Email Address"
+                onChange={(e) =>
+                  setCredentials({
+                    ...credentials,
+                    email: e.target.value,
+                  })
+                }
                 className="placeholder-italic mt-2 p-2 border-none bg-white-1 focus:outline-none rounded w-[70%] sm:w-full"
               />
             </div>
@@ -102,18 +149,28 @@ const EditProfile = () => {
                 cols={30}
                 rows={5}
                 placeholder="Describe yourself"
+                // onChange={(e) =>
+                //   setCredentials({
+                //     ...credentials,
+                //     about: e.target.value,
+                //   })
+                // }
                 className="focus:outline-none placeholder-italic mt-2 p-2 border-none bg-white-1 rounded w-full resize-none"
               />
 
-              <motion.button
-                onClick={() => {
-                  window.location.replace("/profile");
-                }}
+              {/* <motion.button */}
+              <button
+                // {/* onClick={() => {
+                //   window.location.replace("/profile");
+                // }} */}
+                type="submit"
+                onClick={handleUpdate}
                 className="flex sm:w-full mt-10 w-[50%] justify-center items-center hover:bg-darkBrownGradient hover:text-weirdBrown gap-2 shadow-2xl sm:shadow-xl bg-weirdBrown font-medium rounded-[25px] h-[50px] px-6 text-white"
               >
                 Save Changes
                 <FaChevronRight size={"25px"} />
-              </motion.button>
+                </button>
+              {/* </motion.button> */}
             </div>
           </div>
         )}

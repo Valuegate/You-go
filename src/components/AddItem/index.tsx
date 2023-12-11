@@ -16,16 +16,9 @@ const AddItem = ({ addText = "Add Order" }) => {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const open = () => setOpened(true);
   const close = () => setOpened(false);
-
-  // const handleFileChange = (files: File[]) => {
-  //   // Assuming you want to store only the first selected file in the credentials
-  //   if (files.length > 0) {
-  //     setCredentials((prevCredentials) => ({
-  //       ...prevCredentials,
-  //       image: files[0].name, // Update with your desired logic for storing file data
-  //     }));
-  //   }
-  // };
+  const [validationErrors, setValidationErrors] = useState<{
+    [key: string]: string;
+  }>({});
 
   const router = useRouter();
   const [credentials, setCredentials] = useState<TCreatePayload>({
@@ -57,6 +50,30 @@ const AddItem = ({ addText = "Add Order" }) => {
   }, [isSuccess, router]);
 
   const handleAdd = () => {
+    // Clear previous validation errors
+    setValidationErrors({});
+
+    // Validate numeric input for price and stock
+    if (!/^\d+$/.test(credentials.price)) {
+      setValidationErrors((prevErrors) => ({
+        ...prevErrors,
+        price: "Please enter a valid numeric value for Price.",
+      }));
+    }
+
+    if (!/^\d+$/.test(credentials.countinStock)) {
+      setValidationErrors((prevErrors) => ({
+        ...prevErrors,
+        countinStock: "Please enter a valid numeric value for Stock.",
+      }));
+    }
+
+    // Check if there are any validation errors
+    if (Object.keys(validationErrors).length > 0) {
+      // Stop further processing if there are errors
+      return;
+    }
+
     setErrorMsg(""); // Clear previous error message
 
     if (selectedFiles.length > 0) {
@@ -66,36 +83,7 @@ const AddItem = ({ addText = "Add Order" }) => {
     } else {
       Add(credentials);
     }
-
-    // const reader = new FileReader();
-    //     const file = selectedFiles[0];
-    //   reader.onerror = (error) => {
-    //     console.error("File reading error:", error);
-    //     setErrorMsg("Error reading the file. Please try again.");
-    //   };
-
-    //   reader.onload = (e) => {
-    //     if (e.target) {
-    //       const base64Image = e.target.result as string;
-    //       console.log("Base64 Data:", base64Image);
-
-    //       const updatedCredentials = {
-    //         ...credentials,
-    //         image: base64Image,
-    //       };
-
-    //       Add(updatedCredentials);
-    //     }
-    //   };
-
-    //   reader.readAsDataURL(file);
-    // }
-    // else {
-    //   Add(credentials);
-    // }
   };
-
-  // const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
@@ -103,14 +91,6 @@ const AddItem = ({ addText = "Add Order" }) => {
     if (files && files.length > 0) {
       const newFiles: File[] = Array.from(files);
       setSelectedFiles(newFiles);
-
-      // setSelectedFiles((prevFiles) => {
-      //   const updatedFiles = [...prevFiles, ...newFiles];
-      //   // onFileChange(updatedFiles);
-      //   return updatedFiles;
-      // });
-
-      // onFileChange([...BsTrash.prevFiles, ...newFiles]);
     }
   };
 
@@ -272,8 +252,19 @@ const AddItem = ({ addText = "Add Order" }) => {
                 onChange={(e) =>
                   setCredentials({ ...credentials, price: e.target.value })
                 }
-                className="placeholder-italic mt-1 p-2 border-none bg-white-1 outline-none rounded w-full"
+                pattern="[0-9]*"
+                title="Please enter only numbers"
+                className={`placeholder-italic mt-1 p-2 border-none bg-white-1 outline-none rounded w-full ${
+                  validationErrors.price ? "border-red-500" : ""
+                }`}
+
+                // className="placeholder-italic mt-1 p-2 border-none bg-white-1 outline-none rounded w-full"
               />
+              {validationErrors.price && (
+                <p className="text-primary text-sm">
+                  {validationErrors.price}
+                </p>
+              )}
             </div>
 
             <div className="mb-4">
@@ -294,8 +285,18 @@ const AddItem = ({ addText = "Add Order" }) => {
                     countinStock: e.target.value,
                   })
                 }
-                className="placeholder-italic mt-1 p-2 border-none bg-white-1 outline-none rounded w-full"
+                pattern="[0-9]*"
+                title="Please enter only numbers"
+                className={`placeholder-italic mt-1 p-2 border-none bg-white-1 outline-none rounded w-full ${
+                  validationErrors.countinStock ? "border-red-500" : ""
+                }`}
+                // className="placeholder-italic mt-1 p-2 border-none bg-white-1 outline-none rounded w-full"
               />
+              {validationErrors.countinStock && (
+                <p className="text-primary text-sm">
+                  {validationErrors.countinStock}
+                </p>
+              )}
             </div>
 
             <div className="mb-10">

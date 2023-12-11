@@ -48,7 +48,7 @@ const SignUp = () => {
       toast.error("The passwords do not match");
       return;
     }
-    
+
     setErrorMsg(""); // Clear previous error message
     Signup(credentials);
   };
@@ -63,6 +63,7 @@ const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showPassword1, setShowPassword1] = useState(false);
 
+  const [isPasswordValid, setIsPasswordValid] = useState<boolean>(true);
 
   return (
     <>
@@ -158,13 +159,23 @@ const SignUp = () => {
                         id="password"
                         name="password"
                         placeholder="Enter password"
-                        onChange={(e) =>
+                        onChange={(e) => {
                           setCredentials({
                             ...credentials,
                             password: e.target.value,
-                          })
-                        }
-                        className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-full"
+                          });
+                          setIsPasswordValid(e.target.value.length >= 6);
+                        }}
+                        className={`placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-full ${
+                          !isPasswordValid ? "border-red-500" : ""
+                        }`}
+                        // onChange={(e) =>
+                        //   setCredentials({
+                        //     ...credentials,
+                        //     password: e.target.value,
+                        //   })
+                        // }
+                        // className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-full"
                       />
                       <button
                         className="absolute inset-y-0 right-2 flex items-center px-2 cursor-pointer"
@@ -177,6 +188,11 @@ const SignUp = () => {
                         )}
                       </button>
                     </div>
+                    {!isPasswordValid && (
+                      <p className="text-primary text-sm mt-1">
+                        Password must be at least 6 characters long
+                      </p>
+                    )}
                   </div>
 
                   <div className="mb-4">
