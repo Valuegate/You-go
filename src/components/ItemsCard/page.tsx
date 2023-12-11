@@ -43,9 +43,9 @@ const ItemsCard: React.FC<ItemsCardProps> = ({ product }) => {
             height={100}
             alt={product?.name ? `${product.name} image` : "Product image"}
           />
-          <div className="w-[30px] h-[30px] rounded-full bg-primary-1 flex justify-center items-center absolute right-4 top-4 cursor-pointer">
+          {/* <div className="w-[30px] h-[30px] rounded-full bg-primary-1 flex justify-center items-center absolute right-4 top-4 cursor-pointer">
             <LoveIcon color="black" width="15px" height="15px" />
-          </div>
+          </div> */}
         </div>
         <div className="flex flex-col justify-center items-start pl-4 pt-2">
           <p className="text-lg font-bold">{product?.name ?? "N/A"}</p>
