@@ -4,10 +4,12 @@ import { useQuery } from "@tanstack/react-query";
 
 interface iUsersProfileResponse {
   email: string;
-  full_name: string|null;
-  phone_number: string|null;
-  profile_picture: string|null;
+  full_name: string;
+  phone_number: number | string;
+  address: string;
+  image: string;
   password: string;
+  about_seller: string;
   is_staff: boolean;
 }
 [];

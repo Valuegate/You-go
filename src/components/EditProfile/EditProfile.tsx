@@ -15,21 +15,40 @@ const EditProfile = () => {
   const { data: user, isLoading, isSuccess } = useFetchUsersProfile();
   const [username, setUsername] = useState<string>("");
 
+  // useEffect(() => {
+  //   if (user && isSuccess) {
+  //     setUsername(user.full_name!);
+  //     (document.getElementById("fullNameField") as HTMLInputElement).value = user.full_name!;
+  //     (document.getElementById("numberField") as HTMLInputElement).value = (user.phone_number! as string);;
+  //     (document.getElementById("emailField") as HTMLInputElement).value = user.email;
+  //   }
+  // }, [user, isSuccess]);
+
   useEffect(() => {
     if (user && isSuccess) {
       setUsername(user.full_name!);
-      (document.getElementById("fullNameField") as HTMLInputElement).value = user.full_name!;
-      (document.getElementById("numberField") as HTMLInputElement).value = user.phone_number!;
-      (document.getElementById("emailField") as HTMLInputElement).value = user.email;
+  
+      setCredentials({
+        full_name: user.full_name || "",
+        image: "", // Set other properties as needed
+        email: user.email || "",
+        phone_number: user.phone_number || "",
+        about_seller: user.about_seller || "",
+        address: user.address || "",
+        password: "", // Ensure you have a mechanism to update the password if needed
+      });
     }
   }, [user, isSuccess]);
 
   const router = useRouter();
   const [credentials, setCredentials] = useState<TUpdatePayload>({
     full_name: "",
+    image: "",
     email: "",
     phone_number: "",
-    about: "",
+    about_seller: "",
+    address: "",
+    password: "",
   });
   const [errorMsg, setErrorMsg] = useState<string>("");
 
@@ -42,13 +61,18 @@ const EditProfile = () => {
     }
   }, [isError]);
 
-  if (isSuccess) {
-    router.push("/profile");
-  }
+  // if (isSuccess) {
+  //   router.push("/profile");
+  // }
 
-  const handleUpdate = () => {
+  const handleUpdate = async () => {
     setErrorMsg(""); // Clear previous error message
-    Update(credentials);
+    try {
+      await Update(credentials);
+      router.push("/profile");
+    } catch (error) {
+      setErrorMsg("An error occurred during the update. Please try again.");
+    }
   };
 
   return (
@@ -98,6 +122,7 @@ const EditProfile = () => {
                 id="fullNameField"
                 type="text"
                 placeholder="Your Full name"
+                value={credentials.full_name}
                 onChange={(e) =>
                   setCredentials({
                     ...credentials,
@@ -114,6 +139,7 @@ const EditProfile = () => {
                 id="numberField"
                 type="text"
                 placeholder="Your Phone Number"
+                value={credentials.phone_number}
                 onChange={(e) =>
                   setCredentials({
                     ...credentials,
@@ -130,6 +156,7 @@ const EditProfile = () => {
                 id="emailField"
                 type="email"
                 placeholder="Your Email Address"
+                value={credentials.email}
                 onChange={(e) =>
                   setCredentials({
                     ...credentials,
@@ -149,28 +176,28 @@ const EditProfile = () => {
                 cols={30}
                 rows={5}
                 placeholder="Describe yourself"
-                // onChange={(e) =>
-                //   setCredentials({
-                //     ...credentials,
-                //     about: e.target.value,
-                //   })
-                // }
+                onChange={(e) =>
+                  setCredentials({
+                    ...credentials,
+                    about_seller: e.target.value,
+                  })
+                }
                 className="focus:outline-none placeholder-italic mt-2 p-2 border-none bg-white-1 rounded w-full resize-none"
               />
 
-              {/* <motion.button */}
-              <button
-                // {/* onClick={() => {
-                //   window.location.replace("/profile");
-                // }} */}
-                type="submit"
+              <motion.button
+              // <button
+                //   onClick={() => {
+                //    window.location.replace("/profile");
+                // }}
+                // type="submit"
                 onClick={handleUpdate}
                 className="flex sm:w-full mt-10 w-[50%] justify-center items-center hover:bg-darkBrownGradient hover:text-weirdBrown gap-2 shadow-2xl sm:shadow-xl bg-weirdBrown font-medium rounded-[25px] h-[50px] px-6 text-white"
               >
                 Save Changes
                 <FaChevronRight size={"25px"} />
-                </button>
-              {/* </motion.button> */}
+                {/* </button> */}
+              </motion.button>
             </div>
           </div>
         )}

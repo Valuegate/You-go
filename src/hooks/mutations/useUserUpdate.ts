@@ -3,20 +3,16 @@ import { USERUPDATE_ROUTES } from "@/public/services/routes";
 import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 
-export type TUpdatePayload = { full_name: string; phone_number: number | string; email: string; about: string;  };
+export type TUpdatePayload = { full_name: string; image: string; phone_number: number | string; email: string; about_seller: string; address: string; password: string;  };
 
 interface iDataResponse {
-    image: string;
-    phone_number: number | string;
-    password: string;
-    address: string;
-    email : string;
-    full_name: string;
-    id: number;
-    isStaff: boolean;
-    token: string;
-    _id: number;
-    about: string;
+    email: string,
+    image: string,
+    full_name: string,
+    phone_number: number | string,
+    password: string,
+    address: string,
+    about_seller: string,
 }
 
 const useUserUpdate = () => {

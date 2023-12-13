@@ -77,20 +77,6 @@ const Footer = () => {
               Contact Us
             </Link>
             </div>
-            {/* <div className="mt-5 flex items-center gap-5">
-              <Link href={instaUrl} target="_blank">
-                <Image src={Insta} alt="" className="w-[30px] h-[30px]" />
-              </Link>
-              <Link href={fbUrl} target="_blank">
-                <Image src={FB} alt="" className="w-[30px] h-[30px]" />
-              </Link>
-              <Link href={twUrl} target="_blank">
-                <Image src={Twitter} alt="" className="w-[30px] h-[30px]" />
-              </Link>
-              <Link href={ytUrl} target="_blank">
-                <Image src={YT} alt="" className="w-[30px] h-[30px]" />
-              </Link>
-            </div> */}
           </div>
         </div>
         <Image
