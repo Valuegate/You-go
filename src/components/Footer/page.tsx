@@ -69,7 +69,15 @@ const Footer = () => {
             >
               About Us
             </Link>
-            <div className="mt-5 flex items-center gap-5">
+            <div className="">
+            <Link
+              className="text-purpleBrown text-[18px] sm:text-[16px]"
+              href={"info@efektasgroup.com"}
+            >
+              Contact Us
+            </Link>
+            </div>
+            {/* <div className="mt-5 flex items-center gap-5">
               <Link href={instaUrl} target="_blank">
                 <Image src={Insta} alt="" className="w-[30px] h-[30px]" />
               </Link>
@@ -82,7 +90,7 @@ const Footer = () => {
               <Link href={ytUrl} target="_blank">
                 <Image src={YT} alt="" className="w-[30px] h-[30px]" />
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
         <Image
