@@ -15,11 +15,15 @@ interface iDataResponse {
     about_seller: string,
 }
 
-const useUserUpdate = () => {
+interface iDataPayload {
+  id: number;
+}
+
+const useUserUpdate = ( { id }: iDataPayload ) => {
   const mutation = useMutation({
     mutationFn: async (payload: TUpdatePayload) => {
       try {
-        const response = await fetcher(USERUPDATE_ROUTES.UPDATE, "PUT", payload);
+        const response = await fetcher(`${USERUPDATE_ROUTES.UPDATE}${id}/`, "PUT", payload);
         return response.data;
       } catch (err) {
         throw err;

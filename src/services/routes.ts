@@ -26,7 +26,7 @@ export enum USERREGISTER_ROUTES {
 }
 
 export enum USERUPDATE_ROUTES {
-  UPDATE = '/user/update/',
+  UPDATE = '/users/update/',
 }
 
 export enum USERSELLERREGISTER_ROUTES {

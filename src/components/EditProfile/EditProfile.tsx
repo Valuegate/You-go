@@ -30,17 +30,18 @@ const EditProfile = () => {
   
       setCredentials({
         full_name: user.full_name || "",
-        image: "", // Set other properties as needed
+        image: "",
         email: user.email || "",
         phone_number: user.phone_number || "",
         about_seller: user.about_seller || "",
         address: user.address || "",
-        password: "", // Ensure you have a mechanism to update the password if needed
+        password: "",
       });
     }
   }, [user, isSuccess]);
 
   const router = useRouter();
+  const getId = localStorage.getItem("id");
   const [credentials, setCredentials] = useState<TUpdatePayload>({
     full_name: "",
     image: "",
@@ -53,13 +54,13 @@ const EditProfile = () => {
   const [errorMsg, setErrorMsg] = useState<string>("");
 
   const { isError, Update, error, data } =
-    useUserUpdate();
+    useUserUpdate({ id: Number(getId) });
 
-  useEffect(() => {
+  // useEffect(() => {
     if (isError) {
       setErrorMsg("An error occurred during signup. Please try again.");
     }
-  }, [isError]);
+  // }, [isError]);
 
   // if (isSuccess) {
   //   router.push("/profile");
@@ -176,6 +177,7 @@ const EditProfile = () => {
                 cols={30}
                 rows={5}
                 placeholder="Describe yourself"
+                value={credentials.about_seller}
                 onChange={(e) =>
                   setCredentials({
                     ...credentials,
@@ -186,17 +188,20 @@ const EditProfile = () => {
               />
 
               <motion.button
-              // <button
-                //   onClick={() => {
-                //    window.location.replace("/profile");
-                // }}
-                // type="submit"
                 onClick={handleUpdate}
                 className="flex sm:w-full mt-10 w-[50%] justify-center items-center hover:bg-darkBrownGradient hover:text-weirdBrown gap-2 shadow-2xl sm:shadow-xl bg-weirdBrown font-medium rounded-[25px] h-[50px] px-6 text-white"
               >
-                Save Changes
-                <FaChevronRight size={"25px"} />
-                {/* </button> */}
+                {isLoading ? (
+                      <Loader
+                        color="#D4145A"
+                        className="flex items-center justify-center"
+                      />
+                    ) : (
+                      <>
+                      Save Changes
+                      <FaChevronRight size={"25px"} />
+                    </>
+                    )}
               </motion.button>
             </div>
           </div>

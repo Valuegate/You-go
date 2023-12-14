@@ -33,6 +33,7 @@ const Login = () => {
     // Set token to local storage
     localStorage.setItem("userToken", data?.access);
     localStorage.setItem("userName", data?.full_name);
+    localStorage.setItem("id", data?.id as string);
     localStorage.setItem("userStatus", data?.is_staff ? "seller" : "buyer");
     console.log(data);
     //     if (data.is_staff) {

@@ -10,12 +10,11 @@ interface iDataResponse {
     email : string;
     first_name: string;
     full_name: string;
-    id: number;
+    id: number | string;
     is_staff: boolean;
     refresh: string;
     token: string;
     username: string;
-    _id: number;
     userType: string;
 }
 
