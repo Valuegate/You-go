@@ -36,10 +36,17 @@ const SignUp = () => {
   useEffect(() => {
     if (isError) {
       setErrorMsg("An error occurred during signup. Please try again.");
+      let data = error.response?.data as any;
+      toast.error(data.errors.email[0]);
     }
-  }, [isError]);
+  }, [isError, error]);
 
   if (isSuccess) {
+    //localStorage.setItem("userToken", data?.access);
+    //localStorage.setItem("userName", data?.full_name);
+    //localStorage.setItem("id", data?.id as string);
+    //localStorage.setItem("userStatus", data?.is_staff ? "seller" : "buyer");
+    //router.push("/home");
     router.push("/login");
   }
 
@@ -62,7 +69,6 @@ const SignUp = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const [showPassword1, setShowPassword1] = useState(false);
-
   const [isPasswordValid, setIsPasswordValid] = useState<boolean>(true);
 
   return (
