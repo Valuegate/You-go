@@ -191,17 +191,8 @@ const EditProfile = () => {
                 onClick={handleUpdate}
                 className="flex sm:w-full mt-10 w-[50%] justify-center items-center hover:bg-darkBrownGradient hover:text-weirdBrown gap-2 shadow-2xl sm:shadow-xl bg-weirdBrown font-medium rounded-[25px] h-[50px] px-6 text-white"
               >
-                {isLoading ? (
-                      <Loader
-                        color="#D4145A"
-                        className="flex items-center justify-center"
-                      />
-                    ) : (
-                      <>
                       Save Changes
                       <FaChevronRight size={"25px"} />
-                    </>
-                    )}
               </motion.button>
             </div>
           </div>
