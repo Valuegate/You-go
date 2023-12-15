@@ -267,7 +267,7 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="flex sm:flex-col justify-around sm:px-[5%] items-center md:flex-row gap-12 sm:mt-24 mb-24 mt-40 w-full px-12">
+          {/* <div className="flex sm:flex-col justify-around sm:px-[5%] items-center md:flex-row gap-12 sm:mt-24 mb-24 mt-40 w-full px-12">
             <div className="md:mt-28 flex flex-col items-end w-[50%] sm:w-full">
               <p className="text-base md:text-xl text-light-black-4 font-medium mt-3">
                 &quot;I&apos;ve been shopping with{" "}
@@ -302,7 +302,7 @@ const HomePage = () => {
                 className="w-[300px] h-[400px] border-4 border-weirdBrown object-cover rounded-tl-[100px] rounded-br-[100px] "
               />
             </motion.div>
-          </div>
+          </div> */}
         </div>
         <div className="mt-24 mb-24 w-full bg-gradient-to-r from-lightBrownGradient to-deepBrownGradient sm:h-32  h-52 px-12 py-6 flex justify-center items-center">
           <p className="font-extrabold sm:text-2xl sm:px-0 text-6xl text-weirdBrown px-32">
