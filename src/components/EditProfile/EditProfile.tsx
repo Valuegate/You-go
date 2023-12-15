@@ -8,7 +8,9 @@ import useFetchUsersProfile from "@/public/hooks/queries/useFetchUsersProfile";
 import { Loader } from "@mantine/core";
 
 import { motion } from "framer-motion";
-import useUserUpdate, { TUpdatePayload } from "@/public/hooks/mutations/useUserUpdate";
+import useUserUpdate, {
+  TUpdatePayload,
+} from "@/public/hooks/mutations/useUserUpdate";
 import { useRouter } from "next/navigation";
 
 const EditProfile = () => {
@@ -27,7 +29,7 @@ const EditProfile = () => {
   useEffect(() => {
     if (user && isSuccess) {
       setUsername(user.full_name!);
-  
+
       setCredentials({
         full_name: user.full_name || "",
         image: "",
@@ -53,13 +55,12 @@ const EditProfile = () => {
   });
   const [errorMsg, setErrorMsg] = useState<string>("");
 
-  const { isError, Update, error, data } =
-    useUserUpdate({ id: Number(getId) });
+  const { isError, Update, error, data } = useUserUpdate({ id: Number(getId) });
 
   // useEffect(() => {
-    if (isError) {
-      setErrorMsg("An error occurred during signup. Please try again.");
-    }
+  if (isError) {
+    setErrorMsg("An error occurred during signup. Please try again.");
+  }
   // }, [isError]);
 
   // if (isSuccess) {
@@ -191,8 +192,8 @@ const EditProfile = () => {
                 onClick={handleUpdate}
                 className="flex sm:w-full mt-10 w-[50%] justify-center items-center hover:bg-darkBrownGradient hover:text-weirdBrown gap-2 shadow-2xl sm:shadow-xl bg-weirdBrown font-medium rounded-[25px] h-[50px] px-6 text-white"
               >
-                      Save Changes
-                      <FaChevronRight size={"25px"} />
+                Save Changes
+                <FaChevronRight size={"25px"} />
               </motion.button>
             </div>
           </div>
