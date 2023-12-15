@@ -19,10 +19,20 @@ import { MdLogout, MdEdit, MdDelete } from "react-icons/md";
 
 import { Loader } from "@mantine/core";
 import useFetchSellerProduct from "@/public/hooks/queries/useFetchSellerProducts";
+import useDeleteProduct from "@/public/hooks/queries/useDeleteProduct";
 
 const Profile = () => {
   const { data: user, isLoading, isSuccess } = useFetchUsersProfile();
   const { data: products } = useFetchSellerProduct();
+  //const [change, setChange] = useState<boolean>(false);
+  const [deleteID, setDeleteID] = useState<number>(-1);
+
+  const {
+    isError,
+    Delete,
+    error,
+    data: deleteStatus,
+  } = useDeleteProduct({ id: deleteID });
 
   const filters = [
     "Recommended First",
@@ -31,14 +41,14 @@ const Profile = () => {
     "Highest Price First",
   ];
 
-  useEffect(() => {
-    if (user !== null && user?.is_staff) {
-    }
+  useEffect(() => {}, [user, isSuccess, products, deleteID]);
 
-    if (products !== null && products !== undefined) {
-      console.log(products);
-    }
-  }, [user, isSuccess, products]);
+  const handleDelete = async (id: number) => {
+    setDeleteID(id);
+    try {
+      await Delete();
+    } catch (error) {}
+  };
 
   return (
     <div className="bg-white-1 h-full flex flex-col relative">
@@ -158,21 +168,73 @@ const Profile = () => {
               <p className="text-light-black-3 text-xl font-medium">Products</p>
               <div className="mt-10 grid grid-cols-3 gap-5">
                 {products !== null &&
-                  products !== undefined &&
+                products !== undefined &&
+                products.length > 0 ? (
                   products.map((product, i) => {
                     return (
-                      <ProductCard
-                        key={i}
-                        name={product.name}
-                        image={product.image}
-                        id={product.id}
-                        price={product.price}
-                        category={product.category}
-                        countinStock={product.countinStock}
-                        brand={product.brand}
-                      />
+                      <div className="bg-white rounded-xl">
+                        <div className="relative">
+                          <Image
+                            src={product.image}
+                            className="w-full h-[170px] rounded-t-xl object-cover"
+                            width={100}
+                            height={100}
+                            alt={`${product.name} image`}
+                          />
+                        </div>
+                        <div className="flex flex-col justify-center items-start px-4 py-3">
+                          <p className="text-lg font-bold">{product.name}</p>
+
+                          <div className="flex gap-1 items-center justify-between w-full">
+                            <div className="flex gap-1 items-center justify-start">
+                              <p className="text-primary text-[14px] font-medium ">
+                                €
+                              </p>
+                              <p className="font-bold text-primary">
+                                {product.price ?? "0.0"}
+                              </p>
+                            </div>
+                            <p>In Stock: {product.countinStock}</p>
+                          </div>
+                          <p className="text-xs text-light-black-4 font-medium">
+                            By{" "}
+                            <span className="text-light-black-5 text-sm">
+                              {product.brand ?? "N/A"}
+                            </span>
+                          </p>
+                        </div>
+
+                        <div className="flex justify-around items-center text-weirdBrown my-5">
+                          <div className="flex items-center gap-2 cursor-pointer">
+                            Edit
+                            <MdEdit size={20} />
+                          </div>
+                          <div
+                            className="flex items-center gap-2 cursor-pointer"
+                            onClick={() => {
+                              handleDelete(product.id);
+                            }}
+                          >
+                            Delete
+                            <MdDelete size={20} />
+                          </div>
+                        </div>
+                      </div>
                     );
-                  })}
+                  })
+                ) : (
+                  <div className="flex flex-col h-[70vh] justify-center items-center w-[60vw]">
+                    <p className="text-light-black-4 text-xl">
+                      You do not have any products yet
+                    </p>
+                    <Link
+                      href={"/whysell"}
+                      className="px-3 py-2 text-white bg-weirdBrown rounded-xl mt-5"
+                    >
+                      Add Product
+                    </Link>
+                  </div>
+                )}
               </div>
               <div>
                 {products === null ||
@@ -191,56 +253,6 @@ const Profile = () => {
             <Loader color="#D4145A" size={"36px"} />
           </div>
         )}
-      </div>
-    </div>
-  );
-};
-
-const ProductCard = ({
-  name,
-  image,
-  category,
-  countinStock,
-  id,
-  price,
-  brand,
-}) => {
-  return (
-    <div className="bg-white rounded-xl">
-      <div className="relative">
-        <Image
-          src={image}
-          className="w-full h-[170px] object-cover"
-          width={100}
-          height={100}
-          alt={`${name} image`}
-        />
-      </div>
-      <div className="flex flex-col justify-center items-start px-4 py-3">
-        <p className="text-lg font-bold">{name}</p>
-
-        <div className="flex gap-1 items-center justify-between w-full">
-          <div className="flex gap-1 items-center justify-start">
-            <p className="text-primary text-[14px] font-medium ">€</p>
-            <p className="font-bold text-primary">{price ?? "0.0"}</p>
-          </div>
-          <p>In Stock: {countinStock}</p>
-        </div>
-        <p className="text-xs text-light-black-4 font-medium">
-          By{" "}
-          <span className="text-light-black-5 text-sm">{brand ?? "N/A"}</span>
-        </p>
-      </div>
-
-      <div className="flex justify-around items-center text-weirdBrown mb-5">
-        <div className="flex items-center gap-2">
-          Edit
-          <MdEdit size={20} />
-        </div>
-        <div className="flex items-center gap-2">
-          Delete
-          <MdDelete size={20} />
-        </div>
       </div>
     </div>
   );
