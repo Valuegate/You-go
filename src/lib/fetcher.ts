@@ -5,7 +5,7 @@ import instance from "../services";
 
 export const fetcher = async <T>(
   url: string,
-  method: "GET" | "POST" | "PUT" | "PATCH" = "GET",
+  method: "GET" | "POST" | "PUT" | "DELETE" | "PATCH" = "GET" ,
   data?: any
 ): Promise<AxiosResponse<T>> => {
   const {axiosInstance} = instance;
