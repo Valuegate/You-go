@@ -6,7 +6,7 @@ import SearchContainer from "@/public/components/SearchContainer/page";
 const Shop = () => {
   return (
     <>
-      <NavBar />
+      <NavBar showSearch={false}/>
       <div className="overflow-y-scroll h-[90vh]">
       <div className="">
         
