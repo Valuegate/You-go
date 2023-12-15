@@ -1,6 +1,8 @@
 import React, {  } from "react";
 import Image from "next/image";
 import Img from "@/public/assets/upload.png";
+import Link from "next/link";
+
 
 interface Product {
   id: number;
@@ -24,7 +26,7 @@ const ItemsCard: React.FC<ItemsCardProps> = ({ product }) => {
     <>
       {/* {JSON.stringify(product)} */}
 
-      <div
+      <Link href={"/shop/details"}
         className={`shadow-lg sm:h-[18rem] h-[17.8rem] rounded-b-xl w-[15.6rem] sm:w-full mb-8`}
       >
         <div className="relative">
@@ -59,7 +61,7 @@ const ItemsCard: React.FC<ItemsCardProps> = ({ product }) => {
             </span>
           </p>
         </div>
-      </div>
+      </Link>
     </>
   );
 };

@@ -123,10 +123,10 @@ const Profile = () => {
       <div className="mt-16 w-full px-10 sm:px-5 h-[90vh] overscroll-y-scroll">
         {!isLoading && isSuccess && (
           <div className="  ">
-              <p className="text-[20px] font-bold">Profile</p>
-            <div className={`flex sm:flex-col gap-20`}>
+              
+            <div className={`flex justify-center sm:flex-col gap-20`}>
               {user && (
-                <div className="bg-primary-1 w-[50%] sm:w-full rounded-xl py-4 px-4 mt-5">
+                <div className="bg-primary-1 w-[30%] sm:w-full rounded-xl py-4 px-4 mt-5">
                   <div className="bg-white w-full rounded-lg py-3 flex flex-col items-center relative">
                     <Link
                       href={"/edit-profile"}
@@ -196,7 +196,7 @@ const Profile = () => {
                   </div>
                 </div>
               )}
-              <div className="w-[50%] sm:w-full">
+              <div className="w-[40%] sm:w-full">
               <div className="bg-primary-1 w-full rounded-xl py-4 px-4 mt-5">
                 <div className="bg-white w-full rounded-lg py-4 px-4 flex flex-col">
                   <Link
@@ -241,33 +241,6 @@ const Profile = () => {
               </div>
               </div>
             </div>
-
-            {/* {user.is_staff && (
-              <div className="flex flex-col w-[75%] sm:w-full">
-                <div className="flex justify-between items-center">
-                  <p className="text-[20px] font-bold">Products</p>
-                  <div className="flex items-center gap-5 sm:hidden">
-                    <p>Sort by:</p>
-                    <div className="flex items-center gap-2">
-                      <Image
-                        src={Recommend}
-                        alt=" "
-                        className="cursor-pointer"
-                      />
-                      <p>{filters[selectedFilter]}</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="sm:flex mt-5 sm:flex-col justify-between sm:gap-5 sm:w-full grid md:grid-cols-2 2xl:grid-cols-4 lg:grid-cols-3 gap-5 w-full">
-                  {products.map((product, i) => {
-                    return (
-                      <></>
-                    );
-                  })}
-                </div>
-              </div>
-            )} */}
           </div>
         )}
 
