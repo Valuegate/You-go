@@ -20,9 +20,11 @@ import Link from "next/link";
 import ItemsCard from "@/public/components/ItemsCard/page";
 import AddItem from "@/public/components/AddItem";
 import useFetchUsersProfile from "@/public/hooks/queries/useFetchUsersProfile";
+import useFetchProductDetails from "@/public/hooks/queries/useFetchProductDetails";
+import { useRouter } from "next/navigation";
 
 const ShopDetails = () => {
-  const { data: user, isLoading } = useFetchUsersProfile();
+  // const { data: user, isLoading } = useFetchUsersProfile();
   const [clickedSize, setClickedSize] = useState<number | null>(null);
 
   const handleSizeClick = (size: number) => {
@@ -37,6 +39,14 @@ const ShopDetails = () => {
 
   const [num, setNum] = useState(1);
 
+  const getId = typeof window !== 'undefined' ? localStorage.getItem("id") : null;
+  const { data: product, isLoading } = useFetchProductDetails({ id: Number(getId) });
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+
   return (
     <>
       <NavBar />
@@ -46,42 +56,42 @@ const ShopDetails = () => {
           <div className="mt-8 flex sm:flex-col flex-row gap-10">
             <div className="sm:w-full w-[70%]">
               <div>
-                <Image src={Perfume} alt={""} className="w-full" />
+                <Image src={product.image} alt={""} className="w-full" width={100} height={100}/>
               </div>
-              <div className="flex justify-between gap-4 mt-8 sm:overflow-x-scroll">
+              {/* <div className="flex justify-between gap-4 mt-8 sm:overflow-x-scroll">
                 <Image
-                  src={Perfume}
+                  src={product.image}
                   alt={""}
                   className="w-[8rem] h-[9rem] object-cover rounded-lg"
                 />
                 <Image
-                  src={Perfume}
+                  src={product.image}
                   alt={""}
                   className="w-[8rem] h-[9rem] object-cover rounded-lg"
                 />
                 <Image
-                  src={Perfume}
+                  src={product.image}
                   alt={""}
                   className="w-[8rem] h-[9rem] object-cover rounded-lg"
                 />
                 <Image
-                  src={Perfume}
+                  src={product.image}
                   alt={""}
                   className="w-[8rem] h-[9rem] object-cover rounded-lg"
                 />
                 <Image
-                  src={Perfume}
+                  src={product.image}
                   alt={""}
                   className="w-[8rem] h-[9rem] object-cover rounded-lg"
                 />
-              </div>
+              </div> */}
             </div>
 
             <div className="sm:w-full w-[30%]">
               <div className="flex flex-col gap-4">
                 <div className="border-primary-1 border-8 rounded-lg py-3 pl-3">
                   <div className="text-primary text-lg font-bold mb-3">
-                    $28.00
+                  €{product.price}
                   </div>
                   <div>
                     <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-1 flex items-center justify-center shadow-xl text-white ">
@@ -90,7 +100,7 @@ const ShopDetails = () => {
                   </div>
                 </div>
 
-                {user && (
+                {/* {user && ( */}
                   <div className="border-primary-1 border-8 rounded-lg py-3 pl-3 flex flex-col">
                     <p className="text-[20px] font-bold text-slate-950">Contact Seller</p>
                     <div className="flex gap-5 mt-3">
@@ -103,13 +113,13 @@ const ShopDetails = () => {
                       </div>
                       <div>
                         <h2 className="text-[16px] font-bold">
-                          {user.full_name}
+                          {/* {user.full_name} */}
                         </h2>
                         <p className="text-[14px] font-normal text-light-black-4">
-                          {user.phone_number}
+                          {/* {user.phone_number} */}
                         </p>
                         <p className="text-[14px] font-normal text-light-black-4">
-                          {user.email}
+                          {/* {user.email} */}
                         </p>
 
                         <div className="flex items-center gap-3 mt-8">
@@ -126,7 +136,7 @@ const ShopDetails = () => {
                       </div>
                     </div>
                   </div>
-                )}
+                {/* // )} */}
                 <div className="border-primary-1 border-8 rounded-lg py-3 pl-3">
                   <h2 className="text-lg font-bold text-light-black-5">
                     Safety Tips
@@ -147,12 +157,6 @@ const ShopDetails = () => {
                     </li>
                   </div>
                 </div>
-                <div className="">
-                  {/* <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-2 flex items-center justify-center shadow-xl text-white w-full">
-                    Become a seller
-                  </button> */}
-                  {/* <AddItem addText="Sell on YouGo"/> */}
-                </div>
               </div>
             </div>
           </div>
@@ -169,7 +173,7 @@ const ShopDetails = () => {
                     <h2 className="text-xl font-bold text-light-black-8">
                       Stock:
                     </h2>
-                    <p className="text-base font-normal text-primary">23</p>
+                    <p className="text-base font-normal text-primary">{product.countinStock}</p>
                   </div>
 
                   <div className="flex items-center gap-2">
@@ -178,7 +182,7 @@ const ShopDetails = () => {
                       Brand:
                     </h2>
                     <p className="text-base font-normal text-primary">
-                      Our Brand
+                      {product.brand}
                     </p>
                   </div>
 
@@ -188,7 +192,7 @@ const ShopDetails = () => {
                       Posted:
                     </h2>
                     <p className="text-base font-normal text-primary">
-                      11-11-2023
+                      {product.createdAt}
                     </p>
                   </div>
                 </div>
@@ -199,12 +203,12 @@ const ShopDetails = () => {
                       Product category:
                     </h2>
                     <p className="text-base font-normal text-primary">
-                      Apparel
+                      {product.category}
                     </p>
-                    <span>|</span>
+                    {/* <span>|</span>
                     <p className="text-base font-normal text-primary">
                       Clothing
-                    </p>
+                    </p> */}
                   </div>
 
                   <Link

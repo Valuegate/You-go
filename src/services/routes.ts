@@ -48,3 +48,7 @@ export enum ORDERCART_ROUTES {
 export enum USERCREATEPRODUCT_ROUTES {
   CREATE = '/products/create/',
 }
+
+export enum PRODUCTDETAILS_ROUTES {
+  DETAILS = '/products/',
+}
