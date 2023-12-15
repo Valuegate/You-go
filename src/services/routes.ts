@@ -12,6 +12,10 @@ export enum PRODUCT_ROUTES {
   PRODUCT = '/products/'
 }
 
+export enum SELLER_PRODUCTS_ROUTES {
+  PRODUCTS = '/products/myproduct/'
+}
+
 export enum USERSPROFILE_ROUTES {
     USERS = '/users/profile'
 }
