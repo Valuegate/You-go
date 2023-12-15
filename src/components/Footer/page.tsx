@@ -12,7 +12,7 @@ import FB from "@/public/assets/Vector-3.svg";
 import Twitter from "@/public/assets/Group_1.svg";
 import YT from "@/public/assets/Group.svg";
 
-const Footer = () => {
+const Footer = ({transparent = false}) => {
   const instaUrl = "";
   const fbUrl = "";
   const twUrl = "";
@@ -36,7 +36,7 @@ const Footer = () => {
 
   return (
     <>
-      <div className="bg-white w-full px-6 md:px-24 flex justify-between items-center">
+      <div className={`${transparent ? "bg-[#FFFFFFFF00]" : "bg-white"} w-full px-6 md:px-24 flex justify-between items-center `}>
         <div className="flex flex-col">
           <p className="text-4xl sm:text-2xl text-weirdBrown font-medium">
             Quick links
