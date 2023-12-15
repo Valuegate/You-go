@@ -52,3 +52,7 @@ export enum USERCREATEPRODUCT_ROUTES {
 export enum PRODUCTDETAILS_ROUTES {
   DETAILS = '/products/',
 }
+
+export enum SELLER_DELETE_PRODUCT_ROUTE {
+  DELETE = '/products/delete/',
+}
