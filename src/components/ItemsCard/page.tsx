@@ -19,9 +19,6 @@ interface ItemsCardProps {
 }
 
 const ItemsCard: React.FC<ItemsCardProps> = ({ product }) => {
-  // const { data: product, isLoading } = useFetchProduct();
-  console.log(product)
-  
   return (
     <>
       {/* {JSON.stringify(product)} */}
@@ -32,8 +29,6 @@ const ItemsCard: React.FC<ItemsCardProps> = ({ product }) => {
         <div className="relative">
           <Image
             src={product?.image || Img}
-            // src={`file://${product?.image}`}
-            // src={`data:image/jpeg;base64,${product?.image}`}
             className="w-full h-[170px] rounded-t-xl object-cover"
             width={100}
             height={100}
