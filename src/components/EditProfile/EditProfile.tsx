@@ -41,7 +41,7 @@ const EditProfile = () => {
   }, [user, isSuccess]);
 
   const router = useRouter();
-  const getId = localStorage.getItem("id");
+  const getId = typeof window !== 'undefined' ? localStorage.getItem("id") : null;
   const [credentials, setCredentials] = useState<TUpdatePayload>({
     full_name: "",
     image: "",
