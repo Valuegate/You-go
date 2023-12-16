@@ -26,6 +26,7 @@ const Profile = () => {
   const { data: products } = useFetchSellerProduct();
   //const [change, setChange] = useState<boolean>(false);
   const [deleteID, setDeleteID] = useState<number>(-1);
+  const [editID, setEditID] = useState<number>(-1);
 
   const {
     isError,
@@ -41,7 +42,7 @@ const Profile = () => {
     "Highest Price First",
   ];
 
-  useEffect(() => {}, [user, isSuccess, products, deleteID]);
+  useEffect(() => {}, [user, isSuccess, products, deleteID, editID]);
 
   const handleDelete = async (id: number) => {
     setDeleteID(id);
@@ -54,11 +55,11 @@ const Profile = () => {
     <div className="bg-white-1 h-full flex flex-col relative">
       <NavBar showSearch={false} transparent={true} />
 
-      <div className="w-full bg-white-1 h-[90vh] justify-center flex flex-col">
+      <div className="w-full bg-white-1 h-[90vh] sm:h-auto justify-center flex flex-col">
         {!isLoading && isSuccess && (
-          <div className="flex flex-row px-[2%]">
+          <div className="flex flex-row px-[2%] sm:flex-col sm:mt-5">
             <div
-              className={`flex flex-col sm:flex-col gap-20 w-[30%] rounded-xl shadow-xl h-full bg-white`}
+              className={`flex flex-col sm:flex-col gap-20 w-[30%] sm:w-full rounded-xl shadow-xl h-full px-5 bg-white`}
             >
               {user && (
                 <div className="w-full h-[85vh] rounded-lg py-3 flex flex-col items-center relative">
@@ -81,35 +82,7 @@ const Profile = () => {
                     {user.email}
                   </p>
 
-                  {/* <div className="flex gap-5 items-center justify-center mt-5 mb-5">
-                    <Image
-                      src={SC}
-                      alt=" "
-                      className="w-[25px] h-[25px] cursor-pointer"
-                    />
-                    <Image
-                      src={SC1}
-                      alt=" "
-                      className="w-[25px] h-[25px] cursor-pointer"
-                    />
-                    <Image
-                      src={SC2}
-                      alt=" "
-                      className="w-[25px] h-[25px] cursor-pointer"
-                    />
-                    <Image
-                      src={SC3}
-                      alt=" "
-                      className="w-[25px] h-[25px] cursor-pointer"
-                    />
-                    <Image
-                      src={SC4}
-                      alt=" "
-                      className="w-[25px] h-[25px] cursor-pointer"
-                    />
-                  </div> */}
-
-                  <p className="text-[14px] my-4 font-normal text-light-black-4">
+                  <p className="text-[14px] my-4 sm:text-center font-normal text-light-black-4">
                     {user.about_seller}
                   </p>
 
@@ -120,7 +93,7 @@ const Profile = () => {
                     Edit your profile
                   </Link>
 
-                  <div className="w-[80%] rounded-lg py-4 px-4 flex flex-col">
+                  <div className="w-[80%] rounded-lg py-4 px-2 flex flex-col">
                     <Link
                       href={"#"}
                       className="mb-5 flex justify-between items-center px-4 py-2 bg-weirdBrown rounded-lg"
@@ -164,7 +137,7 @@ const Profile = () => {
               )}
             </div>
 
-            <div className="w-[70%] h-full flex flex-col px-10">
+            <div className="w-[70%] sm:w-full h-full flex flex-col px-10 sm:px-5 sm:mt-10">
               <p className="text-light-black-3 text-xl font-medium">Products</p>
               <div className="mt-10 grid grid-cols-3 gap-5">
                 {products !== null &&
@@ -223,7 +196,7 @@ const Profile = () => {
                     );
                   })
                 ) : (
-                  <div className="flex flex-col h-[70vh] justify-center items-center w-[60vw]">
+                  <div className="flex flex-col h-[70vh] justify-center items-center w-[60vw] sm:w-[90vw]">
                     <p className="text-light-black-4 text-xl">
                       You do not have any products yet
                     </p>
