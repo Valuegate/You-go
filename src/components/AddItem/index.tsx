@@ -14,6 +14,7 @@ import Upload from "@/public/assets/upload.png";
 const AddItem = ({ addText = "Add Order" }) => {
   const [opened, setOpened] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const [firstImage, setFirstImage] = useState<any>("");
   const open = () => setOpened(true);
   const close = () => setOpened(false);
   const [validationErrors, setValidationErrors] = useState<{
@@ -91,17 +92,32 @@ const AddItem = ({ addText = "Add Order" }) => {
     if (files && files.length > 0) {
       const newFiles: File[] = Array.from(files);
       setSelectedFiles(newFiles);
+      getBase64(newFiles[0])
+        .then((resp) => setFirstImage(resp))
+        .catch((err) => setFirstImage("./assets/upload.png"));
+    } else {
+      setFirstImage("./assets/upload.png");
     }
   };
 
   const handleDeleteFile = (index: number) => {
-    setSelectedFiles((prevFiles) => {
-      const updatedFiles = [...prevFiles];
-      updatedFiles.splice(index, 1);
-      // onFileChange(updatedFiles);
-      return updatedFiles;
-    });
+    // setSelectedFiles((prevFiles) => {
+    //   const updatedFiles = [...prevFiles];
+    //   updatedFiles.splice(index, 1);
+    //   // onFileChange(updatedFiles);
+    //   return updatedFiles;
+    // });
+    setSelectedFiles([]);
+    setFirstImage("./assets/upload.png");
   };
+
+  function getBase64(file: File) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+    });
+  }
 
   return (
     <>
@@ -115,17 +131,26 @@ const AddItem = ({ addText = "Add Order" }) => {
             <div className="mb-6">
               {/* <FileUpload onFileChange={handleFileChange} /> */}
 
-              <label
-                htmlFor="fileInput"
-                className="cursor-pointer text-left bg-white-2 text-md mb-2 font-medium transition-all duration-300 opacity-100 md:w-[600px] border-2 border-dashed border-primary bg-gray-300 rounded-md h-[300px] flex items-center flex-col justify-center"
-              >
-                <Image src={Upload} alt={""} className="mr-2" />
-                Click to Drop Files Here
-              </label>
+              {selectedFiles.length > 0 ? (
+                <img
+                  src={firstImage}
+                  alt={""}
+                  className="mr-2 h-[300px] w-[600px] object-cover"
+                />
+              ) : (
+                <label
+                  htmlFor="fileInput"
+                  className="cursor-pointer text-left bg-white-2 text-md mb-2 font-medium transition-all duration-300 opacity-100 md:w-[600px] border-2 border-dashed border-primary bg-gray-300 rounded-md h-[300px] flex items-center flex-col justify-center"
+                >
+                  <Image src={Upload} alt={""} className="my-5" />
+                  Click to Select Image
+                </label>
+              )}
+
               <input
                 type="file"
                 id="fileInput"
-                className="hidden"
+                className="hidden z-10"
                 onChange={handleFileChange}
                 multiple
               />
@@ -261,9 +286,7 @@ const AddItem = ({ addText = "Add Order" }) => {
                 // className="placeholder-italic mt-1 p-2 border-none bg-white-1 outline-none rounded w-full"
               />
               {validationErrors.price && (
-                <p className="text-primary text-sm">
-                  {validationErrors.price}
-                </p>
+                <p className="text-primary text-sm">{validationErrors.price}</p>
               )}
             </div>
 
