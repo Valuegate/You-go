@@ -240,9 +240,9 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                 </h2>
                 <div>
                   <li className="font-normal text-sm text-light-black-5">
-                    Product description
+                    {product.description}
                   </li>
-                  <li className="font-normal text-sm text-light-black-5">
+                  {/* <li className="font-normal text-sm text-light-black-5">
                     Product description Product description
                   </li>
                   <li className="font-normal text-sm text-light-black-5">
@@ -250,7 +250,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                   </li>
                   <li className="font-normal text-sm text-light-black-5">
                     Product description
-                  </li>
+                  </li> */}
                 </div>
               </div>
             </div>

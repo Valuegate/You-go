@@ -72,7 +72,7 @@ const Footer = ({transparent = false}) => {
             <div className="">
             <Link
               className="text-purpleBrown text-[18px] sm:text-[16px]"
-              href={"info@efektasgroup.com"}
+              href={"mailto:info@efektasgroup.com"}
             >
               Contact Us
             </Link>
