@@ -23,7 +23,7 @@ const ItemsCard: React.FC<ItemsCardProps> = ({ product }) => {
     <>
       {/* {JSON.stringify(product)} */}
 
-      <Link href={"/shop/details"}
+      <Link href={`/shop/${product.id}`}
         className={`shadow-lg sm:h-[18rem] h-[17.8rem] rounded-b-xl w-[15.6rem] sm:w-full mb-8`}
       >
         <div className="relative">

@@ -21,9 +21,9 @@ import ItemsCard from "@/public/components/ItemsCard/page";
 import AddItem from "@/public/components/AddItem";
 import useFetchUsersProfile from "@/public/hooks/queries/useFetchUsersProfile";
 import useFetchProductDetails from "@/public/hooks/queries/useFetchProductDetails";
-import { useRouter } from "next/navigation";
+import { Loader } from "@mantine/core";
 
-const ShopDetails = () => {
+const ShopDetails = ({ params }: { params: { details: string } }) => {
   // const { data: user, isLoading } = useFetchUsersProfile();
   const [clickedSize, setClickedSize] = useState<number | null>(null);
 
@@ -38,12 +38,12 @@ const ShopDetails = () => {
   };
 
   const [num, setNum] = useState(1);
+  const id = params.details;
 
-  const getId = typeof window !== 'undefined' ? localStorage.getItem("id") : null;
-  const { data: product, isLoading } = useFetchProductDetails({ id: Number(getId) });
+  const { data: product, isLoading } = useFetchProductDetails({ id: Number(id) })
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <p className="flex flex-col items-center justify-center h-full w-full mt-80"><Loader  color="#D4145A" size={"36px"} /></p>
   }
 
 
@@ -56,7 +56,7 @@ const ShopDetails = () => {
           <div className="mt-8 flex sm:flex-col flex-row gap-10">
             <div className="sm:w-full w-[70%]">
               <div>
-                <Image src={product.image} alt={""} className="w-full" width={100} height={100}/>
+                <Image src={product.image} alt={""} className="w-full h-[31rem]" width={100} height={100}/>
               </div>
               {/* <div className="flex justify-between gap-4 mt-8 sm:overflow-x-scroll">
                 <Image
@@ -255,13 +255,13 @@ const ShopDetails = () => {
               </div>
             </div>
 
-            <div className="sm:w-full w-[30%]">
+            {/* <div className="sm:w-full w-[30%]">
               <div className="border-primary-1 border-8 rounded-lg py-3 px-3">
                 <h2 className="text-lg font-bold text-light-black-5">
                   Similar Products
                 </h2>
                 <div className="flex flex-col gap-3">
-                  {/* <ItemsCard
+                  <ItemsCard
                     width={"300"}
                     height={"300"}
                     className={"shadow-2xl"}
@@ -278,10 +278,10 @@ const ShopDetails = () => {
                     name={"Human Bag"}
                     rating={""}
                     price={"500"}
-                  /> */}
+                  />
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <Footer />
