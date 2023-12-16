@@ -172,7 +172,7 @@ const Profile = () => {
                 products.length > 0 ? (
                   products.map((product, i) => {
                     return (
-                      <div className="bg-white rounded-xl">
+                      <div  key={product.id} className="bg-white rounded-xl">
                         <div className="relative">
                           <Image
                             src={product.image}

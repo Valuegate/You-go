@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 const axiosInstance = axios.create({
   baseURL: process.env.BASE_URL,
   timeout: 500000,
@@ -10,14 +9,12 @@ const formAxiosInstance = axios.create({
   baseURL: process.env.BASE_URL,
   timeout: 500000,
   headers: {
-    "Content-Type" : "multipart/form-data"
-  }
+    "Content-Type": "multipart/form-data",
+  },
 });
 
-
-
 axiosInstance.interceptors.request.use((request) => {
-  const userToken = localStorage.getItem("userToken"); // Retrieve the user's token from storage
+  const userToken = localStorage.getItem("userToken");
 
   if (userToken) {
     request.headers.Authorization = `Bearer ${userToken}`;
@@ -39,7 +36,7 @@ axiosInstance.interceptors.response.use(
 );
 
 formAxiosInstance.interceptors.request.use((request) => {
-  const userToken = localStorage.getItem("userToken"); // Retrieve the user's token from storage
+  const userToken = localStorage.getItem("userToken");
 
   if (userToken) {
     request.headers.Authorization = `Bearer ${userToken}`;
@@ -60,5 +57,6 @@ formAxiosInstance.interceptors.response.use(
   }
 );
 
+const axiosInstances = { axiosInstance, formAxiosInstance };
 
-export default {axiosInstance, formAxiosInstance};
+export default axiosInstances;
