@@ -157,6 +157,12 @@ const Login = () => {
                     </div>
                   </div>
 
+                  <Link href="/forgotpassword">
+                    <h1 className="text-center lg:text-left font-medium text-[14px] sm:text-[18px] lg:text-lg text-weirdBrown">
+                      Forgotten Password?
+                    </h1>
+                  </Link>
+
                   <div className="mt-8">
                     <button
                       type="submit"

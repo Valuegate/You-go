@@ -175,13 +175,6 @@ const SignUp = () => {
                         className={`placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-full ${
                           !isPasswordValid ? "border-red-500" : ""
                         }`}
-                        // onChange={(e) =>
-                        //   setCredentials({
-                        //     ...credentials,
-                        //     password: e.target.value,
-                        //   })
-                        // }
-                        // className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-full"
                       />
                       <button
                         className="absolute inset-y-0 right-2 flex items-center px-2 cursor-pointer"
