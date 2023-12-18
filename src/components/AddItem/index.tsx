@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import Outlined from "@/public/assets/Plus_Outlined.svg";
-import { Button, Modal } from "@mantine/core";
+import { Button, Modal, Select } from "@mantine/core";
 import FileUpload from "../FileUpload";
 import { useRouter } from "next/navigation";
 import useCreateProduct, {
@@ -228,15 +228,25 @@ const AddItem = ({ addText = "Add Order" }) => {
                 Category:
               </label>
               <div className="w-full">
-                <input
-                  type="text"
-                  id="category"
-                  placeholder="place your category here"
+                <Select
+                  placeholder="Select Category"
+                  data={[
+                    "Handmade Goods",
+                    "Jewelry",
+                    "Home Decor",
+                    "Clothing",
+                    "Art",
+                    "Vintage Items",
+                    "Photography",
+                    "Cosmetics",
+                    "Toys",
+                  ]}
                   value={credentials.category}
-                  onChange={(e) =>
-                    setCredentials({ ...credentials, category: e.target.value })
-                  }
-                  className="placeholder-italic mt-1 p-2 border-none bg-white-1 outline-none rounded w-full"
+                  onChange={(e) => {
+                    if (e !== null) {
+                      setCredentials({ ...credentials, category: e });
+                    }
+                  }}
                 />
               </div>
             </div>

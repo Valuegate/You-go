@@ -4,13 +4,15 @@ import Image from 'next/image';
 
 const Sidebar = () => {
   const options = [
-    'Clothing',
-    'Accessories',
+    'Handmade Goods',
+    'Jewelry',
     'Home Decor',
-    'Electronics',
-    'Jewelry & Accessories',
-    'Jewelry & Accessories',
-    'Jewelry & Accessories',
+    'Clothing',
+    'Art',
+    'Vintage Items',
+    'Photography',
+    'Cosmetics',
+    'Toys',
   ];
 
   return (
