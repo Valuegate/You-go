@@ -319,7 +319,7 @@ const EditProduct = ({ product, refresh }) => {
     } else if (isSuccess) {
       refresh();
     }
-  }, [isError, isSuccess]);
+  }, [isError, isSuccess, product, isFirst, refresh]);
 
   const handleAdd = () => {
     // Clear previous validation errors
