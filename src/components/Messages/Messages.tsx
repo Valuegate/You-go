@@ -81,7 +81,7 @@ const Messages = () => {
   return (
     <div className="h-[100vh] bg-white-1">
       <div className="h-[10vh] flex justify-between items-center px-5 ">
-        <BackButton to={"/profile"} />
+        <BackButton to={"/shopdetails"} />
         <div className="flex flex-col ">
           <h1 className="text-[20px] sm:text-[24px] text-end md:text-[32px] leading-[26px] md:leading-[62px] text-weirdBrown font-medium w-full">
             YouGo

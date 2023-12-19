@@ -93,11 +93,11 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                   <div className="text-primary text-lg font-bold mb-3">
                   €{product.price}
                   </div>
-                  <div>
+                  <Link href="/messages">
                     <button className="bg-gradient-to-r from-primary-1 to-primary round px-6 py-1 flex items-center justify-center shadow-xl text-white ">
                       Start a chat
                     </button>
-                  </div>
+                  </Link>
                 </div>
 
                 {/* {user && ( */}
