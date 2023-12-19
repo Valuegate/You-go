@@ -1,12 +1,11 @@
 import { formFetcher } from "@/public/lib/fetcher";
-import { SELLER_EDIT_PRODUCT_ROUTE } from "@/public/services/routes";
+import { SELLER_EDIT_PRODUCT_IMAGE_ROUTE, SELLER_EDIT_PRODUCT_ROUTE } from "@/public/services/routes";
 import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 
 
 export type TEditProductPayload = {
     name: string,
-    image: string | File | null,
     brand: string,
     description: string,
     category: string,
@@ -14,7 +13,6 @@ export type TEditProductPayload = {
     countinStock: string,
     id: string
 }
-
 
 interface iEditPayload {
     product: TEditProductPayload
@@ -25,7 +23,7 @@ const useEditProduct = ({product} : iEditPayload) => {
   const mutation = useMutation({
     mutationFn: async () => {
       try {
-        const response = await formFetcher(`${SELLER_EDIT_PRODUCT_ROUTE.EDIT}${product.id}/`, "PUT");
+        const response = await formFetcher(`${SELLER_EDIT_PRODUCT_ROUTE.EDIT}${product.id}/`, "PUT", product);
         return response.data;
       } catch (err) {
         throw err;
@@ -44,5 +42,6 @@ const useEditProduct = ({product} : iEditPayload) => {
     data: data as any,
   };
 };
+
 
 export default useEditProduct;

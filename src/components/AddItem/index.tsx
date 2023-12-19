@@ -11,7 +11,7 @@ import useCreateProduct, {
 import { BsTrash } from "react-icons/bs";
 import Upload from "@/public/assets/upload.png";
 
-const AddItem = ({ addText = "Add Order" }) => {
+const   AddItem = ({ addText = "Add Order" }) => {
   const [opened, setOpened] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [firstImage, setFirstImage] = useState<any>("");

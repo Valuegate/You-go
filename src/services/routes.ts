@@ -58,5 +58,9 @@ export enum SELLER_DELETE_PRODUCT_ROUTE {
 }
 
 export enum SELLER_EDIT_PRODUCT_ROUTE {
-  EDIT = '/products/edit/',
+  EDIT = '/products/update/',
+}
+
+export enum SELLER_EDIT_PRODUCT_IMAGE_ROUTE {
+  IMAGE = '/products/upload/'
 }
