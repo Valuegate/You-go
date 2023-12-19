@@ -158,8 +158,8 @@ const Login = () => {
                   </div>
 
                   <Link href="/forgotpassword">
-                    <h1 className="text-center lg:text-left font-medium text-[14px] sm:text-[18px] lg:text-lg text-weirdBrown">
-                      Forgotten Password?
+                    <h1 className="text-center lg:text-end lg:w-[70%] font-normal text-[16px] sm:text-[16px] text-weirdBrown">
+                      Forgot Password?
                     </h1>
                   </Link>
 

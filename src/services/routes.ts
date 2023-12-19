@@ -56,3 +56,7 @@ export enum PRODUCTDETAILS_ROUTES {
 export enum SELLER_DELETE_PRODUCT_ROUTE {
   DELETE = '/products/delete/',
 }
+
+export enum SELLER_EDIT_PRODUCT_ROUTE {
+  EDIT = '/products/edit/',
+}

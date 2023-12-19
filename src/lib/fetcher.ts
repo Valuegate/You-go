@@ -23,7 +23,7 @@ export const fetcher = async <T>(
 
 export const formFetcher = async <T>(
   url: string,
-  method: "POST",
+  method: "POST" | "PUT",
   data?: any
 ): Promise<AxiosResponse<T>> => {
   const {formAxiosInstance} = instance;
