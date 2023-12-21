@@ -13,6 +13,21 @@ import useFetchSellerProduct from "@/public/hooks/queries/useFetchSellerProducts
 import useDeleteProduct from "@/public/hooks/queries/useDeleteProduct";
 import EditProduct from "@/public/components/EditProduct/EditProduct";
 
+function generateWhatsAppLink(number = "+2349069296256", text = "Hello David. This is a test") {
+  let link : string = "https://wa.me/" + number + "?text=";
+  let split : string[] = text.split(" ");
+  for(let i = 0; i < split.length; ++i) {
+    let s = split[i];
+    link += s;
+    if(i != split.length - 1) {
+      link += "%20";
+    }
+  }
+
+  return link;
+}
+
+
 const Profile = () => {
   const { data: user, isLoading, isSuccess } = useFetchUsersProfile();
   const { data: products } = useFetchSellerProduct();
@@ -45,18 +60,18 @@ const Profile = () => {
     open();
   };
 
-  const handleDelete = async (id: number) => {
+  const handleDelete = (id: number) => {
     setDeleteID(id);
     try {
-      await Delete();
-      setChange(!change);
+      Delete();
+      window.location.reload();
     } catch (error) {}
   };
 
   return (
     <div className="bg-white-1 h-full flex flex-col relative">
       <NavBar showSearch={false} transparent={true} />
-      <div className="w-full bg-white-1 h-[90vh] sm:h-auto justify-center flex flex-col">
+      <div className="w-full bg-white-1 h-[90vh] justify-center flex flex-col">
         {!isLoading && isSuccess && (
           <div className="flex flex-row px-[2%] sm:flex-col sm:mt-5">
             <div
@@ -76,9 +91,9 @@ const Profile = () => {
                   </div>
 
                   <p className="text-[16px] font-bold">{user.full_name}</p>
-                  <p className="text-[14px] font-normal text-light-black-4">
+                  <Link href={generateWhatsAppLink()} target="__blank" className="text-[14px] font-normal text-light-black-4">
                     {user.phone_number}
-                  </p>
+                  </Link>
                   <p className="text-[14px] font-normal text-light-black-4">
                     {user.email}
                   </p>
@@ -242,7 +257,7 @@ const Profile = () => {
           product={editID === -1 ? null : products[editID]}
           refresh={() => {
             close();
-            setChange(!change);
+            window.location.reload();
           }}
         />
       </Modal>
