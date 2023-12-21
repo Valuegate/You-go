@@ -13,8 +13,8 @@ import useFetchSellerProduct from "@/public/hooks/queries/useFetchSellerProducts
 import useDeleteProduct from "@/public/hooks/queries/useDeleteProduct";
 import EditProduct from "@/public/components/EditProduct/EditProduct";
 
-function generateWhatsAppLink(number = "9069296256", code = "+234", text = "Hello David. This is a test") {
-  let link : string = "https://wa.me/" + code + number + "?text=";
+function generateWhatsAppLink(number = "+2349069296256", text = "Hello David. This is a test") {
+  let link : string = "https://wa.me/" + number + "?text=";
   let split : string[] = text.split(" ");
   for(let i = 0; i < split.length; ++i) {
     let s = split[i];
@@ -26,7 +26,6 @@ function generateWhatsAppLink(number = "9069296256", code = "+234", text = "Hell
 
   return link;
 }
-
 
 
 const Profile = () => {
