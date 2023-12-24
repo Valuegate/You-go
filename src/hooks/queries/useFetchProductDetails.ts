@@ -2,7 +2,7 @@ import { fetcher } from "@/public/lib/fetcher";
 import { PRODUCTDETAILS_ROUTES } from "@/public/services/routes";
 import { useQuery } from "@tanstack/react-query";
 
-interface iUsersDetailsResponse {
+interface iProductsDetailsResponse {
   name: string;
   image: string;
   brand: string;
@@ -30,7 +30,7 @@ const useFetchProductDetails = ({ id }: { id: number }) => {
 
   return {
     isLoading,
-    data: data as iUsersDetailsResponse,
+    data: data as iProductsDetailsResponse,
     isError,
     isSuccess,
   };

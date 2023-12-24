@@ -1,5 +1,5 @@
 import { AxiosInstance, AxiosResponse } from "axios";
-import { AUTH_ROUTES, PRODUCT_ROUTES, USERUPDATE_ROUTES, USERREGISTER_ROUTES, USERSPROFILE_ROUTES, USER_ROUTES, USERSELLERREGISTER_ROUTES, USERORDERADD_ROUTES, ORDERCART_ROUTES, USERCREATEPRODUCT_ROUTES, USERSELLERPROFILE_ROUTES, SELLER_PRODUCTS_ROUTES, PRODUCTDETAILS_ROUTES, } from "./routes";
+import { AUTH_ROUTES, PRODUCT_ROUTES, USERUPDATE_ROUTES, USERREGISTER_ROUTES, USERSPROFILE_ROUTES, USER_ROUTES, USERSELLERREGISTER_ROUTES, USERORDERADD_ROUTES, ORDERCART_ROUTES, USERCREATEPRODUCT_ROUTES, USERSELLERPROFILE_ROUTES, SELLER_PRODUCTS_ROUTES, PRODUCTDETAILS_ROUTES, SELLERDETAILS_ROUTES, } from "./routes";
 
 const createAuth = (client: AxiosInstance) => {
   const login = (body: any) => {
@@ -53,6 +53,10 @@ const createAuth = (client: AxiosInstance) => {
     return client.get(PRODUCTDETAILS_ROUTES.DETAILS, body);
   };
 
+  const getSellerDetails = (body: any) => {
+    return client.get(SELLERDETAILS_ROUTES.DETAILS, body);
+  };
+
   return {
     login,
     getCurrentUser,
@@ -67,6 +71,7 @@ const createAuth = (client: AxiosInstance) => {
     userCreateProduct,
     getSellerProduct,
     getProductDetails,
+    getSellerDetails,
   };
 };
 
