@@ -13,19 +13,19 @@ import useFetchSellerProduct from "@/public/hooks/queries/useFetchSellerProducts
 import useDeleteProduct from "@/public/hooks/queries/useDeleteProduct";
 import EditProduct from "@/public/components/EditProduct/EditProduct";
 
-function generateWhatsAppLink(number = "+2349069296256", text = "Hello David. This is a test") {
-  let link : string = "https://wa.me/" + number + "?text=";
-  let split : string[] = text.split(" ");
-  for(let i = 0; i < split.length; ++i) {
-    let s = split[i];
-    link += s;
-    if(i != split.length - 1) {
-      link += "%20";
-    }
-  }
+// function generateWhatsAppLink(number = "+2349069296256", text = "Hello David. This is a test") {
+//   let link : string = "https://wa.me/" + number + "?text=";
+//   let split : string[] = text.split(" ");
+//   for(let i = 0; i < split.length; ++i) {
+//     let s = split[i];
+//     link += s;
+//     if(i != split.length - 1) {
+//       link += "%20";
+//     }
+//   }
 
-  return link;
-}
+//   return link;
+// }
 
 
 const Profile = () => {
@@ -91,9 +91,9 @@ const Profile = () => {
                   </div>
 
                   <p className="text-[16px] font-bold">{user.full_name}</p>
-                  <Link href={generateWhatsAppLink()} target="__blank" className="text-[14px] font-normal text-light-black-4">
+                  <p className="text-[14px] font-normal text-light-black-4">
                     {user.phone_number}
-                  </Link>
+                  </p>
                   <p className="text-[14px] font-normal text-light-black-4">
                     {user.email}
                   </p>
