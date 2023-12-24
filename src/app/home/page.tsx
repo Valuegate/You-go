@@ -4,22 +4,21 @@ import NavBar from "@/public/components/NavBar/page";
 import Image from "next/image";
 import FlexImg from "@/public/assets/Fashion_Women.png";
 import { HiShoppingCart } from "react-icons/hi";
-import Lady from "@/public/assets/image3.png";
-import Cart from "@/public/assets/Frame36172(1).png";
-import Lady3 from "@/public/assets/image1.png";
-import Link from "next/link";
 import React from "react";
-
+import { Loader } from "@mantine/core";
 import Money from "@/public/assets/Vector.svg";
 import Security from "@/public/assets/Group 4011.svg";
 import Car from "@/public/assets/Group 4013.svg";
 import User from "@/public/assets/Group 4012.svg";
 import Fancy from "@/public/assets/Rectangle 138.svg";
 import Arrow from "@/public/assets/Arrow.svg";
-
+import useFetchProduct from "@/public/hooks/queries/useFetchProduct";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const HomePage = () => {
+  const { data: products, isLoading } = useFetchProduct();
+
   const reasons = [
     {
       title: "Money Saving",
@@ -47,57 +46,9 @@ const HomePage = () => {
     },
   ];
 
-  const products = [
-    {
-      title: "Elegant Backpacks",
-      content: "Elegant pink backpack",
-      image: Lady,
-    },
-    {
-      title: "Elegant Backpacks",
-      content: "Elegant pink backpack",
-      image: Lady,
-    },
-    {
-      title: "Elegant Backpacks",
-      content: "Elegant pink backpack",
-      image: Lady,
-    },
-    {
-      title: "Elegant Backpacks",
-      content: "Elegant pink backpack",
-      image: Lady,
-    },
-    {
-      title: "Elegant Backpacks",
-      content: "Elegant pink backpack",
-      image: Lady,
-    },
-    {
-      title: "Elegant Backpacks",
-      content: "Elegant pink backpack",
-      image: Lady,
-    },
-    {
-      title: "Elegant Backpacks",
-      content: "Elegant pink backpack",
-      image: Lady,
-    },
-    {
-      title: "Elegant Backpacks",
-      content: "Elegant pink backpack",
-      image: Lady,
-    },
-    {
-      title: "Elegant Backpacks",
-      content: "Elegant pink backpack",
-      image: Lady,
-    },
-  ];
-
   return (
     <>
-      <NavBar showSearch={false}/>   
+      <NavBar showSearch={false} />
       <div className="overflow-y-scroll h-screen md:h-[87vh]">
         <div className="px-6 md:px-24">
           <div className="flex flex-col-reverse sm:flex-col md:flex-row mt-16 sm:mt-8">
@@ -170,15 +121,19 @@ const HomePage = () => {
               }}
             >
               <Image
-                  src={FlexImg}
-                  alt={""}
-                  className="w-[50vw] h-auto sm:w-full"
-                />
+                src={FlexImg}
+                alt={""}
+                className="w-[50vw] h-auto sm:w-full"
+              />
             </motion.div>
           </div>
 
           <div className="flex justify-center items-center flex-col mt-32 sm:mt-24 relative">
-          <Image src={Fancy} alt="" className="absolute -left-[150px] sm:-left-[200px] sm:-top-10 -z-10 top-0 w-[300px] h-[300px]"/>
+            <Image
+              src={Fancy}
+              alt=""
+              className="absolute -left-[150px] sm:-left-[200px] sm:-top-10 -z-10 top-0 w-[300px] h-[300px]"
+            />
 
             <p className="text-lg text-light-black-4 font-semibold mb-2">
               WHY US?
@@ -235,36 +190,50 @@ const HomePage = () => {
             <h2 className="text-[30px] md:text-[40px] leading-[40px] md:leading-[60px] mt-2 text-weirdBrown font-bold text-center">
               Our Products
             </h2>
-            <Image src={Arrow} alt="" className="absolute top-[10vh] sm:top-[12%] sm:w-[200px] left-[22vw] sm:-left-[5%] w-[250px] h-[80px]"/>
+            <Image
+              src={Arrow}
+              alt=""
+              className="absolute top-[10vh] sm:top-[20%] sm:w-[200px] left-[22vw] sm:-left-[5%] w-[250px] h-[80px]"
+            />
 
+            {isLoading && (
+              <div className="flex text-primary h-32 mt-20 justify-center items-center gap-2">
+                <p className="text-lg">Loading</p>
+                <Loader color="#d4145a" />
+              </div>
+            )}
 
-            <div className="flex gap-12 w-full overflow-x-auto scrollbar-custom mt-32 sm:mt-24 sm:w-full">
-              {products.map((product, i) => {
-                return (
-                  <motion.div
-                    whileHover={{
-                      elevation: 2.0,
-                    }}
-                    key={i}
-                    className="border cursor-pointer border-primary-1 rounded-[30px] w-[200px] sm:h-[320px] h-[290px] flex-col shadow-xl"
-                  >
-                    <div className=" w-[200px] flex flex-col">
-                      <Image
-                        src={product.image}
-                        alt="product-image"
-                        className="w-[200px] sm:w-full h-[220px] object-cover rounded-tl-[30px] rounded-tr-[30px]"
-                      />
-                      <p className="mt-2 text-[16px] font-[600] text-black pl-3">
-                        {product.title}
-                      </p>
-                      <p className="text-[12px] font-normal text-black pl-3">
-                        {product.content}
-                      </p>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
+            {!isLoading && products && (
+              <div className="flex gap-12 w-full overflow-x-auto scrollbar-custom mt-32 sm:mt-24 sm:w-full">
+                {products.map((product, i) => {
+                  return (
+                    <Link href={`/shop/${product.id}`} key={i}>
+                      <motion.div
+                        whileHover={{
+                          elevation: 2.0,
+                        }}
+                        key={i}
+                        className="border cursor-pointer border-primary-1 rounded-[30px] w-[200px] h-[290px] flex-col shadow-xl"
+                      >
+                        <div className="w-[200px] flex flex-col">
+                          <img
+                            src={product.image}
+                            alt="product-image"
+                            className="w-[99%] h-[220px] object-cover rounded-t-[30px]"
+                          />
+                          <p className="mt-2 text-[16px] font-[600] text-black pl-3">
+                            {product.name}
+                          </p>
+                          <p className="text-[12px] font-normal text-black pl-3">
+                            {product.category}
+                          </p>
+                        </div>
+                      </motion.div>
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
           </div>
 
           {/* <div className="flex sm:flex-col justify-around sm:px-[5%] items-center md:flex-row gap-12 sm:mt-24 mb-24 mt-40 w-full px-12">
