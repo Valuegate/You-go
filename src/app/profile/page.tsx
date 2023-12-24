@@ -13,21 +13,6 @@ import useFetchSellerProduct from "@/public/hooks/queries/useFetchSellerProducts
 import useDeleteProduct from "@/public/hooks/queries/useDeleteProduct";
 import EditProduct from "@/public/components/EditProduct/EditProduct";
 
-// function generateWhatsAppLink(number = "+2349069296256", text = "Hello David. This is a test") {
-//   let link : string = "https://wa.me/" + number + "?text=";
-//   let split : string[] = text.split(" ");
-//   for(let i = 0; i < split.length; ++i) {
-//     let s = split[i];
-//     link += s;
-//     if(i != split.length - 1) {
-//       link += "%20";
-//     }
-//   }
-
-//   return link;
-// }
-
-
 const Profile = () => {
   const { data: user, isLoading, isSuccess } = useFetchUsersProfile();
   const { data: products } = useFetchSellerProduct();
@@ -107,34 +92,6 @@ const Profile = () => {
                   >
                     Edit your profile
                   </Link>
-
-                  <div className="w-[80%] rounded-lg py-4 px-2 flex flex-col">
-                    <Link
-                      href={"#"}
-                      className="mb-5 flex justify-between items-center px-4 py-2 bg-weirdBrown rounded-lg"
-                    >
-                      <div className="flex items-center gap-3">
-                        <Image src={FeedBack} alt=" " />
-                        <p className="text-[14px] font-normal text-white">
-                          {/* {user.feedbacks} */}
-                          Feedbacks
-                        </p>
-                      </div>
-                      <div className="flex items-center gap-3 text-white">
-                        <p className="text-[14px] font-normal">View All</p>
-                        <FaChevronRight />
-                      </div>
-                    </Link>
-
-                    {/* <p className="text-[14px] mt-20 font-normal text-light-black-4">
-                      ❗️ Never pay in advance! Even for the delivery
-                    </p>
-
-                    <p className="text-[14px] font-normal text-light-black-4 mt-2 mb-5">
-                      ✅ Inform the seller you got their number on YouGo so they
-                      know where you came from
-                    </p> */}
-                  </div>
 
                   <div
                     className="flex justify-center text-weirdBrown absolute bottom-10 items-center gap-2 mt-5 cursor-pointer"

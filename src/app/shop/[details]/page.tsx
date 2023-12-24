@@ -57,7 +57,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
     );
   }
 
-  function generateWhatsAppLink(text = "Hello. This is from YouGo") {
+  function generateWhatsAppLink(text = "Hello. This is from YouGo.") {
     let link: string = "https://wa.me/" + seller.phone_number + "?text=";
     let split: string[] = text.split(" ");
     for (let i = 0; i < split.length; ++i) {
@@ -70,6 +70,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
 
     return link;
   }
+
   function convertDate(date) {
     let dateObject = new Date(date);
 
@@ -77,7 +78,20 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
     let month = dateObject.getMonth();
     let year = dateObject.getFullYear();
 
-    let monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
     let monthName = monthNames[month];
 
     let dayWithSuffix = day + getOrdinalSuffix(day);
@@ -85,17 +99,19 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
     return `${monthName} ${dayWithSuffix}, ${year}`;
   }
 
-
   function getOrdinalSuffix(day) {
-    if(day > 3 && day < 21) return "th";
-    switch(day % 10) {
-      case 1: return 'st';
-      case 2: return 'nd';
-      case 3: return 'rd';
-      default: return 'th';
+    if (day > 3 && day < 21) return "th";
+    switch (day % 10) {
+      case 1:
+        return "st";
+      case 2:
+        return "nd";
+      case 3:
+        return "rd";
+      default:
+        return "th";
     }
   }
-
 
   return (
     <>
@@ -122,14 +138,14 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                   <div className="text-primary text-lg font-bold mb-3">
                     €{product.price}
                   </div>
-                  <Link href="#">
-                    <button className="bg-gradient-to-r from-primary-1 to-primary round px-2 py-1 flex items-center justify-center shadow-xl text-white ">
-                      Start a chat by clicking the seller number or e-mail
-                    </button>
+                  <Link
+                    href={generateWhatsAppLink(`Hi, I am from YouGo. I am contacting you with respect to your product ${product.name}.`)}
+                    target="__blank"
+                    className="bg-gradient-to-r from-primary-1 to-primary round px-2 py-1 flex items-center justify-center shadow-xl text-white "
+                  >
+                    CHAT WITH SELLER ON WHATSAPP
                   </Link>
                 </div>
-
-                {/* {seller && ( */}
                 <div className="border-primary-1 border-8 rounded-lg py-3 pl-3 flex flex-col">
                   <p className="text-[20px] font-bold text-slate-950">
                     Contact Seller
@@ -148,18 +164,17 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                       </h2>
                       <p className="text-[14px] font-normal text-light-black-4">
                         <Link
-                          href={generateWhatsAppLink()}
+                          href={generateWhatsAppLink(`Hi, I am from YouGo. I am contacting you with respect to your product ${product.name}.`)}
                           target="__blank"
                           className="text-[14px] font-normal text-light-black-4"
                         >
                           {seller.phone_number}
                         </Link>
                       </p>
-                      {/* <p className="text-[14px] font-normal text-light-black-4">
-                        {seller.email}
-                      </p> */}
-
-                      <Link href={`mailto:${seller.email}`} className="text-[14px] font-normal text-light-black-4">
+                      <Link
+                        href={`mailto:${seller.email}`}
+                        className="text-[14px] font-normal text-light-black-4"
+                      >
                         {seller.email}
                       </Link>
 
@@ -173,7 +188,6 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                     </div>
                   </div>
                 </div>
-                {/* )} */}
                 <div className="border-primary-1 border-8 rounded-lg py-3 pl-3">
                   <h2 className="text-lg font-bold text-light-black-5">
                     Safety Tips
@@ -245,27 +259,6 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                       {product.category}
                     </p>
                   </div>
-
-                  <Link
-                    href={"/feedback"}
-                    className="bg-primary-1 py-2 px-4 rounded-lg"
-                  >
-                    <div className="flex items-center gap-6">
-                      <div className="flex items-center gap-2">
-                        <SocialIcon />
-                        <h2 className="text-white text-base font-semibold cursor-pointer">
-                          25 Feedback
-                        </h2>
-                      </div>
-
-                      <div className="flex items-center gap-2">
-                        <p className="text-white text-base font-normal">
-                          View All
-                        </p>
-                        <ArrowRightIcon />
-                      </div>
-                    </div>
-                  </Link>
                 </div>
               </div>
 
