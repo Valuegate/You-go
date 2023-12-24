@@ -8,7 +8,7 @@ import FeedBack from "@/public/assets/Feedback-Icon.svg";
 import Link from "next/link";
 import useFetchUsersProfile from "@/public/hooks/queries/useFetchUsersProfile";
 import { MdLogout, MdEdit, MdDelete } from "react-icons/md";
-import { Loader, Button, Modal, Select } from "@mantine/core";
+import { Loader, Modal } from "@mantine/core";
 import useFetchSellerProduct from "@/public/hooks/queries/useFetchSellerProducts";
 import useDeleteProduct from "@/public/hooks/queries/useDeleteProduct";
 import EditProduct from "@/public/components/EditProduct/EditProduct";
@@ -34,7 +34,6 @@ const Profile = () => {
   const [opened, setOpened] = useState<boolean>(false);
   const [deleteID, setDeleteID] = useState<number>(-1);
   const [editID, setEditID] = useState<number>(-1);
-  const [change, setChange] = useState<boolean>(false);
 
   const open = () => setOpened(true);
   const close = () => setOpened(false);
@@ -53,7 +52,7 @@ const Profile = () => {
     "Highest Price First",
   ];
 
-  useEffect(() => {}, [user, isSuccess, products, change]);
+  useEffect(() => {}, [user, isSuccess, products]);
 
   const handleEdit = (id: number) => {
     setEditID(id);

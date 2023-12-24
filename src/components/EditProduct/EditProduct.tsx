@@ -11,20 +11,6 @@ import { BsTrash } from "react-icons/bs";
 import useEditProductImage, { TEditProductImage } from "@/public/hooks/queries/useEditProductImage";
 
 
-function generateWhatsAppLink({number = "", code = "+234", text = ""}) {
-  let link : string = "https://wa.me/" + code + number + "?text=";
-  let split : string[] = text.split(" ");
-  for(let i = 0; i < split.length; ++i) {
-    let s = split[i];
-    link += s;
-    if(i != split.length - 1) {
-      link += "%20";
-    }
-  }
-
-  return link;
-}
-
 const EditProduct = ({ product, refresh }) => {
     const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
     const [image, setImage] = useState<string>("");
