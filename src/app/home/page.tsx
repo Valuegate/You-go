@@ -14,6 +14,7 @@ import Fancy from "@/public/assets/Rectangle 138.svg";
 import Arrow from "@/public/assets/Arrow.svg";
 import useFetchProduct from "@/public/hooks/queries/useFetchProduct";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const HomePage = () => {
   const { data: products, isLoading } = useFetchProduct();
@@ -192,7 +193,7 @@ const HomePage = () => {
             <Image
               src={Arrow}
               alt=""
-              className="absolute top-[10vh] sm:top-[12%] sm:w-[200px] left-[22vw] sm:-left-[5%] w-[250px] h-[80px]"
+              className="absolute top-[10vh] sm:top-[20%] sm:w-[200px] left-[22vw] sm:-left-[5%] w-[250px] h-[80px]"
             />
 
             {isLoading && (
@@ -206,27 +207,29 @@ const HomePage = () => {
               <div className="flex gap-12 w-full overflow-x-auto scrollbar-custom mt-32 sm:mt-24 sm:w-full">
                 {products.map((product, i) => {
                   return (
-                    <motion.div
-                      whileHover={{
-                        elevation: 2.0,
-                      }}
-                      key={i}
-                      className="border cursor-pointer border-primary-1 rounded-[30px] w-[200px] h-[290px] flex-col shadow-xl"
-                    >
-                      <div className="w-[200px] flex flex-col">
-                        <img
-                          src={product.image}
-                          alt="product-image"
-                          className="w-[99%] h-[220px] object-cover rounded-t-[30px]"
-                        />
-                        <p className="mt-2 text-[16px] font-[600] text-black pl-3">
-                          {product.name}
-                        </p>
-                        {/* <p className="text-[12px] font-normal text-black pl-3">
-                        {product.}
-                      </p> */}
-                      </div>
-                    </motion.div>
+                    <Link href={`/shop/${product.id}`}>
+                      <motion.div
+                        whileHover={{
+                          elevation: 2.0,
+                        }}
+                        key={i}
+                        className="border cursor-pointer border-primary-1 rounded-[30px] w-[200px] h-[290px] flex-col shadow-xl"
+                      >
+                        <div className="w-[200px] flex flex-col">
+                          <img
+                            src={product.image}
+                            alt="product-image"
+                            className="w-[99%] h-[220px] object-cover rounded-t-[30px]"
+                          />
+                          <p className="mt-2 text-[16px] font-[600] text-black pl-3">
+                            {product.name}
+                          </p>
+                          <p className="text-[12px] font-normal text-black pl-3">
+                            {product.category}
+                          </p>
+                        </div>
+                      </motion.div>
+                    </Link>
                   );
                 })}
               </div>
