@@ -207,7 +207,7 @@ const HomePage = () => {
               <div className="flex gap-12 w-full overflow-x-auto scrollbar-custom mt-32 sm:mt-24 sm:w-full">
                 {products.map((product, i) => {
                   return (
-                    <Link href={`/shop/${product.id}`}>
+                    <Link href={`/shop/${product.id}`} key={i}>
                       <motion.div
                         whileHover={{
                           elevation: 2.0,

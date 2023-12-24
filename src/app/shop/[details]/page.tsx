@@ -46,6 +46,32 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
     return <p className="flex flex-col items-center justify-center h-full w-full mt-80"><Loader  color="#D4145A" size={"36px"} /></p>
   }
 
+  function convertDate(date) {
+    let dateObject = new Date(date);
+
+    let day = dateObject.getDate();
+    let month = dateObject.getMonth();
+    let year = dateObject.getFullYear();
+
+    let monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let monthName = monthNames[month];
+
+    let dayWithSuffix = day + getOrdinalSuffix(day);
+
+    return `${monthName} ${dayWithSuffix}, ${year}`;
+  }
+
+
+  function getOrdinalSuffix(day) {
+    if(day > 3 && day < 21) return "th";
+    switch(day % 10) {
+      case 1: return 'st';
+      case 2: return 'nd';
+      case 3: return 'rd';
+      default: return 'th';
+    }
+  }
+
 
   return (
     <>
@@ -58,33 +84,6 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
               <div>
                 <Image src={product.image} alt={""} className="w-full h-[31rem]" width={100} height={100}/>
               </div>
-              {/* <div className="flex justify-between gap-4 mt-8 sm:overflow-x-scroll">
-                <Image
-                  src={product.image}
-                  alt={""}
-                  className="w-[8rem] h-[9rem] object-cover rounded-lg"
-                />
-                <Image
-                  src={product.image}
-                  alt={""}
-                  className="w-[8rem] h-[9rem] object-cover rounded-lg"
-                />
-                <Image
-                  src={product.image}
-                  alt={""}
-                  className="w-[8rem] h-[9rem] object-cover rounded-lg"
-                />
-                <Image
-                  src={product.image}
-                  alt={""}
-                  className="w-[8rem] h-[9rem] object-cover rounded-lg"
-                />
-                <Image
-                  src={product.image}
-                  alt={""}
-                  className="w-[8rem] h-[9rem] object-cover rounded-lg"
-                />
-              </div> */}
             </div>
 
             <div className="sm:w-full w-[30%]">
@@ -192,7 +191,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                       Posted:
                     </h2>
                     <p className="text-base font-normal text-primary">
-                      {product.createdAt}
+                      {convertDate(product.createdAt)}
                     </p>
                   </div>
                 </div>
