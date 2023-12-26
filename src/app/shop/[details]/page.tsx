@@ -71,7 +71,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
     return link;
   }
 
-  function convertDate(date) {
+  function convertDate(date: string | number | Date) {
     let dateObject = new Date(date);
 
     let day = dateObject.getDate();
@@ -99,7 +99,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
     return `${monthName} ${dayWithSuffix}, ${year}`;
   }
 
-  function getOrdinalSuffix(day) {
+  function getOrdinalSuffix(day: number) {
     if (day > 3 && day < 21) return "th";
     switch (day % 10) {
       case 1:
