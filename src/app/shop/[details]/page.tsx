@@ -2,24 +2,13 @@
 import NavBar from "@/public/components/NavBar/page";
 import Image from "next/image";
 import { useState } from "react";
-import Perfume from "@/public/assets/perfume.png";
 import Footer from "@/public/components/Footer/page";
-import Lady from "@/public/assets/lady5.png";
 import {
   BrandIcon,
   CalendarIcon,
-  FacebokIcon,
-  InstagramIcon,
-  SocialIcon,
-  XIcon,
 } from "@/public/icons";
-import { BsLinkedin, BsWhatsapp } from "react-icons/bs";
 import { StockIcon } from "@/public/icons/stock-icon";
-import { ArrowRightIcon } from "@/public/icons/arrowright-icon";
 import Link from "next/link";
-import ItemsCard from "@/public/components/ItemsCard/page";
-import AddItem from "@/public/components/AddItem";
-import useFetchUsersProfile from "@/public/hooks/queries/useFetchUsersProfile";
 import useFetchProductDetails from "@/public/hooks/queries/useFetchProductDetails";
 import { Loader } from "@mantine/core";
 import useFetchSellerDetails from "@/public/hooks/queries/useFetchSellerDetails";
