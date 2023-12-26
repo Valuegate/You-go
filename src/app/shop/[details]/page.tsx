@@ -151,13 +151,12 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                     Contact Seller
                   </p>
                   <div className="flex gap-5 mt-3">
-                    <div>
-                      <Image
-                        src={Lady}
-                        alt={""}
-                        className="w-[5rem] h-[5rem]"
-                      />
-                    </div>
+                  <Link
+                        href={"#"}
+                        className="rounded-full bg-weirdBrown h-[100px] w-[100px] text-center flex text-[32px] justify-center font-medium items-center text-white"
+                      >
+                        {seller.full_name?.charAt(0).toUpperCase()}
+                      </Link>
                     <div>
                       <h2 className="text-[16px] font-bold">
                         {seller.full_name}
