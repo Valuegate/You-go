@@ -142,7 +142,7 @@ const SignUp = () => {
                   </div>
                   <div className="mb-4">
                     <label htmlFor="phone" className="block">
-                      Phone Number
+                      WhatsApp Phone Number
                     </label>
                     <PhoneInput
                       type="tel"
