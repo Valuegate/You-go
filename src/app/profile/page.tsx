@@ -1,10 +1,8 @@
 "use client";
-import React, { useState, useEffect, ChangeEvent } from "react";
+import React, { useState, useEffect } from "react";
 
 import NavBar from "@/public/components/NavBar/page";
 import Image from "next/image";
-import { FaChevronRight } from "react-icons/fa";
-import FeedBack from "@/public/assets/Feedback-Icon.svg";
 import Link from "next/link";
 import useFetchUsersProfile from "@/public/hooks/queries/useFetchUsersProfile";
 import { MdLogout, MdEdit, MdDelete } from "react-icons/md";
