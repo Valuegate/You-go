@@ -6,7 +6,7 @@ interface iSellerDetailsResponse {
   image: string;
   full_name: string;
   email: string;
-  phone_number: number;
+  phone_number: string;
   address: string;
   about_seller: string;
   id: number;

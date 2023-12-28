@@ -1,20 +1,17 @@
 "use client";
 import NavBar from "@/public/components/NavBar/page";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "@/public/components/Footer/page";
-import {
-  BrandIcon,
-  CalendarIcon,
-} from "@/public/icons";
+import { BrandIcon, CalendarIcon } from "@/public/icons";
 import { StockIcon } from "@/public/icons/stock-icon";
 import Link from "next/link";
 import useFetchProductDetails from "@/public/hooks/queries/useFetchProductDetails";
 import { Loader } from "@mantine/core";
-import useFetchSellerDetails from "@/public/hooks/queries/useFetchSellerDetails";
+
+const axios = require("axios");
 
 const ShopDetails = ({ params }: { params: { details: string } }) => {
-  // const { data: user, isLoading } = useFetchUsersProfile();
   const [clickedSize, setClickedSize] = useState<number | null>(null);
 
   const handleSizeClick = (size: number) => {
@@ -28,15 +25,38 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
   };
 
   const [num, setNum] = useState(1);
+  const [sellerLoading, setSellerLoading] = useState<boolean>(true);
+  const [seller, setSeller] = useState<any>();
+
   const id = params.details;
 
   const { data: product, isLoading: productLoading } = useFetchProductDetails({
     id: Number(id),
   });
 
-  const { data: seller, isLoading: sellerLoading } = useFetchSellerDetails({
-    id: Number(id),
-  });
+  useEffect(() => {
+    if (product !== undefined && product !== null) {
+      const { user } = product;
+      let token = window.localStorage.getItem("userToken");
+
+      axios({
+        method: "GET",
+        url: `https://web-production-b1c8.up.railway.app/api/users/${user}/`,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((res) => {
+          setSeller(res.data);
+          setSellerLoading(false);
+        })
+        .catch((err) => {
+          setSeller(null);
+          setSellerLoading(false);
+        });
+    }
+  }, [product]);
+
 
   if (productLoading || sellerLoading) {
     return (
@@ -46,8 +66,8 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
     );
   }
 
-  function generateWhatsAppLink(text = "Hello. This is from YouGo.") {
-    let link: string = "https://wa.me/" + seller.phone_number + "?text=";
+  function generateWhatsAppLink(text, phone_number) {
+    let link: string = "https://wa.me/" + phone_number + "?text=";
     let split: string[] = text.split(" ");
     for (let i = 0; i < split.length; ++i) {
       let s = split[i];
@@ -107,7 +127,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
       <NavBar />
 
       <div className="overflow-y-scroll sm:h-screen h-[87vh]">
-        <div className="sm:px-6 px-24">
+        <div className="sm:px-6 px-24 sm:mb-20">
           <div className="mt-8 flex sm:flex-col flex-row gap-10">
             <div className="sm:w-full w-[70%]">
               <div>
@@ -128,7 +148,10 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                     €{product.price}
                   </div>
                   <Link
-                    href={generateWhatsAppLink(`Hi, I am from YouGo. I am contacting you with respect to your product ${product.name}.`)}
+                    href={generateWhatsAppLink(
+                      `Hi, I am from YouGo. I am contacting you with respect to your product ${product.name}.`,
+                      seller?.phone_number
+                    )}
                     target="__blank"
                     className="bg-gradient-to-r from-primary-1 to-primary round px-2 py-1 flex items-center justify-center shadow-xl text-white "
                   >
@@ -140,30 +163,33 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                     Contact Seller
                   </p>
                   <div className="flex gap-5 mt-3">
-                  <Link
-                        href={"#"}
-                        className="rounded-full bg-weirdBrown h-[100px] w-[100px] text-center flex text-[32px] justify-center font-medium items-center text-white"
-                      >
-                        {seller.full_name?.charAt(0).toUpperCase()}
-                      </Link>
+                    <Link
+                      href={"#"}
+                      className="rounded-full bg-weirdBrown h-[100px] w-[100px] text-center flex text-[32px] justify-center font-medium items-center text-white"
+                    >
+                      {seller?.full_name?.charAt(0).toUpperCase()}
+                    </Link>
                     <div>
                       <h2 className="text-[16px] font-bold">
-                        {seller.full_name}
+                        {seller?.full_name}
                       </h2>
                       <p className="text-[14px] font-normal text-light-black-4">
                         <Link
-                          href={generateWhatsAppLink(`Hi, I am from YouGo. I am contacting you with respect to your product ${product.name}.`)}
+                          href={generateWhatsAppLink(
+                            `Hi, I am from YouGo. I am contacting you with respect to your product ${product.name}.`,
+                            seller?.phone_number
+                          )}
                           target="__blank"
                           className="text-[14px] font-normal text-light-black-4"
                         >
-                          {seller.phone_number}
+                          {seller?.phone_number}
                         </Link>
                       </p>
                       <Link
-                        href={`mailto:${seller.email}`}
+                        href={`mailto:${seller?.email}`}
                         className="text-[14px] font-normal text-light-black-4"
                       >
-                        {seller.email}
+                        {seller?.email}
                       </Link>
 
                       {/* <div className="flex items-center gap-3 mt-8">
@@ -204,15 +230,15 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
             <div className="sm:w-full w-[70%]">
               <div className="border-primary-1 border-8 rounded-lg py-3 pl-3">
                 <h1 className="text-2xl font-bold text-light-black-5">
-                  Product Name Goes Here
+                  {product.name}
                 </h1>
-                <div className="flex items-center sm:flex-col sm:gap-2 gap-8 mt-3">
+                <div className="flex items-center sm:flex-col sm:items-start sm:gap-2 gap-8 mt-3">
                   <div className="flex items-center gap-2">
                     <StockIcon />
                     <h2 className="text-xl font-bold text-light-black-8">
                       Stock:
                     </h2>
-                    <p className="text-base font-normal text-primary">
+                    <p className="text-xl font-normal text-primary">
                       {product.countinStock}
                     </p>
                   </div>
@@ -222,7 +248,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                     <h2 className="text-xl font-bold text-light-black-8">
                       Brand:
                     </h2>
-                    <p className="text-base font-normal text-primary">
+                    <p className="text-xl font-normal text-primary">
                       {product.brand}
                     </p>
                   </div>
@@ -232,18 +258,18 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                     <h2 className="text-xl font-bold text-light-black-8">
                       Posted:
                     </h2>
-                    <p className="text-base font-normal text-primary">
+                    <p className="text-xl font-normal text-primary">
                       {convertDate(product.createdAt)}
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-center sm:flex-col sm:gap-2 gap-10 mt-4">
+                <div className="flex items-center sm:flex-col sm:items-start sm:gap-2 gap-10 mt-4">
                   <div className="flex items-center gap-4">
-                    <h2 className="text-light-black-4 font-normal text-sm">
+                    <h2 className="text-light-black-4 font-normal text-xl">
                       Product category:
                     </h2>
-                    <p className="text-base font-normal text-primary">
+                    <p className="text-xl font-normal text-primary">
                       {product.category}
                     </p>
                   </div>
@@ -255,9 +281,9 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                   Product description
                 </h2>
                 <div>
-                  <li className="font-normal text-sm text-light-black-5">
+                  <p className="font-normal text-[16px] text-light-black-5 mt-5">
                     {product.description}
-                  </li>
+                  </p>
                 </div>
               </div>
             </div>
