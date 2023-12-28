@@ -13,6 +13,7 @@ interface iProductsDetailsResponse {
   price: number | string;
   countinStock: number;
   createdAt: string;
+  user: number | null;
   id: number;
 }
 const useFetchProductDetails = ({ id }: { id: number }) => {
