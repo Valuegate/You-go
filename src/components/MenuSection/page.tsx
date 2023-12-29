@@ -1,24 +1,52 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "../SideBar/page";
 import ItemsCard from "../ItemsCard/page";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { MdGridView } from "react-icons/md";
 import { ArrowLeftIcon } from "@/public/icons/arrow-left-icon";
-import { useState } from "react";
 import { GrNext } from "react-icons/gr";
 import img2 from "@/public/assets/arrow-left.png";
 import img3 from "@/public/assets/carrow-left.png";
 import Image from "next/image";
 import Link from "next/link";
 import useFetchProduct from "@/public/hooks/queries/useFetchProduct";
-import { Loader } from "@mantine/core";
+import { Loader, Pagination } from "@mantine/core";
 
 import Background from "@/public/assets/Trimmed Home.png";
+
+const axios = require("axios");
+
+interface productResponse {
+  name: string;
+  image: string;
+  brand: string;
+  category: string;
+  description: string;
+  rating: string;
+  numReviews: number;
+  price: number;
+  countinStock: number;
+  createdAt: number;
+  id: number;
+}
+
+interface iProductResponse {
+  products: productResponse[];
+  pages: number;
+  page: number;
+}
 
 const MenuSection = () => {
   const { data: products, isLoading } = useFetchProduct();
   const [clickedNumber, setClickedNumber] = useState<number | null>(null);
+  const [isSearching, setSearching] = useState<boolean>(false);
+  const [hasSearch, setHasSearch] = useState<boolean>(false);
+  const [searchedProducts, setSearchedProducts] = useState<iProductResponse>({
+    products: [],
+    pages: 0,
+    page: 0,
+  });
 
   const handleCardClick = (number: number) => {
     setClickedNumber(number);
@@ -30,10 +58,44 @@ const MenuSection = () => {
       : "bg-white";
   };
 
-
   const onSearch = () => {
-    let searchParameter = (document.getElementById("searchField") as HTMLInputElement).value;
-    console.log(searchParameter);
+    let searchParameter = (
+      document.getElementById("searchField") as HTMLInputElement
+    ).value;
+    if (searchParameter.length == 0) {
+      setHasSearch(false);
+      setSearchedProducts({
+        products: [],
+        pages: 0,
+        page: 0,
+      });
+      return;
+    }
+
+    search(searchParameter);
+  };
+
+  function search(keyword) {
+    setSearching(true);
+    axios({
+      method: "GET",
+      url: `https://web-production-b1c8.up.railway.app/api/products/?keyword=${keyword}`,
+    })
+      .then((res: { data: iProductResponse }) => {
+        let search = res.data as iProductResponse;
+        setSearching(false);
+        setSearchedProducts(search);
+        setHasSearch(search.products.length > 0);
+      })
+      .catch((_) => {
+        setSearching(false);
+        setHasSearch(false);
+        setSearchedProducts({
+          products: [],
+          pages: 0,
+          page: 0,
+        });
+      });
   }
 
   return (
@@ -50,73 +112,61 @@ const MenuSection = () => {
         <div className="relative bg-gray-50">
           <input
             id="searchField"
-            type="text"
+            type="search"
             placeholder="Search Product"
             className="w-full md:w-[695px] h-[64px] px-4 pl-10 round text-[16px] leading-8 font-normal placeholder-color focus:outline-none"
           />
-          <span className="absolute cursor-pointer inset-y-0 left-3 flex items-center pr-3" onClick={onSearch}>
+          <span
+            className="absolute cursor-pointer inset-y-0 left-3 flex items-center pr-3"
+            onClick={onSearch}
+          >
             <SearchIcon />
           </span>
         </div>
       </div>
       <div className="px-10 sm:px-5 w-[100%] mb-20">
-        <div className="w-full flex flex-row sm:flex-col gap-10 mt-20">
-          <div className="sm:w-full w-[25%]">
-            <Sidebar />
+        {isLoading || isSearching ? (
+          <div className="flex text-primary justify-center items-center gap-2 mt-32">
+            <p className="text-lg">Loading</p>
+            <Loader color="#d4145a" />
           </div>
+        ) : (
+          <div className="w-full flex flex-row sm:flex-col gap-10 mt-20">
+            <div className="sm:w-full w-[25%]">
+              <Sidebar />
+            </div>
 
-          <div className="sm:w-full w-[75%]">
-            <div className="">
+            <div className="sm:w-full w-[75%]">
               <div className="">
-                <p className="font-bold sm:text-base text-lg text-light-black-5 mb-2">
-                  Find something that catches your eyes!
-                </p>
-              </div>
-
-              <div className="w-full flex flex-wrap flex-row sm:justify-evenly sm:gap-8 justify-between">
-                {isLoading ? (
-                  <div className="flex text-primary justify-center items-center gap-2">
-                    <p className="text-lg">Loading</p>
-                    <Loader color="#d4145a" />
-                  </div>
-                ) : (
-                  products &&
-                  products.products.length >= 0 &&
-                  products.products.map((product) => {
-                    return <ItemsCard key={product.id} product={product} />;
-                  })
-                )}
-              </div>
-
-              <div className="w-full flex justify-between mt-8">
-                <div className="font-bold text-sm lg:text-base text-light-black-5">
-                  Find something that catches your eyes!
+                <div className="">
+                  <p className="font-bold sm:text-base text-lg text-light-black-5 mb-2">
+                    Find something that catches your eyes!
+                  </p>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="flex gap-1 cursor-pointer">
-                    <ArrowLeftIcon />
-                    Prev
-                  </div>
-                  {Array.from({ length: 3 }).map((_, index) => (
-                    <span
-                      key={index}
-                      className={`w-[30px] lg:w-[50px] h-[30px] lg:h-[50px] flex justify-center items-center rounded-lg cursor-pointer ${getCardClass(
-                        index
-                      )}`}
-                      onClick={() => handleCardClick(index)}
-                    >
-                      {index + 1}
-                    </span>
-                  ))}
-                  <div className="flex gap-1 items-center cursor-pointer">
-                    Next
-                    <GrNext />
-                  </div>
+
+                <div className="w-full flex flex-wrap flex-row sm:justify-evenly sm:gap-8 justify-between">
+                  {!hasSearch &&
+                    products &&
+                    products.products.length >= 0 &&
+                    products.products.map((product) => {
+                      return <ItemsCard key={product.id} product={product} />;
+                    })}
+                </div>
+
+                <div className="w-full flex flex-wrap flex-row sm:justify-evenly sm:gap-8 justify-between">
+                  {hasSearch &&
+                    searchedProducts.products.map((product) => {
+                      return <ItemsCard key={product.id} product={product} />;
+                    })}
+                </div>
+
+                <div className="w-full flex justify-end mt-8">
+                  <Pagination total={hasSearch ? searchedProducts.pages : products.pages} value={hasSearch ? searchedProducts.page : products.page} onChange={() => {}}  />
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   );
