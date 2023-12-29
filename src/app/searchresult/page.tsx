@@ -1,5 +1,4 @@
 import NavBar from "@/public/components/NavBar/page";
-import SearchInput from "@/public/components/SearchInput/page";
 import MenuSec from "@/public/components/MenuSec/page";
 import Footer from "@/public/components/Footer/page";
 
@@ -17,7 +16,7 @@ const SearchResult = () => {
             <h2 className="font-bold text-[39px] leading-[45px] text-white">
               Seller Shop Page
             </h2>
-            <SearchInput />
+            
           </div>
         </div>
         <div className="pt-1 lg:pt-12 px-4 lg:px-24">

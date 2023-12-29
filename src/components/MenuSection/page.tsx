@@ -2,14 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Sidebar from "../SideBar/page";
 import ItemsCard from "../ItemsCard/page";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { MdGridView } from "react-icons/md";
-import { ArrowLeftIcon } from "@/public/icons/arrow-left-icon";
-import { GrNext } from "react-icons/gr";
-import img2 from "@/public/assets/arrow-left.png";
-import img3 from "@/public/assets/carrow-left.png";
 import Image from "next/image";
-import Link from "next/link";
 import useFetchProduct from "@/public/hooks/queries/useFetchProduct";
 import { Loader, Pagination } from "@mantine/core";
 
@@ -39,7 +32,6 @@ interface iProductResponse {
 
 const MenuSection = () => {
   const { data: products, isLoading } = useFetchProduct();
-  const [clickedNumber, setClickedNumber] = useState<number | null>(null);
   const [isSearching, setSearching] = useState<boolean>(false);
   const [hasSearch, setHasSearch] = useState<boolean>(false);
   const [searchedProducts, setSearchedProducts] = useState<iProductResponse>({
@@ -48,21 +40,13 @@ const MenuSection = () => {
     page: 0,
   });
 
-  const handleCardClick = (number: number) => {
-    setClickedNumber(number);
-  };
-
-  const getCardClass = (number: number) => {
-    return clickedNumber === number
-      ? "text-white bg-light-black-5"
-      : "bg-white";
-  };
-
-  const onSearch = () => {
+  function onSearch(page = 0) {
     let searchParameter = (
       document.getElementById("searchField") as HTMLInputElement
     ).value;
-    if (searchParameter.length == 0) {
+    searchParameter = searchParameter.trim();
+
+    if (searchParameter.length == 0 && page === 0) {
       setHasSearch(false);
       setSearchedProducts({
         products: [],
@@ -72,14 +56,32 @@ const MenuSection = () => {
       return;
     }
 
-    search(searchParameter);
+    search(searchParameter, page);
+  }
+
+  const handleKeyDown = (event: { key: string; }) => {
+    if (event.key === "Enter") {
+      onSearch();
+    }
   };
 
-  function search(keyword) {
+  const handleOnTextChange = (_: any) => {
+    let searchParameter = (
+      document.getElementById("searchField") as HTMLInputElement
+    ).value;
+
+    if(searchParameter.trim().length === 0) {
+      onSearch();
+    }
+  }
+
+  function search(keyword, page = 0) {
     setSearching(true);
     axios({
       method: "GET",
-      url: `https://web-production-b1c8.up.railway.app/api/products/?keyword=${keyword}`,
+      url: `https://web-production-b1c8.up.railway.app/api/products/?keyword=${keyword}${
+        page !== 0 ? `&page=${page}` : ""
+      }`,
     })
       .then((res: { data: iProductResponse }) => {
         let search = res.data as iProductResponse;
@@ -109,16 +111,18 @@ const MenuSection = () => {
         <h2 className="font-bold text-xl md:text-4xl leading-normal text-white text-center z-10">
           Welcome to YouGo Ecommerce
         </h2>
-        <div className="relative bg-gray-50">
+        <div className="relative bg-gray-50 w-[50%] sm:w-[80%]">
           <input
             id="searchField"
             type="search"
+            onKeyDown={handleKeyDown}
             placeholder="Search Product"
-            className="w-full md:w-[695px] h-[64px] px-4 pl-10 round text-[16px] leading-8 font-normal placeholder-color focus:outline-none"
+            onChange={handleOnTextChange}
+            className="w-full md:w-[695px] h-[50px] px-4 pl-10 round text-[16px] leading-8 font-normal placeholder-color focus:outline-none"
           />
           <span
             className="absolute cursor-pointer inset-y-0 left-3 flex items-center pr-3"
-            onClick={onSearch}
+            onClick={() => onSearch()}
           >
             <SearchIcon />
           </span>
@@ -139,29 +143,33 @@ const MenuSection = () => {
             <div className="sm:w-full w-[75%]">
               <div className="">
                 <div className="">
-                  <p className="font-bold sm:text-base text-lg text-light-black-5 mb-2">
+                  <p className="font-bold sm:text-base text-lg text-light-black-5 mb-2 sm:hidden">
                     Find something that catches your eyes!
                   </p>
                 </div>
 
-                <div className="w-full flex flex-wrap flex-row sm:justify-evenly sm:gap-8 justify-between">
+                <div className="w-full flex flex-wrap flex-row justify-start gap-10">
                   {!hasSearch &&
                     products &&
                     products.products.length >= 0 &&
-                    products.products.map((product) => {
+                    products.products.map((product, i) => {
                       return <ItemsCard key={product.id} product={product} />;
                     })}
                 </div>
 
-                <div className="w-full flex flex-wrap flex-row sm:justify-evenly sm:gap-8 justify-between">
+                <div className="w-full flex flex-wrap flex-row justify-start gap-10">
                   {hasSearch &&
-                    searchedProducts.products.map((product) => {
+                    searchedProducts.products.map((product, i) => {
                       return <ItemsCard key={product.id} product={product} />;
                     })}
                 </div>
 
-                <div className="w-full flex justify-end mt-8">
-                  <Pagination total={hasSearch ? searchedProducts.pages : products.pages} value={hasSearch ? searchedProducts.page : products.page} onChange={() => {}}  />
+                <div className="w-full flex justify-end sm:justify-center items-center mt-8">
+                  <Pagination
+                    total={hasSearch ? searchedProducts.pages : products.pages}
+                    value={hasSearch ? searchedProducts.page : products.page}
+                    onChange={(page) => onSearch(page)}
+                  />
                 </div>
               </div>
             </div>
