@@ -17,18 +17,16 @@ import { useQuery } from "@tanstack/react-query";
 };
 
 interface iProductResponse {
-  products: productResponse[],
-  pages: number,
-  page: number,
+  products: productResponse[]
 }
 
 
-const useFetchProduct = () => {
+const useSearchProduct = () => {
   const { isLoading, data, isError, isSuccess } = useQuery({
-    queryKey: ["fetch-product"],
+    queryKey: ["search-product"],
     queryFn: async () => {
       try {
-        const response = await fetcher(PRODUCT_ROUTES.PRODUCT, "GET");
+        const response = await fetcher(`${PRODUCT_ROUTES.PRODUCT}?keyword= ` , "GET");
         return response?.data;
       } catch (err) {
         throw err;
@@ -41,4 +39,4 @@ const useFetchProduct = () => {
   };
 };
 
-export default useFetchProduct;
+export default useSearchProduct;
