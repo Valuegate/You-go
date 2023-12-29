@@ -2,7 +2,7 @@ import { fetcher } from "@/public/lib/fetcher";
 import { PRODUCT_ROUTES } from "@/public/services/routes";
 import { useQuery } from "@tanstack/react-query";
 
-interface iProductResponse {
+  interface productResponse {
   name: string;
   image: string;
   brand: string;
@@ -14,7 +14,13 @@ interface iProductResponse {
   countinStock: number;
   createdAt: number;
   id: number;
-}[];
+};
+
+interface iProductResponse {
+  products: productResponse[]
+}
+
+
 const useFetchProduct = () => {
   const { isLoading, data, isError, isSuccess } = useQuery({
     queryKey: ["fetch-product"],
@@ -29,7 +35,7 @@ const useFetchProduct = () => {
   });
   return {
     isLoading,
-    data: data as iProductResponse[],
+    data: data as iProductResponse,
   };
 };
 

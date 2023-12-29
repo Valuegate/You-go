@@ -37,6 +37,11 @@ body {
   line-height: 18px;
 }
 
+.img {
+  width: 100%;
+  height: auto;
+}
+
 .bg-custom-image {
   background-image: url('../assets/Rectangle17.png');
   background-size: cover;
