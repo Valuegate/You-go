@@ -1,2 +1,2 @@
-Shop Details
-Shop
+Search Functionality in Shop page
+Get User in Shop Details page

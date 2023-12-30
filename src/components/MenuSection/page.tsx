@@ -1,10 +1,11 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Sidebar from "../SideBar/page";
 import ItemsCard from "../ItemsCard/page";
-import Image from "next/image";
 import useFetchProduct from "@/public/hooks/queries/useFetchProduct";
 import { Loader, Pagination } from "@mantine/core";
+
+import arrow from "@/public/assets/arrow-right.png";
+import Image from "next/image";
 
 import Background from "@/public/assets/Trimmed Home.png";
 
@@ -40,6 +41,18 @@ const MenuSection = () => {
     page: 0,
   });
 
+  const options = [
+    "Handmade Goods",
+    "Jewelry",
+    "Home Decor",
+    "Clothing",
+    "Art",
+    "Vintage Items",
+    "Photography",
+    "Cosmetics",
+    "Toys",
+  ];
+
   function onSearch(page = 0) {
     let searchParameter = (
       document.getElementById("searchField") as HTMLInputElement
@@ -59,7 +72,7 @@ const MenuSection = () => {
     search(searchParameter, page);
   }
 
-  const handleKeyDown = (event: { key: string; }) => {
+  const handleKeyDown = (event: { key: string }) => {
     if (event.key === "Enter") {
       onSearch();
     }
@@ -70,10 +83,10 @@ const MenuSection = () => {
       document.getElementById("searchField") as HTMLInputElement
     ).value;
 
-    if(searchParameter.trim().length === 0) {
+    if (searchParameter.trim().length === 0) {
       onSearch();
     }
-  }
+  };
 
   function search(keyword, page = 0) {
     setSearching(true);
@@ -137,7 +150,33 @@ const MenuSection = () => {
         ) : (
           <div className="w-full flex flex-row sm:flex-col gap-10 mt-20">
             <div className="sm:w-full w-[25%]">
-              <Sidebar />
+              <div className="sm:flex sm:flex-col">
+                <h2 className="hidden sm:block text-2xl text-center font-bold text-slate-950">
+                  Categories
+                </h2>
+                <p className="font-bold sm:block hidden text-center text-lg text-light-black-5 mb-10">
+                  Find something that catches your eyes!
+                </p>
+                <div className="bg-weirdBrown  p-8 sm:p-0 flex flex-col rounded-xl sm:rounded-none sm:bg-[#00000000] sm:overflow-x-scroll sm:flex-row sm:scrollbar-custom sm:w-full sm:gap-5">
+                  <h2 className="text-2xl font-bold text-white mb-4 sm:hidden">
+                    Categories
+                  </h2>
+                  {options.map((option, i) => (
+                    <button
+                      key={i}
+                      onClick={() => search(option)}
+                      className="mb-3 px-4 py-2 flex justify-between items-center bg-primary text-white rounded"
+                    >
+                      <span className="whitespace-nowrap">{option}</span>
+                      <Image
+                        src={arrow}
+                        alt="Arrow"
+                        className="w-4 h-4 sm:hidden"
+                      />
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
 
             <div className="sm:w-full w-[75%]">
@@ -164,7 +203,14 @@ const MenuSection = () => {
                     })}
                 </div>
 
-                <div className="w-full flex justify-end sm:justify-center items-center mt-8">
+                <div
+                  className={`w-full flex justify-center items-center mt-8 
+                ${
+                  searchedProducts.products.length === 0 &&
+                  products.products.length === 0 &&
+                  "hidden"
+                }`}
+                >
                   <Pagination
                     total={hasSearch ? searchedProducts.pages : products.pages}
                     value={hasSearch ? searchedProducts.page : products.page}
