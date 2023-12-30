@@ -11,6 +11,8 @@ import useFetchSellerProduct from "@/public/hooks/queries/useFetchSellerProducts
 import useDeleteProduct from "@/public/hooks/queries/useDeleteProduct";
 import EditProduct from "@/public/components/EditProduct/EditProduct";
 
+const axios = require("axios");
+
 const Profile = () => {
   const { data: user, isLoading, isSuccess } = useFetchUsersProfile();
   const { data: products } = useFetchSellerProduct();
@@ -50,17 +52,18 @@ const Profile = () => {
     } catch (error) {}
   };
 
+
   return (
     <div className="bg-white-1 h-full flex flex-col relative">
       <NavBar showSearch={false} transparent={true} />
-      <div className="w-full bg-white-1 h-[90vh] justify-center flex flex-col">
+      <div className="w-full bg-white-1 h-[90vh]  justify-start flex flex-col">
         {!isLoading && isSuccess && (
           <div className="flex flex-row px-[2%] sm:flex-col sm:mt-5">
             <div
               className={`flex flex-col sm:flex-col gap-20 w-[30%] sm:w-full rounded-xl shadow-xl h-full px-5 bg-white`}
             >
               {user && (
-                <div className="w-full h-[85vh] rounded-lg py-3 flex flex-col items-center relative">
+                <div className="w-full h-[85vh] sm:h-auto rounded-lg py-3 flex flex-col items-center relative">
                   <div className="mt-5 mb-5">
                     <div className="mt-10 flex flex-col items-center">
                       <Link
@@ -86,7 +89,7 @@ const Profile = () => {
 
                   <Link
                     href={"/edit-profile"}
-                    className="underline text-weirdBrown my-4"
+                    className="underline text-weirdBrown mt-4 mb-24"
                   >
                     Edit your profile
                   </Link>
@@ -107,9 +110,9 @@ const Profile = () => {
               )}
             </div>
 
-            <div className="w-[70%] sm:w-full h-full flex flex-col px-10 sm:px-5 sm:mt-10">
+            <div className="w-[70%] sm:w-full h-auto flex flex-col px-10 sm:px-5 sm:mt-10">
               <p className="text-light-black-3 text-xl font-medium">Products</p>
-              <div className="mt-10 grid grid-cols-3 gap-5 sm:flex sm:flex-col sm:mb-20">
+              <div className="mt-10 sm:mt-0 grid grid-cols-3 gap-5 sm:flex sm:flex-col sm:mb-20">
                 {products !== null &&
                 products !== undefined &&
                 products.length > 0 ? (

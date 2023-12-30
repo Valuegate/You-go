@@ -57,7 +57,6 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
     }
   }, [product]);
 
-
   if (productLoading || sellerLoading) {
     return (
       <p className="flex flex-col items-center justify-center h-full w-full mt-80">
@@ -130,17 +129,8 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
         <div className="sm:px-6 px-24 sm:mb-20">
           <div className="mt-8 flex sm:flex-col flex-row gap-10">
             <div className="sm:w-full w-[70%]">
-              <div>
-                <Image
-                  src={product.image}
-                  alt={""}
-                  className="w-full h-[31rem]"
-                  width={100}
-                  height={100}
-                />
-              </div>
+              <img src={product.image} alt={""} className="object-cover w-full h-[450px]" />
             </div>
-
             <div className="sm:w-full w-[30%]">
               <div className="flex flex-col gap-4">
                 <div className="border-primary-1 border-8 rounded-lg py-3 px-3">
