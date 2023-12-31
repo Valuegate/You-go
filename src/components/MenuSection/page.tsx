@@ -187,6 +187,22 @@ const MenuSection = () => {
                   </p>
                 </div>
 
+                {!hasSearch && products.products.length === 0 && (
+                  <div className="w-full h-[65vh] sm:h-[50vh] flex items-center justify-center">
+                    <p className="font-bold sm:text-base text-lg text-light-black-5 mb-2 sm:hidden">
+                      There are no items in the shop at the moment
+                    </p>
+                  </div>
+                )}
+
+                {hasSearch && searchedProducts.products.length === 0 && (
+                  <div className="w-full h-[65vh] sm:h-[50vh] flex items-center justify-center">
+                    <p className="font-bold sm:text-base text-lg text-light-black-5 mb-2 sm:hidden">
+                      There are no items that match your search input
+                    </p>
+                  </div>
+                )}
+
                 <div className="w-full flex flex-wrap flex-row justify-start gap-10">
                   {!hasSearch &&
                     products &&
