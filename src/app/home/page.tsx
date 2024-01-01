@@ -11,7 +11,7 @@ import Security from "@/public/assets/Group 4011.svg";
 import Car from "@/public/assets/Group 4013.svg";
 import User from "@/public/assets/Group 4012.svg";
 import Fancy from "@/public/assets/Rectangle 138.svg";
-import Arrow from "@/public/assets/Arrow.svg";
+
 import useFetchProduct from "@/public/hooks/queries/useFetchProduct";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -190,12 +190,6 @@ const HomePage = () => {
             <h2 className="text-[30px] md:text-[40px] leading-[40px] md:leading-[60px] mt-2 text-weirdBrown font-bold text-center">
               Our Products
             </h2>
-            <Image
-              src={Arrow}
-              alt=""
-              className="absolute top-[10vh] sm:top-[20%] sm:w-[200px] left-[22vw] sm:-left-[5%] w-[250px] h-[80px]"
-            />
-
             {isLoading && (
               <div className="flex text-primary h-32 mt-20 justify-center items-center gap-2">
                 <p className="text-lg">Loading</p>
