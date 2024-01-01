@@ -7,7 +7,7 @@ import { Loader, Pagination } from "@mantine/core";
 import arrow from "@/public/assets/arrow-right.png";
 import Image from "next/image";
 
-import Background from "@/public/assets/Trimmed Home.png";
+import Background from "@/public/assets/Trimmed-Home.png";
 
 const axios = require("axios");
 

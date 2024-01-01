@@ -41,7 +41,7 @@ const HomePage = () => {
     {
       title: "User friendly",
       content:
-        "Our easy-to-navigate interface makes finding your favorite products or making pruchases a breeze.",
+        "Our easy-to-navigate interface makes finding your favorite products or making purchases a breeze.",
       image: User,
     },
   ];
