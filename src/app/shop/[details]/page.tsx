@@ -139,7 +139,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                   </div>
                   <Link
                     href={generateWhatsAppLink(
-                      `Hi, I am from YouGo. I am contacting you with respect to your product ${product.name}.`,
+                      `Hi, I am from YouGo. I am contacting you with respect to your product *${product.name}* which you posted on *${convertDate(product.createdAt)}*.`,
                       seller?.phone_number
                     )}
                     target="__blank"
@@ -166,7 +166,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                       <p className="text-[14px] font-normal text-light-black-4">
                         <Link
                           href={generateWhatsAppLink(
-                            `Hi, I am from YouGo. I am contacting you with respect to your product ${product.name}.`,
+                            `Hi, I am from YouGo.`,
                             seller?.phone_number
                           )}
                           target="__blank"
@@ -181,14 +181,6 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                       >
                         {seller?.email}
                       </Link>
-
-                      {/* <div className="flex items-center gap-3 mt-8">
-                        <FacebokIcon width="16" height="16" />
-                        <XIcon width="16" height="16" />
-                        <InstagramIcon color="#d4145a" width="20" height="20" />
-                        <BsLinkedin color="#d4145a" width="16" height="16" />
-                        <BsWhatsapp color="#d4145a" width="16" height="16" />
-                      </div> */}
                     </div>
                   </div>
                 </div>
