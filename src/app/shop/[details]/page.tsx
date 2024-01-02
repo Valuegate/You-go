@@ -236,6 +236,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                   </div>
 
                   <div className="flex items-center gap-2">
+
                     <CalendarIcon />
                     <h2 className="text-xl font-bold text-light-black-8">
                       Posted:
