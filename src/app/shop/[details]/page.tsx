@@ -46,7 +46,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
           Authorization: `Bearer ${token}`,
         },
       })
-        .then((res) => {
+        .then((res: { data: any; }) => {
           setSeller(res.data);
           setSellerLoading(false);
         })
