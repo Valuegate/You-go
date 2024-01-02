@@ -100,7 +100,7 @@ const MenuSection = () => {
         let search = res.data as iProductResponse;
         setSearching(false);
         setSearchedProducts(search);
-        setHasSearch(search.products.length > 0);
+        setHasSearch(true);
       })
       .catch((_) => {
         setSearching(false);
@@ -213,7 +213,7 @@ const MenuSection = () => {
                 </div>
 
                 <div className="w-full flex flex-wrap flex-row justify-start gap-10">
-                  {hasSearch &&
+                  {hasSearch && searchedProducts.products.length > 0 &&
                     searchedProducts.products.map((product, i) => {
                       return <ItemsCard key={product.id} product={product} />;
                     })}
@@ -222,8 +222,8 @@ const MenuSection = () => {
                 <div
                   className={`w-full flex justify-center items-center mt-8 
                 ${
-                  searchedProducts.products.length === 0 &&
-                  products.products.length === 0 &&
+                  (hasSearch && searchedProducts.products.length === 0) ||
+                  (!hasSearch && products.products.length === 0) &&
                   "hidden"
                 }`}
                 >
