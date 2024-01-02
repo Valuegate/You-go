@@ -2,13 +2,7 @@
 import React, { FC, ReactNode, useEffect, useState } from "react";
 import Logo from "../Logo/page";
 import Link from "next/link";
-import { QuestionmarkIcon } from "@/public/icons/questionmark-icon";
-import { LoveIcon } from "@/public/icons";
-import { HiShoppingCart } from "react-icons/hi";
-
 import { FaBarsStaggered, FaChevronRight } from "react-icons/fa6";
-
-import { motion } from "framer-motion";
 import { BiX } from "react-icons/bi";
 
 const NavBar = ({ showSearch = true, transparent = false }) => {
@@ -48,7 +42,7 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
             <Logo />
           </Link>
 
-          {showSearch && (
+          {/* {showSearch && (
             <form action="nosubmit">
               <input
                 type="search"
@@ -56,7 +50,7 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
                 className="border-weirdBrown sm:hidden border-2 px-3 h-[45px] w-[300px] sm:w-[200px] focus:outline-none rounded-[22.5px] focus:border-weirdBrown"
               />
             </form>
-          )}
+          )} */}
         </div>
         <div className="hidden md:flex md:items-center lg:flex lg:items-center justify-between w-2/5">
           <Link href={"/home"}>
