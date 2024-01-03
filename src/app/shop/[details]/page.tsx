@@ -50,7 +50,8 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
           setSeller(res.data);
           setSellerLoading(false);
         })
-        .catch((err) => {
+        .catch((err: any) => {
+          console.error("Error fetching seller data:", err);
           setSeller(null);
           setSellerLoading(false);
         });
