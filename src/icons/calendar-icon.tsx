@@ -12,9 +12,9 @@ export const CalendarIcon = ({ color, width, height }: IconProps) => {
       <path
         d="M15.7136 2.95508H3.52447C2.47212 2.95508 1.61902 3.80818 1.61902 4.86053V15.5951C1.61902 16.6474 2.47212 17.5005 3.52447 17.5005H15.7136C16.7659 17.5005 17.619 16.6474 17.619 15.5951V4.86053C17.619 3.80818 16.7659 2.95508 15.7136 2.95508Z"
         stroke="#0C0B0B"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M5.48265 11.6824C5.48265 11.8079 5.3809 11.9096 5.25538 11.9096C5.12986 11.9096 5.02811 11.8079 5.02811 11.6824C5.02811 11.5568 5.12986 11.4551 5.25538 11.4551C5.3809 11.4551 5.48265 11.5568 5.48265 11.6824Z"
@@ -64,9 +64,9 @@ export const CalendarIcon = ({ color, width, height }: IconProps) => {
       <path
         d="M5.98266 1.5V5.13636M13.2554 1.5V5.13636"
         stroke="#0C0B0B"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
