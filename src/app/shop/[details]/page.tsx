@@ -35,29 +35,29 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
   });
 
   useEffect(() => {
-    // if (product !== undefined && product !== null) {
-    //   const { user } = product;
-    //   let token = window.localStorage.getItem("userToken");
-    //   axios({
-    //     method: "GET",
-    //     url: `https://web-production-b1c8.up.railway.app/api/users/${user}/`,
-    //     headers: {
-    //       Authorization: `Bearer ${token}`,
-    //     },
-    //   })
-    //     .then((res: { data: any; }) => {
-    //       setSeller(res.data);
-    //       setSellerLoading(false);
-    //     })
-    //     .catch((err) => {
-    //       setSeller(null);
-    //       setSellerLoading(false);
-    //     });
-    // }
+    if (product !== undefined && product !== null) {
+      const { user } = product;
+      let token = window.localStorage.getItem("userToken");
+      axios({
+        method: "GET",
+        url: `https://web-production-b1c8.up.railway.app/api/users/${user}/`,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((res: { data: any }) => {
+          setSeller(res.data);
+          setSellerLoading(false);
+        })
+        .catch((err) => {
+          setSeller(null);
+          setSellerLoading(false);
+        });
+    }
   }, [product]);
 
   //sellerLoading
-  if (productLoading ) {
+  if (productLoading) {
     return (
       <p className="flex flex-col items-center justify-center h-full w-full mt-80">
         <Loader color="#D4145A" size={"36px"} />
@@ -137,7 +137,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
             </div>
             <div className="sm:w-full w-[30%]">
               <div className="flex flex-col gap-4">
-                {/* <div className="border-primary-1 border-8 rounded-lg py-3 px-3">
+                <div className="border-primary-1 border-8 rounded-lg py-3 px-3">
                   <div className="text-primary text-lg font-bold mb-3">
                     €{product.price}
                   </div>
@@ -155,7 +155,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                   >
                     CHAT WITH SELLER ON WHATSAPP
                   </Link>
-                </div> 
+                </div>
                 <div className="border-primary-1 border-8 rounded-lg py-3 pl-3 flex flex-col">
                   <p className="text-[20px] font-bold text-slate-950">
                     Contact Seller
@@ -182,8 +182,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                       </Link>
                     </div>
                   </div>
-                </div> */}
-
+                </div>
 
                 <div className="border-primary-1 border-8 rounded-lg py-3 pl-3">
                   <h2 className="text-lg font-bold text-light-black-5">
