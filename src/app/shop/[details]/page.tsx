@@ -12,19 +12,6 @@ import { Loader } from "@mantine/core";
 import axios from "axios";
 
 const ShopDetails = ({ params }: { params: { details: string } }) => {
-  const [clickedSize, setClickedSize] = useState<number | null>(null);
-
-  const handleSizeClick = (size: number) => {
-    setClickedSize(size);
-  };
-
-  const getSizeClass = (size: number) => {
-    return clickedSize === size
-      ? "text-black bg-primary-1"
-      : "text-white bg-primary";
-  };
-
-  const [num, setNum] = useState(1);
   const [sellerLoading, setSellerLoading] = useState<boolean>(true);
   const [seller, setSeller] = useState<any>();
 
@@ -56,8 +43,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
     }
   }, [product]);
 
-  //sellerLoading
-  if (productLoading) {
+  if (productLoading || sellerLoading) {
     return (
       <p className="flex flex-col items-center justify-center h-full w-full mt-80">
         <Loader color="#D4145A" size={"36px"} />
