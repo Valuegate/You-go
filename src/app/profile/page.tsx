@@ -14,7 +14,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 
-const axios = require("axios");
+import axios from "axios";
 
 const Profile = () => {
   const { data: user, isLoading, isSuccess } = useFetchUsersProfile();

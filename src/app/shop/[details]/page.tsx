@@ -9,7 +9,7 @@ import Link from "next/link";
 import useFetchProductDetails from "@/public/hooks/queries/useFetchProductDetails";
 import { Loader } from "@mantine/core";
 
-const axios = require("axios");
+import axios from "axios";
 
 const ShopDetails = ({ params }: { params: { details: string } }) => {
   const [clickedSize, setClickedSize] = useState<number | null>(null);
