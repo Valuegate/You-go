@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 
   interface productResponse {
   name: string;
-  image: string;
+  image: string[];
   brand: string;
   category: string;
   description: string;
