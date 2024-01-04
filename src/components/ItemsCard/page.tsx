@@ -7,7 +7,7 @@ import Link from "next/link";
 interface Product {
   id: number;
   name: string;
-  image: string;
+  image: string[];
   rating: string;
   numReviews: number;
   price: number;
@@ -28,7 +28,7 @@ const ItemsCard: React.FC<ItemsCardProps> = ({ product }) => {
       >
         <div className="relative">
           <Image
-            src={product?.image || Img}
+            src={product?.image[0] || Img}
             className="w-full h-[170px] rounded-t-xl object-cover"
             width={100}
             height={100}

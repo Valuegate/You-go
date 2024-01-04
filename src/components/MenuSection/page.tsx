@@ -13,7 +13,7 @@ import axios from "axios";
 
 interface productResponse {
   name: string;
-  image: string;
+  image: string[];
   brand: string;
   category: string;
   description: string;
