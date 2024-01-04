@@ -9,7 +9,7 @@ import Image from "next/image";
 
 import Background from "@/public/assets/Trimmed-Home.png";
 
-const axios = require("axios");
+import axios from "axios";
 
 interface productResponse {
   name: string;

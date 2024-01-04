@@ -9,22 +9,9 @@ import Link from "next/link";
 import useFetchProductDetails from "@/public/hooks/queries/useFetchProductDetails";
 import { Loader } from "@mantine/core";
 
-const axios = require("axios");
+import axios from "axios";
 
 const ShopDetails = ({ params }: { params: { details: string } }) => {
-  const [clickedSize, setClickedSize] = useState<number | null>(null);
-
-  const handleSizeClick = (size: number) => {
-    setClickedSize(size);
-  };
-
-  const getSizeClass = (size: number) => {
-    return clickedSize === size
-      ? "text-black bg-primary-1"
-      : "text-white bg-primary";
-  };
-
-  const [num, setNum] = useState(1);
   const [sellerLoading, setSellerLoading] = useState<boolean>(true);
   const [seller, setSeller] = useState<any>();
 
@@ -38,7 +25,6 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
     if (product !== undefined && product !== null) {
       const { user } = product;
       let token = window.localStorage.getItem("userToken");
-
       axios({
         method: "GET",
         url: `https://web-production-b1c8.up.railway.app/api/users/${user}/`,
@@ -46,7 +32,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
           Authorization: `Bearer ${token}`,
         },
       })
-        .then((res: { data: any; }) => {
+        .then((res: { data: any }) => {
           setSeller(res.data);
           setSellerLoading(false);
         })
@@ -130,7 +116,11 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
         <div className="sm:px-6 px-24 sm:mb-20">
           <div className="mt-8 flex sm:flex-col flex-row gap-10">
             <div className="sm:w-full w-[70%]">
-              <img src={product.image} alt={""} className="object-cover w-full h-[450px]" />
+              <img
+                src={product.image}
+                alt={""}
+                className="object-cover w-full h-[450px]"
+              />
             </div>
             <div className="sm:w-full w-[30%]">
               <div className="flex flex-col gap-4">
@@ -140,7 +130,11 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                   </div>
                   <Link
                     href={generateWhatsAppLink(
-                      `Hi, I am from YouGo. I am contacting you with respect to your product *${product.name}* which you posted on *${convertDate(product.createdAt)}*.`,
+                      `Hi, I am from YouGo. I am contacting you with respect to your product *${
+                        product.name
+                      }* which you posted on *${convertDate(
+                        product.createdAt
+                      )}*.`,
                       seller?.phone_number
                     )}
                     target="__blank"
@@ -165,16 +159,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                         {seller?.full_name}
                       </h2>
                       <p className="text-[14px] font-normal text-light-black-4">
-                        <Link
-                          href={generateWhatsAppLink(
-                            `Hi, I am from YouGo.`,
-                            seller?.phone_number
-                          )}
-                          target="__blank"
-                          className="text-[14px] font-normal text-light-black-4"
-                        >
-                          {seller?.phone_number}
-                        </Link>
+                        {seller?.phone_number}
                       </p>
                       <Link
                         href={`mailto:${seller?.email}`}
@@ -185,6 +170,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                     </div>
                   </div>
                 </div>
+
                 <div className="border-primary-1 border-8 rounded-lg py-3 pl-3">
                   <h2 className="text-lg font-bold text-light-black-5">
                     Safety Tips
@@ -237,7 +223,6 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                   </div>
 
                   <div className="flex items-center gap-2">
-
                     <CalendarIcon />
                     <h2 className="text-xl font-bold text-light-black-8">
                       Posted:
