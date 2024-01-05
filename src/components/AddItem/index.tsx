@@ -24,7 +24,7 @@ const AddItem = ({ addText = "Add Order" }) => {
   const router = useRouter();
   const [credentials, setCredentials] = useState<TCreatePayload>({
     name: "",
-    image: "",
+    uploaded_images: [],
     brand: "",
     description: "",
     category: "",
@@ -33,7 +33,7 @@ const AddItem = ({ addText = "Add Order" }) => {
   });
   const [errorMsg, setErrorMsg] = useState<string>("");
 
-  const { isError, isLoading, isSuccess, Add, error, data } =
+  const { isError, isLoading, isSuccess, addProduct, error, data } =
     useCreateProduct();
 
   useEffect(() => {
@@ -78,11 +78,11 @@ const AddItem = ({ addText = "Add Order" }) => {
     setErrorMsg(""); // Clear previous error message
 
     if (selectedFiles.length > 0) {
-      const file = selectedFiles[0];
-      //  console.log(file);
-      Add({ ...credentials, image: file });
+      const files = selectedFiles[0];
+      //  console.log("UPLOADING FILES", files);
+      addProduct({ ...credentials, uploaded_images: files });
     } else {
-      Add(credentials);
+      addProduct(credentials);
     }
   };
 
@@ -91,24 +91,24 @@ const AddItem = ({ addText = "Add Order" }) => {
 
     if (files && files.length > 0) {
       const newFiles: File[] = Array.from(files);
-      setSelectedFiles(newFiles);
+      setSelectedFiles((prevFiles) => [...prevFiles, ...newFiles]);
       getBase64(newFiles[0])
         .then((resp) => setFirstImage(resp))
         .catch((err) => setFirstImage("./assets/upload.png"));
     } else {
-      setFirstImage("./assets/upload.png");
+      // setFirstImage("./assets/upload.png");
     }
   };
 
   const handleDeleteFile = (index: number) => {
-    // setSelectedFiles((prevFiles) => {
-    //   const updatedFiles = [...prevFiles];
-    //   updatedFiles.splice(index, 1);
-    //   // onFileChange(updatedFiles);
-    //   return updatedFiles;
-    // });
-    setSelectedFiles([]);
-    setFirstImage("./assets/upload.png");
+    setSelectedFiles((prevFiles) => {
+      const updatedFiles = [...prevFiles];
+      updatedFiles.splice(index, 1);
+      // onFileChange(updatedFiles);
+      return updatedFiles;
+    });
+    // setSelectedFiles([]);
+    // setFirstImage("./assets/upload.png");
   };
 
   function getBase64(file: File) {

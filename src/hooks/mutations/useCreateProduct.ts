@@ -3,11 +3,11 @@ import { USERCREATEPRODUCT_ROUTES } from "@/public/services/routes";
 import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 
-export type TCreatePayload = { name: string; image: string | File; brand: string; description: string; category: string; price: string; countinStock: string; };
+export type TCreatePayload = { name: string; uploaded_images: File | File[]; brand: string; description: string; category: string; price: string; countinStock: string; };
 
 interface iDataResponse {
     name: string;
-    image: string | File;
+    uploaded_images: File | File[];
     brand: string;
     description: string;
     category: string;
@@ -30,7 +30,7 @@ const useCreateProduct = () => {
   const { mutate, isError, isSuccess, isPending, error, data } = mutation;
 
   return {
-    Add: mutate,
+    addProduct: mutate,
     isLoading: isPending,
     isError,
     isSuccess,

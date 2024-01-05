@@ -10,9 +10,12 @@ import useFetchProductDetails from "@/public/hooks/queries/useFetchProductDetail
 import { Loader } from "@mantine/core";
 
 import axios from "axios";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const ShopDetails = ({ params }: { params: { details: string } }) => {
   const [sellerLoading, setSellerLoading] = useState<boolean>(true);
+  const [selectPicture, setSelectPicture] = useState<number>(0)
   const [seller, setSeller] = useState<any>();
 
   const id = params.details;
@@ -115,12 +118,41 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
       <div className="overflow-y-scroll sm:h-screen h-[87vh]">
         <div className="sm:px-6 px-24 sm:mb-20">
           <div className="mt-8 flex sm:flex-col flex-row gap-10">
-            <div className="sm:w-full w-[70%]">
-              <img
+          <div className="flex flex-col gap-4 sm:w-full w-[70%]">
+            <div className="w-full">
+              {/* <img
                 src={product.image}
                 alt={""}
                 className="object-cover w-full h-[450px]"
-              />
+              /> */}
+
+              {Array.isArray(product.images) && product.images.length > 0 ? (
+                <Carousel showThumbs={false} selectedItem={selectPicture}>
+                  {product.images.map((image, index) => (
+                    <div key={index}>
+                      <img
+                        src={image.image}
+                        alt={`Product ${product.name}`}
+                        className="object-cover w-full h-[450px]"
+                      />
+                    </div>
+                  ))}
+                </Carousel>
+              ) : (
+                <p>No images available</p>
+              )}
+            </div>
+            <div className="flex justify-evenly w-full">
+            {product.images.map((image, index) => (
+                    <div key={index} onClick={()=>setSelectPicture(index)}>
+                      <img
+                        src={image.image}
+                        alt={`Product ${product.name}`}
+                        className="object-cover sm:w-[50px] sm:h-[50px] w-[100px] h-[100px]"
+                      />
+                    </div>
+                  ))}
+            </div>
             </div>
             <div className="sm:w-full w-[30%]">
               <div className="flex flex-col gap-4">

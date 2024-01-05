@@ -1,5 +1,5 @@
 import { formFetcher } from "@/public/lib/fetcher";
-import { SELLER_EDIT_PRODUCT_IMAGE_ROUTE, SELLER_EDIT_PRODUCT_ROUTE } from "@/public/services/routes";
+import { SELLER_EDIT_PRODUCT_ROUTE } from "@/public/services/routes";
 import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 
