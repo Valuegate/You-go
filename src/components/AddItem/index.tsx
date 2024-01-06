@@ -11,6 +11,9 @@ import useCreateProduct, {
 import { BsTrash } from "react-icons/bs";
 import Upload from "@/public/assets/upload.png";
 
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+
 const AddItem = ({ addText = "Add Order" }) => {
   const [opened, setOpened] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
@@ -20,8 +23,6 @@ const AddItem = ({ addText = "Add Order" }) => {
   const [validationErrors, setValidationErrors] = useState<{
     [key: string]: string;
   }>({});
-
-
 
   const router = useRouter();
   const [credentials, setCredentials] = useState<TCreatePayload>({
@@ -35,7 +36,7 @@ const AddItem = ({ addText = "Add Order" }) => {
   });
   const [errorMsg, setErrorMsg] = useState<string>("");
 
-  const { isError, isLoading, isSuccess, Add, error, data } =
+  const { isError, isLoading, isSuccess, addProduct, error } =
     useCreateProduct();
 
   useEffect(() => {
@@ -51,6 +52,39 @@ const AddItem = ({ addText = "Add Order" }) => {
       router.push("/shop");
     }
   }, [isSuccess, router]);
+
+  function tryUpload() {
+    var formData = new FormData();
+
+    formData.append("name", credentials.name);
+    formData.append("brand", credentials.brand);
+    formData.append("description", credentials.description);
+    formData.append("category", credentials.category);
+    formData.append("price", credentials.price);
+    formData.append("countinStock", credentials.countinStock);
+    for (let i = 0; i < selectedFiles.length; i++) {
+      formData.append("uploaded_images", selectedFiles[i]);
+    }
+
+    let token = window.localStorage.getItem("userToken");
+
+    axios({
+      method: "POST",
+      url: `https://web-production-b1c8.up.railway.app/api/products/create/`,
+      data: formData,
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => {
+        toast.success("Your product was created");
+        window.location.replace("/shop");
+      })
+      .catch((err) => {
+        toast.error(err);
+      });
+  }
 
   const handleAdd = () => {
     // Clear previous validation errors
@@ -80,11 +114,7 @@ const AddItem = ({ addText = "Add Order" }) => {
     setErrorMsg(""); // Clear previous error message
 
     if (selectedFiles.length > 0) {
-      //const file = selectedFiles[0];
-      //  console.log(file);
-      Add({ ...credentials, uploaded_images: selectedFiles });
-    } else {
-      Add(credentials);
+      tryUpload();
     }
   };
 
@@ -93,12 +123,13 @@ const AddItem = ({ addText = "Add Order" }) => {
 
     if (files && files.length > 0) {
       const newFiles: File[] = Array.from(files);
-      setSelectedFiles(newFiles);
+      setSelectedFiles((prevFiles) => [...prevFiles, ...newFiles]);
+      console.log("NEW FILES", newFiles);
       getBase64(newFiles[0])
         .then((resp) => setFirstImage(resp))
         .catch((err) => setFirstImage("./assets/upload.png"));
     } else {
-      setFirstImage("./assets/upload.png");
+      // setFirstImage("./assets/upload.png");
     }
   };
 
@@ -109,8 +140,8 @@ const AddItem = ({ addText = "Add Order" }) => {
       // onFileChange(updatedFiles);
       return updatedFiles;
     });
-    
-    //setFirstImage("./assets/upload.png");
+    // setSelectedFiles([]);
+    // setFirstImage("./assets/upload.png");
   };
 
   function getBase64(file: File) {
@@ -123,6 +154,14 @@ const AddItem = ({ addText = "Add Order" }) => {
 
   return (
     <>
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={true}
+        newestOnTop={true}
+        rtl={false}
+        theme="colored"
+      />
       <div className="bg-primary-1">
         <Modal opened={opened} onClose={close} size="auto" p={0} title="">
           <div className="px-10 bg-primary-1">

@@ -3,15 +3,19 @@ import Image from "next/image";
 import Img from "@/public/assets/upload.png";
 import Link from "next/link";
 
-
+interface imageResponse {
+  id: number;
+  image: string;
+  product: number;
+}
 interface Product {
   id: number;
   name: string;
-  image: string;
   rating: string;
   numReviews: number;
   price: number;
   brand: string;
+  images: imageResponse[];
 }
 
 interface ItemsCardProps {
@@ -28,7 +32,7 @@ const ItemsCard: React.FC<ItemsCardProps> = ({ product }) => {
       >
         <div className="relative">
           <Image
-            src={product?.image || Img}
+            src={product?.images[0].image || Img}
             className="w-full h-[170px] rounded-t-xl object-cover"
             width={100}
             height={100}

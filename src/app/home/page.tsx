@@ -212,8 +212,10 @@ const HomePage = () => {
                         className="border cursor-pointer border-primary-1 rounded-[30px] w-[200px] h-[290px] flex-col shadow-xl"
                       >
                         <div className="w-[200px] flex flex-col">
-                          <img
-                            src={product.image}
+                          <Image
+                            src={product.images[0].image}
+                            width={100}
+                            height={100}
                             alt="product-image"
                             className="w-[99%] h-[220px] object-cover rounded-t-[30px]"
                           />

@@ -5,15 +5,6 @@ import { AxiosError } from "axios";
 
 export type TCreatePayload = { name: string; uploaded_images: File[]; brand: string; description: string; category: string; price: string; countinStock: string; };
 
-interface iDataResponse {
-    name: string;
-    image: string | File;
-    brand: string;
-    description: string;
-    category: string;
-    price: string;
-    countinStock: string;
-}
 
 const useCreateProduct = () => {
   const mutation = useMutation({
@@ -30,12 +21,12 @@ const useCreateProduct = () => {
   const { mutate, isError, isSuccess, isPending, error, data } = mutation;
 
   return {
-    Add: mutate,
+    addProduct: mutate,
     isLoading: isPending,
     isError,
     isSuccess,
     error: error as AxiosError,
-    data: data as iDataResponse,
+    // data: data as iDataResponse,
   };
 };
 

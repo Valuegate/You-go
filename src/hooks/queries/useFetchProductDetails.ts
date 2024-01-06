@@ -2,6 +2,12 @@ import { fetcher } from "@/public/lib/fetcher";
 import { PRODUCTDETAILS_ROUTES } from "@/public/services/routes";
 import { useQuery } from "@tanstack/react-query";
 
+
+interface imageResponse {
+  id: number;
+  image: string;
+  product: number;
+}
 interface iProductsDetailsResponse {
   name: string;
   images: imageResponse[];
@@ -18,9 +24,9 @@ interface iProductsDetailsResponse {
 }
 
 interface imageResponse {
-  id: string | number;
+  id: number;
   image: string;
-  product: string | number;
+  product: number;
 }
 
 

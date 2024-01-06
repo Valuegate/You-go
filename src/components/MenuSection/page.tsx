@@ -11,9 +11,15 @@ import Background from "@/public/assets/Trimmed-Home.png";
 
 import axios from "axios";
 
+
+interface imageResponse {
+  id: number;
+  image: string;
+  product: number;
+}
 interface productResponse {
   name: string;
-  image: string;
+  images: imageResponse[];
   brand: string;
   category: string;
   description: string;
@@ -35,6 +41,7 @@ const MenuSection = () => {
   const { data: products, isLoading } = useFetchProduct();
   const [isSearching, setSearching] = useState<boolean>(false);
   const [hasSearch, setHasSearch] = useState<boolean>(false);
+  const [searchValue, setSearchValue] = useState("");
   const [searchedProducts, setSearchedProducts] = useState<iProductResponse>({
     products: [],
     pages: 0,
@@ -78,14 +85,18 @@ const MenuSection = () => {
     }
   };
 
-  const handleOnTextChange = (_: any) => {
-    let searchParameter = (
-      document.getElementById("searchField") as HTMLInputElement
-    ).value;
+  // const handleOnTextChange = (_: any) => {
+  //   let searchParameter = (
+  //     document.getElementById("searchField") as HTMLInputElement
+  //   ).value;
 
-    if (searchParameter.trim().length === 0) {
-      onSearch();
-    }
+  //   if (searchParameter.trim().length === 0) {
+  //     onSearch();
+  //   }
+  // };
+
+  const handleOnTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(event.target.value);
   };
 
   function search(keyword, page = 0) {
@@ -130,6 +141,7 @@ const MenuSection = () => {
             type="search"
             onKeyDown={handleKeyDown}
             placeholder="Search Product"
+            value={searchValue}
             onChange={handleOnTextChange}
             className="w-full md:w-[695px] h-[50px] px-4 pl-10 round text-[16px] leading-8 font-normal placeholder-color focus:outline-none"
           />
@@ -187,7 +199,7 @@ const MenuSection = () => {
                   </p>
                 </div>
 
-                {!hasSearch && products.products.length === 0 && (
+                {!hasSearch && products && products.products.length === 0 && (
                   <div className="w-full h-[65vh] sm:h-[50vh] flex items-center justify-center">
                     <p className="font-bold sm:text-base text-lg text-light-black-5 mb-2 sm:hidden">
                       There are no items in the shop at the moment
@@ -213,7 +225,8 @@ const MenuSection = () => {
                 </div>
 
                 <div className="w-full flex flex-wrap flex-row justify-start gap-10">
-                  {hasSearch && searchedProducts.products.length > 0 &&
+                  {hasSearch &&
+                    searchedProducts.products.length > 0 &&
                     searchedProducts.products.map((product, i) => {
                       return <ItemsCard key={product.id} product={product} />;
                     })}
@@ -223,13 +236,23 @@ const MenuSection = () => {
                   className={`w-full flex justify-center items-center mt-8 
                 ${
                   (hasSearch && searchedProducts.products.length === 0) ||
-                  (!hasSearch && products.products.length === 0) &&
-                  "hidden"
+                  (!hasSearch &&
+                    products &&
+                    products.products.length === 0 &&
+                    "hidden")
                 }`}
                 >
                   <Pagination
-                    total={hasSearch ? searchedProducts.pages : products.pages}
-                    value={hasSearch ? searchedProducts.page : products.page}
+                    total={
+                      hasSearch
+                        ? searchedProducts?.pages ?? 0
+                        : products?.pages ?? 0
+                    }
+                    value={
+                      hasSearch
+                        ? searchedProducts?.page ?? 1
+                        : products?.page ?? 1
+                    }
                     onChange={(page) => onSearch(page)}
                   />
                 </div>
