@@ -209,7 +209,7 @@ const HomePage = () => {
                           elevation: 2.0,
                         }}
                         key={i}
-                        className="border cursor-pointer border-primary-1 rounded-[30px] w-[200px] h-[290px] flex-col shadow-xl"
+                        className="border cursor-pointer border-primary-1 rounded-[30px] w-[200px] h-[320px] flex-col shadow-xl"
                       >
                         <div className="w-[200px] flex flex-col">
                           <Image

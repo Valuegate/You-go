@@ -127,7 +127,7 @@ const Profile = () => {
                 <p className="text-light-black-3 text-xl font-medium">
                   Products
                 </p>
-                <div className="mt-10 sm:mt-0 grid grid-cols-3 gap-5 sm:flex sm:flex-col sm:mb-20">
+                <div className="mt-10 sm:mt-0 grid grid-cols-3 gap-5 sm:flex sm:flex-col sm:mb-20 overflow-y-scroll scrollbar-custom h-[75vh] sm:h-auto">
                   {products !== null &&
                   products !== undefined &&
                   products.length > 0 ? (

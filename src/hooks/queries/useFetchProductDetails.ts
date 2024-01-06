@@ -22,6 +22,14 @@ interface iProductsDetailsResponse {
   user: number | null;
   id: number;
 }
+
+interface imageResponse {
+  id: number;
+  image: string;
+  product: number;
+}
+
+
 const useFetchProductDetails = ({ id }: { id: number }) => {
   const { isLoading, data, isError, isSuccess } = useQuery({
     queryKey: ["fetch-productdetails", id],

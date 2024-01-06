@@ -22,11 +22,19 @@ interface imageResponse {
   id: number;
 };
 
+
+interface imageResponse {
+  id: number;
+  image: string;
+  product: number;
+};
+
+
 interface iProductResponse {
   products: productResponse[],
   pages: number,
   page: number,
-}
+};
 
 
 const useFetchProduct = () => {

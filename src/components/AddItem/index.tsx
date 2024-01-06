@@ -11,6 +11,9 @@ import useCreateProduct, {
 import { BsTrash } from "react-icons/bs";
 import Upload from "@/public/assets/upload.png";
 
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+
 const AddItem = ({ addText = "Add Order" }) => {
   const [opened, setOpened] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
@@ -24,10 +27,7 @@ const AddItem = ({ addText = "Add Order" }) => {
   const router = useRouter();
   const [credentials, setCredentials] = useState<TCreatePayload>({
     name: "",
-    images: "",
-    // uploaded_images: {
-    //   image: [],
-    // },
+    uploaded_images: [],
     brand: "",
     description: "",
     category: "",
@@ -52,6 +52,39 @@ const AddItem = ({ addText = "Add Order" }) => {
       router.push("/shop");
     }
   }, [isSuccess, router]);
+
+  function tryUpload() {
+    var formData = new FormData();
+
+    formData.append("name", credentials.name);
+    formData.append("brand", credentials.brand);
+    formData.append("description", credentials.description);
+    formData.append("category", credentials.category);
+    formData.append("price", credentials.price);
+    formData.append("countinStock", credentials.countinStock);
+    for (let i = 0; i < selectedFiles.length; i++) {
+      formData.append("uploaded_images", selectedFiles[i]);
+    }
+
+    let token = window.localStorage.getItem("userToken");
+
+    axios({
+      method: "POST",
+      url: `https://web-production-b1c8.up.railway.app/api/products/create/`,
+      data: formData,
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => {
+        toast.success("Your product was created");
+        window.location.replace("/shop");
+      })
+      .catch((err) => {
+        toast.error(err);
+      });
+  }
 
   const handleAdd = () => {
     // Clear previous validation errors
@@ -81,16 +114,7 @@ const AddItem = ({ addText = "Add Order" }) => {
     setErrorMsg(""); // Clear previous error message
 
     if (selectedFiles.length > 0) {
-      console.log("SELECTED FILES", selectedFiles)
-      const files = selectedFiles[0];
-      //  console.log("UPLOADING FILES", files);
-      addProduct({ ...credentials, images: files });
-      
-      // addProduct({ ...credentials, uploaded_images: {
-      //   image: selectedFiles
-      // } });
-    } else {
-      addProduct(credentials);
+      tryUpload();
     }
   };
 
@@ -100,7 +124,7 @@ const AddItem = ({ addText = "Add Order" }) => {
     if (files && files.length > 0) {
       const newFiles: File[] = Array.from(files);
       setSelectedFiles((prevFiles) => [...prevFiles, ...newFiles]);
-      console.log("NEW FILES", newFiles)
+      console.log("NEW FILES", newFiles);
       getBase64(newFiles[0])
         .then((resp) => setFirstImage(resp))
         .catch((err) => setFirstImage("./assets/upload.png"));
@@ -130,6 +154,14 @@ const AddItem = ({ addText = "Add Order" }) => {
 
   return (
     <>
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={true}
+        newestOnTop={true}
+        rtl={false}
+        theme="colored"
+      />
       <div className="bg-primary-1">
         <Modal opened={opened} onClose={close} size="auto" p={0} title="">
           <div className="px-10 bg-primary-1">
@@ -206,29 +238,6 @@ const AddItem = ({ addText = "Add Order" }) => {
                 className="placeholder-italic mt-1 p-2 border-none bg-white-1 outline-none rounded w-full"
               />
             </div>
-
-            {/* <div className="mb-4">
-              <label
-                htmlFor="category"
-                className="block text-sm font-medium text-light-black-8"
-              >
-                Category:
-              </label>
-              <div className="w-full">
-                <select
-                  id="category"
-                  name="category"
-                  className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full outline-none"
-                >
-                  <option>Select a category</option>
-                  <option className="hover:bg-primary bg-white-2" value="man">
-                    Man
-                  </option>
-                  <option value="woman">Woman</option>
-                </select>
-              </div>
-            </div> */}
-
             <div className="mb-4">
               <label
                 htmlFor="category"
