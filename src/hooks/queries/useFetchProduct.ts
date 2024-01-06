@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 
   interface productResponse {
   name: string;
-  image: string;
+  images: imageResponse[];
   brand: string;
   category: string;
   description: string;
@@ -16,11 +16,19 @@ import { useQuery } from "@tanstack/react-query";
   id: number;
 };
 
+
+interface imageResponse {
+  id: string | number;
+  image: string;
+  product: string | number;
+};
+
+
 interface iProductResponse {
   products: productResponse[],
   pages: number,
   page: number,
-}
+};
 
 
 const useFetchProduct = () => {

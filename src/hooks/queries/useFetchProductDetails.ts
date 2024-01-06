@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 
 interface iProductsDetailsResponse {
   name: string;
-  image: string;
+  images: imageResponse[];
   brand: string;
   category: string;
   description: string;
@@ -16,6 +16,14 @@ interface iProductsDetailsResponse {
   user: number | null;
   id: number;
 }
+
+interface imageResponse {
+  id: string | number;
+  image: string;
+  product: string | number;
+}
+
+
 const useFetchProductDetails = ({ id }: { id: number }) => {
   const { isLoading, data, isError, isSuccess } = useQuery({
     queryKey: ["fetch-productdetails", id],

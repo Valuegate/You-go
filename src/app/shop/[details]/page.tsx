@@ -116,7 +116,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
           <div className="mt-8 flex sm:flex-col flex-row gap-10">
             <div className="sm:w-full w-[70%]">
               <img
-                src={product.image}
+                src={product.images[0].image}
                 alt={""}
                 className="object-cover w-full h-[450px]"
               />

@@ -21,10 +21,12 @@ const AddItem = ({ addText = "Add Order" }) => {
     [key: string]: string;
   }>({});
 
+
+
   const router = useRouter();
   const [credentials, setCredentials] = useState<TCreatePayload>({
     name: "",
-    image: "",
+    uploaded_images: [],
     brand: "",
     description: "",
     category: "",
@@ -78,9 +80,9 @@ const AddItem = ({ addText = "Add Order" }) => {
     setErrorMsg(""); // Clear previous error message
 
     if (selectedFiles.length > 0) {
-      const file = selectedFiles[0];
+      //const file = selectedFiles[0];
       //  console.log(file);
-      Add({ ...credentials, image: file });
+      Add({ ...credentials, uploaded_images: selectedFiles });
     } else {
       Add(credentials);
     }
@@ -101,14 +103,14 @@ const AddItem = ({ addText = "Add Order" }) => {
   };
 
   const handleDeleteFile = (index: number) => {
-    // setSelectedFiles((prevFiles) => {
-    //   const updatedFiles = [...prevFiles];
-    //   updatedFiles.splice(index, 1);
-    //   // onFileChange(updatedFiles);
-    //   return updatedFiles;
-    // });
-    setSelectedFiles([]);
-    setFirstImage("./assets/upload.png");
+    setSelectedFiles((prevFiles) => {
+      const updatedFiles = [...prevFiles];
+      updatedFiles.splice(index, 1);
+      // onFileChange(updatedFiles);
+      return updatedFiles;
+    });
+    
+    //setFirstImage("./assets/upload.png");
   };
 
   function getBase64(file: File) {
@@ -197,29 +199,6 @@ const AddItem = ({ addText = "Add Order" }) => {
                 className="placeholder-italic mt-1 p-2 border-none bg-white-1 outline-none rounded w-full"
               />
             </div>
-
-            {/* <div className="mb-4">
-              <label
-                htmlFor="category"
-                className="block text-sm font-medium text-light-black-8"
-              >
-                Category:
-              </label>
-              <div className="w-full">
-                <select
-                  id="category"
-                  name="category"
-                  className="placeholder-italic mt-1 p-2 border-none bg-white-1 rounded w-full outline-none"
-                >
-                  <option>Select a category</option>
-                  <option className="hover:bg-primary bg-white-2" value="man">
-                    Man
-                  </option>
-                  <option value="woman">Woman</option>
-                </select>
-              </div>
-            </div> */}
-
             <div className="mb-4">
               <label
                 htmlFor="category"
