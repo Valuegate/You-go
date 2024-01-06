@@ -24,7 +24,10 @@ const AddItem = ({ addText = "Add Order" }) => {
   const router = useRouter();
   const [credentials, setCredentials] = useState<TCreatePayload>({
     name: "",
-    uploaded_images: [],
+    images: "",
+    // uploaded_images: {
+    //   image: [],
+    // },
     brand: "",
     description: "",
     category: "",
@@ -33,7 +36,7 @@ const AddItem = ({ addText = "Add Order" }) => {
   });
   const [errorMsg, setErrorMsg] = useState<string>("");
 
-  const { isError, isLoading, isSuccess, addProduct, error, data } =
+  const { isError, isLoading, isSuccess, addProduct, error } =
     useCreateProduct();
 
   useEffect(() => {
@@ -78,9 +81,14 @@ const AddItem = ({ addText = "Add Order" }) => {
     setErrorMsg(""); // Clear previous error message
 
     if (selectedFiles.length > 0) {
+      console.log("SELECTED FILES", selectedFiles)
       const files = selectedFiles[0];
       //  console.log("UPLOADING FILES", files);
-      addProduct({ ...credentials, uploaded_images: files });
+      addProduct({ ...credentials, images: files });
+      
+      // addProduct({ ...credentials, uploaded_images: {
+      //   image: selectedFiles
+      // } });
     } else {
       addProduct(credentials);
     }
@@ -92,6 +100,7 @@ const AddItem = ({ addText = "Add Order" }) => {
     if (files && files.length > 0) {
       const newFiles: File[] = Array.from(files);
       setSelectedFiles((prevFiles) => [...prevFiles, ...newFiles]);
+      console.log("NEW FILES", newFiles)
       getBase64(newFiles[0])
         .then((resp) => setFirstImage(resp))
         .catch((err) => setFirstImage("./assets/upload.png"));
