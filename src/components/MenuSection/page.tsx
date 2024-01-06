@@ -3,14 +3,10 @@ import React, { useState, useEffect } from "react";
 import ItemsCard from "../ItemsCard/page";
 import useFetchProduct from "@/public/hooks/queries/useFetchProduct";
 import { Loader, Pagination } from "@mantine/core";
-
 import arrow from "@/public/assets/arrow-right.png";
 import Image from "next/image";
-
 import Background from "@/public/assets/Trimmed-Home.png";
-
 import axios from "axios";
-
 
 interface imageResponse {
   id: number;
@@ -84,16 +80,6 @@ const MenuSection = () => {
       onSearch();
     }
   };
-
-  // const handleOnTextChange = (_: any) => {
-  //   let searchParameter = (
-  //     document.getElementById("searchField") as HTMLInputElement
-  //   ).value;
-
-  //   if (searchParameter.trim().length === 0) {
-  //     onSearch();
-  //   }
-  // };
 
   const handleOnTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);

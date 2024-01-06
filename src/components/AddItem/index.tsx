@@ -1,9 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { ChangeEvent, useEffect, useState } from "react";
-import Outlined from "@/public/assets/Plus_Outlined.svg";
 import { Button, Modal, Select } from "@mantine/core";
-import FileUpload from "../FileUpload";
 import { useRouter } from "next/navigation";
 import useCreateProduct, {
   TCreatePayload,
@@ -111,7 +109,7 @@ const AddItem = ({ addText = "Add Order" }) => {
       return;
     }
 
-    setErrorMsg(""); // Clear previous error message
+    setErrorMsg("");
 
     if (selectedFiles.length > 0) {
       tryUpload();
@@ -140,8 +138,6 @@ const AddItem = ({ addText = "Add Order" }) => {
       // onFileChange(updatedFiles);
       return updatedFiles;
     });
-    // setSelectedFiles([]);
-    // setFirstImage("./assets/upload.png");
   };
 
   function getBase64(file: File) {

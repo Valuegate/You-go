@@ -38,17 +38,9 @@ const ItemsCard: React.FC<ItemsCardProps> = ({ product }) => {
             height={100}
             alt={product?.name ? `${product.name} image` : "Product image"}
           />
-          {/* <div className="w-[30px] h-[30px] rounded-full bg-primary-1 flex justify-center items-center absolute right-4 top-4 cursor-pointer">
-            <LoveIcon color="black" width="15px" height="15px" />
-          </div> */}
         </div>
         <div className="flex flex-col justify-center items-start pl-4 pt-2">
           <p className="text-lg font-bold">{product?.name ?? "N/A"}</p>
-          {/* <div className="flex gap-1 items-center">
-            <Image src={product?.rating ?? 'https://'} alt="rating icon" width={100} height={100}/>
-            <p className="mr-1">{product?.rating ?? "0"}</p>
-            <p className="mr-1">{product?.numReviews ?? "0"}</p>
-          </div> */}
           <div className="flex gap-1 items-center justify-start">
             <p className="text-primary text-[14px] font-medium ">€</p>
             <p className="font-bold text-primary">{product?.price ?? "0.0"}</p>
