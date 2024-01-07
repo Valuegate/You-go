@@ -120,11 +120,6 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
           <div className="mt-8 flex sm:flex-col flex-row gap-10">
           <div className="flex flex-col gap-4 sm:w-full w-[70%]">
             <div className="w-full">
-              {/* <img
-                src={product.image}
-                alt={""}
-                className="object-cover w-full h-[450px]"
-              /> */}
 
               {Array.isArray(product.images) && product.images.length > 0 ? (
                 <Carousel showThumbs={false} selectedItem={selectPicture}>
