@@ -1,8 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Form, Formik } from "formik";
-import PasswordInput from "@/public/components/PasswordInput/PasswordInput";
-import NavBar from "@/public/components/NavBar/page";
 import Image from "next/image";
 import Link from "next/link";
 import FlexImg from "@/public/assets/Rectangle22.png";
@@ -29,6 +27,7 @@ const SignUp = () => {
   const [errorMsg, setErrorMsg] = useState<string>("");
 
   const [confirm, setConfirm] = useState<string>("");
+  const [termsAgreed, setTermsAgreed] = useState(false);
 
   const { isError, isLoading, isSuccess, Signup, error, data } =
     useUserRegister();
@@ -51,6 +50,11 @@ const SignUp = () => {
   }
 
   const handleSignup = () => {
+    if (!termsAgreed) {
+      toast.error("Please agree to the terms and conditions.");
+      return;
+    }
+
     if (credentials.password !== confirm) {
       toast.error("The passwords do not match");
       return;
@@ -229,14 +233,20 @@ const SignUp = () => {
                       type="checkbox"
                       id="remember"
                       className="custom mr-2 text-green w-4 h-4"
+                      checked={termsAgreed}
+                      onChange={() => setTermsAgreed(!termsAgreed)}
                     />
-                    Agree to our terms and conditions
+                    Agree to our{" "}
+                    <Link href={"/termsandconditions"} className="text-primary ml-1 underline">
+                      terms and conditions
+                    </Link>
                   </label>
                   <div className="mt-4">
                     <button
                       type="submit"
                       onClick={handleSignup}
                       className="flex sm:w-full justify-center items-center hover:bg-darkBrownGradient hover:text-weirdBrown gap-2 shadow-2xl sm:shadow-xl bg-weirdBrown font-medium rounded-[25px] h-[50px] w-[70%] text-white"
+                     
                     >
                       {isLoading ? "Wait a minute....." : "Register"}
                     </button>
@@ -266,30 +276,6 @@ const SignUp = () => {
           />
         </div>
       </div>
-
-      {/* <div className="w-full absolute bottom-0 right-0 left-0 h-[40px] bg-black px-4 lg:px-24 lg:fixed"> */}
-      {/* <div className="w-full absolute bottom-0 right-0 lg:left-0 h-[80px] lg:h-[40px] bg-black px-4 lg:px-24">
-          <div className="block text-center lg:flex lg:justify-between items-center pt-3">
-            <p className="paragraph text-[10px] lg:text-[12px] text-primary-1">
-              Copyright 2023. All right reserved
-            </p>
-            <div className="flex items-center justify-center mt-3 lg:mt-0 gap-4">
-              <Link
-                href={""}
-                className="paragraph text-[10px] lg:text-[12px] text-primary-1"
-              >
-                Terms & Conditions
-              </Link>
-              <Link
-                href={""}
-                className="paragraph text-[10px] lg:text-[12px] text-primary-1"
-              >
-                Privacy Policy
-              </Link>
-            </div>
-          </div>
-        </div> */}
-      {/* </div> */}
     </>
   );
 };

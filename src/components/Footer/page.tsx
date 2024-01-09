@@ -93,13 +93,13 @@ const Footer = ({transparent = false}) => {
           </p>
           <div className="flex gap-4 sm:mt-5 sm:justify-between sm:mb-10">
             <Link
-              href={""}
+              href={"/termsandconditions"}
               className="paragraph text-purpleBrown text-xs md:text-lg"
             >
               Terms & Conditions
             </Link>
             <Link
-              href={""}
+              href={"/privacy-policy"}
               className="paragraph text-purpleBrown text-xs md:text-lg"
             >
               Privacy Policy
