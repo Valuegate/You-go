@@ -15,6 +15,7 @@ import Fancy from "@/public/assets/Rectangle 138.svg";
 import useFetchProduct from "@/public/hooks/queries/useFetchProduct";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import CookieConsent from "@/public/components/Cookie/Cookie";
 
 const HomePage = () => {
   const { data: products, isLoading } = useFetchProduct();
@@ -134,6 +135,15 @@ const HomePage = () => {
               alt=""
               className="absolute -left-[150px] sm:-left-[200px] sm:-top-10 -z-10 top-0 w-[300px] h-[300px]"
             />
+
+            {/* <CookieConsent
+              acceptCookie={() => {
+                console.log("Accepting Cookie");
+              }}
+              declineCookie={() => {
+                console.log("Declining Cookie");
+              }}
+            /> */}
 
             <p className="text-lg text-light-black-4 font-semibold mb-2">
               WHY US?

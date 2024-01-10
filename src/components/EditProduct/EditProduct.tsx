@@ -8,19 +8,19 @@ import useEditProduct, {
   TEditProductPayload,
 } from "@/public/hooks/queries/useEditProduct";
 import { BsTrash } from "react-icons/bs";
-import useEditProductImage, {
-  TEditProductImage,
-} from "@/public/hooks/queries/useEditProductImage";
 
 import { ToastContainer, toast } from "react-toastify";
-
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "react-toastify/dist/ReactToastify.css";
+
+import axios from "axios";
 
 const EditProduct = ({ product, refresh }) => {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [image, setImage] = useState<string>("");
+  const [loading, isLoading] = useState<boolean>(false);
   const [selectedImage, setSelectedImage] = useState<any>("");
-  const [isFirst, setFirst] = useState<boolean>(true);
   const [validationErrors, setValidationErrors] = useState<{
     [key: string]: string;
   }>({});
@@ -33,29 +33,49 @@ const EditProduct = ({ product, refresh }) => {
     price: "",
     countinStock: "",
     id: "",
+    uploaded_images: [],
   });
 
-  const [imageCredentials, setImageCredentials] = useState<TEditProductImage>({
-    product_id: "",
-    image: null,
-  });
+  function tryEdit() {
+    var formData = new FormData();
+
+    formData.append("name", credentials.name);
+    formData.append("brand", credentials.brand);
+    formData.append("description", credentials.description);
+    formData.append("category", credentials.category);
+    formData.append("price", credentials.price);
+    formData.append("countinStock", credentials.countinStock);
+
+    for (let i = 0; i < selectedFiles.length; i++) {
+      formData.append("uploaded_images", selectedFiles[i]);
+    }
+
+    let token = window.localStorage.getItem("userToken");
+
+    axios({
+      method: "PUT",
+      url: `https://web-production-b1c8.up.railway.app/api/products/edit/${credentials.id}/`,
+      data: formData,
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => {
+        toast.success("Your product was edited");
+        isLoading(false);
+        refresh();
+      })
+      .catch((err) => {
+        toast.error("An error occurred while trying to edit your product.");
+        isLoading(false);
+      });
+  }
 
   const [errorMsg, setErrorMsg] = useState<string>("");
 
-  const { isError, isLoading, isSuccess, Edit } = useEditProduct({
-    product: credentials,
-  });
-
-  const {
-    data,
-    Upload,
-    isError: deleteStatus,
-  } = useEditProductImage({
-    product: imageCredentials,
-  });
-
   useEffect(() => {
-    if (isFirst && product !== null && product !== undefined) {
+    if (product !== null && product !== undefined) {
       setCredentials({
         name: product.name,
         brand: product.brand,
@@ -64,31 +84,15 @@ const EditProduct = ({ product, refresh }) => {
         price: `${Math.trunc(product.price)}`,
         countinStock: product.countinStock,
         id: product.id,
+        uploaded_images: [],
       });
       setImage(product.image);
-      setImageCredentials({
-        product_id: product.id,
-        image: null,
-      });
-      setFirst(false);
     }
-
-    if (isError || deleteStatus) {
-      setErrorMsg(
-        "An error occurred during creating product. Please try again."
-      );
-      toast.error("An error occurred while trying to edit your product.");
-    } else if (isSuccess) {
-      toast.success('Product edited successfully');
-      refresh();
-    }
-  }, [isError, deleteStatus, isSuccess, product, isFirst, refresh]);
+  }, []);
 
   const handleAdd = () => {
-    // Clear previous validation errors
     setValidationErrors({});
-
-    // Validate numeric input for price and stock
+    isLoading(true);
     if (!/^\d+$/.test(credentials.price)) {
       setValidationErrors((prevErrors) => ({
         ...prevErrors,
@@ -103,21 +107,13 @@ const EditProduct = ({ product, refresh }) => {
       }));
     }
 
-    // Check if there are any validation errors
     if (Object.keys(validationErrors).length > 0) {
-      // Stop further processing if there are errors
+      isLoading(false);
       return;
     }
 
-    setErrorMsg(""); // Clear previous error message
-
-    if (selectedFiles.length > 0) {
-      const file = selectedFiles[0];
-      setImageCredentials({ ...imageCredentials, image: file });
-      Upload();
-    }
-
-    Edit();
+    setErrorMsg("");
+    tryEdit();
   };
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -147,19 +143,29 @@ const EditProduct = ({ product, refresh }) => {
     });
   }
 
-  
-
   return (
-    <div className="px-10 bg-primary-1">
-      <div className="flex flex-col gap-2 ">
-        <p className="font-bold my-2">Old Picture</p>
-        <img
-          src={image}
-          alt={""}
-          className="mr-2 h-[300px] w-[600px] object-cover"
-        />
+    <div className="px-10 py-5 bg-primary-1">
+      <p
+        className={`font-medium text-xl mt-6 ${
+          selectedFiles.length > 0 && "hidden"
+        }`}
+      >
+        Current Images
+      </p>
+      <div className={`w-[600px] ${selectedFiles.length > 0 && "hidden"}`}>
+        <Carousel showThumbs={false}>
+          {product.images.map((image, index) => (
+            <div key={index}>
+              <img
+                src={image.image}
+                alt={`Product ${product.name}`}
+                className="object-cover h-[300px] w-[400px] "
+              />
+            </div>
+          ))}
+        </Carousel>
       </div>
-
+      <p className="font-medium text-xl mt-6">Selected Images</p>
       <div className="my-6">
         {selectedFiles.length > 0 ? (
           <img
@@ -300,8 +306,6 @@ const EditProduct = ({ product, refresh }) => {
           className={`placeholder-italic mt-1 p-2 border-none bg-white-1 outline-none rounded w-full ${
             validationErrors.price ? "border-red-500" : ""
           }`}
-
-          // className="placeholder-italic mt-1 p-2 border-none bg-white-1 outline-none rounded w-full"
         />
         {validationErrors.price && (
           <p className="text-primary text-sm">{validationErrors.price}</p>
@@ -368,7 +372,7 @@ const EditProduct = ({ product, refresh }) => {
           onClick={handleAdd}
           className="bg-gradient-to-r from-primary-1 to-primary round h-12 typo flex gap-3 items-center justify-center shadow-xl text-white shake-on-hover"
         >
-          {isLoading ? "Wait a minute....." : "Edit Product"}
+          {loading ? "Wait a minute....." : "Edit Product"}
         </Button>
       </div>
     </div>
