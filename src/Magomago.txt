@@ -1,3 +1,4 @@
 Search Functionality in Shop page
 Get User in Shop Details page
 Delete Product in Profile page
+Edit Product in Profile Page
