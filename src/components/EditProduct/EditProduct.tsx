@@ -153,7 +153,7 @@ const EditProduct = ({ product, refresh }) => {
     <div className="px-10 bg-primary-1">
       <div className="flex flex-col gap-2 ">
         <p className="font-bold my-2">Old Picture</p>
-        <img
+        <Image
           src={image}
           alt={""}
           className="mr-2 h-[300px] w-[600px] object-cover"
@@ -162,7 +162,7 @@ const EditProduct = ({ product, refresh }) => {
 
       <div className="my-6">
         {selectedFiles.length > 0 ? (
-          <img
+          <Image
             src={selectedImage}
             alt={""}
             className="mr-2 h-[300px] w-[600px] object-cover"

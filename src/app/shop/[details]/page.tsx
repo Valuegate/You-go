@@ -125,7 +125,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                 <Carousel showThumbs={false} selectedItem={selectPicture}>
                   {product.images.map((image, index) => (
                     <div key={index}>
-                      <img
+                      <Image
                         src={image.image}
                         alt={`Product ${product.name}`}
                         className="object-cover w-full h-[450px]"
@@ -140,7 +140,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
             <div className="flex justify-evenly w-full">
             {product.images.map((image, index) => (
                     <div key={index} onClick={()=>setSelectPicture(index)}>
-                      <img
+                      <Image
                         src={image.image}
                         alt={`Product ${product.name}`}
                         className="object-cover sm:w-[50px] sm:h-[50px] w-[100px] h-[100px]"
