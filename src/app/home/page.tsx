@@ -136,15 +136,6 @@ const HomePage = () => {
               className="absolute -left-[150px] sm:-left-[200px] sm:-top-10 -z-10 top-0 w-[300px] h-[300px]"
             />
 
-            {/* <CookieConsent
-              acceptCookie={() => {
-                console.log("Accepting Cookie");
-              }}
-              declineCookie={() => {
-                console.log("Declining Cookie");
-              }}
-            /> */}
-
             <p className="text-lg text-light-black-4 font-semibold mb-2">
               WHY US?
             </p>
