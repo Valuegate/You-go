@@ -53,16 +53,16 @@ const TermsAndConditionsPage = () => {
         </p>
         <p>
           These Terms & Conditions are a contract between you and You Go Crafts
-          (referred to in these Terms & Conditions as "You Go Crafts", "us",
-          "we" or "our"), the provider of the You Go Crafts website and the
+          (referred to in these Terms & Conditions as &quot;`You Go Crafts&quot;`, &quot;`us&quot;`,
+          &quot;`we&quot;` or &quot;`our&quot;`), the provider of the You Go Crafts website and the
           services accessible from the You Go Crafts website (which are
-          collectively referred to in these Terms & Conditions as the "You Go
-          Crafts Service").
+          collectively referred to in these Terms & Conditions as the &quot;`You Go
+          Crafts Service&quot;`).
         </p>
         <p>
           You are agreeing to be bound by these Terms & Conditions. If you do
           not agree to these Terms & Conditions, please do not use the You Go
-          Crafts Service. In these Terms & Conditions, "you" refers both to you
+          Crafts Service. In these Terms & Conditions, &quot;`you&quot;` refers both to you
           as an individual and to the entity you represent. If you violate any
           of these Terms & Conditions, we reserve the right to cancel your
           account or block access to your account without notice.
@@ -107,7 +107,7 @@ const TermsAndConditionsPage = () => {
             content or whose products or services we think may interest you.
           </li>
           <li>
-            Website: You Go Crafts's site, which can be accessed via this URL:
+            Website: You Go Crafts&apos;s site, which can be accessed via this URL:
             https://www.yougo-crafts.store/
           </li>
           <li>
@@ -146,18 +146,18 @@ const TermsAndConditionsPage = () => {
           apply to transactions at You Go Crafts. We’ll be as brief as our
           attorneys will allow. The main thing to remember is that by placing an
           order or making a purchase at You Go Crafts, you agree to the terms
-          along with You Go Crafts's Privacy Policy.
+          along with You Go Crafts&apos;s Privacy Policy.
         </p>
         <p>
           If, for any reason, You are not completely satisfied with any good or
-          service that we provide, don't hesitate to contact us and we will
+          service that we provide, don&apos;t hesitate to contact us and we will
           discuss any of the issues you are going through with our product.
         </p>
 
         <h1 className="text-xl text-primary my-4">Your Suggestions</h1>
         <p>
           Any feedback, comments, ideas, improvements or suggestions
-          (collectively, "Suggestions") provided by you to You Go Crafts with
+          (collectively, &quot;`Suggestions&quot;`) provided by you to You Go Crafts with
           respect to the website shall remain the sole and exclusive property of
           You Go Crafts.
         </p>
@@ -169,9 +169,9 @@ const TermsAndConditionsPage = () => {
 
         <h1 className="text-xl text-primary my-4">Your Consent</h1>
         <p>
-          We've updated our Terms & Conditions to provide you with complete
+          We&apos;ve updated our Terms & Conditions to provide you with complete
           transparency into what is being set when you visit our site and how
-          it's being used. By using our website, registering an account, or
+          it&apos;s being used. By using our website, registering an account, or
           making a purchase, you hereby consent to our Terms & Conditions.
         </p>
 
@@ -192,7 +192,7 @@ const TermsAndConditionsPage = () => {
 
         <h1 className="text-xl text-primary my-4">Cookies</h1>
         <p>
-          You Go Crafts uses "Cookies" to identify the areas of our website that
+          You Go Crafts uses &quot;Cookies&quot; to identify the areas of our website that
           you have visited. A Cookie is a small piece of data stored on your
           computer or mobile device by your web browser. We use Cookies to
           enhance the performance and functionality of our website but are
@@ -236,7 +236,7 @@ const TermsAndConditionsPage = () => {
           You Go Crafts may from time to time provide enhancements or
           improvements to the features/ functionality of the website, which may
           include patches, bug fixes, updates, upgrades and other modifications
-          ("Updates").
+          (&quot;Updates&quot;).
         </p>
         <p>
           Updates may modify or delete certain features and/or functionalities
@@ -255,7 +255,7 @@ const TermsAndConditionsPage = () => {
           We may display, include or make available third-party content
           (including data, information, applications and other products
           services) or provide links to third-party websites or services
-          ("Third- Party Services").
+          (&quot;Third- Party Services&quot;).
         </p>
         <p>
           You acknowledge and agree that You Go Crafts shall not be responsible
@@ -268,7 +268,7 @@ const TermsAndConditionsPage = () => {
         <p>
           Third-Party Services and links thereto are provided solely as a
           convenience to you and you access and use them entirely at your own
-          risk and subject to such third parties' terms and conditions.
+          risk and subject to such third parties&apos; terms and conditions.
         </p>
 
         <h1 className="text-xl text-primary my-4">Term and Termination</h1>
@@ -292,7 +292,7 @@ const TermsAndConditionsPage = () => {
           website and delete all copies of the website from your computer.
         </p>
         <p>
-          Termination of this Agreement will not limit any of You Go Crafts's
+          Termination of this Agreement will not limit any of You Go Crafts&apos;s
           rights or remedies at law or in equity in case of breach by you
           (during the term of this Agreement) of any of your obligations under
           the present Agreement.
@@ -319,14 +319,14 @@ const TermsAndConditionsPage = () => {
           You agree to indemnify and hold You Go Crafts and its parents,
           subsidiaries, affiliates, officers, employees, agents, partners and
           licensors (if any) harmless from any claim or demand, including
-          reasonable attorneys' fees, due to or arising out of your: (a) use of
+          reasonable attorneys&apos; fees, due to or arising out of your: (a) use of
           the website; (b) violation of this Agreement or any law or regulation;
           or (c) violation of any right of a third party.
         </p>
 
         <h1 className="text-xl text-primary my-4">No Warranties</h1>
         <p>
-          The website is provided to you "AS IS" and "AS AVAILABLE" and with all
+          The website is provided to you &quot;AS IS&quot; and &quot;AS AVAILABLE&quot; and with all
           faults and defects without warranty of any kind. To the maximum extent
           permitted under applicable law, You Go Crafts, on its own behalf and
           on behalf of its affiliates and its and their respective licensors and
@@ -345,7 +345,7 @@ const TermsAndConditionsPage = () => {
         </p>
         <p>
           Without limiting the foregoing, neither You Go Crafts nor any You Go
-          Crafts's provider makes any representation or warranty of any kind,
+          Crafts&apos;s provider makes any representation or warranty of any kind,
           express or implied: (i) as to the operation or availability of the
           website, or the information, content, and materials or products
           included thereon; (ii) that the website will be uninterrupted or
@@ -405,7 +405,7 @@ const TermsAndConditionsPage = () => {
           shall not affect the validity of the remaining provisions of this
           Agreement, which shall remain in full force and effect. No waiver of
           any term of this Agreement shall be deemed a further or continuing
-          waiver of such term or any other term, and You Go Crafts's failure to
+          waiver of such term or any other term, and You Go Crafts&apos;s failure to
           assert any right or provision under this Agreement shall not
           constitute a waiver of such right or provision. YOU AND You Go Crafts
           AGREE THAT ANY CAUSE OF ACTION ARISING OUT OF OR RELATED TO THE
@@ -417,7 +417,7 @@ const TermsAndConditionsPage = () => {
         <p>
           Except as provided herein, the failure to exercise a right or to
           require performance of an obligation under this Agreement shall not
-          effect a party's ability to exercise such right or require such
+          effect a party&apos;s ability to exercise such right or require such
           performance at any time thereafter nor shall be the waiver of a breach
           constitute waiver of any subsequent breach.
         </p>
@@ -435,7 +435,7 @@ const TermsAndConditionsPage = () => {
         <p>
           You Go Crafts reserves the right, at its sole discretion, to modify or
           replace this Agreement at any time. If a revision is material we will
-          provide at least 30 days' notice prior to any new terms taking effect.
+          provide at least 30 days&apos; notice prior to any new terms taking effect.
           What constitutes a material change will be determined at our sole
           discretion.
         </p>
@@ -455,7 +455,7 @@ const TermsAndConditionsPage = () => {
         </p>
         <p>
           You may be subject to additional terms and conditions that apply when
-          you use or purchase other You Go Crafts's services, which You Go
+          you use or purchase other You Go Crafts&apos;s services, which You Go
           Crafts will provide to you at the time of such use or purchase.
         </p>
 
@@ -491,7 +491,7 @@ const TermsAndConditionsPage = () => {
         <p>
           This section applies to any dispute EXCEPT IT DOESN’T INCLUDE A
           DISPUTE RELATING TO CLAIMS FOR INJUNCTIVE OR EQUITABLE RELIEF
-          REGARDING THE ENFORCEMENT OR VALIDITY OF YOUR OR You Go Crafts's
+          REGARDING THE ENFORCEMENT OR VALIDITY OF YOUR OR You Go Crafts&apos;s
           INTELLECTUAL PROPERTY RIGHTS. The term “dispute” means any dispute,
           action, or other controversy between you and You Go Crafts concerning
           the Services or this agreement, whether in contract, warranty, tort,
@@ -628,8 +628,8 @@ const TermsAndConditionsPage = () => {
           at any time without prior notice.
         </p>
         <p>
-          The You Go Crafts Service and its contents are provided "as is" and
-          "as available" without any warranty or representations of any kind,
+          The You Go Crafts Service and its contents are provided &quot;as is&quot; and
+          &quot;as available&quot; without any warranty or representations of any kind,
           whether express or implied. You Go Crafts is a distributor and not a
           publisher of the content supplied by third parties; as such, You Go
           Crafts exercises no editorial control over such content and makes no
@@ -651,7 +651,7 @@ const TermsAndConditionsPage = () => {
           uncorrupted, timely, or error-free.
         </p>
         <h1 className="text-xl text-primary my-4">Contact Us</h1>
-        <p>Don't hesitate to contact us if you have any questions.</p>
+        <p>Don&apos;t hesitate to contact us if you have any questions.</p>
         <ul>
           <li>
             Via Email:{" "}

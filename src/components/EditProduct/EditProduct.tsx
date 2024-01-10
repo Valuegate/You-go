@@ -168,7 +168,7 @@ const EditProduct = ({ product, refresh }) => {
       <p className="font-medium text-xl mt-6">Selected Images</p>
       <div className="my-6">
         {selectedFiles.length > 0 ? (
-          <img
+          <Image
             src={selectedImage}
             alt={""}
             className="mr-2 h-[300px] w-[600px] object-cover"
