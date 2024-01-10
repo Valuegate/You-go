@@ -15,6 +15,7 @@ import Fancy from "@/public/assets/Rectangle 138.svg";
 import useFetchProduct from "@/public/hooks/queries/useFetchProduct";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import CookieConsent from "@/public/components/Cookie/Cookie";
 
 const HomePage = () => {
   const { data: products, isLoading } = useFetchProduct();

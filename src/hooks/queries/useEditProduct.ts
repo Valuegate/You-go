@@ -11,7 +11,8 @@ export type TEditProductPayload = {
     category: string,
     price: string,
     countinStock: string,
-    id: string
+    id: string,
+    uploaded_images: File[]
 }
 
 interface iEditPayload {

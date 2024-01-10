@@ -16,7 +16,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 import axios from "axios";
 
-
 const Profile = () => {
   const { data: user, isLoading, isSuccess } = useFetchUsersProfile();
   const { data: products } = useFetchSellerProduct();
@@ -135,7 +134,7 @@ const Profile = () => {
                       return (
                         <div
                           key={product.id}
-                          className="bg-white rounded-xl sm:w-full"
+                          className="bg-white rounded-xl sm:w-full h-[350px]"
                         >
                           <div className="relative">
                             <Image

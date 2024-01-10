@@ -1,7 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -18,12 +18,12 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   overflow-x: hidden;
 }
 
 .round {
-  border-radius: 8px;;
+  border-radius: 8px;
 }
 
 .typo {
@@ -43,27 +43,27 @@ body {
 }
 
 .bg-custom-image {
-  background-image: url('../assets/Rectangle17.png');
+  background-image: url("../assets/Rectangle17.png");
   background-size: cover;
 }
 
 .bg-tracking-image {
-  background-image: url('../assets/Rectangle96.png');
+  background-image: url("../assets/Rectangle96.png");
   background-size: cover;
 }
 
 .bg-help-image {
-  background-image: url('../assets/Rectangle92.png');
+  background-image: url("../assets/Rectangle92.png");
   background-size: cover;
 }
 
 .bg-profile-image {
-  background-image: url('../assets/Rectangle96(1).png');
+  background-image: url("../assets/Rectangle96(1).png");
   background-size: cover;
 }
 
 .placeholder-color::placeholder {
-  color: #A8A8A8;
+  color: #a8a8a8;
 }
 
 label {
@@ -76,7 +76,6 @@ label {
   outline: none;
   border: none;
 } */
-
 
 .scrollbar-custom {
   scrollbar-width: none;
@@ -95,7 +94,6 @@ label {
   background-color: transparent;
 }
 
-
 .placeholder-italic::placeholder {
   padding-left: 8px;
   font-size: 16px;
@@ -113,7 +111,7 @@ input.custom {
   box-shadow: 0px 1px 3px 1px #e4e4e4;
 }
 input.customs {
-  accent-color: #D4145A;
+  accent-color: #d4145a;
 }
 
 .shake-on-hover:hover {
@@ -121,13 +119,16 @@ input.customs {
 }
 
 @keyframes shake {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(0);
   }
-  20%, 60% {
+  20%,
+  60% {
     transform: translateX(-10px);
   }
-  40%, 80% {
+  40%,
+  80% {
     transform: translateX(10px);
   }
 }
