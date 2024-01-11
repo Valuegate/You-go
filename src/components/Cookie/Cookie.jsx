@@ -11,7 +11,8 @@ const CookieConsentBanner = ({ handleAccept }) => {
       style={{ background: "#333", color: "#fff" }}
     >
       We use cookies to understand how you use the product and help us improve
-      it. Please accept cookies to help us improve.
+      it. Please accept cookies to help us improve. To know more, you can also
+      read our privacy policies and terms and conditions.
     </CookieConsent>
   );
 };
