@@ -2,12 +2,6 @@
 import Image from "next/image";
 import React, { FC, useState } from "react";
 
-// interface iNotificationCard {
-//   image: string,
-//   title: string,
-//   content: string,
-// }
-
 const NotificationCard = ({
   image = "",
   title = "",

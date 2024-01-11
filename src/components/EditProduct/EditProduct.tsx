@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect, ChangeEvent } from "react";
-
 import Image from "next/image";
 import UploadImage from "@/public/assets/upload.png";
 import { Button, Select } from "@mantine/core";
@@ -8,12 +7,10 @@ import useEditProduct, {
   TEditProductPayload,
 } from "@/public/hooks/queries/useEditProduct";
 import { BsTrash } from "react-icons/bs";
-
 import { ToastContainer, toast } from "react-toastify";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "react-toastify/dist/ReactToastify.css";
-
 import axios from "axios";
 
 const EditProduct = ({ product, refresh }) => {
@@ -156,7 +153,7 @@ const EditProduct = ({ product, refresh }) => {
         <Carousel showThumbs={false}>
           {product.images.map((image, index) => (
             <div key={index}>
-              <img
+              <Image
                 src={image.image}
                 alt={`Product ${product.name}`}
                 className="object-cover h-[300px] w-[400px] "

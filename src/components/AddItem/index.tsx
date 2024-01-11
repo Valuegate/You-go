@@ -169,7 +169,7 @@ const AddItem = ({ addText = "Add Order" }) => {
               {/* <FileUpload onFileChange={handleFileChange} /> */}
 
               {selectedFiles.length > 0 ? (
-                <img
+                <Image
                   src={firstImage}
                   alt={""}
                   className="mr-2 h-[300px] w-[600px] object-cover"
