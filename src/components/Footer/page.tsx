@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import logo from "@/public/assets/you_go_logo.png";
 import Image from "next/image";
+import CoFounded from "@/public/assets/europe_symbol.webp"
 import { FaLinkedinIn, FaTwitter, FaFacebookF } from "react-icons/fa";
 import { BiLogoInstagramAlt } from "react-icons/bi";
 import Link from "next/link";
@@ -36,6 +37,15 @@ const Footer = ({transparent = false}) => {
 
   return (
     <>
+    <div className="flex sm:gap-4 flex-row sm:flex-col bg-primary text-white items-center px-8 sm:px-2 py-4">
+      <div className="w-[65%] sm:w-full">
+        <h2 className="sm:text-justify">Funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither the European Union nor EACEA can be held responsible for them.</h2>
+      </div>
+      <div className="w-[35%] sm:w-full">
+        <Image src={CoFounded} alt={""} />
+      </div>
+    </div>
+
       <div className={`${transparent ? "bg-[#FFFFFFFF00]" : "bg-white"} w-full px-6 md:px-24 flex justify-between items-center `}>
         <div className="flex flex-col">
           <p className="text-4xl sm:text-2xl text-weirdBrown font-medium">
