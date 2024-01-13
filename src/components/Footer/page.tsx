@@ -4,14 +4,8 @@ import React, { useState, useEffect } from "react";
 import logo from "@/public/assets/you_go_logo.png";
 import Image from "next/image";
 import CoFounded from "@/public/assets/europe_symbol.webp"
-import { FaLinkedinIn, FaTwitter, FaFacebookF } from "react-icons/fa";
-import { BiLogoInstagramAlt } from "react-icons/bi";
 import Link from "next/link";
 
-import Insta from "@/public/assets/Vector-2.svg";
-import FB from "@/public/assets/Vector-3.svg";
-import Twitter from "@/public/assets/Group_1.svg";
-import YT from "@/public/assets/Group.svg";
 
 const Footer = ({transparent = false}) => {
   const instaUrl = "";
