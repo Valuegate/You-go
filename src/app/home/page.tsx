@@ -16,48 +16,52 @@ import useFetchProduct from "@/public/hooks/queries/useFetchProduct";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import CookieConsent from "@/public/components/Cookie/Cookie";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "@/public/components/LanguageSwitcher/LanguageSwitcher";
 
 const HomePage = () => {
+  const { t } = useTranslation();
   const { data: products, isLoading } = useFetchProduct();
 
   const reasons = [
     {
-      title: "Money Saving",
+      title: t('moneySaving'),
       content:
-        "We offer great deals and discounts on a regular basis, so you can save your money while still looking and feeling great.",
+      t('moneySavingContent'),
       image: Money,
     },
     {
-      title: "Secure Shopping",
+      title: t('secureShopping'),
       content:
-        "We take extra measures to ensure that your shopping experience with us is secure and worry-free.",
+      t('secureShoppingContent'),
       image: Security,
     },
     {
-      title: "Fast Delivery",
+      title: t('fastDelivery'),
       content:
-        "We provide fast and reliable delivery options to get your products to you in no time.",
+      t('fastDeliveryContent'),
       image: Car,
     },
     {
-      title: "User friendly",
+      title: t('userFriendly'),
       content:
-        "Our easy-to-navigate interface makes finding your favorite products or making purchases a breeze.",
+      t('userFriendlyCOntent'),
       image: User,
     },
   ];
 
   return (
     <>
+    {/* <LanguageSwitcher /> */}
       <NavBar showSearch={false} />
-      <div className="overflow-y-scroll h-screen md:h-[87vh]">
+      <div className="overflow-y-scroll h-screen md:h-[83vh]">
         <div className="px-6 md:px-24">
           <div className="flex flex-col-reverse sm:flex-col md:flex-row mt-16 sm:mt-8">
             <div className="flex-1">
               <div className="mt-8 w-[35vw] sm:w-full">
                 <div className="flex flex-col">
                   <h1 className="text-[20px] sm:text-[24px] text-start md:text-[32px] leading-[26px] md:leading-[62px] text-light-black-4 font-medium w-full">
-                    Join the shopping{" "}
+                  {t('joinShoppingRevolution')}
                   </h1>
                   <motion.span
                     animate={{
@@ -70,22 +74,17 @@ const HomePage = () => {
                     }}
                     className="text-weirdBrown text-center text-7xl sm:text-4xl font-extrabold"
                   >
-                    REVOLUTION
+                    {t('revolutions')}
                   </motion.span>
                   <h1 className="text-[20px] sm:text-[24px] text-end md:text-[32px] leading-[26px] md:leading-[62px] text-light-black-4 font-medium w-full">
-                    with YouGo!
+                  {t('withYouGo')}
                   </h1>
                 </div>
                 <p className="text-base sm:text-center text-light-black-3 font-normal mt-4">
-                  We believe that every woman deserves to feel confident,
-                  stylish and empowered. That&apos;s why we offer a wide range
-                  of products that cater to different tastes, preferences and
-                  budgets.
+                {t('confidence')}
                 </p>
                 <p className="text-base sm:text-center text-light-black-3 font-normal mt-4">
-                  Whether you&apos;re looking for trendy clothing, comfortable
-                  shoes, stylish accessories, or beauty products that will help
-                  you look and feel your best, we&apos;ve got your covered.
+                {t('lookAndFeelBest')}
                 </p>
                 <div className="mt-6 sm:mt-10">
                   <motion.button
@@ -102,7 +101,7 @@ const HomePage = () => {
                     className="flex sm:w-full justify-center items-center hover:bg-darkBrownGradient hover:text-weirdBrown gap-2 shadow-2xl sm:shadow-xl bg-weirdBrown font-medium rounded-[25px] h-[50px] px-10 text-white"
                   >
                     <HiShoppingCart className="w-[20px] h-[20px]" />
-                    Shop Now!
+                    {t('shopNow')}
                   </motion.button>
                 </div>
               </div>
@@ -193,7 +192,7 @@ const HomePage = () => {
             </h2>
             {isLoading && (
               <div className="flex text-primary h-32 mt-20 justify-center items-center gap-2">
-                <p className="text-lg">Loading</p>
+                <p className="text-lg">{t('loading')}</p>
                 <Loader color="#d4145a" />
               </div>
             )}
@@ -234,43 +233,6 @@ const HomePage = () => {
               </div>
             )}
           </div>
-
-          {/* <div className="flex sm:flex-col justify-around sm:px-[5%] items-center md:flex-row gap-12 sm:mt-24 mb-24 mt-40 w-full px-12">
-            <div className="md:mt-28 flex flex-col items-end w-[50%] sm:w-full">
-              <p className="text-base md:text-xl text-light-black-4 font-medium mt-3">
-                &quot;I&apos;ve been shopping with{" "}
-                <span className="text-primary-1">YouGo</span> for over a year
-                now, and I must say it&apos;s been a fantastic experience. The
-                quality of the products is top-notch, and they offer a wide
-                range of styles that cater to my diverse fashion preferences.
-              </p>
-
-              <p className="text-base md:text-xl text-light-black-4 font-medium mt-3">
-                What truly sets <span className="text-primary-1">YouGo</span>{" "}
-                apart is their commitment to customer satisfaction. Quick
-                delivery, a secure shopping environment, and an easy-to-use
-                website make my shopping experience a delight.
-                <span className="text-primary-1">YouGo</span> has become my
-                go-to online store for style, savings, and reliability. Highly
-                recommended!&quot;
-              </p>
-
-              <p className="text-light-black-4 font-normal mt-3 text-lg">
-                Maria, 35
-              </p>
-            </div>
-            <motion.div
-              whileHover={{
-                scale: 1.2,
-              }}
-            >
-              <Image
-                src={Lady3}
-                alt={"testimonial"}
-                className="w-[300px] h-[400px] border-4 border-weirdBrown object-cover rounded-tl-[100px] rounded-br-[100px] "
-              />
-            </motion.div>
-          </div> */}
         </div>
         <div className="mt-24 mb-24 w-full bg-gradient-to-r from-lightBrownGradient to-deepBrownGradient sm:h-32  h-52 px-12 py-6 flex justify-center items-center">
           <p className="font-extrabold sm:text-2xl sm:px-0 text-6xl text-weirdBrown px-32">

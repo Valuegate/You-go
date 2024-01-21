@@ -6,6 +6,7 @@ const AboutUsPage = () => {
   return (
     <>
       <NavBar showSearch={false} />
+      <div>
 
         <p className="sm:text-center sm:text-2xl text-4xl text-weirdBrown font-bold mt-20 mb-10 px-[10%]">
             About Us
@@ -51,6 +52,7 @@ const AboutUsPage = () => {
         Thank you for choosing YouGo Crafts. We look forward to being your go-to
         destination for all things craft-related.
       </p>
+      </div>
       <Footer />
     </>
   );

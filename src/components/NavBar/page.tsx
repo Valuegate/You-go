@@ -4,6 +4,7 @@ import Logo from "../Logo/page";
 import Link from "next/link";
 import { FaBarsStaggered, FaChevronRight } from "react-icons/fa6";
 import { BiX } from "react-icons/bi";
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 
 const NavBar = ({ showSearch = true, transparent = false }) => {
   const [open, setOpen] = useState<boolean>(false);
@@ -32,6 +33,7 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
 
   return (
     <>
+    <LanguageSwitcher />
       <div
         className={`h-[10vh] sm:h-[8vh] flex items-center ${
           transparent ? "bg-[#FFFFFFFF00]" : "bg-white"

@@ -8,6 +8,8 @@ import { Roboto } from "next/font/google";
 import Providers from "./providers";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import CookieConsentBanner from "../components/Cookie/Cookie";
+import { I18nextProvider, useTranslation } from 'react-i18next';
+import i18n from "@/public/i18n";
 
 const inter = Roboto({
   subsets: ["latin"],
@@ -27,6 +29,7 @@ export default function RootLayout({
     title: "YouGo",
     description: "Join the shopping revolution",
   };
+  const { t } = useTranslation();
 
   const [showConsent, setShowConsent] = useState(true);
 
@@ -40,8 +43,9 @@ export default function RootLayout({
   };
 
   return (
+    <I18nextProvider i18n={i18n}>
     <QueryClientProvider client={queryClient}>
-      <html lang="en">
+      <html lang={i18n.language}>
         <link rel="icon" href="./icon.ico" type="image/x-icon" />
         <body className={inter.className}>
           {/* <Providers>{children}</Providers> */}
@@ -50,5 +54,6 @@ export default function RootLayout({
         </body>
       </html>
     </QueryClientProvider>
+    </I18nextProvider>
   );
 }
