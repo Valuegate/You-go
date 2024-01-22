@@ -45,7 +45,7 @@ const HomePage = () => {
     {
       title: t('userFriendly'),
       content:
-      t('userFriendlyCOntent'),
+      t('userFriendlyContent'),
       image: User,
     },
   ];
@@ -136,20 +136,17 @@ const HomePage = () => {
             />
 
             <p className="text-lg text-light-black-4 font-semibold mb-2">
-              WHY US?
+            {t('whyUsTitle')}
             </p>
             <div className="bg-weirdBrown h-1 w-12 rounded-lg" />
             <h2 className="text-[30px] md:text-[40px] leading-[40px] md:leading-[60px] mt-2 text-weirdBrown font-bold text-center">
-              Quality & Style
+              {t('qualityStyleTitle')}
             </h2>
             <p className="text-base text-light-black-3 font-normal mt-2 sm:mt-4 w-full md:w-[49%] text-center">
-              Welcome to YouGo, where quality and style come together to bring
-              you the best shopping experience possible.
+            {t('welcomeText')}
             </p>
             <p className="text-base text-light-black-3 font-normal mt-2 w-full md:w-[49%] text-center">
-              We take great pride in curating a collection of fashion and
-              lifestyle products that are not only stylish but also of the
-              highest quality.
+              {t('prideText')}
             </p>
           </div>
 
@@ -184,11 +181,11 @@ const HomePage = () => {
 
           <div className="w-full flex-col items-center flex mt-24 relative">
             <p className="text-lg text-light-black-4 font-semibold mb-2">
-              INTERESTED IN MORE?
+            {t('interestedInMore')}
             </p>
             <div className="bg-weirdBrown h-1 w-12 rounded-lg" />
             <h2 className="text-[30px] md:text-[40px] leading-[40px] md:leading-[60px] mt-2 text-weirdBrown font-bold text-center">
-              Our Products
+            {t('ourProducts')}
             </h2>
             {isLoading && (
               <div className="flex text-primary h-32 mt-20 justify-center items-center gap-2">
@@ -236,7 +233,7 @@ const HomePage = () => {
         </div>
         <div className="mt-24 mb-24 w-full bg-gradient-to-r from-lightBrownGradient to-deepBrownGradient sm:h-32  h-52 px-12 py-6 flex justify-center items-center">
           <p className="font-extrabold sm:text-2xl sm:px-0 text-6xl text-weirdBrown px-32">
-            Trusted by 100,000+ customers all over the world
+          {t('trustedByCustomers')}
           </p>
         </div>
         <Footer />

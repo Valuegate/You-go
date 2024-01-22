@@ -5,8 +5,10 @@ import Link from "next/link";
 import { FaBarsStaggered, FaChevronRight } from "react-icons/fa6";
 import { BiX } from "react-icons/bi";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 const NavBar = ({ showSearch = true, transparent = false }) => {
+  const { t } = useTranslation();
   const [open, setOpen] = useState<boolean>(false);
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
   const [isSeller, setSeller] = useState<string>("");
@@ -56,26 +58,26 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
         </div>
         <div className="hidden md:flex md:items-center lg:flex lg:items-center justify-between w-2/5">
           <Link href={"/home"}>
-            <h5 className="text-weirdBrown text-[20px] font-normal">Home</h5>
+            <h5 className="text-weirdBrown text-[20px] font-normal">{t('home')}</h5>
           </Link>
           {loggedIn && (isSeller === "buyer" || isSeller.length === 0) && (
             <Link href={"whysell"}>
-              <h5 className="text-weirdBrown text-[20px] font-normal">Sell</h5>
+              <h5 className="text-weirdBrown text-[20px] font-normal">{t('sell')}</h5>
             </Link>
           )}
           <Link href={"/shop"}>
-            <h5 className="text-weirdBrown text-[20px] font-normal">Shop</h5>
+            <h5 className="text-weirdBrown text-[20px] font-normal">{t('shop')}</h5>
           </Link>
           {loggedIn && isSeller === "seller" && (
             <Link href={"/whysell"}>
               <h5 className="text-weirdBrown text-[20px] font-normal">
-                Add Product
+              {t('addProduct')}
               </h5>
             </Link>
           )}
           <Link href={"/about-us"}>
             <h5 className="text-weirdBrown text-[20px] font-normal">
-              About Us
+            {t('aboutUs')}
             </h5>
           </Link>
 
@@ -89,7 +91,7 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
           ) : (
             <Link href={"/login"}>
               <h5 className=" text-white hover:text-weirdBrown hover:bg-darkBrownGradient bg-weirdBrown px-4 py-2 rounded-lg text-[20px] font-normal">
-                Login
+              {t('login')}
               </h5>
             </Link>
           )}
@@ -128,15 +130,16 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
             href={"/home"}
             className="text-weirdBrown w-full py-2 rounded-xl text-[20px] font-normal flex justify-between items-center"
           >
-            Home
+            {t('home')}
             <FaChevronRight size={"16px"} fill={"#000000"} />
           </Link>
+
           {loggedIn && (isSeller === "buyer" || isSeller.length === 0) && (
             <Link
               href={"/whysell"}
               className="text-weirdBrown w-full py-2 rounded-xl text-[20px] font-normal flex justify-between items-center"
             >
-              Sell On YouGo
+              {t('SellOnYouGo')}
               <FaChevronRight size={"16px"} fill={"#000000"} />
             </Link>
           )}
@@ -144,7 +147,7 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
             href={"/shop"}
             className="text-weirdBrown w-full py-2 rounded-xl text-[20px] font-normal flex justify-between items-center"
           >
-            Shop
+            {t('shop')}
             <FaChevronRight size={"16px"} fill={"#000000"} />
           </Link>
           {loggedIn && isSeller === "seller" && (
@@ -152,14 +155,14 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
               href={"/whysell"}
               className="text-weirdBrown w-full py-2 rounded-xl text-[20px] font-normal flex justify-between items-center"
             >
-              Add Product
+              {t('addProduct')}
             </Link>
           )}
           <Link
             href={"/about-us"}
             className="text-weirdBrown w-full py-2 rounded-xl text-[20px] font-normal flex justify-between items-center"
           >
-            About Us
+            {t('aboutUs')}
             <FaChevronRight size={"16px"} fill={"#000000"} />
           </Link>
 
@@ -182,7 +185,7 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
         </div>
         <div>
           <p className=" mt-24 text-slate-950 text-base text-center font-normal leading-loose">
-            ©{new Date().getFullYear()} YouGo. All rights reserved.
+            ©{new Date().getFullYear()} <span>{t('allRightsReserved')}</span>
           </p>
         </div>
       </div>
