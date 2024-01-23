@@ -11,8 +11,10 @@ import Upload from "@/public/assets/upload.png";
 
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 const AddItem = ({ addText = "Add Order" }) => {
+  const { t } = useTranslation();
   const [opened, setOpened] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [firstImage, setFirstImage] = useState<any>("");
@@ -162,7 +164,7 @@ const AddItem = ({ addText = "Add Order" }) => {
         <Modal opened={opened} onClose={close} size="auto" p={0} title="">
           <div className="px-10 bg-primary-1">
             <h2 className="font-semibold text-base text-light-black-8 mb-3">
-              Add Image
+              {t('addImageTitle')}
             </h2>
 
             <div className="mb-6">
@@ -180,7 +182,7 @@ const AddItem = ({ addText = "Add Order" }) => {
                   className="cursor-pointer text-left bg-white-2 text-md mb-2 font-medium transition-all duration-300 opacity-100 md:w-[600px] border-2 border-dashed border-primary bg-gray-300 rounded-md h-[300px] flex items-center flex-col justify-center"
                 >
                   <Image src={Upload} alt={""} className="my-5" />
-                  Click to Select Image
+                  {t('selectImage')}
                 </label>
               )}
 
@@ -193,7 +195,7 @@ const AddItem = ({ addText = "Add Order" }) => {
               />
               {selectedFiles.length > 0 && (
                 <div className="mt-4">
-                  <p className="font-bold mb-2">Selected Files:</p>
+                  <p className="font-bold mb-2">{t('selectFiles')}</p>
                   <ul>
                     {selectedFiles.map((file, index) => (
                       <li
@@ -221,12 +223,12 @@ const AddItem = ({ addText = "Add Order" }) => {
                 htmlFor="product"
                 className="block text-sm font-medium text-light-black-8"
               >
-                Product Name:
+                {t('productNameLabel')}
               </label>
               <input
                 type="text"
                 id="product"
-                placeholder="Product Name"
+                placeholder={t('productNamePlaceholder')}
                 value={credentials.name}
                 onChange={(e) =>
                   setCredentials({ ...credentials, name: e.target.value })
@@ -239,21 +241,21 @@ const AddItem = ({ addText = "Add Order" }) => {
                 htmlFor="category"
                 className="block text-sm font-medium text-light-black-8"
               >
-                Category:
+                {t('categoryLabel')}
               </label>
               <div className="w-full">
                 <Select
-                  placeholder="Select Category"
+                  placeholder={t('selectCategoryPlaceholder')}
                   data={[
-                    "Handmade Goods",
-                    "Jewelry",
-                    "Home Decor",
-                    "Clothing",
-                    "Art",
-                    "Vintage Items",
-                    "Photography",
-                    "Cosmetics",
-                    "Toys",
+                    t("handmadeGoods"),
+                    t("jewelry"),
+                    t("homeDecor"),
+                    t("clothing"),
+                    t("art"),
+                    t("vintageItems"),
+                    t("photography"),
+                    t("cosmetics"),
+                    t("toys"),
                   ]}
                   value={credentials.category}
                   onChange={(e) => {
@@ -270,13 +272,13 @@ const AddItem = ({ addText = "Add Order" }) => {
                 htmlFor="brand"
                 className="block text-sm font-medium text-light-black-8"
               >
-                Brand:
+                {t('brandLabel')}
               </label>
               <div className="w-full">
                 <input
                   type="text"
                   id="brand"
-                  placeholder="Brand Name"
+                  placeholder={t('brandNamePlaceholder')}
                   value={credentials.brand}
                   onChange={(e) =>
                     setCredentials({ ...credentials, brand: e.target.value })
@@ -291,12 +293,12 @@ const AddItem = ({ addText = "Add Order" }) => {
                 htmlFor="price"
                 className="block text-sm font-medium text-light-black-8"
               >
-                Price:
+                {t('priceLabel')}
               </label>
               <input
                 type="text"
                 id="price"
-                placeholder="Add price"
+                placeholder={t('addPricePlaceholder')}
                 value={credentials.price}
                 onChange={(e) =>
                   setCredentials({ ...credentials, price: e.target.value })
@@ -319,12 +321,12 @@ const AddItem = ({ addText = "Add Order" }) => {
                 htmlFor="stock"
                 className="block text-sm font-medium text-light-black-8"
               >
-                Stock:
+                {t('stockLabel')}
               </label>
               <input
                 type="text"
                 id="stock"
-                placeholder="Add Stock"
+                placeholder={t('stockPlaceholder')}
                 value={credentials.countinStock}
                 onChange={(e) =>
                   setCredentials({
@@ -351,11 +353,11 @@ const AddItem = ({ addText = "Add Order" }) => {
                 htmlFor="description"
                 className="block text-sm font-medium text-light-black-8"
               >
-                Description:
+                {t('descriptionLabel')}
               </label>
 
               <textarea
-                placeholder="Product description goes in here"
+                placeholder={t('descriptionPlaceholder')}
                 id="description"
                 value={credentials.description}
                 onChange={(e) =>
@@ -374,7 +376,7 @@ const AddItem = ({ addText = "Add Order" }) => {
                 onClick={handleAdd}
                 className="bg-gradient-to-r from-primary-1 to-primary round h-12 typo flex gap-3 items-center justify-center shadow-xl text-white shake-on-hover"
               >
-                {isLoading ? "Wait a minute....." : "Publish Product"}
+                {isLoading ? t('waitAMinute') : t('publishProductButton')}
               </Button>
             </div>
           </div>

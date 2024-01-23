@@ -7,6 +7,7 @@ import arrow from "@/public/assets/arrow-right.png";
 import Image from "next/image";
 import Background from "@/public/assets/Trimmed-Home.png";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 interface imageResponse {
   id: number;
@@ -34,6 +35,7 @@ interface iProductResponse {
 }
 
 const MenuSection = () => {
+  const { t } = useTranslation();
   const { data: products, isLoading } = useFetchProduct();
   const [isSearching, setSearching] = useState<boolean>(false);
   const [hasSearch, setHasSearch] = useState<boolean>(false);
@@ -45,15 +47,15 @@ const MenuSection = () => {
   });
 
   const options = [
-    "Handmade Goods",
-    "Jewelry",
-    "Home Decor",
-    "Clothing",
-    "Art",
-    "Vintage Items",
-    "Photography",
-    "Cosmetics",
-    "Toys",
+    t('handmadeGoods'),
+    t('jewelry'),
+    t('homeDecor'),
+    t('clothing'),
+    t('art'),
+    t('vintageItems'),
+    t('photography'),
+    t('cosmetics'),
+    t('toys'),
   ];
 
   function onSearch(page = 0) {
@@ -119,14 +121,14 @@ const MenuSection = () => {
           className="w-[100%] object-cover h-[450px] absolute top-0 left-0"
         />
         <h2 className="font-bold text-xl md:text-4xl leading-normal text-white text-center z-10">
-          Welcome to YouGo Ecommerce
+        {t('welcomeToYouGo')}
         </h2>
         <div className="relative bg-gray-50 w-[50%] sm:w-[80%]">
           <input
             id="searchField"
             type="search"
             onKeyDown={handleKeyDown}
-            placeholder="Search Product"
+            placeholder={t('searchProduct')}
             value={searchValue}
             onChange={handleOnTextChange}
             className="w-full md:w-[695px] h-[50px] px-4 pl-10 round text-[16px] leading-8 font-normal placeholder-color focus:outline-none"
@@ -142,7 +144,7 @@ const MenuSection = () => {
       <div className="px-10 sm:px-5 w-[100%] mb-20">
         {isLoading || isSearching ? (
           <div className="flex text-primary justify-center items-center gap-2 mt-32">
-            <p className="text-lg">Loading</p>
+            <p className="text-lg">{t('loading')}</p>
             <Loader color="#d4145a" />
           </div>
         ) : (
@@ -150,14 +152,14 @@ const MenuSection = () => {
             <div className="sm:w-full w-[25%]">
               <div className="sm:flex sm:flex-col">
                 <h2 className="hidden sm:block text-2xl text-center font-bold text-slate-950">
-                  Categories
+                {t('categories')}
                 </h2>
                 <p className="font-bold sm:block hidden text-center text-lg text-light-black-5 mb-10">
-                  Find something that catches your eyes!
+                {t('findSomething')}
                 </p>
                 <div className="bg-weirdBrown  p-8 sm:p-0 flex flex-col rounded-xl sm:rounded-none sm:bg-[#00000000] sm:overflow-x-scroll sm:flex-row sm:scrollbar-custom sm:w-full sm:gap-5">
                   <h2 className="text-2xl font-bold text-white mb-4 sm:hidden">
-                    Categories
+                  {t('categories')}
                   </h2>
                   {options.map((option, i) => (
                     <button
@@ -181,14 +183,14 @@ const MenuSection = () => {
               <div className="">
                 <div className="">
                   <p className="font-bold sm:text-base text-lg text-light-black-5 mb-2 sm:hidden">
-                    Find something that catches your eyes!
+                  {t('findSomething')}
                   </p>
                 </div>
 
                 {!hasSearch && products && products.products.length === 0 && (
                   <div className="w-full h-[65vh] sm:h-[50vh] flex items-center justify-center">
                     <p className="font-bold sm:text-base text-lg text-light-black-5 mb-2 sm:hidden">
-                      There are no items in the shop at the moment
+                    {t('noItemsInShop')}
                     </p>
                   </div>
                 )}
@@ -196,7 +198,7 @@ const MenuSection = () => {
                 {hasSearch && searchedProducts.products.length === 0 && (
                   <div className="w-full h-[65vh] sm:h-[50vh] flex items-center justify-center">
                     <p className="font-bold sm:text-base text-lg text-light-black-5 mb-2 sm:hidden">
-                      There are no items that match your search input
+                    {t('noMatchedItems')}
                     </p>
                   </div>
                 )}

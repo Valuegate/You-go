@@ -12,8 +12,10 @@ import { Loader } from "@mantine/core";
 import axios from "axios";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { useTranslation } from "react-i18next";
 
 const ShopDetails = ({ params }: { params: { details: string } }) => {
+  const { t } = useTranslation();
   const [sellerLoading, setSellerLoading] = useState<boolean>(true);
   const [selectPicture, setSelectPicture] = useState<number>(0)
   const [seller, setSeller] = useState<any>();
@@ -115,7 +117,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
     <>
       <NavBar />
 
-      <div className="overflow-y-scroll sm:h-screen h-[87vh]">
+      <div className="overflow-y-scroll sm:h-screen h-[83vh]">
         <div className="sm:px-6 px-24 sm:mb-20">
           <div className="mt-8 flex sm:flex-col flex-row gap-10">
           <div className="flex flex-col gap-4 sm:w-full w-[70%]">
@@ -129,12 +131,14 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                         src={image.image}
                         alt={`Product ${product.name}`}
                         className="object-cover w-full h-[450px]"
+                        width={100}
+                        height={100}
                       />
                     </div>
                   ))}
                 </Carousel>
               ) : (
-                <p>No images available</p>
+                <p>{t('noImagesAvailable')}</p>
               )}
             </div>
             <div className="flex justify-evenly w-full">
@@ -144,6 +148,8 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                         src={image.image}
                         alt={`Product ${product.name}`}
                         className="object-cover sm:w-[50px] sm:h-[50px] w-[100px] h-[100px]"
+                        width={100}
+                        height={100}
                       />
                     </div>
                   ))}
@@ -167,12 +173,12 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                     target="__blank"
                     className="bg-gradient-to-r from-primary-1 to-primary round px-2 py-1 flex items-center justify-center shadow-xl text-white "
                   >
-                    CHAT WITH SELLER ON WHATSAPP
+                    {t('chatWithSellerOnWhatsApp')}
                   </Link>
                 </div>
                 <div className="border-primary-1 border-8 rounded-lg py-3 pl-3 flex flex-col">
                   <p className="text-[20px] font-bold text-slate-950">
-                    Contact Seller
+                  {t('contactSeller')}
                   </p>
                   <div className="flex gap-5 mt-3">
                     <Link
@@ -200,21 +206,20 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
 
                 <div className="border-primary-1 border-8 rounded-lg py-3 pl-3">
                   <h2 className="text-lg font-bold text-light-black-5">
-                    Safety Tips
+                  {t('safetyTips')}
                   </h2>
                   <div>
                     <li className="font-normal text-sm text-light-black-5">
-                      Remember, don&apos;t send any pre-payments
+                    {t('dontSendPrePayments')}
                     </li>
                     <li className="font-normal text-sm text-light-black-5">
-                      Meet the seller at a safe public place
+                    {t('meetSellerAtSafePlace')}
                     </li>
                     <li className="font-normal text-sm text-light-black-5">
-                      Inspect the goods to make sure they meet your needs
+                    {t('inspectGoods')}
                     </li>
                     <li className="font-normal text-sm text-light-black-5">
-                      Check all documentation and only pay if you&apos;re
-                      satisfied
+                    {t('checkDocumentation')}
                     </li>
                   </div>
                 </div>
@@ -232,7 +237,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                   <div className="flex items-center gap-2">
                     <StockIcon />
                     <h2 className="text-xl font-bold text-light-black-8">
-                      Stock:
+                    {t('stock')}
                     </h2>
                     <p className="text-xl font-normal text-primary">
                       {product.countinStock}
@@ -242,7 +247,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                   <div className="flex items-center gap-2">
                     <BrandIcon />
                     <h2 className="text-xl font-bold text-light-black-8">
-                      Brand:
+                    {t('brand')}
                     </h2>
                     <p className="text-xl font-normal text-primary">
                       {product.brand}
@@ -252,7 +257,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                   <div className="flex items-center gap-2">
                     <CalendarIcon />
                     <h2 className="text-xl font-bold text-light-black-8">
-                      Posted:
+                    {t('posted')}
                     </h2>
                     <p className="text-xl font-normal text-primary">
                       {convertDate(product.createdAt)}
@@ -263,7 +268,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                 <div className="flex items-center sm:flex-col sm:items-start sm:gap-2 gap-10 mt-4">
                   <div className="flex items-center gap-4">
                     <h2 className="text-light-black-4 font-normal text-xl">
-                      Product category:
+                    {t('productCategory')}
                     </h2>
                     <p className="text-xl font-normal text-primary">
                       {product.category}
@@ -274,7 +279,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
 
               <div className="border-primary-1 border-8 rounded-lg py-3 pl-3 mt-4">
                 <h2 className="text-lg font-bold text-light-black-5">
-                  Product description
+                {t('productDescription')}
                 </h2>
                 <div>
                   <p className="font-normal text-[16px] text-light-black-5 mt-5">

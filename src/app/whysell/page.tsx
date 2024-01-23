@@ -1,37 +1,38 @@
+"use client"
 import AddItem from "@/public/components/AddItem";
 import NavBar from "@/public/components/NavBar/page";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 const WhySell = () => {
+  const { t } = useTranslation();
   return (
     <>
       <NavBar />
       <div className="mt-20 sm:px-4 flex flex-col items-center">
         <h2 className="text-primary text-lg font-bold">
-          Why You Should Sell on YouGo
+          {t('whyYouGoTitle')}
         </h2>
         <div className="mt-3 flex flex-col justify-center">
           <h5 className="text-light-black-10 text-base font-medium">
-            YouGo offers:
+          {t('youGoOffers')}
           </h5>
           <li className="decoration-dotted text-light-black-7 text-sm font-normal">
-            A large and active community: Reach buyers who appreciate
-            handcrafted goods like yours.
+            {t('largeActiveCommunity')}
           </li>
           <li className="decoration-dotted text-light-black-7 text-sm font-normal">
-            Specialized category: Stand out from the crowd with dedicated
-            exposure for handmade clothing.
+          {t('specializedCategory')}
           </li>
-          <li className="decoration-dotted text-light-black-7 text-sm font-normal">Low fees: Keep more of your profits and grow your business</li>
-          <li className="decoration-dotted text-light-black-7 text-sm font-normal">Easy to use: List your items and manage your shop with ease.</li>
+          <li className="decoration-dotted text-light-black-7 text-sm font-normal">{t('lowFees')}</li>
+          <li className="decoration-dotted text-light-black-7 text-sm font-normal">{t('easyToUse')}</li>
           <h5 className="text-light-black-10 text-base font-medium">
-            Ready to start selling?{" "}
+          {t('readyToStartSelling')}
             {/* <Link href="./" className="text-primary">Sign up today!</Link>{" "} */}
           </h5>
         </div>
 
         <div className="mt-6">
-            <AddItem addText="Sell on YouGo" />
+            <AddItem addText={t('sellOnYouGo')} />
         </div>
       </div>
     </>
