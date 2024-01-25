@@ -11,12 +11,14 @@ import useFetchSellerProduct from "@/public/hooks/queries/useFetchSellerProducts
 import useDeleteProduct from "@/public/hooks/queries/useDeleteProduct";
 import EditProduct from "@/public/components/EditProduct/EditProduct";
 import { ToastContainer, toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 import "react-toastify/dist/ReactToastify.css";
 
 import axios from "axios";
 
 const Profile = () => {
+  const { t } = useTranslation();
   const { data: user, isLoading, isSuccess } = useFetchUsersProfile();
   const { data: products } = useFetchSellerProduct();
   const [opened, setOpened] = useState<boolean>(false);
@@ -103,7 +105,7 @@ const Profile = () => {
                       href={"/edit-profile"}
                       className="underline text-weirdBrown mt-4 mb-24"
                     >
-                      Edit your profile
+                      {t('editYourProfile')}
                     </Link>
 
                     <div
@@ -115,7 +117,7 @@ const Profile = () => {
                         window.location.replace("/");
                       }}
                     >
-                      Sign out
+                      {t('signOut')}
                       <MdLogout size={"20px"} />
                     </div>
                   </div>
@@ -124,7 +126,7 @@ const Profile = () => {
 
               <div className="w-[70%] sm:w-full h-auto flex flex-col px-10 sm:px-5 sm:mt-10">
                 <p className="text-light-black-3 text-xl font-medium">
-                  Products
+                {t('products')}
                 </p>
                 <div className="mt-10 sm:mt-0 grid grid-cols-3 gap-5 sm:flex sm:flex-col sm:mb-20 overflow-y-scroll scrollbar-custom h-[75vh] sm:h-auto">
                   {products !== null &&
@@ -157,10 +159,10 @@ const Profile = () => {
                                   {product.price ?? "0.0"}
                                 </p>
                               </div>
-                              <p>In Stock: {product.countinStock}</p>
+                              <p>{t('inStock')} {product.countinStock}</p>
                             </div>
                             <p className="text-xs text-light-black-4 font-medium">
-                              By{" "}
+                            {t('by')}
                               <span className="text-light-black-5 text-sm">
                                 {product.brand ?? "N/A"}
                               </span>
@@ -174,7 +176,7 @@ const Profile = () => {
                               }}
                               className="flex items-center gap-2 cursor-pointer"
                             >
-                              Edit
+                              {t('edit')}
                               <MdEdit size={20} />
                             </div>
                             <div
@@ -183,7 +185,7 @@ const Profile = () => {
                                 handleDelete(product.id);
                               }}
                             >
-                              Delete
+                              {t('delete')}
                               <MdDelete size={20} />
                             </div>
                           </div>
@@ -193,13 +195,13 @@ const Profile = () => {
                   ) : (
                     <div className="flex flex-col h-[70vh] justify-center items-center w-[60vw] sm:w-[90vw]">
                       <p className="text-light-black-4 text-xl">
-                        You do not have any products yet
+                      {t('noProducts')}
                       </p>
                       <Link
                         href={"/whysell"}
                         className="px-3 py-2 text-white bg-weirdBrown rounded-xl mt-5"
                       >
-                        Add Product
+                        {t('addProduct')}
                       </Link>
                     </div>
                   )}

@@ -12,8 +12,10 @@ import useUserUpdate, {
   TUpdatePayload,
 } from "@/public/hooks/mutations/useUserUpdate";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 const EditProfile = () => {
+  const { t } = useTranslation();
   const { data: user, isLoading, isSuccess } = useFetchUsersProfile();
   const [username, setUsername] = useState<string>("");
 
@@ -92,10 +94,10 @@ const EditProfile = () => {
             }}
             className="text-light-black-4 cursor-pointer"
           >
-            My Profile
+            {t('myProfile')}
           </p>
           <FaChevronRight fill={"#5A5F5C"} />
-          <p className="text-weirdBrown">Edit Profile</p>
+          <p className="text-weirdBrown">{t('editProfile')}</p>
         </div>
 
         {isLoading && (
@@ -118,12 +120,12 @@ const EditProfile = () => {
 
             <div className="flex flex-col sm:w-full w-[40%] justify-center">
               <label className="block font-normal mt-10 text-light-black-4">
-                Full Name
+              {t('fullName')}
               </label>
               <input
                 id="fullNameField"
                 type="text"
-                placeholder="Your Full name"
+                placeholder={t('yourFullName')}
                 value={credentials.full_name}
                 onChange={(e) =>
                   setCredentials({
@@ -135,12 +137,12 @@ const EditProfile = () => {
               />
 
               <label className="block font-normal mt-10 text-light-black-4">
-                Phone Number
+              {t('phoneNumber')}
               </label>
               <input
                 id="numberField"
                 type="text"
-                placeholder="Your Phone Number"
+                placeholder={t('yourPhoneNumber')}
                 value={credentials.phone_number}
                 onChange={(e) =>
                   setCredentials({
@@ -152,12 +154,12 @@ const EditProfile = () => {
               />
 
               <label className="block font-normal mt-10 text-light-black-4">
-                Email Address
+              {t('emailAddress')}
               </label>
               <input
                 id="emailField"
                 type="email"
-                placeholder="Your Email Address"
+                placeholder={t('yourEmailAddress')}
                 value={credentials.email}
                 onChange={(e) =>
                   setCredentials({
@@ -171,13 +173,13 @@ const EditProfile = () => {
 
             <div className="flex w-[40%] sm:w-full flex-col justify-center">
               <label className="block font-normal mt-10 text-light-black-4">
-                About
+              {t('about')}
               </label>
               <textarea
                 id="aboutField"
                 cols={30}
                 rows={5}
-                placeholder="Describe yourself"
+                placeholder={t('describeYourself')}
                 value={credentials.about_seller}
                 onChange={(e) =>
                   setCredentials({
@@ -192,7 +194,7 @@ const EditProfile = () => {
                 onClick={handleUpdate}
                 className="flex sm:w-full mt-10 w-[50%] justify-center items-center hover:bg-darkBrownGradient hover:text-weirdBrown gap-2 shadow-2xl sm:shadow-xl bg-weirdBrown font-medium rounded-[25px] h-[50px] px-6 text-white"
               >
-                Save Changes
+                {t('saveChanges')}
                 <FaChevronRight size={"25px"} />
               </motion.button>
             </div>
