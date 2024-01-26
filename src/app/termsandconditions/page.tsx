@@ -277,85 +277,31 @@ const TermsAndConditionsPage = () => {
         {t('bindingArbitrationSection')}
         </p>
 
-        <h1 className="text-xl text-primary my-4">Submissions and Privacy</h1>
+        <h1 className="text-xl text-primary my-4">{t('submissionsPrivacyTitle')}</h1>
         <p>
-          In the event that you submit or post any ideas, creative suggestions,
-          designs, photographs, information, advertisements, data or proposals,
-          including ideas for new or improved products, services, features,
-          technologies or promotions, you expressly agree that such submissions
-          will automatically be treated as non-confidential and non-proprietary
-          and will become the sole property of You Go Crafts without any
-          compensation or credit to you whatsoever. You Go Crafts and its
-          affiliates shall have no obligations with respect to such submissions
-          or posts and may use the ideas contained in such submissions or posts
-          for any purposes in any medium in perpetuity, including, but not
-          limited to, developing, manufacturing, and marketing products and
-          services using such ideas.
+        {t('submissionsPrivacyContent')}
         </p>
 
-        <h1 className="text-xl text-primary my-4">Promotions</h1>
+        <h1 className="text-xl text-primary my-4">{t('promotionsTitle')}</h1>
         <p>
-          You Go Crafts may, from time to time, include contests, promotions,
-          sweepstakes, or other activities (“Promotions”) that require you to
-          submit material or information concerning yourself. Please note that
-          all Promotions may be governed by separate rules that may contain
-          certain eligibility requirements, such as restrictions as to age and
-          geographic location. You are responsible to read all Promotions rules
-          to determine whether or not you are eligible to participate. If you
-          enter any Promotion, you agree to abide by and to comply with all
-          Promotions Rules.
-        </p>
-        <p>
-          Additional terms and conditions may apply to purchases of goods or
-          services on or through the Services, which terms and conditions are
-          made a part of this Agreement by this reference.
+          {t('promotionsContent')}
         </p>
 
-        <h1 className="text-xl text-primary my-4">Typographical Errors</h1>
+        <h1 className="text-xl text-primary my-4">{t('typographicalErrorsTitle')}</h1>
         <p>
-          In the event a product and/or service is listed at an incorrect price
-          or with incorrect information due to typographical error, we shall
-          have the right to refuse or cancel any orders placed for the product
-          and/or service listed at the incorrect price. We shall have the right
-          to refuse or cancel any such order whether or not the order has been
-          confirmed and your credit card charged. If your credit card has
-          already been charged for the purchase and your order is canceled, we
-          shall immediately issue a credit to your credit card account or other
-          payment account in the amount of the charge.
+          {t('typographicalErrorsContent')}
         </p>
 
-        <h1 className="text-xl text-primary my-4">Miscellaneous</h1>
+        <h1 className="text-xl text-primary my-4">{t('miscellaneousTitle')}</h1>
         <p>
-          If for any reason a court of competent jurisdiction finds any
-          provision or portion of these Terms & Conditions to be unenforceable,
-          the remainder of these Terms & Conditions will continue in full force
-          and effect. Any waiver of any provision of these Terms & Conditions
-          will be effective only if in writing and signed by an authorized
-          representative of You Go Crafts. You Go Crafts will be entitled to
-          injunctive or other equitable relief (without the obligations of
-          posting any bond or surety) in the event of any breach or anticipatory
-          breach by you. You Go Crafts operates and controls the You Go Crafts
-          Service from its offices in . The Service is not intended for
-          distribution to or use by any person or entity in any jurisdiction or
-          country where such distribution or use would be contrary to law or
-          regulation. Accordingly, those persons who choose to access the You Go
-          Crafts Service from other locations do so on their own initiative and
-          are solely responsible for compliance with local laws, if and to the
-          extent local laws are applicable. These Terms & Conditions (which
-          include and incorporate the You Go Crafts Privacy Policy) contains the
-          entire understanding, and supersedes all prior understandings, between
-          you and You Go Crafts concerning its subject matter, and cannot be
-          changed or modified by you. The section headings used in this
-          Agreement are for convenience only and will not be given any legal
-          import.
+        {t('miscellaneousContent')}
         </p>
 
-        <h1 className="text-xl text-primary my-4">Disclaimer</h1>
+        <h1 className="text-xl text-primary my-4">{t('disclaimerTitle')}</h1>
         <p>
-          You Go Crafts is not responsible for any content, code or any other
-          imprecision.
+        {t('content1')}
         </p>
-        <p>You Go Crafts does not provide warranties or guarantees.</p>
+        <p>{t('content2')}</p>
         <p>
           In no event shall You Go Crafts be liable for any special, direct,
           indirect, consequential, or incidental damages or any damages
@@ -366,33 +312,13 @@ const TermsAndConditionsPage = () => {
           at any time without prior notice.
         </p>
         <p>
-          The You Go Crafts Service and its contents are provided &quot;as is&quot; and
-          &quot;as available&quot; without any warranty or representations of any kind,
-          whether express or implied. You Go Crafts is a distributor and not a
-          publisher of the content supplied by third parties; as such, You Go
-          Crafts exercises no editorial control over such content and makes no
-          warranty or representation as to the accuracy, reliability or currency
-          of any information, content, service or merchandise provided through
-          or accessible via the You Go Crafts Service. Without limiting the
-          foregoing, You Go Crafts specifically disclaims all warranties and
-          representations in any content transmitted on or in connection with
-          the You Go Crafts Service or on sites that may appear as links on the
-          You Go Crafts Service, or in the products provided as a part of, or
-          otherwise in connection with, the You Go Crafts Service, including
-          without limitation any warranties of merchantability, fitness for a
-          particular purpose or non-infringement of third party rights. No oral
-          advice or written information given by You Go Crafts or any of its
-          affiliates, employees, officers, directors, agents, or the like will
-          create a warranty. Price and availability information is subject to
-          change without notice. Without limiting the foregoing, You Go Crafts
-          does not warrant that the You Go Crafts Service will be uninterrupted,
-          uncorrupted, timely, or error-free.
+        {t('content4')}
         </p>
-        <h1 className="text-xl text-primary my-4">Contact Us</h1>
-        <p>Don&apos;t hesitate to contact us if you have any questions.</p>
+        <h1 className="text-xl text-primary my-4">{t('contactUsTitle')}</h1>
+        <p>{t('contactUsContent')}.</p>
         <ul>
           <li>
-            Via Email:{" "}
+            {t('contactViaEmail')}
             <a
               href="/cdn-cgi/l/email-protection"
               className="__cf_email__"
