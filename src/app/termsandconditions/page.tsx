@@ -249,27 +249,15 @@ const TermsAndConditionsPage = () => {
         {t('intellectualPropertyContent')}
         </p>
 
-        <h1 className="text-xl text-primary my-4">Agreement to Arbitrate</h1>
+        <h1 className="text-xl text-primary my-4">{t('agreementToArbitrate')}</h1>
         <p>
-          This section applies to any dispute EXCEPT IT DOESN’T INCLUDE A
-          DISPUTE RELATING TO CLAIMS FOR INJUNCTIVE OR EQUITABLE RELIEF
-          REGARDING THE ENFORCEMENT OR VALIDITY OF YOUR OR You Go Crafts&apos;s
-          INTELLECTUAL PROPERTY RIGHTS. The term “dispute” means any dispute,
-          action, or other controversy between you and You Go Crafts concerning
-          the Services or this agreement, whether in contract, warranty, tort,
-          statute, regulation, ordinance, or any other legal or equitable basis.
-          “Dispute” will be given the broadest possible meaning allowable under
-          law.
+        {t('arbitrationSection')}
         </p>
 
-        <h1 className="text-xl text-primary my-4">Notice of Dispute</h1>
+        <h1 className="text-xl text-primary my-4">{t('noticeOfDispute')}</h1>
         <p>
-          In the event of a dispute, you or You Go Crafts must give the other a
-          Notice of Dispute, which is a written statement that sets forth the
-          name, address, and contact information of the party giving it, the
-          facts giving rise to the dispute, and the relief requested. You must
-          send any Notice of Dispute via email to:{" "}
-          <a
+        {t('noticeOfDisputeSection')}
+          {/* <a
             href="/cdn-cgi/l/email-protection"
             className="__cf_email__"
             data-cfemail="9cf5f2faf3dcf9fbf9eef5fdf8f9effdeeeef3f0f0f3eff3fff5fdf0b2f3eefb"
@@ -281,24 +269,12 @@ const TermsAndConditionsPage = () => {
           Go Crafts will attempt to resolve any dispute through informal
           negotiation within sixty (60) days from the date the Notice of Dispute
           is sent. After sixty (60) days, you or You Go Crafts may commence
-          arbitration.
+          arbitration. */}
         </p>
 
-        <h1 className="text-xl text-primary my-4">Binding Arbitration</h1>
+        <h1 className="text-xl text-primary my-4">{t('bindingArbitration')}</h1>
         <p>
-          If you and You Go Crafts don’t resolve any dispute by informal
-          negotiation, any other effort to resolve the dispute will be conducted
-          exclusively by binding arbitration as described in this section. You
-          are giving up the right to litigate (or participate in as a party or
-          class member) all disputes in court before a judge or jury. The
-          dispute shall be settled by binding arbitration in accordance with the
-          commercial arbitration rules of the American Arbitration Association.
-          Either party may seek any interim or preliminary injunctive relief
-          from any court of competent jurisdiction, as necessary to protect the
-          party’s rights or property pending the completion of arbitration. Any
-          and all legal, accounting, and other costs, fees, and expenses
-          incurred by the prevailing party shall be borne by the non-prevailing
-          party.
+        {t('bindingArbitrationSection')}
         </p>
 
         <h1 className="text-xl text-primary my-4">Submissions and Privacy</h1>
