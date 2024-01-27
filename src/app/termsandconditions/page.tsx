@@ -303,13 +303,7 @@ const TermsAndConditionsPage = () => {
         </p>
         <p>{t('content2')}</p>
         <p>
-          In no event shall You Go Crafts be liable for any special, direct,
-          indirect, consequential, or incidental damages or any damages
-          whatsoever, whether in an action of contract, negligence or other
-          tort, arising out of or in connection with the use of the Service or
-          the contents of the Service. The Company reserves the right to make
-          additions, deletions, or modifications to the contents on the Service
-          at any time without prior notice.
+        {t('content3')}
         </p>
         <p>
         {t('content4')}
