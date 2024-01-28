@@ -155,7 +155,7 @@ const PrivacyPolicyPage = () => {
             <p>
               <strong>{t("necessaryCookies")}</strong>
             </p>
-            <p>{t("cookieType")}</p>
+            <p>{t("CookieType")}</p>
             <p>{t("administeredBy")}</p>
             <p>
             {t("cookiePurpose")}
@@ -168,110 +168,73 @@ const PrivacyPolicyPage = () => {
             <p>{t("cookieTypePersistent")}</p>
             <p>{t("administeredByUs")}</p>
             <p>
-              Purpose: These Cookies identify if users have accepted the use of
-              cookies on the Website.
+            {t("cookiesPurpose")}
             </p>
           </li>
           <li>
             <p>
-              <strong>Functionality Cookies</strong>
+              <strong>{t("functionalityCookiesTitle")}</strong>
             </p>
-            <p>Type: Persistent Cookies</p>
-            <p>Administered by: Us</p>
+            <p>{t("functionalityCookiesType")}</p>
+            <p>{t("functionalityCookiesAdministered")}</p>
             <p>
-              Purpose: These Cookies allow us to remember choices You make when
-              You use the Website, such as remembering your login details or
-              language preference. The purpose of these Cookies is to provide
-              You with a more personal experience and to avoid You having to
-              re-enter your preferences every time You use the Website.
+            {t("functionalityCookiesPurpose")}
             </p>
           </li>
         </ul>
         <p>
-          For more information about the cookies we use and your choices
-          regarding cookies, please visit our Cookies Policy or the Cookies
-          section of our Privacy Policy.
+        {t("moreInfoAboutCookies")}
         </p>
-        <h3>Use of Your Personal Data</h3>
-        <p>The Company may use Personal Data for the following purposes:</p>
+        <h3>{t("useOfPersonalDataTitle")}</h3>
+        <p>{t("useOfPersonalDataPurposes")}</p>
         <ul>
           <li>
             <p>
-              <strong>To provide and maintain our Service</strong>, including to
-              monitor the usage of our Service.
+              <strong>To provide and maintain our Service</strong>, {t("useOfPersonalDataPurposes1")}
             </p>
           </li>
           <li>
             <p>
-              <strong>To manage Your Account:</strong> to manage Your
-              registration as a user of the Service. The Personal Data You
-              provide can give You access to different functionalities of the
-              Service that are available to You as a registered user.
+              <strong>To manage Your Account:</strong> {t("useOfPersonalDataPurposes2")}
             </p>
           </li>
           <li>
             <p>
-              <strong>For the performance of a contract:</strong> the
-              development, compliance and undertaking of the purchase contract
-              for the products, items or services You have purchased or of any
-              other contract with Us through the Service.
+              <strong>For the performance of a contract:</strong> {t("useOfPersonalDataPurposes3")}
             </p>
           </li>
           <li>
             <p>
-              <strong>To contact You:</strong> To contact You by email,
-              telephone calls, SMS, or other equivalent forms of electronic
-              communication, such as a mobile application&apos;s push
-              notifications regarding updates or informative communications
-              related to the functionalities, products or contracted services,
-              including the security updates, when necessary or reasonable for
-              their implementation.
+              <strong>To contact You:</strong> {t("useOfPersonalDataPurposes4")}
             </p>
           </li>
           <li>
             <p>
-              <strong>To provide You</strong> with news, special offers and
-              general information about other goods, services and events which
-              we offer that are similar to those that you have already purchased
-              or enquired about unless You have opted not to receive such
-              information.
+              <strong>To provide You</strong> {t("useOfPersonalDataPurposes5")}
             </p>
           </li>
           <li>
             <p>
-              <strong>To manage Your requests:</strong> To attend and manage
-              Your requests to Us.
+              <strong>To manage Your requests:</strong> {t("useOfPersonalDataPurposes6")}
             </p>
           </li>
           <li>
             <p>
-              <strong>For business transfers:</strong> We may use Your
-              information to evaluate or conduct a merger, divestiture,
-              restructuring, reorganization, dissolution, or other sale or
-              transfer of some or all of Our assets, whether as a going concern
-              or as part of bankruptcy, liquidation, or similar proceeding, in
-              which Personal Data held by Us about our Service users is among
-              the assets transferred.
+              <strong>For business transfers:</strong> {t("mergeDivestiture")}
             </p>
           </li>
           <li>
             <p>
-              <strong>For other purposes</strong>: We may use Your information
-              for other purposes, such as data analysis, identifying usage
-              trends, determining the effectiveness of our promotional campaigns
-              and to evaluate and improve our Service, products, services,
-              marketing and your experience.
+              <strong>For other purposes</strong>: {t("otherPurposes")}
             </p>
           </li>
         </ul>
         <p>
-          We may share Your personal information in the following situations:
+        {t("sharePersonalInfo")}
         </p>
         <ul>
           <li>
-            <strong>With Service Providers:</strong> We may share Your personal
-            information with Service Providers to monitor and analyze the use of
-            our Service, to contact You.
+            <strong>With Service Providers:</strong> {t("shareWithServiceProviders")}
           </li>
           <li>
             <strong>For business transfers:</strong> We may share or transfer

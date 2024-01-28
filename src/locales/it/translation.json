@@ -269,5 +269,24 @@
   "cookiePurpose": "Scopo: Questi cookie sono essenziali per fornirti servizi disponibili attraverso il sito web e per consentirti di utilizzare alcune delle sue funzioni. Aiutano ad autenticare gli utenti e a prevenire l'uso fraudolento degli account utente. Senza questi cookie, non è possibile fornire i servizi richiesti e utilizziamo solo questi cookie per fornirti tali servizi.",
   "cookiesPolicyAcceptance": "Cookie / Accettazione della politica sui cookie",
   "cookieTypePersistent": "Tipo: Cookie persistenti",
-  "administeredByUs": "Amministrato da: Noi"
+  "administeredByUs": "Amministrato da: Noi",
+  "cookiesPurpose": "Scopo: Questi Cookie identificano se gli utenti hanno accettato l'uso dei cookie sul sito web.",
+  "functionalityCookiesTitle": "Cookie di funzionalità",
+  "functionalityCookiesType": "Tipo: Cookie persistenti",
+  "functionalityCookiesAdministered": "Amministrato da: Noi",
+  "functionalityCookiesPurpose": "Scopo: Questi Cookie ci permettono di ricordare le scelte che fai quando usi il sito web, come ricordare i dettagli del login o le preferenze linguistiche. Lo scopo di questi Cookie è quello di fornirti un'esperienza più personale e di evitare che tu debba reinserire le tue preferenze ogni volta che usi il sito web.",
+  "moreInfoAboutCookies": "Per ulteriori informazioni sui cookie che utilizziamo e sulle tue scelte in merito ai cookie, visita la nostra Politica sui cookie o la sezione dei cookie della nostra Informativa sulla privacy.",
+  "useOfPersonalDataTitle": "Uso dei tuoi dati personali",
+  "useOfPersonalDataPurposes": "La Società può utilizzare i Dati Personali per le seguenti finalità:",
+  "useOfPersonalDataPurposes1": "incluso il monitoraggio dell'utilizzo del nostro Servizio.",
+  "useOfPersonalDataPurposes2": "per gestire la tua registrazione come utente del Servizio. I dati personali che fornisci possono darti accesso a diverse funzionalità del Servizio disponibili per te come utente registrato.",
+  "useOfPersonalDataPurposes3": "lo sviluppo, il rispetto e l'esecuzione del contratto di acquisto dei prodotti, articoli o servizi che hai acquistato o di qualsiasi altro contratto con noi attraverso il Servizio.",
+  "useOfPersonalDataPurposes4": "Per contattarti via e-mail, chiamate telefoniche, SMS o altre forme equivalenti di comunicazione elettronica, come le notifiche push delle applicazioni mobili relative agli aggiornamenti o alle comunicazioni informative relative alle funzionalità, prodotti o servizi contrattati, compresi gli aggiornamenti di sicurezza, quando necessario o ragionevole per la loro implementazione.",
+  "useOfPersonalDataPurposes5": "con notizie, offerte speciali e informazioni generali su altri beni, servizi ed eventi che offriamo e che sono simili a quelli che hai già acquistato o richiesto, a meno che tu non abbia optato per non ricevere tali informazioni.",
+  "useOfPersonalDataPurposes6": "Per gestire le tue richieste nei nostri confronti.",
+  "mergeDivestiture": "Potremmo utilizzare le tue informazioni per valutare o condurre una fusione, dismissione, ristrutturazione, riorganizzazione, dissoluzione o altra vendita o trasferimento di tutti o parte dei nostri assetti, sia come azienda in funzione sia come parte di un processo di fallimento, liquidazione o procedura simile, in cui i dati personali che deteniamo su gli utenti del nostro servizio sono tra gli asset trasferiti.",
+  "otherPurposes": "Potremmo utilizzare le tue informazioni per altri scopi, come l'analisi dei dati, l'identificazione delle tendenze d'uso, la determinazione dell'efficacia delle nostre campagne promozionali e per valutare e migliorare il nostro servizio, prodotti, servizi, marketing e la tua esperienza.",
+  "sharePersonalInfo": "Potremmo condividere le tue informazioni personali nelle seguenti situazioni:",
+  "shareWithServiceProviders": "Potremmo condividere le tue informazioni personali con i fornitori di servizi per monitorare e analizzare l'uso del nostro servizio, per contattarti."
+
 }

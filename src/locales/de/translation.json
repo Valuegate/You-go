@@ -269,5 +269,24 @@
   "cookiePurpose": "Zweck: Diese Cookies sind unerlässlich, um Ihnen die über die Website verfügbaren Dienste bereitzustellen und es Ihnen zu ermöglichen, einige ihrer Funktionen zu nutzen. Sie helfen bei der Authentifizierung von Benutzern und verhindern den betrügerischen Gebrauch von Benutzerkonten. Ohne diese Cookies können die von Ihnen angeforderten Dienste nicht bereitgestellt werden, und wir verwenden diese Cookies nur, um Ihnen diese Dienste bereitzustellen.",
   "cookiesPolicyAcceptance": "Cookies-Richtlinie / Hinweis auf Zustimmung zu Cookies",
   "cookieTypePersistent": "Typ: Persistente Cookies",
-  "administeredByUs": "Verwaltet von: Uns"
+  "administeredByUs": "Verwaltet von: Uns",
+  "cookiesPurpose": "Zweck: Diese Cookies identifizieren, ob Benutzer die Verwendung von Cookies auf der Website akzeptiert haben.",
+  "functionalityCookiesTitle": "Funktionscookies",
+  "functionalityCookiesType": "Typ: Dauerhafte Cookies",
+  "functionalityCookiesAdministered": "Verwaltet von: Uns",
+  "functionalityCookiesPurpose": "Zweck: Diese Cookies ermöglichen es uns, die von Ihnen getroffenen Entscheidungen zu speichern, wenn Sie die Website nutzen, wie z.B. das Speichern Ihrer Anmeldedaten oder Spracheinstellungen. Der Zweck dieser Cookies besteht darin, Ihnen eine persönlichere Erfahrung zu bieten und zu verhindern, dass Sie Ihre Einstellungen bei jeder Nutzung der Website erneut eingeben müssen.",
+  "moreInfoAboutCookies": "Für weitere Informationen zu den von uns verwendeten Cookies und Ihren Wahlmöglichkeiten in Bezug auf Cookies besuchen Sie bitte unsere Cookie-Richtlinie oder den Cookie-Bereich unserer Datenschutzrichtlinie.",
+  "useOfPersonalDataTitle": "Verwendung Ihrer persönlichen Daten",
+  "useOfPersonalDataPurposes": "Das Unternehmen kann personenbezogene Daten für folgende Zwecke verwenden:",
+  "useOfPersonalDataPurposes1": "einschließlich der Überwachung der Nutzung unseres Dienstes.",
+  "useOfPersonalDataPurposes2": "zur Verwaltung Ihrer Registrierung als Benutzer des Dienstes. Die von Ihnen bereitgestellten persönlichen Daten ermöglichen Ihnen den Zugang zu verschiedenen Funktionen des Dienstes, die Ihnen als registrierter Benutzer zur Verfügung stehen.",
+  "useOfPersonalDataPurposes3": "Entwicklung, Erfüllung und Durchführung des Kaufvertrags für die von Ihnen erworbenen Produkte, Artikel oder Dienstleistungen oder eines anderen Vertrags mit uns über den Dienst.",
+  "useOfPersonalDataPurposes4": "Um Sie per E-Mail, Telefonanrufe, SMS oder andere äquivalente Formen der elektronischen Kommunikation zu kontaktieren, wie z.B. Push-Benachrichtigungen von Mobilanwendungen zu Updates oder informativen Mitteilungen zu Funktionen, Produkten oder vertraglichen Dienstleistungen, einschließlich Sicherheitsupdates, wenn dies notwendig oder vernünftig ist für ihre Umsetzung.",
+  "useOfPersonalDataPurposes5": "mit Neuigkeiten, Sonderangeboten und allgemeinen Informationen zu anderen Waren, Dienstleistungen und Veranstaltungen, die wir anbieten und die denen ähnlich sind, die Sie bereits gekauft oder angefragt haben, es sei denn, Sie haben sich dafür entschieden, solche Informationen nicht zu erhalten.",
+  "useOfPersonalDataPurposes6": "Um Ihre Anfragen an uns zu bearbeiten und zu verwalten.",
+  "mergeDivestiture": "Wir können Ihre Informationen verwenden, um eine Fusion, Desinvestition, Umstrukturierung, Reorganisation, Auflösung oder einen anderen Verkauf oder die Übertragung von Teilen oder allen unseren Vermögenswerten zu bewerten oder durchzuführen, sei es als laufendes Geschäft oder als Teil eines Insolvenz-, Liquidations- oder ähnlichen Verfahrens, bei dem personenbezogene Daten, die wir über unsere Servicenutzer haben, zu den übertragenen Vermögenswerten gehören.",
+  "otherPurposes": "Wir können Ihre Informationen auch für andere Zwecke verwenden, wie Datenanalyse, Identifizierung von Nutzungstrends, Bestimmung der Wirksamkeit unserer Werbekampagnen und zur Bewertung und Verbesserung unseres Dienstes, unserer Produkte, Dienstleistungen, Marketingaktivitäten und Ihrer Erfahrung.",
+  "sharePersonalInfo": "Wir können Ihre persönlichen Informationen in folgenden Situationen teilen:",
+  "shareWithServiceProviders": "Wir können Ihre persönlichen Informationen mit Dienstleistern teilen, um die Nutzung unseres Dienstes zu überwachen und zu analysieren und um Sie zu kontaktieren."
+
 }

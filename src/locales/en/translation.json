@@ -269,5 +269,24 @@
   "cookiePurpose": "Purpose: These Cookies are essential to provide You with services available through the Website and to enable You to use some of its features. They help to authenticate users and prevent fraudulent use of user accounts. Without these Cookies, the services that You have asked for cannot be provided, and We only use these Cookies to provide You with those services.",
   "cookiesPolicyAcceptance": "Cookies Policy / Notice Acceptance Cookies",
   "cookieTypePersistent": "Type: Persistent Cookies",
-  "administeredByUs": "Administered by: Us"
+  "administeredByUs": "Administered by: Us",
+  "cookiesPurpose": "Purpose: These Cookies identify if users have accepted the use of cookies on the Website.",
+  "functionalityCookiesTitle": "Functionality Cookies",
+  "functionalityCookiesType": "Type: Persistent Cookies",
+  "functionalityCookiesAdministered": "Administered by: Us",
+  "functionalityCookiesPurpose": "Purpose: These Cookies allow us to remember choices You make when You use the Website, such as remembering your login details or language preference. The purpose of these Cookies is to provide You with a more personal experience and to avoid You having to re-enter your preferences every time You use the Website.",
+  "moreInfoAboutCookies": "For more information about the cookies we use and your choices regarding cookies, please visit our Cookies Policy or the Cookies section of our Privacy Policy.",
+  "useOfPersonalDataTitle": "Use of Your Personal Data",
+  "useOfPersonalDataPurposes": "The Company may use Personal Data for the following purposes:",
+  "useOfPersonalDataPurposes1":  "including to monitor the usage of our Service.",
+  "useOfPersonalDataPurposes2":  "to manage Your registration as a user of the Service. The Personal Data You provide can give You access to different functionalities of the Service that are available to You as a registered user.",
+  "useOfPersonalDataPurposes3":  "the development, compliance and undertaking of the purchase contract for the products, items or services You have purchased or of any other contract with Us through the Service.",
+  "useOfPersonalDataPurposes4":  "To contact You by email, telephone calls, SMS, or other equivalent forms of electronic communication, such as a mobile application's push notifications regarding updates or informative communications related to the functionalities, products or contracted services, including the security updates, when necessary or reasonable for their implementation.",
+  "useOfPersonalDataPurposes5":  "with news, special offers and general information about other goods, services and events which we offer that are similar to those that you have already purchased or enquired about unless You have opted not to receive such information.",
+  "useOfPersonalDataPurposes6":  "To attend and manage Your requests to Us.",
+  "mergeDivestiture": "We may use Your information to evaluate or conduct a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of Our assets, whether as a going concern or as part of bankruptcy, liquidation, or similar proceeding, in which Personal Data held by Us about our Service users is among the assets transferred.",
+  "otherPurposes": "We may use Your information for other purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns and to evaluate and improve our Service, products, services, marketing and your experience.",
+  "sharePersonalInfo": "We may share Your personal information in the following situations:",
+  "shareWithServiceProviders": "We may share Your personal information with Service Providers to monitor and analyze the use of our Service, to contact You."
+
 }

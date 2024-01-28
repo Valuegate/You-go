@@ -269,5 +269,24 @@
   "cookiePurpose": "Tikslas: Šie slapukai yra būtini, kad galėtume jums teikti paslaugas, prieinamas svetainėje, ir leisti jums naudotis jos kai kuriomis funkcijomis. Jie padeda autentikuoti vartotojus ir užkirsti kelią sukčiavimo panaudojimui. Be šių slapukų negalime teikti jums užklausomų paslaugų, ir mes juos naudojame tik tam, kad galėtume jums teikti tas paslaugas.",
   "cookiesPolicyAcceptance": "Slapukų politikos / Pastabos dėl slapukų priėmimo slapukai",
   "cookieTypePersistent": "Tipas: Ilgalaikiai slapukai",
-  "administeredByUs": "Tvarko: Mes"
+  "administeredByUs": "Tvarko: Mes",
+  "cookiesPurpose": "Tikslas: Šios slapukai identifikuoja, ar vartotojai sutiko naudoti slapukus svetainėje.",
+  "functionalityCookiesTitle": "Funkciniai slapukai",
+  "functionalityCookiesType": "Tipas: Nuolatiniai slapukai",
+  "functionalityCookiesAdministered": "Valdo: Mes",
+  "functionalityCookiesPurpose": "Tikslas: Šie slapukai leidžia mums prisiminti jūsų pasirinkimus, kai naudojate svetainę, pvz., prisiminti prisijungimo duomenis arba kalbos pasirinkimą. Šių slapukų tikslas suteikti jums asmeniškesnį patyrimą ir išvengti poreikio vėl įvesti savo nuostatas kiekvieną kartą, kai naudojate svetainę.",
+  "moreInfoAboutCookies": "Daugiau informacijos apie naudojamus slapukus ir jūsų pasirinkimus dėl slapukų rasite mūsų slapukų taisyklėse arba privatumo politikos skyriuje.",
+  "useOfPersonalDataTitle": "Jūsų asmens duomenų naudojimas",
+  "useOfPersonalDataPurposes": "Bendrovė gali naudoti Asmens duomenis šiais tikslais:",
+  "useOfPersonalDataPurposes1": "įskaitant stebėti mūsų paslaugos naudojimą.",
+  "useOfPersonalDataPurposes2": "valdyti jūsų registraciją kaip paslaugos vartotoją. Pateikti asmeniniai duomenys suteikia galimybę pasinaudoti skirtingomis paslaugos funkcijomis, prieinamomis registruotiems vartotojams.",
+  "useOfPersonalDataPurposes3": "pirkinio sutarties, kurią sudarėte dėl įsigytų produktų, daiktų ar paslaugų, plėtra, vykdymas ir laikymas.",
+  "useOfPersonalDataPurposes4": "susisiekti su jumis el. paštu, telefono skambučiais, SMS ar kitomis elektroninėmis komunikacijos formomis, pvz., mobiliųjų programėlių atnaujinimais arba informacinėmis komunikacijomis, susijusiomis su funkcijų, produktų ar paslaugų, įsigytų arba sutartų paslaugų, saugumo atnaujinimais, kai tai būtina arba pagrįsta.",
+  "useOfPersonalDataPurposes5": "naujienomis, specialiomis pasiūlymomis ir bendra informacija apie kitus prekes, paslaugas ir renginius, kuriuos siūlome ir kurie panašūs į tuos, kuriuos jau įsigijote ar apie juos paklausėte, nebent jūs būtumėte nusprendę nerinkti tokios informacijos.",
+  "useOfPersonalDataPurposes6": "atsakyti ir tvarkyti jūsų mums pateiktus prašymus.",
+  "mergeDivestiture": "Mes galime naudoti Jūsų informaciją vertinti arba atlikti sujungimą, atsiskyrimą, restruktūrizavimą, pertvarkymą, likvidavimą ar kitą visišką ar dalinį turto pardavimą ar perleidimą, arba kaip verslą, arba kaip dalį bankroto, likvidacijos ar panašaus proceso, kuriame Jūsų apie mūsų paslaugų vartotojus turimi asmens duomenys yra perduodami turtai.",
+  "otherPurposes": "Mes galime naudoti Jūsų informaciją kitais tikslais, tokiais kaip duomenų analizė, naudojimo tendencijų nustatymas, mūsų reklaminių kampanijų efektyvumo nustatymas ir mūsų paslaugų, produktų, paslaugų, rinkodaros ir Jūsų patirties vertinimas ir tobulinimas.",
+  "sharePersonalInfo": "Mes galime bendrinti Jūsų asmeninę informaciją šiais atvejais:",
+  "shareWithServiceProviders": "Mes galime bendrinti Jūsų asmeninę informaciją su paslaugų teikėjais stebėti ir analizuoti mūsų paslaugos naudojimąsi ir su Jumis susisiekti."
+
 }
