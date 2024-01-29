@@ -237,184 +237,109 @@ const PrivacyPolicyPage = () => {
             <strong>With Service Providers:</strong> {t("shareWithServiceProviders")}
           </li>
           <li>
-            <strong>For business transfers:</strong> We may share or transfer
-            Your personal information in connection with, or during negotiations
-            of, any merger, sale of Company assets, financing, or acquisition of
-            all or a portion of Our business to another company.
+            <strong>For business transfers:</strong> {t("shareTransferInfo")}
           </li>
           <li>
-            <strong>With Affiliates:</strong> We may share Your information with
-            Our affiliates, in which case we will require those affiliates to
-            honor this Privacy Policy. Affiliates include Our parent company and
-            any other subsidiaries, joint venture partners or other companies
-            that We control or that are under common control with Us.
+            <strong>With Affiliates:</strong> {t("shareWithAffiliates")}
           </li>
           <li>
-            <strong>With business partners:</strong> We may share Your
-            information with Our business partners to offer You certain
-            products, services or promotions.
+            <strong>With business partners:</strong> {t("shareWithBusinessPartners")}
           </li>
           <li>
-            <strong>With other users:</strong> when You share personal
-            information or otherwise interact in the public areas with other
-            users, such information may be viewed by all users and may be
-            publicly distributed outside. If You interact with other users or
-            register through a Third-Party Social Media Service, Your contacts
-            on the Third-Party Social Media Service may see Your name, profile,
-            pictures and description of Your activity. Similarly, other users
-            will be able to view descriptions of Your activity, communicate with
-            You and view Your profile.
+            <strong>With other users:</strong> {t("publicInteractionDisclaimer")}
           </li>
           <li>
-            <strong>With Your consent</strong>: We may disclose Your personal
-            information for any other purpose with Your consent.
+            <strong>With Your consent</strong>: {t("otherPurposeDisclosure")}
           </li>
         </ul>
-        <h3>Retention of Your Personal Data</h3>
+        <h3>{t("retentionHeading")}</h3>
         <p>
-          The Company will retain Your Personal Data only for as long as is
-          necessary for the purposes set out in this Privacy Policy. We will
-          retain and use Your Personal Data to the extent necessary to comply
-          with our legal obligations (for example, if we are required to retain
-          your data to comply with applicable laws), resolve disputes, and
-          enforce our legal agreements and policies.
+        {t("retentionParagraph1")}
         </p>
         <p>
-          The Company will also retain Usage Data for internal analysis
-          purposes. Usage Data is generally retained for a shorter period of
-          time, except when this data is used to strengthen the security or to
-          improve the functionality of Our Service, or We are legally obligated
-          to retain this data for longer time periods.
+        {t("retentionParagraph2")}
         </p>
-        <h3>Transfer of Your Personal Data</h3>
+        <h3>{t("transferHeading")}</h3>
         <p>
-          Your information, including Personal Data, is processed at the
-          Company&apos;s operating offices and in any other places where the
-          parties involved in the processing are located. It means that this
-          information may be transferred to — and maintained on — computers
-          located outside of Your state, province, country or other governmental
-          jurisdiction where the data protection laws may differ than those from
-          Your jurisdiction.
+        {t("transferParagraph1")}
         </p>
         <p>
-          Your consent to this Privacy Policy followed by Your submission of
-          such information represents Your agreement to that transfer.
+        {t("transferParagraph2")}
         </p>
         <p>
-          The Company will take all steps reasonably necessary to ensure that
-          Your data is treated securely and in accordance with this Privacy
-          Policy and no transfer of Your Personal Data will take place to an
-          organization or a country unless there are adequate controls in place
-          including the security of Your data and other personal information.
+        {t("transferParagraph3")}
         </p>
-        <h3>Delete Your Personal Data</h3>
+        <h3>{t("deletePersonalData")}</h3>
         <p>
-          You have the right to delete or request that We assist in deleting the
-          Personal Data that We have collected about You.
+        {t("deletePersonalDataContent1")}
         </p>
         <p>
-          Our Service may give You the ability to delete certain information
-          about You from within the Service.
+        {t("deletePersonalDataContent2")}
         </p>
         <p>
-          You may update, amend, or delete Your information at any time by
-          signing in to Your Account, if you have one, and visiting the account
-          settings section that allows you to manage Your personal information.
-          You may also contact Us to request access to, correct, or delete any
-          personal information that You have provided to Us.
+        {t("deletePersonalDataContent3")}
         </p>
         <p>
-          Please note, however, that We may need to retain certain information
-          when we have a legal obligation or lawful basis to do so.
+        {t("deletePersonalDataContent4")}
         </p>
-        <h3>Disclosure of Your Personal Data</h3>
-        <h4>Business Transactions</h4>
+        <h3>{t("disclosurePersonalData")}</h3>
+        <h4>{t("businessTransactions")}</h4>
         <p>
-          If the Company is involved in a merger, acquisition or asset sale,
-          Your Personal Data may be transferred. We will provide notice before
-          Your Personal Data is transferred and becomes subject to a different
-          Privacy Policy.
+        {t("businessTransactionsContent")}
         </p>
-        <h4>Law enforcement</h4>
+        <h4>{t("lawEnforcement")}</h4>
         <p>
-          Under certain circumstances, the Company may be required to disclose
-          Your Personal Data if required to do so by law or in response to valid
-          requests by public authorities (e.g. a court or a government agency).
+        {t("lawEnforcementContent")}
         </p>
-        <h4>Other legal requirements</h4>
+        <h4>{t("otherLegalRequirements")}</h4>
         <p>
-          The Company may disclose Your Personal Data in the good faith belief
-          that such action is necessary to:
+        {t("otherLegalRequirementsContent")}
         </p>
         <ul>
-          <li>Comply with a legal obligation</li>
-          <li>Protect and defend the rights or property of the Company</li>
+          <li>{t("complyLegalObligation")}</li>
+          <li>{t("protectDefendRights")}</li>
           <li>
-            Prevent or investigate possible wrongdoing in connection with the
-            Service
+          {t("preventInvestigateWrongdoing")}
           </li>
           <li>
-            Protect the personal safety of Users of the Service or the public
+          {t("protectPersonalSafety")}
           </li>
-          <li>Protect against legal liability</li>
+          <li>{t("protectAgainstLegalLiability")}</li>
         </ul>
-        <h3>Security of Your Personal Data</h3>
+        <h3>{t("securityPersonalData")}</h3>
         <p>
-          The security of Your Personal Data is important to Us, but remember
-          that no method of transmission over the Internet, or method of
-          electronic storage is 100% secure. While We strive to use commercially
-          acceptable means to protect Your Personal Data, We cannot guarantee
-          its absolute security.
+        {t("dataSecurityDisclaimer")}
         </p>
-        <h2>Children&apos;s Privacy</h2>
+        <h2>{t("childrensPrivacy")}</h2>
         <p>
-          Our Service does not address anyone under the age of 13. We do not
-          knowingly collect personally identifiable information from anyone
-          under the age of 13. If You are a parent or guardian and You are aware
-          that Your child has provided Us with Personal Data, please contact Us.
-          If We become aware that We have collected Personal Data from anyone
-          under the age of 13 without verification of parental consent, We take
-          steps to remove that information from Our servers.
+          {t("childrensPrivacyContent")}
         </p>
         <p>
-          If We need to rely on consent as a legal basis for processing Your
-          information and Your country requires consent from a parent, We may
-          require Your parent&apos;s consent before We collect and use that
-          information.
+        {t("relyOnConsent")}
         </p>
-        <h2>Links to Other Websites</h2>
+        <h2>{t("linksToOtherWebsites")}</h2>
         <p>
-          Our Service may contain links to other websites that are not operated
-          by Us. If You click on a third party link, You will be directed to
-          that third party&apos;s site. We strongly advise You to review the
-          Privacy Policy of every site You visit.
+        {t("otherWebsitesContent")}
         </p>
         <p>
-          We have no control over and assume no responsibility for the content,
-          privacy policies or practices of any third party sites or services.
+        {t("noControlDisclaimer")}
         </p>
-        <h2>Changes to this Privacy Policy</h2>
+        <h2>{t("changesToPrivacyPolicy")}</h2>
         <p>
-          We may update Our Privacy Policy from time to time. We will notify You
-          of any changes by posting the new Privacy Policy on this page.
+        {t("updateNotification")}
         </p>
         <p>
-          We will let You know via email and/or a prominent notice on Our
-          Service, prior to the change becoming effective and update the
-          &quot;Last updated&quot; date at the top of this Privacy Policy.
+        {t("notificationMethods")}
         </p>
         <p>
-          You are advised to review this Privacy Policy periodically for any
-          changes. Changes to this Privacy Policy are effective when they are
-          posted on this page.
+        {t("reviewPeriodically")}
         </p>
-        <h2>Contact Us</h2>
+        <h2>{t("contactUs")}</h2>
         <p>
-          If you have any questions about this Privacy Policy, You can contact
-          us:
+        {t("questionsAboutPolicy")}
         </p>
         <ul>
-          <li>By email: info@egeriadesarrollosocial.org</li>
+          <li>{t("contactMethods")}</li>
         </ul>
       </div>
       <Footer />
