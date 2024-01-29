@@ -14,8 +14,11 @@ import "react-phone-number-input/style.css";
 import BackButton from "@/public/components/BackButton/BackButton";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "@/public/components/LanguageSwitcher/LanguageSwitcher";
 
 const SignUp = () => {
+  const { t } = useTranslation();
   const router = useRouter();
   const [credentials, setCredentials] = useState<TSignupPayload>({
     full_name: "",
@@ -81,13 +84,14 @@ const SignUp = () => {
       <div className="flex flex-col lg:flex-row">
         <div className="w-[50%] px-[5%] flex flex-col justify-center sm:justify-start sm:w-full overflow-y-scroll h-screen">
           <div className="mt-40 sm:mb-24 sm:mt-10">
+          <div><LanguageSwitcher /></div>
             <BackButton to={"/login"} />
           </div>
           <h3 className="font-bold text-[32px] sm:text-[36px] sm:leading-[28px] leading-[36px] text-weirdBrown sm:text-center">
-            Nice to see you
+            {t('niceToSeeYou')}
           </h3>
           <p className="font-medium text-[14px] lg:text-[16px] leading-[24px] lg:leading-[32px] text-light-black-5 pb-4 text-center lg:text-left">
-            Create a new account in seconds
+          {t('createAccount')}
           </p>
 
           <div className="mt-10">
@@ -110,7 +114,7 @@ const SignUp = () => {
                 <Form>
                   <div className="mb-4">
                     <label htmlFor="first-name" className="block">
-                      Full Name
+                    {t('fullName')}
                     </label>
                     <input
                       type="text"
@@ -128,7 +132,7 @@ const SignUp = () => {
                   </div>
                   <div className="mb-4">
                     <label htmlFor="email" className="block">
-                      Email
+                    {t('email')}
                     </label>
                     <input
                       type="email"
@@ -140,13 +144,13 @@ const SignUp = () => {
                           email: e.target.value,
                         })
                       }
-                      placeholder="mail@email.com"
+                      placeholder={t('enterEmail')}
                       className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-[70%] sm:w-full"
                     />
                   </div>
                   <div className="mb-4">
                     <label htmlFor="phone" className="block">
-                      WhatsApp Phone Number
+                    {t('whatsappPhoneNumber')}
                     </label>
                     <PhoneInput
                       type="tel"
@@ -154,13 +158,13 @@ const SignUp = () => {
                       name="phone"
                       value={credentials.phone_number}
                       onChange={handlePhoneNumberChange}
-                      placeholder="Enter phone number"
+                      placeholder={t('enterPhoneNumber')}
                       className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1  rounded w-[70%] sm:w-full"
                     />
                   </div>
                   <div className="mb-4">
                     <label htmlFor="password" className="block">
-                      Password
+                    {t('password')}
                     </label>
 
                     <div className="relative w-[70%] sm:w-full">
@@ -168,7 +172,7 @@ const SignUp = () => {
                         type={showPassword ? "text" : "password"}
                         id="password"
                         name="password"
-                        placeholder="Enter password"
+                        placeholder={t('enterPassword')}
                         onChange={(e) => {
                           setCredentials({
                             ...credentials,
@@ -193,14 +197,14 @@ const SignUp = () => {
                     </div>
                     {!isPasswordValid && (
                       <p className="text-primary text-sm mt-1">
-                        Password must be at least 6 characters long
+                        {t('passwordLengthError')}
                       </p>
                     )}
                   </div>
 
                   <div className="mb-4">
                     <label htmlFor="re-password" className="block">
-                      Confirm Password
+                    {t('confirmPassword')}
                     </label>
 
                     <div className="relative w-[70%] sm:w-full">
@@ -208,7 +212,7 @@ const SignUp = () => {
                         type={showPassword1 ? "text" : "password"}
                         id="re-password"
                         name="re-password"
-                        placeholder="Confirm your password"
+                        placeholder={t('confirmYourPassword')}
                         onChange={(e) => setConfirm(e.target.value)}
                         className="placeholder-italic mt-1 p-2 border-none focus:outline-none bg-white-1 rounded w-full"
                       />
@@ -236,9 +240,9 @@ const SignUp = () => {
                       checked={termsAgreed}
                       onChange={() => setTermsAgreed(!termsAgreed)}
                     />
-                    Agree to our{" "}
+                    {t('agreeToTerms')}
                     <Link href={"/termsandconditions"} className="text-primary ml-1 underline">
-                      terms and conditions
+                    {t('termsAndConditions')}
                     </Link>
                   </label>
                   <div className="mt-4">
@@ -248,7 +252,7 @@ const SignUp = () => {
                       className="flex sm:w-full justify-center items-center hover:bg-darkBrownGradient hover:text-weirdBrown gap-2 shadow-2xl sm:shadow-xl bg-weirdBrown font-medium rounded-[25px] h-[50px] w-[70%] text-white"
                      
                     >
-                      {isLoading ? "Wait a minute....." : "Register"}
+                      {isLoading ? "Wait a minute....." : t('registerButton')}
                     </button>
                   </div>
                 </Form>
@@ -258,11 +262,11 @@ const SignUp = () => {
 
           <div className="flex justify-start mb-20 gap-1 pt-4 lg:pt-8 sm:justify-center">
             <h1 className="text-center lg:text-left font-normal text-[14px] sm:text-[18px] lg:text-lg">
-              Already have an account?
+              {t('haveAnAccount')}
             </h1>
             <Link href="../login">
               <h1 className="text-center lg:text-left font-medium text-[14px] sm:text-[18px] lg:text-lg text-weirdBrown">
-                Login
+                {t('login')}
               </h1>
             </Link>
           </div>

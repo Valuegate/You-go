@@ -329,6 +329,25 @@
   "notificationMethods": "Wir werden Sie auch per E-Mail und/oder durch einen deutlichen Hinweis auf unseren Service benachrichtigen, bevor die Änderung in Kraft tritt, und das 'Zuletzt aktualisiert'-Datum oben auf dieser Datenschutzrichtlinie aktualisieren.",
   "reviewPeriodically": "Es wird empfohlen, diese Datenschutzrichtlinie regelmäßig auf Änderungen zu überprüfen. Änderungen an dieser Datenschutzrichtlinie werden wirksam, wenn sie auf dieser Seite veröffentlicht werden.",
   "questionsAboutPolicy": "Wenn Sie Fragen zu dieser Datenschutzrichtlinie haben, können Sie uns kontaktieren:",
-  "contactMethods": "Per E-Mail: info@egeriadesarrollosocial.org"
-
+  "contactMethods": "Per E-Mail: info@egeriadesarrollosocial.org",
+  "welcomeBack": "Willkommen zurück",
+  "loginToYourAccount": "Melden Sie sich in Sekundenschnelle an",
+  "email": "E-Mail",
+  "password": "Passwort",
+  "enterPassword": "Passwort eingeben",
+  "forgotPassword": "Passwort vergessen?",
+  "dontHaveAnAccount": "Sie haben noch keinen Account?",
+  "signup": "Anmelden",
+  "niceToSeeYou": "Schön, dich zu sehen",
+  "createAccount": "Erstelle in Sekunden ein neues Konto",
+  "whatsappPhoneNumber": "WhatsApp-Telefonnummer",
+  "enterFullName": "Geben Sie Ihren vollständigen Namen ein",
+  "enterEmail": "mail@beispiel.com",
+  "enterPhoneNumber": "Geben Sie die Telefonnummer ein",
+  "confirmPassword": "Passwort bestätigen",
+  "confirmYourPassword": "Bestätigen Sie Ihr Passwort",
+  "passwordLengthError": "Das Passwort muss mindestens 6 Zeichen lang sein",
+  "agreeToTerms": "Ich stimme unseren",
+  "registerButton": "Registrieren",
+  "haveAnAccount": "Hast du bereits ein Konto?"
 }

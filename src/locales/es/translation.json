@@ -329,6 +329,25 @@
   "notificationMethods": "Le informaremos por correo electrónico y/o con un aviso destacado en nuestro servicio, antes de que el cambio entre en vigor y actualizaremos la fecha de 'Última actualización' en la parte superior de esta Política de Privacidad.",
   "reviewPeriodically": "Se recomienda revisar esta Política de Privacidad periódicamente en busca de cambios. Los cambios en esta Política de Privacidad son efectivos cuando se publican en esta página.",
   "questionsAboutPolicy": "Si tiene alguna pregunta sobre esta Política de Privacidad, puede contactarnos:",
-  "contactMethods": "Por correo electrónico: info@egeriadesarrollosocial.org"
-
+  "contactMethods": "Por correo electrónico: info@egeriadesarrollosocial.org",
+  "welcomeBack": "Bienvenido de nuevo",
+  "loginToYourAccount": "Inicia sesión en tu cuenta en segundos",
+  "email": "Correo electrónico",
+  "password": "Contraseña",
+  "enterPassword": "Introduce la contraseña",
+  "forgotPassword": "¿Olvidaste la contraseña?",
+  "dontHaveAnAccount": "¿No tienes una cuenta?",
+  "signup": "Registrarse",
+  "niceToSeeYou": "Encantado de verte",
+  "createAccount": "Crea una nueva cuenta en segundos",
+  "whatsappPhoneNumber": "Número de teléfono de WhatsApp",
+  "enterFullName": "Ingrese su nombre completo",
+  "enterEmail": "correo@ejemplo.com",
+  "enterPhoneNumber": "Ingrese el número de teléfono",
+  "confirmPassword": "Confirmar contraseña",
+  "confirmYourPassword": "Confirme su contraseña",
+  "passwordLengthError": "La contraseña debe tener al menos 6 caracteres",
+  "agreeToTerms": "Aceptar nuestros",
+  "registerButton": "Registrarse",
+  "haveAnAccount": "¿Ya tienes una cuenta?"
 }

@@ -329,6 +329,25 @@
   "notificationMethods": "Pranešime Jums el. paštu ir/arba iškilia pastaba mūsų paslaugoje prieš pakeitimą įsigaliojant ir atnaujinsime 'Paskutinį kartą atnaujinta' datą šios privatumo politikos viršuje.",
   "reviewPeriodically": "Jums rekomenduojama periodiškai peržiūrėti šią privatumo politiką dėl galimų pakeitimų. Pakeitimai šioje privatumo politikoje įsigalioja, kai jie patenka į šį puslapį.",
   "questionsAboutPolicy": "Jei turite klausimų dėl šios privatumo politikos, galite susisiekti su mumis:",
-  "contactMethods": "El. paštu: info@egeriadesarrollosocial.org"
-
+  "contactMethods": "El. paštu: info@egeriadesarrollosocial.org",
+  "welcomeBack": "Sveiki sugrįžę",
+  "loginToYourAccount": "Prisijunkite prie savo paskyros per kelias sekundes",
+  "email": "El. paštas",
+  "password": "Slaptažodis",
+  "enterPassword": "Įveskite slaptažodį",
+  "forgotPassword": "Pamiršote slaptažodį?",
+  "dontHaveAnAccount": "Neturite paskyros?",
+  "signup": "Užsiregistruoti",
+  "niceToSeeYou": "Malonu tave matyti",
+  "createAccount": "Sukurkite naują paskyrą per sekundes",
+  "whatsappPhoneNumber": "WhatsApp telefono numeris",
+  "enterFullName": "Įveskite savo pilną vardą",
+  "enterEmail": "pastas@pvz.com",
+  "enterPhoneNumber": "Įveskite telefono numerį",
+  "confirmPassword": "Patvirtinti slaptažodį",
+  "confirmYourPassword": "Patvirtinkite savo slaptažodį",
+  "passwordLengthError": "Slaptažodis turi būti bent 6 simboliai ilgas",
+  "agreeToTerms": "Sutinku su mūsų",
+  "registerButton": "Registruotis",
+  "haveAnAccount": "Jau turite paskyrą?"
 }

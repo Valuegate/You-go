@@ -329,6 +329,25 @@
   "notificationMethods": "Ti informeremo anche via e-mail e/o con un avviso evidente sul nostro servizio, prima che la modifica diventi effettiva e aggiorneremo la data dell'ultima modifica in alto a questa Informativa sulla Privacy.",
   "reviewPeriodically": "Si consiglia di rivedere periodicamente questa Informativa sulla Privacy per eventuali cambiamenti. Le modifiche a questa Informativa sulla Privacy sono efficaci quando vengono pubblicate su questa pagina.",
   "questionsAboutPolicy": "Se hai domande su questa Informativa sulla Privacy, puoi contattarci:",
-  "contactMethods": "Via email: info@egeriadesarrollosocial.org"
-
+  "contactMethods": "Via email: info@egeriadesarrollosocial.org",
+  "welcomeBack": "Bentornato",
+  "loginToYourAccount": "Accedi al tuo account in pochi secondi",
+  "email": "Email",
+  "password": "Password",
+  "enterPassword": "Inserisci la password",
+  "forgotPassword": "Password dimenticata?",
+  "dontHaveAnAccount": "Non hai un account?",
+  "signup": "Iscriviti",
+  "niceToSeeYou": "Piacere di vederti",
+  "createAccount": "Crea un nuovo account in pochi secondi",
+  "whatsappPhoneNumber": "Numero di telefono WhatsApp",
+  "enterFullName": "Inserisci il tuo nome completo",
+  "enterEmail": "mail@esempio.com",
+  "enterPhoneNumber": "Inserisci il numero di telefono",
+  "confirmPassword": "Conferma password",
+  "confirmYourPassword": "Conferma la tua password",
+  "passwordLengthError": "La password deve contenere almeno 6 caratteri",
+  "agreeToTerms": "Accetta i nostri",
+  "registerButton": "Registrati",
+  "haveAnAccount": "Hai già un account?"
 }

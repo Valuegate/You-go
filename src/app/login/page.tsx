@@ -17,8 +17,11 @@ import { HiShoppingCart } from "react-icons/hi";
 import BackButton from "@/public/components/BackButton/BackButton";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "@/public/components/LanguageSwitcher/LanguageSwitcher";
 
 const Login = () => {
+  const { t } = useTranslation();
   const router = useRouter();
   // const is_staff: boolean = false;
   const [credentials, setCredentials] = useState<TLoginPayload>({
@@ -71,20 +74,16 @@ const Login = () => {
       <ToastContainer />
       <div className="flex flex-col lg:flex-row h-[100vh] sm:h-auto">
         <div className="w-[50%] px-[5%] flex flex-col justify-center sm:justify-start sm:w-full">
+          <div><LanguageSwitcher /></div>
           <div className="mb-5 sm:mb-24 sm:mt-10">
             <BackButton to={"/home"} />
           </div>
           <h3 className="font-bold text-[32px] sm:text-[36px] sm:leading-[28px] leading-[36px] text-weirdBrown sm:text-center">
-            Welcome Back
+          {t("welcomeBack")}
           </h3>
           <p className="font-medium text-[14px] lg:text-[16px] leading-[24px] lg:leading-[32px] text-light-black-5 pb-4 text-center lg:text-left">
-            Login to your account in seconds
+          {t("loginToYourAccount")}
           </p>
-          {/* {isError && (
-              <p className="text-sm flex justify-center text-primary">
-                {error?.response?.data?.detail as string}
-              </p>
-            )} */}
 
           <div className="mt-10">
             <Formik
@@ -107,7 +106,7 @@ const Login = () => {
                 <Form>
                   <div className="mb-4">
                     <label htmlFor="email" className="block font-normal">
-                      Email
+                    {t("email")}
                     </label>
                     <input
                       type="email"
@@ -127,7 +126,7 @@ const Login = () => {
 
                   <div className="mb-4 mt-4">
                     <label htmlFor="password" className="block font-normal">
-                      Password
+                    {t("password")}
                     </label>
 
                     <div className="relative w-[70%] sm:w-full">
@@ -135,7 +134,7 @@ const Login = () => {
                         type={showPassword ? "text" : "password"}
                         id="password"
                         name="password"
-                        placeholder="Enter password"
+                        placeholder={t("enterPassword")}
                         onChange={(e) =>
                           setCredentials({
                             ...credentials,
@@ -159,7 +158,7 @@ const Login = () => {
 
                   <Link href="/forgotpassword">
                     <h1 className="text-center lg:text-end lg:w-[70%] font-normal text-[16px] sm:text-[16px] text-weirdBrown">
-                      Forgot Password?
+                    {t("forgotPassword")}?
                     </h1>
                   </Link>
 
@@ -191,11 +190,11 @@ const Login = () => {
           </div>
           <div className="flex justify-start mt-10 gap-1 pt-4 lg:pt-8 sm:justify-center">
             <h1 className="text-center lg:text-left font-normal text-[14px] sm:text-[18px] lg:text-lg">
-              Don&apos;t have an account?
+            {t("dontHaveAnAccount")}
             </h1>
             <Link href="/signup">
               <h1 className="text-center lg:text-left font-medium text-[14px] sm:text-[18px] lg:text-lg text-weirdBrown">
-                Signup
+              {t("signup")}
               </h1>
             </Link>
           </div>
