@@ -84,7 +84,7 @@ const SignUp = () => {
       <div className="flex flex-col lg:flex-row">
         <div className="w-[50%] px-[5%] flex flex-col justify-center sm:justify-start sm:w-full overflow-y-scroll h-screen">
           <div className="mt-40 sm:mb-24 sm:mt-10">
-          <div><LanguageSwitcher /></div>
+          <div className="mt-4 sm:mt-1"><LanguageSwitcher /></div>
             <BackButton to={"/login"} />
           </div>
           <h3 className="font-bold text-[32px] sm:text-[36px] sm:leading-[28px] leading-[36px] text-weirdBrown sm:text-center">

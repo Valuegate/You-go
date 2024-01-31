@@ -9,6 +9,7 @@ const AboutUsPage = () => {
   return (
     <>
       <NavBar showSearch={false} />
+      <div className="overflow-y-scroll h-screen md:h-[83vh]">
       <div>
 
         <p className="sm:text-center sm:text-2xl text-4xl text-weirdBrown font-bold mt-20 mb-10 px-[10%]">
@@ -16,17 +17,17 @@ const AboutUsPage = () => {
         </p>
 
       <p className="mt-20 text-light-black-4 text-xl px-[10%]">
-       {t('welcomeMessage')}
+       {t('welcomeToYouGoCrafts')}
       </p>
       <p className="mt-10 text-light-black-4 text-xl px-[10%]">
-      {t('craftsRange')}
+      {t('offerWideRange')}
       </p>
       <p className="mt-10 text-light-black-4 text-xl px-[10%]">
-      {t('commitment')}
+      {t('setsUsApart')}
       </p>
 
       <p className="mt-10 text-light-black-4 text-xl px-[10%]">
-        {t('erasmusProject')}
+        {t('outcomeOfErasmusPlus')}
       </p>
 
       <p className="mt-10 text-light-black-4 text-xl px-[10%]">
@@ -34,10 +35,11 @@ const AboutUsPage = () => {
       </p>
 
       <p className="mt-10 mb-20 text-light-black-4 text-xl px-[10%]">
-      {t('thankYouMessage')}
+      {t('thankYouForChoosing')}
       </p>
       </div>
       <Footer />
+      </div>
     </>
   );
 };
