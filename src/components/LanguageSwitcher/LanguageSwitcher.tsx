@@ -65,10 +65,10 @@ const LanguageSwitcher = () => {
   }, []);
 
   return (
-    <div className="relative flex justify-between px-[10rem] sm:px-[1rem] pt-2 items-center">
-      <div className="text-primary text-lg font-semibold mr-4">{t('chooseLanguage')}</div>
+    <div className="relative flex justify-end px-[10rem] sm:px-[1rem] pt-2 items-center">
+      {/* <div className="text-primary text-lg font-semibold mr-4">{t('chooseLanguage')}</div> */}
 
-      <div className="relative" ref={dropdownRef}>
+      <div className="relative right" ref={dropdownRef}>
         <button
           onClick={() => setDropdownOpen(!isDropdownOpen)}
           className="text-white flex items-center bg-primary px-4 py-1 text-sm font-medium rounded-md"
