@@ -130,7 +130,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
                       <Image
                         src={image.image}
                         alt={`Product ${product.name}`}
-                        className="object-contain w-full h-[450px] "
+                        className="object-contain w-full h-[450px]"
                         width={100}
                         height={100}
                       />
