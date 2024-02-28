@@ -33,15 +33,6 @@ const Footer = ({transparent = false}) => {
 
   return (
     <>
-    <div className="flex sm:gap-4 flex-row sm:flex-col bg-primary text-white items-center px-8 sm:px-2 py-4">
-      <div className="w-[65%] sm:w-full">
-        <h2 className="sm:text-justify">{t('fundedByEU')}</h2>
-      </div>
-      <div className="w-[35%] sm:w-full">
-        <Image src={CoFounded} alt={""} />
-      </div>
-    </div>
-
       <div className={`${transparent ? "bg-[#FFFFFFFF00]" : "bg-white"} w-full px-6 md:px-24 flex justify-between items-center `}>
         <div className="flex flex-col">
           <p className="text-4xl sm:text-2xl text-weirdBrown font-medium">
@@ -113,6 +104,15 @@ const Footer = ({transparent = false}) => {
           </div>
         </div>
       </div>
+
+      <div className="flex sm:gap-4 flex-row sm:flex-col bg-primary text-white items-center px-8 sm:px-2 mt-8 py-4">
+      <div className="w-[65%] sm:w-full">
+        <h2 className="sm:text-justify">{t('fundedByEU')}</h2>
+      </div>
+      <div className="w-[35%] sm:w-full">
+        <Image src={CoFounded} alt={""} />
+      </div>
+    </div>
     </>
   );
 };
