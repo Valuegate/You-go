@@ -105,7 +105,7 @@ const Footer = ({transparent = false}) => {
         </div>
       </div>
 
-      <div className="flex sm:gap-4 flex-row sm:flex-col bg-primary text-white items-center px-8 sm:px-2 mt-8 mb-20 py-4">
+      <div className="flex sm:gap-4 flex-row sm:flex-col bg-primary text-white items-center px-8 sm:px-2 mt-8 sm:mb-20 py-4">
       <div className="w-[65%] sm:w-full">
         <h2 className="sm:text-justify">{t('fundedByEU')}</h2>
       </div>

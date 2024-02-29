@@ -9,7 +9,7 @@ const Shop = () => {
   return (
     <>
       <NavBar showSearch={false} />
-      <div className="overflow-y-scroll h-[83vh]">
+      <div className="overflow-y-scroll h-[84.4vh]">
         <MenuSection />
         <Footer />
       </div>

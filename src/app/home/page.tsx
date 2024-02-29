@@ -54,7 +54,7 @@ const HomePage = () => {
     <>
     {/* <LanguageSwitcher /> */}
       <NavBar showSearch={false} />
-      <div className="overflow-y-scroll h-screen md:h-[83vh]">
+      <div className="overflow-y-scroll h-screen md:h-[84.4vh]">
         <div className="px-6 md:px-24">
           <div className="flex flex-col-reverse sm:flex-col md:flex-row mt-16 sm:mt-8">
             <div className="flex-1">
