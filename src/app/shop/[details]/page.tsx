@@ -117,7 +117,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
     <>
       <NavBar />
 
-      <div className="overflow-y-scroll sm:h-screen h-[84.4vh]">
+      <div className="overflow-y-scroll sm:h-screen h-[83vh]">
         <div className="sm:px-6 px-24 sm:mb-20">
           <div className="mt-8 flex sm:flex-col flex-row gap-10">
           <div className="flex flex-col gap-4 sm:w-full w-[70%]">

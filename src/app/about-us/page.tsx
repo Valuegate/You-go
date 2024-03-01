@@ -9,7 +9,7 @@ const AboutUsPage = () => {
   return (
     <>
       <NavBar showSearch={false} />
-      <div className="overflow-y-scroll h-screen md:h-[84.4vh]">
+      <div className="overflow-y-scroll h-screen md:h-[83vh]">
       <div>
 
         <p className="sm:text-center sm:text-2xl text-4xl text-weirdBrown font-bold mt-20 mb-10 px-[10%]">
