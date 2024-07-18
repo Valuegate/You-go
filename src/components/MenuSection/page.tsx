@@ -8,6 +8,7 @@ import Image from "next/image";
 import Background from "@/public/assets/Trimmed-Home.png";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
+import {baseUrl} from "@/public/services/base";
 
 interface imageResponse {
   id: number;
@@ -91,7 +92,7 @@ const MenuSection = () => {
     setSearching(true);
     axios({
       method: "GET",
-      url: `https://web-production-b1c8.up.railway.app/api/products/?keyword=${keyword}${
+      url: `${baseUrl}/products/?keyword=${keyword}${
         page !== 0 ? `&page=${page}` : ""
       }`,
     })

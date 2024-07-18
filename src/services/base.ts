@@ -1,0 +1,1 @@
+export const baseUrl = "https://yougo-production.up.railway.app/api";

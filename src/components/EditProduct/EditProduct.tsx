@@ -13,6 +13,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
+import {baseUrl} from "@/public/services/base";
+
 const EditProduct = ({ product, refresh }) => {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [image, setImage] = useState<string>("");
@@ -51,7 +53,7 @@ const EditProduct = ({ product, refresh }) => {
 
     axios({
       method: "PUT",
-      url: `https://web-production-b1c8.up.railway.app/api/products/edit/${credentials.id}/`,
+      url: `${baseUrl}/products/edit/${credentials.id}/`,
       data: formData,
       headers: {
         "Content-Type": "multipart/form-data",

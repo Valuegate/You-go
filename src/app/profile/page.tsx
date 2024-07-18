@@ -17,6 +17,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 import axios from "axios";
 
+import {baseUrl} from "@/public/services/base";
+
 const Profile = () => {
   const { t } = useTranslation();
   const { data: user, isLoading, isSuccess } = useFetchUsersProfile();
@@ -49,7 +51,7 @@ const Profile = () => {
 
     axios({
       method: "DELETE",
-      url: `https://web-production-b1c8.up.railway.app/api/products/delete/${id}/`,
+      url: `${baseUrl}/products/delete/${id}/`,
       headers: {
         Authorization: `Bearer ${token}`,
       },

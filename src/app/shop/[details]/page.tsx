@@ -14,6 +14,8 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useTranslation } from "react-i18next";
 
+import {baseUrl} from "@/public/services/base";
+
 const ShopDetails = ({ params }: { params: { details: string } }) => {
   const { t } = useTranslation();
   const [sellerLoading, setSellerLoading] = useState<boolean>(true);
@@ -32,7 +34,7 @@ const ShopDetails = ({ params }: { params: { details: string } }) => {
       let token = window.localStorage.getItem("userToken");
       axios({
         method: "GET",
-        url: `https://web-production-b1c8.up.railway.app/api/users/${user}/`,
+        url: `${baseUrl}/users/${user}/`,
         headers: {
           Authorization: `Bearer ${token}`,
         },
