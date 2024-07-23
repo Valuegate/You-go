@@ -56,6 +56,7 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
             </form>
           )} */}
         </div>
+        
         <div className="hidden md:flex md:items-center lg:flex lg:items-center justify-between w-2/5">
           <Link href={"/home"}>
             <h5 className="text-weirdBrown text-[20px] font-normal">{t('home')}</h5>
@@ -81,6 +82,7 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
             </h5>
           </Link>
 
+
           {loggedIn ? (
             <Link
               href={"/profile"}
@@ -100,6 +102,7 @@ const NavBar = ({ showSearch = true, transparent = false }) => {
           <FaBarsStaggered size={"26px"} fill={"#A90041"} />
         </div>
       </div>
+
       <div
         className={`sm:flex sm:flex-col z-30 hidden ${
           open ? "sm:block left-0" : "sm:hidden -left-[100%]"
