@@ -1,12 +1,14 @@
 import axios from "axios";
 
+import { baseUrl } from "./base";
+
 const axiosInstance = axios.create({
-  baseURL: process.env.BASE_URL,
+  baseURL: baseUrl,
   timeout: 500000,
 });
 
 const formAxiosInstance = axios.create({
-  baseURL: process.env.BASE_URL,
+  baseURL: baseUrl,
   timeout: 500000,
   headers: {
     "Content-Type": "multipart/form-data",
